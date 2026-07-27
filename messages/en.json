@@ -409,5 +409,64 @@
       "bookAppointment": "Book Appointment",
       "contactUs": "Contact Us"
     }
+  },
+  "Videos": {
+    "meta": {
+      "title": "Videos & Articles",
+      "description": "Explore surgical insight videos, patient testimonials, and educational content from Dr. Osama Mowafy at NeuroPrecision."
+    },
+    "videoPlayerLabel": "Video player",
+    "close": "Close",
+    "hero": {
+      "eyebrow": "Knowledge Hub",
+      "title": "Neuro-Insights & Innovation",
+      "description": "Explore the frontier of neurological excellence through high-definition surgical captures and expert perspectives."
+    },
+    "insights": {
+      "title": "Surgical Insights",
+      "description": "Immersive 3D neuro-animations and educational lectures detailing precise surgical methodologies.",
+      "viewAll": "View All Videos",
+      "items": [
+        { "title": "DBS Protocols", "description": "Precision electrode mapping for movement disorders.", "duration": "01:45" },
+        { "title": "Spine Robotics", "description": "Navigating complex spinal reconstructions.", "duration": "00:58" },
+        { "title": "Micro-Techniques", "description": "Mastering the art of neural micro-suturing.", "duration": "02:15" },
+        { "title": "AI Diagnostics", "description": "Using ML for real-time surgical guidance.", "duration": "01:20" },
+        { "title": "Neural Restoration", "description": "Future of limbic system navigation.", "duration": "03:10" },
+        { "title": "Ethics of Tech", "description": "Navigating human augmentation choices.", "duration": "02:40" }
+      ]
+    },
+    "quote": {
+      "imageAlt": "Dr. Osama Mowafy",
+      "quote": "\"Patient education is the first step toward successful treatment.\"",
+      "name": "Dr. Osama Mowafy",
+      "role": "Lead Neurosurgeon"
+    },
+    "patientStories": {
+      "eyebrow": "Patient Experiences",
+      "title": "What Our Patients Say",
+      "description": "Watch real patients share their experiences with Dr. Osama Mowafy and describe their treatment journey.",
+      "badge": "Patient Story",
+      "items": [
+        { "title": "My Experience After Treatment" },
+        { "title": "A Reassuring Journey from the First Consultation" },
+        { "title": "Returning to My Daily Life with Confidence" }
+      ]
+    },
+    "whyWatch": {
+      "title": "Why Watch Our Videos?",
+      "description": "Our educational videos provide clear, reliable, and expert-reviewed medical information to help you understand complex neurological conditions.",
+      "items": [
+        { "title": "Trusted Medical Information", "description": "Content created and reviewed by a specialized neurosurgeon." },
+        { "title": "Easy to Understand", "description": "Complex medical topics explained using clear and simple language." },
+        { "title": "Evidence-Based Content", "description": "Information based on modern medical knowledge and established clinical guidelines." },
+        { "title": "Expert Advice", "description": "Practical medical guidance from an experienced neurosurgeon." }
+      ]
+    },
+    "ctaBand": {
+      "title": "Ready to Take the Next Step?",
+      "description": "Book your appointment with Dr. Osama Mowafy and receive expert guidance for your condition.",
+      "bookAppointment": "Book Appointment",
+      "contactUs": "Contact Us"
+    }
   }
 }
