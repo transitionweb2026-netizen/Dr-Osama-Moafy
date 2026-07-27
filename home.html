@@ -1,0 +1,783 @@
+<html lang="en" style=""><head></head><body class="bg-background text-on-surface font-body-md overflow-x-hidden">```html
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#288085",
+                        "secondary-fixed": "#c6e8fa",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e6e8f1",
+                        "inverse-on-surface": "#eff0fa",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#737575",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#00666b",
+                        "on-primary-fixed": "#002021",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fcfcfc",
+                        "on-primary-container": "#f4ffff",
+                        "on-surface-variant": "#414753",
+                        "surface-container": "#ecedf7",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-dim": "#d8dae3",
+                        "primary-fixed": "#9ff0f5",
+                        "tertiary": "#5a5c5c",
+                        "surface": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-low": "#f2f3fd",
+                        "inverse-surface": "#2d3038",
+                        "surface-variant": "#e0e2ec",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-surface": "#181c22",
+                        "surface-tint": "#00696e",
+                        "on-primary-fixed-variant": "#004f53",
+                        "background": "#f9f9ff",
+                        "primary-fixed-dim": "#83d4d9",
+                        "on-secondary-container": "#496978",
+                        "error-container": "#ffdad6",
+                        "outline": "#717785",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-fixed-variant": "#2b4b59",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c6d5",
+                        "secondary": "#436372",
+                        "on-background": "#181c22",
+                        "secondary-container": "#c6e8fa",
+                        "inverse-primary": "#83d4d9",
+                        "surface-container-highest": "#e0e2ec",
+                        "secondary-fixed-dim": "#aacbdd",
+                        "on-secondary-fixed": "#001f2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "sm": "8px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Anton"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Anton"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    }catch(_e){}</script>
+<style>
+    /* Premium Animation Framework */
+    :root {
+        --ease-out-expo: cubic-bezier(0.33, 1, 0.68, 1);
+        --duration: 800ms;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--duration) var(--ease-out-expo), 
+                        transform var(--duration) var(--ease-out-expo);
+            will-change: transform, opacity;
+        }
+
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered items */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--duration) var(--ease-out-expo), 
+                        transform var(--duration) var(--ease-out-expo);
+            will-change: transform, opacity;
+        }
+
+        .reveal-active .stagger-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specialized Reveals */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity var(--duration) var(--ease-out-expo), 
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity var(--duration) var(--ease-out-expo), 
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-active.reveal-left, .reveal-active.reveal-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity var(--duration) var(--ease-out-expo), 
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-active.reveal-zoom {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .reveal-scale-0 {
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity var(--duration) var(--ease-out-expo), 
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-active .reveal-scale-0 {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Icon Floating Motion */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite alternate;
+        }
+
+        /* Delay Utilities */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+
+        /* Hero line-by-line */
+        .hero-line {
+            display: block;
+            overflow: hidden;
+        }
+        .hero-line span {
+            display: block;
+            transform: translateY(100%);
+            transition: transform 1s var(--ease-out-expo);
+        }
+        .reveal-active .hero-line span {
+            transform: translateY(0);
+        }
+    }
+</style>
+<!-- 1. MAIN NAVIGATION BAR -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] z-50 bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl shadow-lg flex justify-between items-center px-6 md:px-12 py-4 transition-all duration-300">
+<div class="font-headline-lg text-2xl md:text-3xl text-primary tracking-tighter">NEUROSURGERY PREMIER</div>
+<nav class="hidden xl:flex gap-8 items-center">
+<a class="font-label-md text-primary hover:text-primary-container transition-colors" href="#">Home</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">About the Doctor</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Medical Specialties</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Videos</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Articles</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-headline-md text-sm transition-all hover:bg-primary-fixed-dim hover:text-on-primary-fixed-variant shadow-md">Book an Appointment</button>
+</nav>
+<div class="xl:hidden flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-headline-md text-xs">Book</button>
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer">menu</span>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-4 top-1/2 -translate-y-1/2 w-14 z-40 bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/50 rounded-full py-6 shadow-xl hidden lg:flex flex-col items-center gap-6">
+<button class="text-primary hover:text-primary-container transition-colors p-2 group relative floating-icon">
+<span class="material-symbols-outlined text-2xl">chat</span>
+<span class="absolute left-full ml-4 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">WhatsApp</span>
+</button>
+<button class="text-primary hover:text-primary-container transition-colors p-2 group relative floating-icon" style="animation-delay: -1.5s;">
+<span class="material-symbols-outlined text-2xl">call</span>
+<span class="absolute left-full ml-4 bg-primary text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Call</span>
+</button>
+</aside>
+<main>
+<!-- HERO SECTION -->
+<section class="relative h-[90vh] w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover transition-transform duration-[20s] ease-linear scale-110 group-active:scale-100" id="hero-img" src="https://lh3.googleusercontent.com/aida/AP1WRLtdKAdXigug2HpyhU_VzgpU_QJ8sAMInMLXGkRIz-rJWh1vdUwrH1cwYQgflX_XJbi1f0TVFxB1Yc-ldAmxTJYTj0oyKLsPQhMCasi_wWLvNYsnKI5HEMc1r16ssZDNO8caOTuJu6HM-pxNUGL9JdZotJTaOJic4oCLpAfQbZbj3zbraRWCmkWFLk_His_sV9NqfYIdGACBQhGWCvI2cTZIsZuUfOekRlYowvx3M5MnwWo0623YpFlqCy8"/>
+</div>
+<div class="relative z-10 w-full px-margin-desktop md:px-xl">
+<div class="max-w-2xl flex flex-col gap-6 p-10 rounded-[48px] reveal reveal-active">
+<h2 class="font-label-md text-secondary tracking-[0.2em] uppercase stagger-item">Pioneering Neurological Future</h2>
+<h1 class="font-headline-lg text-6xl md:text-8xl leading-[1.05] uppercase font-bold shadow-sm stagger-item delay-100" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+<span class="hero-line"><span>Precision</span></span>
+<span class="hero-line"><span>Beyond</span></span>
+<span class="hero-line"><span>Perception.</span></span>
+</h1>
+<p class="font-body-lg max-w-md font-medium shadow-sm stagger-item delay-200" style="color: #F0F0F0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Redefining neurosurgery through microscopic precision and cinematic surgical navigation technology.</p>
+<div class="flex flex-wrap gap-4 mt-4 stagger-item delay-300">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-xl font-headline-md text-xl transition-all hover:bg-primary-container shadow-lg hover:translate-y-[-4px]">Book Appointment</button>
+<button class="border px-10 py-4 rounded-xl font-headline-md text-xl hover:bg-primary/5 transition-all text-white border-white shadow-md hover:translate-y-[-4px]">Contact Us</button>
+</div>
+</div>
+</div>
+</section>
+<!-- VIDEO INTRO SECTION -->
+<section class="py-xl px-margin-desktop md:px-xl grid grid-cols-1 md:grid-cols-2 gap-20 items-center bg-surface-container-lowest reveal">
+<div class="relative bg-surface-container-high rounded-3xl overflow-hidden aspect-video group cursor-pointer shadow-xl border border-outline-variant/30 reveal-zoom stagger-item">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6wvQUIlCF4PfLPaSmCyg_md-4yZwra5kVhehHu2rNazh9DrApEgjKpVUcKlr8QyEAXvOZDYQtVbsJl7i1KwcSlDTkMo4VO5Xdiu491P7WVG9yjnC_9lEeqmSW94WqA7YiXKvxMfslNbS8ALNCjXAs8FxHPJWphgafLpgPKyqJLk6qxXQOnGDmFYiGxSEoxDdp33OWQBKAh9ducNB1h99qPucvKtXrinh6CQ4StI0Yq2pVzAn8nXRIsBbCbwKxTI5KOs2oCVqL7HY')"></div>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h3 class="font-label-md text-secondary tracking-[0.2em] uppercase stagger-item">The Visionary</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase stagger-item delay-100">Dr. Sterling, Chief of Surgery</h2>
+<p class="font-body-lg text-on-surface-variant stagger-item delay-200">"Surgery is not just a procedure; it is a meticulous symphony of technology and human empathy. At NeuroPrecision, we don't just treat conditions—we restore life's narrative through the most advanced neural maps ever created."</p>
+<p class="font-body-md text-secondary italic border-l-4 border-primary/30 pl-6 py-1 stagger-item delay-300">Founder of the Neural Topology Institute and pioneer in minimally invasive robotic spinal fusion.</p>
+<button class="w-fit border border-outline text-primary px-8 py-3 rounded-lg font-headline-md text-lg hover:bg-primary/5 transition-all mt-4 stagger-item delay-400">Learn More</button>
+</div>
+</section>
+<!-- SPECIALTIES SECTION -->
+<section class="py-xl px-margin-desktop md:px-xl bg-surface-container-low reveal">
+<div class="flex flex-col md:flex-row justify-between md:items-end mb-16 gap-4 stagger-item">
+<div>
+<h3 class="font-label-md text-secondary uppercase mb-2">Clinical Domains</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Focused Specialties</h2>
+</div>
+<button class="text-primary font-label-md hover:underline tracking-widest uppercase">View All Specialties</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface-container-lowest rounded-3xl p-3 border border-outline-variant shadow-sm hover:shadow-md transition-shadow group stagger-item delay-100">
+<div class="h-64 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHh9ag9tHDT1XpTRcFbgo6xuoLablkLXH0CXciVR8tCSJCu3H4_Utvk4EdRSVi2WnG3T9SWZJVDyDWFDYvWjuzuTQ9_PzjpqPiaL5qRD9Tjudw8OwOHKQ1QAKCr0Y1BO5NvUZVidf4qlz4vW9WrgAUqM8dW4KU60omWIhPl4CQ9iAUE_TaITQ23ypaIwiSIdVnXhgJ9dbzIqky81bXLVAns49nFk9_UpOZe8OQ7YGlmA-fg-0pBzFoRENCB9EG8x-wZltCmN3WW3c"/>
+</div>
+<div class="px-6 pb-8">
+<h4 class="font-headline-md text-2xl text-primary mb-3">Oncology Neurosurgery</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Advanced resection of complex tumors using real-time fluorescent molecular imaging markers.</p>
+<button class="text-secondary font-label-md flex items-center gap-2 group-hover:text-primary transition-all">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-3 border border-outline-variant shadow-sm hover:shadow-md transition-shadow group stagger-item delay-200">
+<div class="h-64 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV70YVoOqy6ad38PZWKzT91Y8VHWYEDgyGABgFg6iT7NqmXTFa573tuKuG1M-fouUFvBBh22Dtb5W4O18jfet-k5XsFTQnaGUsKzvR49SxQR9XTlcEX2aX4sgJnphcFLCIcxuFyRJwxaomjoUCWk4jVLizRWjgqQFjeth3ZBAlefIPRdQSoqrQlLsxjw1zPL9f17MRiTyEX-20rowCBNboe9i-OjK7YlBvu8qEuAVCpzbjH_JUzc76AoG9gilVYNhxQShv_m1P7zg"/>
+</div>
+<div class="px-6 pb-8">
+<h4 class="font-headline-md text-2xl text-primary mb-3">Complex Spine</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Minimally invasive spinal reconstruction utilizing robotic-assisted navigation and personalized implants.</p>
+<button class="text-secondary font-label-md flex items-center gap-2 group-hover:text-primary transition-all">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-3 border border-outline-variant shadow-sm hover:shadow-md transition-shadow group stagger-item delay-300">
+<div class="h-64 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1P5WEPmvNq7rj_evoU7JDLx0H3KWZwkpMg1kQ1vbDEFbqz0gmbuEwRDEEa998CDVEaynMjP9NNxVVUifOdrgGcwbAe1OMYWkIrYgG1Gf584rJIq5RrWv6NO69FxBcvXLhDzTDWr0iEZ85R-6ff2MndwKnfUs-sLClsnItPOYPVAlRjGEy0WqCUEBLy9Itmg3zH5EcUzeVjsbuQuEiRNvRKS92zmyXDeYNWqpsaK97yqb1b8tRRFfkQ8h_pIHuqRpGdb5D2JKKSPA"/>
+</div>
+<div class="px-6 pb-8">
+<h4 class="font-headline-md text-2xl text-primary mb-3">Functional Restoration</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Treating movement disorders through targeted deep brain stimulation and neural modulation therapy.</p>
+<button class="text-secondary font-label-md flex items-center gap-2 group-hover:text-primary transition-all">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- DOCTOR SERVICES SECTION -->
+<section class="py-xl px-margin-desktop md:px-xl bg-surface-bright reveal">
+<div class="text-center mb-20 stagger-item">
+<h3 class="font-label-md text-secondary mb-2 tracking-[0.3em] uppercase">Precision Services</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Comprehensive Neural Care</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<!-- Service Cards with Staggered Delays -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-100">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Brain Tumor Treatment</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Expert neuro-oncology &amp; precision resection.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-200">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon" style="animation-delay: -0.5s;">
+<span class="material-symbols-outlined text-3xl">orthopedics</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Spine Surgery</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Complex reconstruction and alignment.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-300">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon" style="animation-delay: -1s;">
+<span class="material-symbols-outlined text-3xl">emergency</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Herniated Disc</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Minimally invasive disc decompression.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-400">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon" style="animation-delay: -1.5s;">
+<span class="material-symbols-outlined text-3xl">biotech</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Endoscopic Surgery</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Advanced keyhole surgical techniques.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-500">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon" style="animation-delay: -2s;">
+<span class="material-symbols-outlined text-3xl">account_tree</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Peripheral Nerve Surgery</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Restoring nerve function and mobility.</p>
+</div>
+<!-- Second Row with continue delays -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-100">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Pediatric Neurosurgery</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Specialized neural care for infants and children.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-200">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon">
+<span class="material-symbols-outlined text-3xl">skillet</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Skull Base Surgery</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Complex multidisciplinary access surgery.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-300">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Hydrocephalus</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Shunt technology and ETV procedures.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-400">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon">
+<span class="material-symbols-outlined text-3xl">bloodtype</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Brain Hemorrhage</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Emergency vascular intervention care.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 hover:border-primary transition-all cursor-pointer group shadow-sm hover:shadow-md stagger-item delay-500">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors floating-icon">
+<span class="material-symbols-outlined text-3xl">settings_input_component</span>
+</div>
+<h4 class="font-headline-md text-xl text-on-surface mb-3">Spinal Tumor</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Precision removal of intradural masses.</p>
+</div>
+</div>
+</section>
+<!-- WHY TRUST THE DOCTOR SECTION -->
+<section class="py-xl px-margin-desktop md:px-xl bg-surface-container-low reveal">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Column 1: Image -->
+<div class="relative bg-surface-container-lowest p-4 rounded-[32px] border border-outline-variant shadow-lg reveal-left">
+<div class="aspect-video rounded-2xl overflow-hidden border border-outline-variant/30">
+<img alt="Advanced surgical robotic arm" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLturdUla9HJwCEBRHW3DNYeWkZXiF3yq8RuhLNcy-AIAAV5t2Bdmpkbugsmjc6O5IY61m1X0lMrLPKvQDmbxZppJtuB30oVI0PhEk_9VvCkB3xM-z4Nutb75jC4wVat4q1S8vy6qfE3Zg9_EiSX4sgwmbycSfJxKWAxT27ON6ixPNW2nNwXPeVJwxc2yIwWT5Vr77YmDGqIYPr3In-DLvBiCyhOuq-oPGKdzZlb9HCZGzS0_6McwF0wORw"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-primary text-on-primary p-6 rounded-2xl shadow-xl border-l-4 border-on-primary/20 hidden md:block reveal-scale-0 delay-500">
+<p class="font-headline-lg text-4xl leading-none">20+</p>
+<p class="font-label-md uppercase text-[10px] tracking-widest mt-1">Years of Excellence</p>
+</div>
+</div>
+<!-- Column 2: Points -->
+<div class="flex flex-col gap-8 reveal-right">
+<div>
+<h3 class="font-label-md text-secondary mb-2 tracking-[0.2em] uppercase">Patient Assurance</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Why Trust Our Practice</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+<div class="flex gap-4 items-start stagger-item delay-100">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20 reveal-scale-0">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface text-base">Extensive Experience</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Thousands of successful procedures.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start stagger-item delay-200">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20 reveal-scale-0">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface text-base">Accurate Diagnosis</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Advanced neural mapping precision.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start stagger-item delay-300">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20 reveal-scale-0">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface text-base">State-of-the-art Equipment</h4>
+<p class="font-body-md text-sm text-on-surface-variant">The latest in robotic navigation.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start stagger-item delay-400">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20 reveal-scale-0">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface text-base">Minimally Invasive</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Modern techniques for faster recovery.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start stagger-item delay-500">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20 reveal-scale-0">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface text-base">Personalized Treatment</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Care plans tailored to your unique anatomy.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start stagger-item delay-600">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20 reveal-scale-0">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface text-base">Safety Standards</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Rigorous clinical safety protocols.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CERTIFICATES SECTION -->
+<section class="py-xl bg-surface-container-lowest overflow-hidden reveal">
+<div class="px-margin-desktop md:px-xl mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4 stagger-item">
+<div>
+<h3 class="font-label-md text-secondary mb-2 tracking-[0.2em] uppercase">Accreditations</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">World-Class Recognition</h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline text-primary hover:bg-primary/5 transition-all"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-12 h-12 rounded-full border border-outline text-primary hover:bg-primary/5 transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-8 px-margin-desktop md:px-xl overflow-x-auto pb-12 snap-x no-scrollbar">
+<!-- Cert Cards -->
+<div class="bg-surface-container-low min-w-[380px] p-8 rounded-[40px] border border-outline-variant snap-center group hover:bg-surface-container-lowest hover:-translate-y-2 transition-all duration-500 shadow-sm hover:shadow-xl stagger-item delay-100">
+<div class="h-64 rounded-3xl bg-surface-dim mb-8 overflow-hidden relative border border-outline-variant/30 shadow-inner">
+<img alt="Board Certification" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVz19_CtAFDo1Tt2HfM9E2NktrT8OVPCkmoLxWec6KvnAtUkjzcOJFD8oFqXi9Jx0u7riA9nz2bjH22ZKKLrS80Fn9cxbZ5z8SbVweRt08vR5o4mBz4fDtlwZxWjJSnWWKAJGlvsZondJOhb6LWq7aT0YJoYbliUWjzRW2D3gOqYvJUf8s72tcnGWa4rFm6LbBJf0yPh6udxSCHfwuqQRMiiW-7pMXf-gu5M-GnvAyl2PfY_Zu8CBsZPbYlSUA8sdq2z0OaSkV17w"/>
+</div>
+<h4 class="font-headline-md text-2xl text-on-surface mb-2">Board of Neurological Surgery</h4>
+<p class="font-label-md text-primary tracking-widest uppercase text-xs mb-4">Certified Specialist</p>
+<p class="font-body-md text-on-surface-variant text-sm italic">Active Diplomatic Status — Issued 2018</p>
+</div>
+<div class="bg-surface-container-low min-w-[380px] p-8 rounded-[40px] border border-outline-variant snap-center group hover:bg-surface-container-lowest hover:-translate-y-2 transition-all duration-500 shadow-sm hover:shadow-xl stagger-item delay-200">
+<div class="h-64 rounded-3xl bg-surface-dim mb-8 overflow-hidden relative border border-outline-variant/30 shadow-inner">
+<img alt="Robotic Surgery Award" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADqUoHwaJ3dKnfLrvjzVSkssIi-BbHh6uglAcoGO7X2ysZ2qsxnkljwBqddDVRdCbm5hoR3bdsRI5RwNsW8kI_0iUjFMLba75CDSKsClewn4qogzHwlcjaVJT7WLU2jrB5zeGg3qpBcQPYBtol3xgxCTwpknmBOAkM_iUK9g7CECbqzS1JiAjxiLz_r0sOcYF1vhUpHjaxfYbxoeduYTocw2IoTu-UZyw5dgsGwBixsPWQH83OpUbDdaMcVUyj5P7VIOY85mgNKGo"/>
+</div>
+<h4 class="font-headline-md text-2xl text-on-surface mb-2">Robotic Surgery Institute</h4>
+<p class="font-label-md text-primary tracking-widest uppercase text-xs mb-4">Master Operator Certification</p>
+<p class="font-body-md text-on-surface-variant text-sm italic">Innovation Excellence — Issued 2021</p>
+</div>
+<div class="bg-surface-container-low min-w-[380px] p-8 rounded-[40px] border border-outline-variant snap-center group hover:bg-surface-container-lowest hover:-translate-y-2 transition-all duration-500 shadow-sm hover:shadow-xl stagger-item delay-300">
+<div class="h-64 rounded-3xl bg-surface-dim mb-8 overflow-hidden relative border border-outline-variant/30 shadow-inner">
+<img alt="Cancer Center Award" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2iazBwksePEpMN6i5ujwFZajYSxHoQSmLkU_Yx6b2kjqA5wnBGoz30D0ok1TZnPFo6FXxYjucXSRUvhf59_n5TCpFSVpIvXUxc3vVaWQtiT2ZkjtoVNcQJ2D8Qk_DnnvH30rHlXKEYXTtWUh3SyqEu53QKyuO84EiDJp-Pq9plVybGFYsWBVWa6hN1IDEq--1-fciOrwjychscqFsda_7T8QAjDjarD21IJzpG6Yv2Gp__uYKV9ADZ2nKhU7vWafWbu1mS8j045k"/>
+</div>
+<h4 class="font-headline-md text-2xl text-on-surface mb-2">National Cancer Center</h4>
+<p class="font-label-md text-primary tracking-widest uppercase text-xs mb-4">Oncology Leadership Award</p>
+<p class="font-body-md text-on-surface-variant text-sm italic">Clinical Distinction — Issued 2022</p>
+</div>
+</div>
+</section>
+<!-- FAQ SECTION -->
+<section class="py-xl px-margin-desktop md:px-xl bg-surface-container-low reveal">
+<div class="max-w-4xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-20 uppercase tracking-[0.1em] stagger-item">Common Inquiries</h2>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden shadow-sm stagger-item delay-100">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container transition-colors group" onclick="const content = this.nextElementSibling; content.classList.toggle('hidden'); this.querySelector('.icon').classList.toggle('rotate-180')">
+<span class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors">What technologies are used in your surgical navigation?</span>
+<span class="material-symbols-outlined text-primary text-3xl icon transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-8 pb-8 text-on-surface-variant font-body-md text-lg leading-relaxed border-t border-outline-variant/30 pt-6 hidden animate-reveal">
+                        We utilize the <span class="text-primary font-bold">Precision-7 AI system</span>, which combines real-time intraoperative MRI data with holographic augmented reality overlays for 0.1mm surgical guidance. This ensures the highest level of anatomical safety.
+                    </div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden shadow-sm stagger-item delay-200">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container transition-colors group" onclick="const content = this.nextElementSibling; content.classList.toggle('hidden'); this.querySelector('.icon').classList.toggle('rotate-180')">
+<span class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors">How do I schedule a specialized consultation?</span>
+<span class="material-symbols-outlined text-primary text-3xl icon transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-8 pb-8 text-on-surface-variant font-body-md text-lg leading-relaxed border-t border-outline-variant/30 pt-6 hidden animate-reveal">
+                        You can use our integrated <span class="text-primary font-bold">Patient Portal</span> for direct scheduling. For urgent evaluations, please call our emergent concierge line (+44 20 7946 0101) to receive priority assessment within 24 hours.
+                    </div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden shadow-sm stagger-item delay-300">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container transition-colors group" onclick="const content = this.nextElementSibling; content.classList.toggle('hidden'); this.querySelector('.icon').classList.toggle('rotate-180')">
+<span class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors">Do you offer second opinions on existing scans?</span>
+<span class="material-symbols-outlined text-primary text-3xl icon transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-8 pb-8 text-on-surface-variant font-body-md text-lg leading-relaxed border-t border-outline-variant/30 pt-6 hidden animate-reveal">
+                        Yes, our dedicated <span class="text-primary font-bold">Scan Viewer portal</span> allows you to securely upload DICOM files for a comprehensive remote review. Following upload, Dr. Sterling will provide a detailed report.
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- EDUCATIONAL SHORTS SECTION -->
+<section class="py-xl px-margin-desktop md:px-xl bg-surface-bright reveal">
+<div class="text-center mb-16 stagger-item">
+<h3 class="font-label-md text-secondary mb-2 tracking-[0.2em] uppercase">Educational Shorts</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Clinical Insights</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<div class="group relative aspect-[9/16] rounded-3xl overflow-hidden bg-surface-dim border border-outline-variant cursor-pointer shadow-md stagger-item delay-100">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6wvQUIlCF4PfLPaSmCyg_md-4yZwra5kVhehHu2rNazh9DrApEgjKpVUcKlr8QyEAXvOZDYQtVbsJl7i1KwcSlDTkMo4VO5Xdiu491P7WVG9yjnC_9lEeqmSW94WqA7YiXKvxMfslNbS8ALNCjXAs8FxHPJWphgafLpgPKyqJLk6qxXQOnGDmFYiGxSEoxDdp33OWQBKAh9ducNB1h99qPucvKtXrinh6CQ4StI0Yq2pVzAn8nXRIsBbCbwKxTI5KOs2oCVqL7HY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-8">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4 shadow-lg text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<h4 class="font-headline-md text-on-primary text-xl">Neural Mapping Tech</h4>
+<p class="font-body-md text-on-primary/70 text-xs mt-2">02:45 • Surgical Navigation</p>
+</div>
+</div>
+<div class="group relative aspect-[9/16] rounded-3xl overflow-hidden bg-surface-dim border border-outline-variant cursor-pointer shadow-md stagger-item delay-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHh9ag9tHDT1XpTRcFbgo6xuoLablkLXH0CXciVR8tCSJCu3H4_Utvk4EdRSVi2WnG3T9SWZJVDyDWFDYvWjuzuTQ9_PzjpqPiaL5qRD9Tjudw8OwOHKQ1QAKCr0Y1BO5NvUZVidf4qlz4vW9WrgAUqM8dW4KU60omWIhPl4CQ9iAUE_TaITQ23ypaIwiSIdVnXhgJ9dbzIqky81bXLVAns49nFk9_UpOZe8OQ7YGlmA-fg-0pBzFoRENCB9EG8x-wZltCmN3WW3c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-8">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4 shadow-lg text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<h4 class="font-headline-md text-on-primary text-xl">Robotic Precision</h4>
+<p class="font-body-md text-on-primary/70 text-xs mt-2">03:12 • Minimally Invasive</p>
+</div>
+</div>
+<div class="group relative aspect-[9/16] rounded-3xl overflow-hidden bg-surface-dim border border-outline-variant cursor-pointer shadow-md stagger-item delay-300">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV70YVoOqy6ad38PZWKzT91Y8VHWYEDgyGABgFg6iT7NqmXTFa573tuKuG1M-fouUFvBBh22Dtb5W4O18jfet-k5XsFTQnaGUsKzvR49SxQR9XTlcEX2aX4sgJnphcFLCIcxuFyRJwxaomjoUCWk4jVLizRWjgqQFjeth3ZBAlefIPRdQSoqrQlLsxjw1zPL9f17MRiTyEX-20rowCBNboe9i-OjK7YlBvu8qEuAVCpzbjH_JUzc76AoG9gilVYNhxQShv_m1P7zg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-8">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4 shadow-lg text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<h4 class="font-headline-md text-on-primary text-xl">Patient Recovery</h4>
+<p class="font-body-md text-on-primary/70 text-xs mt-2">01:58 • Post-Op Care</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-16 stagger-item">
+<button class="border border-outline text-primary px-10 py-4 rounded-xl font-headline-md text-xl hover:bg-primary/5 transition-all tracking-widest uppercase">View All Videos</button>
+</div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="relative py-xl px-margin-desktop md:px-xl bg-surface-container-high overflow-hidden reveal">
+<!-- Layered Background Composition -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-high via-surface-container-lowest to-surface-container-high"></div>
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/5 rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-16 items-center">
+<!-- LEFT COLUMN: Content & CTA -->
+<div class="flex flex-col gap-8 reveal">
+<div class="space-y-4">
+<h2 class="font-headline-lg text-5xl md:text-7xl text-on-surface leading-tight uppercase tracking-tighter stagger-item">Elevate <br/><span class="text-primary">Your Care</span></h2>
+<p class="font-body-lg text-on-surface-variant/80 max-w-lg leading-relaxed font-medium shadow-sm stagger-item delay-100" style="color: #F0F0F0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                        Experience world-class neurosurgical consultation powered by precision technology and compassionate expertise. Your journey to recovery starts with a single conversation.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-4 stagger-item delay-200">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-2xl font-headline-md text-xl hover:bg-primary-container transition-all shadow-lg">Book Appointment</button>
+<button class="bg-white border border-outline-variant px-8 py-4 rounded-2xl font-headline-md text-xl hover:bg-primary/5 transition-all flex items-center gap-2 shadow-sm text-white border-white shadow-md">
+<span class="material-symbols-outlined">chat</span> WhatsApp
+                    </button>
+</div>
+<!-- Trust Badges -->
+<div class="flex flex-wrap gap-8 pt-8 border-t border-outline-variant stagger-item delay-300">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl reveal-scale-0">bolt</span>
+<span class="font-label-md text-xs text-on-surface-variant uppercase tracking-widest">Fast Response</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl reveal-scale-0 delay-100">verified_user</span>
+<span class="font-label-md text-xs text-on-surface-variant uppercase tracking-widest">Expert Consultation</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Floating Contact Card -->
+<div class="relative reveal-right">
+<div class="bg-white border border-outline-variant rounded-[40px] p-10 shadow-2xl relative z-10">
+<h3 class="font-headline-md text-on-surface text-2xl mb-8">Clinic Details</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-5 group stagger-item delay-100">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="text-[10px] font-label-md text-secondary uppercase tracking-widest">Phone Number</p>
+<p class="text-on-surface font-headline-md text-lg">+44 20 7946 0101</p>
+</div>
+</div>
+<div class="flex items-center gap-5 group stagger-item delay-200">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div>
+<p class="text-[10px] font-label-md text-secondary uppercase tracking-widest">WhatsApp</p>
+<p class="text-on-surface font-headline-md text-lg">+44 7700 900123</p>
+</div>
+</div>
+<div class="flex items-center gap-5 group stagger-item delay-300">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="text-[10px] font-label-md text-secondary uppercase tracking-widest">Email Address</p>
+<p class="text-on-surface font-headline-md text-lg">care@neuroprecision.com</p>
+</div>
+</div>
+<div class="flex items-center gap-5 group stagger-item delay-400">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-[10px] font-label-md text-secondary uppercase tracking-widest">Clinic Address</p>
+<p class="text-on-surface font-headline-md text-lg">Precision Plaza, London, SW1A</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-10 bg-primary text-on-primary py-4 rounded-2xl font-headline-md text-lg hover:bg-primary-container transition-all shadow-md">Book Appointment Now</button>
+</div>
+<div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-[48px] -z-10"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="bg-surface-container-highest border-t border-outline-variant w-full pt-24 pb-12 px-margin-desktop md:px-xl reveal">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
+<div class="flex flex-col gap-6 stagger-item">
+<div class="font-headline-lg text-2xl text-primary tracking-tighter uppercase">NEUROPRECISION</div>
+<p class="font-body-md text-on-surface-variant text-sm leading-relaxed">
+                Dr. Sterling is a world-renowned neurosurgeon dedicated to surgical excellence and patient-centered care.
+            </p>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-secondary text-[10px] uppercase tracking-widest">Specialties</span>
+<p class="font-body-md text-on-surface text-sm">Brain, Spine &amp; Peripheral Nerve Surgery</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 stagger-item delay-100">
+<h4 class="font-headline-md text-lg text-primary uppercase tracking-wider">Quick Links</h4>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex flex-col gap-6 stagger-item delay-200">
+<h4 class="font-headline-md text-lg text-primary uppercase tracking-wider">Services</h4>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Brain Surgery</a>
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Spine Surgery</a>
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Skull Base</a>
+<a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Pediatric</a>
+</nav>
+</div>
+<div class="flex flex-col gap-6 stagger-item delay-300">
+<h4 class="font-headline-md text-lg text-primary uppercase tracking-wider">Contact</h4>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">phone</span>
+<span class="text-sm">+44 20 7946 0101</span>
+</div>
+<div class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">mail</span>
+<span class="text-sm">care@neuroprecision.com</span>
+</div>
+<button class="w-fit mt-2 border border-outline text-primary px-4 py-2 rounded-lg font-label-md text-[10px] uppercase tracking-widest hover:bg-primary/5 transition-all">Open Maps</button>
+</div>
+</div>
+<div class="flex flex-col gap-6 stagger-item delay-400">
+<h4 class="font-headline-md text-lg text-primary uppercase tracking-wider">Follow Us</h4>
+<div class="flex flex-wrap gap-3">
+<a class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all border border-outline-variant" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all border border-outline-variant" href="#">
+<span class="material-symbols-outlined text-xl">video_library</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all border border-outline-variant" href="#">
+<span class="material-symbols-outlined text-xl">groups</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6 stagger-item delay-500">
+<p class="font-label-md text-[10px] text-on-surface-variant/60 uppercase tracking-widest">©️ 2026 All Rights Reserved.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-md text-[10px] text-on-surface-variant/60 hover:text-primary transition-colors uppercase tracking-widest" href="#">Privacy</a>
+<a class="font-label-md text-[10px] text-on-surface-variant/60 hover:text-primary transition-colors uppercase tracking-widest" href="#">Terms</a>
+</div>
+<p class="font-label-md text-[10px] text-on-surface-variant/40 uppercase tracking-widest">Developed by ZENITH DIGITAL</p>
+</div>
+</footer>
+<script>
+    // Premium Motion Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        // IntersectionObserver for Reveal Animations
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    // Unobserve after activation for performance if desired
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        // Apply to all sections and elements with reveal class
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom');
+        revealElements.forEach(el => observer.observe(el));
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('header');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'shadow-xl', 'py-3');
+                nav.classList.remove('bg-surface-container-lowest/80', 'py-4');
+            } else {
+                nav.classList.remove('bg-white/95', 'shadow-xl', 'py-3');
+                nav.classList.add('bg-surface-container-lowest/80', 'py-4');
+            }
+        });
+
+        // Background Paralax for Hero
+        window.addEventListener('scroll', () => {
+            const heroImg = document.getElementById('hero-img');
+            if(heroImg) {
+                const scrolled = window.scrollY;
+                heroImg.style.transform = `scale(1.1) translateY(${scrolled * 0.15}px)`;
+            }
+        });
+    });
+</script>
+```</body></html>

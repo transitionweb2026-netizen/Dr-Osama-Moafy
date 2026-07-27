@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Osama Mowafy | NeuroPrecision Elite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-highest": "#e0e2ec",
+                "secondary-fixed-dim": "#aacbdd",
+                "on-secondary-fixed": "#001f2a",
+                "outline-variant": "#c1c6d5",
+                "secondary": "#436372",
+                "on-background": "#181c22",
+                "inverse-primary": "#83d4d9",
+                "secondary-container": "#c6e8fa",
+                "on-secondary-container": "#496978",
+                "error-container": "#ffdad6",
+                "outline": "#717785",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed-variant": "#454747",
+                "on-secondary-fixed-variant": "#2b4b59",
+                "on-primary-fixed-variant": "#004f53",
+                "background": "#f9f9ff",
+                "surface-bright": "#f9f9ff",
+                "on-tertiary-fixed": "#1a1c1c",
+                "on-surface": "#181c22",
+                "surface-tint": "#00696e",
+                "primary-fixed-dim": "#83d4d9",
+                "surface-dim": "#d8dae3",
+                "primary-fixed": "#9ff0f5",
+                "tertiary": "#5a5c5c",
+                "surface": "#f9f9ff",
+                "on-error-container": "#93000a",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "inverse-surface": "#2d3038",
+                "surface-variant": "#e0e2ec",
+                "tertiary-fixed": "#e2e2e2",
+                "surface-container-low": "#f2f3fd",
+                "on-surface-variant": "#414753",
+                "on-primary-container": "#f4ffff",
+                "surface-container": "#ecedf7",
+                "surface-container-lowest": "#ffffff",
+                "primary": "#00666b",
+                "tertiary-container": "#737575",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#fcfcfc",
+                "on-primary-fixed": "#002021",
+                "primary-container": "#288085",
+                "secondary-fixed": "#c6e8fa",
+                "on-error": "#ffffff",
+                "surface-container-high": "#e6e8f1",
+                "inverse-on-surface": "#eff0fa",
+                "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xs": "4px",
+                "xl": "48px",
+                "margin-mobile": "16px",
+                "lg": "24px",
+                "gutter": "16px",
+                "margin-desktop": "32px",
+                "md": "16px",
+                "base": "8px"
+            },
+            "fontFamily": {
+                "headline-md": ["Anton"],
+                "headline-lg": ["Anton"],
+                "body-md": ["Inter"],
+                "label-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "signature": ["Dancing Script", "cursive"]
+            },
+            "fontSize": {
+                "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 102, 107, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-shadow-elite {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .signature-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .image-glow {
+            filter: drop-shadow(0 0 20px rgba(0, 102, 107, 0.2));
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/20 dark:border-surface-variant/20 shadow-[0_20px_40px_rgba(0,128,128,0.08)]">
+<div class="flex justify-between items-center max-w-[1440px] mx-auto px-margin-desktop h-20">
+<div class="text-headline-md font-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed">NEUROPRECISION</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Home</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 text-label-sm font-label-sm" href="#">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Videos</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Articles</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold hover:opacity-90 transition-all active:scale-95 shadow-md shadow-primary/20">Book Appointment</button>
+</div>
+</nav>
+<!-- Side Concierge -->
+<div class="fixed right-6 top-1/2 -translate-y-1/2 rounded-full py-4 flex flex-col gap-4 z-40 items-center bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg border border-white/40 dark:border-outline/20 shadow-[0_40px_60px_rgba(0,128,128,0.12)]">
+<div class="flex flex-col items-center gap-1 mb-2 px-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="Medical Concierge" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRmo0kL5um2x7-vRFFtxbJwLTthebYF41RZzfT_X3tiHztA7_uLdUQsIMr4N_iUdJOE5ogpzK12EZCXRdD3P2Cub_sDbrXXZuoS4cDYqodX2gtHGxR5yqE6yP61ddKs5yZf3g9Mp8NhzfncZzN3jBG62ov5gdhN6Z41YTFOB4GchQVV0nvKB6MJLx691ousdNxxcdaT7BjrmL5dpND2Q40m1OWCfK8L-NEspKeS7nY6CSwfF0Jf-hsJFPqmqJM8QIaPqtxjdAMBb4"/>
+</div>
+</div>
+<div class="text-on-surface-variant dark:text-surface-variant p-3 hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer rounded-full">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</div>
+<div class="bg-primary text-on-primary rounded-full p-3 scale-110 cursor-pointer shadow-lg">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<main class="mt-20">
+<!-- HERO SECTION -->
+<section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0">
+<img alt="Cinematic Neurosurgery Background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuYz7JG0nQnbr9utSr_CrYSN_23urLlMC0sMH8yZRvH8X5o9ZE58oVNPZYX2mpoih7ej6E98k2pI18ol6dstRmL6wAD9OTOpBOzHfXKPLlhLv-B60VwGNYkHzpMM3FrWFXCvS4L2OSowQCNvZnCfA7EDOpciHr--PWG7NGEqG8rphUkz43b_bDzG-2d4_z_cWDtj-aA93x5Zpz8M3y_cxkLJICo0m7SKO0xQhFZ1Yy7iK6jCx6kJawBL9nL9tG_uc-tM-ofqRX1xE"/>
+<div class="absolute inset-0 bg-black/50"></div>
+</div>
+<div class="relative z-10 text-center text-white px-margin-mobile reveal flex flex-col items-center">
+<span class="uppercase tracking-[0.4em] text-label-md mb-4 block opacity-90 text-shadow-elite">About the Doctor</span>
+<h1 class="font-headline-lg text-headline-lg md:text-[80px] mb-8 text-shadow-elite leading-tight">DR. OSAMA MOWAFY</h1>
+<p class="max-w-2xl text-body-lg mb-10 opacity-90 text-shadow-elite font-medium">World-renowned neurosurgeon dedicated to advancing the field of minimally invasive spinal and cranial procedures.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-primary hover:bg-primary-container text-white px-10 py-5 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-primary/40 transform hover:-translate-y-1">Book Your Appointment</button>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/40 text-white px-10 py-5 rounded-lg font-bold text-lg transition-all transform hover:-translate-y-1">Contact Us</button>
+</div>
+</div>
+</section>
+<!-- INTRODUCTION -->
+<section class="py-32 max-w-[1440px] mx-auto px-margin-desktop overflow-visible">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative reveal group">
+<div class="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full opacity-50"></div>
+<div class="relative rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,102,107,0.15)] transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1 image-glow">
+<img alt="Dr. Osama Mowafy portrait" class="w-full h-auto object-cover aspect-[4/5]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgVzrHycj5IxWWM3X6Dj9c0aN0EB1rdFn3VXlsEtdXSeIJzOVevG5Eo59fS00mh4cT1Wq2gvD88sSroSyp8jZOs-AgS5hRkejv52h_uXnVxeB3BpnOxA8bzXOfc4-8xlWt96mWrrvTYqC1tk6mAfKJaC8baf8EyKpFmayfKVYyBa1MJg0mCNsXkqaoHZkL0eqJug6Why6eWOH3YR8LaC1Tjmbe9O2vj26TVRcvAFx2wspZXBiLyPXqrLtWnydULDtA6EK21FF_klQ"/>
+</div>
+<div class="absolute -bottom-8 -right-8 glass-card p-8 rounded-2xl shadow-2xl border-l-8 border-primary max-w-xs transform hover:scale-105 transition-transform">
+<p class="font-headline-md text-primary leading-tight text-3xl">20+ Years<br/><span class="text-on-surface text-xl font-body-md font-semibold">Surgical Excellence</span></p>
+</div>
+</div>
+<div class="reveal">
+<h2 class="font-headline-md text-headline-md text-primary mb-8 leading-tight">Pioneering Precision in Modern Neurosurgery</h2>
+<div class="space-y-8 text-on-surface-variant text-body-lg">
+<p>Dr. Osama Mowafy is a world-renowned neurosurgeon dedicated to advancing the field of minimally invasive spinal and cranial procedures. With a career spanning over two decades, his medical philosophy centers on the marriage of industrial-grade technical precision and compassionate, patient-first care.</p>
+<p>Specializing in neuro-oncology and restorative spinal surgery, Dr. Mowafy leverages cutting-edge diagnostic technology to ensure every intervention is as accurate and minimally disruptive as possible.</p>
+<div class="mt-12 p-10 bg-surface-container-low rounded-3xl relative border border-outline-variant/30 shadow-inner">
+<span class="material-symbols-outlined text-primary text-6xl absolute -top-6 left-8 bg-background px-4" data-icon="format_quote">format_quote</span>
+<blockquote class="italic text-2xl text-on-surface mb-8 leading-relaxed">
+                            "My goal is not just to treat a condition, but to restore a life. Precision is the tool; the patient's well-being is the purpose."
+                        </blockquote>
+<div class="flex items-center gap-6">
+<div class="h-[1px] w-16 bg-primary/30"></div>
+<div>
+<p class="signature-font text-3xl text-primary leading-none mb-1">Osama Mowafy</p>
+<span class="font-bold text-on-surface-variant tracking-widest uppercase text-xs">O. MOWAFY, MD, PHD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- VIDEO SECTION -->
+<section class="py-24 bg-surface-container relative">
+<div class="max-w-5xl mx-auto px-margin-mobile text-center">
+<div class="mb-16 reveal">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">A Glimpse into Elite Care</h2>
+<div class="h-1.5 w-32 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="relative aspect-video rounded-3xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] group cursor-pointer reveal">
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-500 z-10 flex items-center justify-center">
+<div class="w-24 h-24 bg-primary/90 text-white rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(0,102,107,0.6)] group-hover:scale-110 transition-all duration-300">
+<span class="material-symbols-outlined text-5xl" data-icon="play_arrow">play_arrow</span>
+</div>
+</div>
+<img alt="State of the art robotic surgery suite" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsYX4y4tE_tHOKywLKzSGTiYj4hKtPn3dgW9tcI1IIX5JMKlXUel2qIsHgjPsEyZtIu2MreREYcoxBiSf27Eb0njn_23BUzf0TGnC2kBS9o6qJrBcLt_z71ivTNjkI9LcSFtFgpRXoEySFzNhxqzqrCnS6XIIRhXc50QlAS0ehpgNerp9ZgB2Gc36pVAekTmo0CtW4hDJnNCtpaV9GpsMVU_QwJPnrMJr2lHAs3eiVs5uC4qSQmhs4XxGx9KJkZLkIz9k604gWFso"/>
+<div class="absolute bottom-8 left-8 z-20 glass-card px-6 py-3 rounded-full border border-white/40">
+<p class="text-sm font-bold text-primary flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+                        Introductory Video
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- SPECIALTIES SECTION -->
+<section class="py-32 max-w-[1440px] mx-auto px-margin-desktop"><div class="flex justify-between items-end mb-20 reveal">
+<div class="text-left">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Medical Specialties</h2>
+<p class="text-on-surface-variant max-w-2xl text-lg">Advanced surgical solutions tailored to complex neurological and spinal health requirements.</p>
+</div>
+<div class="hidden md:flex gap-4 mb-2">
+<button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all active:scale-95" onclick="document.getElementById('specialties-carousel').scrollBy({left: -400, behavior: 'smooth'})">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all active:scale-95" onclick="document.getElementById('specialties-carousel').scrollBy({left: 400, behavior: 'smooth'})">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-8" id="specialties-carousel">
+<!-- Card 1 -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative">
+<img alt="Spine" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKxiTRhdLd4pHA051P_WmZ9EfMCGfNiFVuHReoXYp5rDos1bXY74KET7ZoqZVt_d9uLBERjwRuevV1cLjIIRDR50QDd2JAzkwIH1YC5NHcpNxrZYZ18GtKPWl6Wby5kXoc8f_TMcY98yGEU5zh1kXHrVHny0NfMZxgJGtCkK7ZwAO5QAZmEx06xVKfWL-3YdrykWpIwKBDBaRaqBpx-54N_JIroTHOhAQBMBxf8_dZuEyDB3AFnKpfigWU_jxM1HxtLuHYz6OntTw"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">settings_accessibility</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Minimally Invasive Spine</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Microscopic precision and smaller incisions for disc replacements.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all" onclick="toggleModal('spinal-modal')">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative">
+<img alt="Brain" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnScqc9llGcul4h5uocWK6LcXs5N1OsEpHvbFG-yN_OG5X-DIt1P92ZkFK32HxuI0Oxt_Fs0wgQ_Ad2LLIhKc6CaKVMugUaiP7J0I3ZrnOSEHyEJ2FGbTLpaSia-4h3tLcjcul9HrmonvgGJ5hN3hOtGpphN7goyldi_CpB4RezeDERYoXE3lbzcpK_FCWNiRBhB6lzTIejlbcGMbvX1Qe-OsB2rGwxU86nNgB0vSnvQFU8opPtoT7FlVy36RPZXPw2VcqcUP1oGI"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">psychology</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Neuro-Oncology</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Surgical resection of complex brain tumors using navigation.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all" onclick="toggleModal('oncology-modal')">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative">
+<img alt="Tools" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsGuzITZ7FY94JOrLpAxxTZM1FV63VLZIXkt5Opgea_zQvVXgcL1hTDiZOkY7Rgr4n_y5xLZHyPQIWyFiabiA1BCHtChEuB4z3f4JMUr0euhkYAb7e74xQp6gkNgDzup2OqCdqrOg4RkQpp9A06FOY-XUfS_6wHWqMtV3HQGaK1minQ1G9Fy5Ie0-9Q712BQ_s4Pb0R6DBsUHSo1a-PGi8__c3eBVXdws5CQMTByzYMqbmbim1wrEi3D3H4380tnOMJxAu6TwzDxE"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Functional Neurosurgery</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Restoring movement through deep brain stimulation.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all" onclick="toggleModal('functional-modal')">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 4: Pediatric -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="material-symbols-outlined text-8xl">child_care</span></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">child_care</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Pediatric Neurosurgery</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Specialized care for congenital and acquired conditions in children.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 5: Skull Base -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="material-symbols-outlined text-8xl">skull</span></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">skull</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Skull Base Surgery</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Complex procedures for tumors at the base of the cranium.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 6: Vascular -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="material-symbols-outlined text-8xl">bloodway</span></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">bloodway</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Vascular Neurosurgery</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Treatment of aneurysms and vascular malformations.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 7: Neuro-Trauma -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="material-symbols-outlined text-8xl">emergency</span></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">emergency</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Neuro-Trauma</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Critical care for traumatic brain and spinal cord injuries.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 8: Peripheral Nerve -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="material-symbols-outlined text-8xl">hub</span></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">hub</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Peripheral Nerve Surgery</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Repair and reconstruction of damaged peripheral nerves.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+<!-- Card 9: Complex Spine -->
+<div class="flex-none w-full md:w-[calc(33.333%-22px)] snap-start group relative bg-white border border-outline-variant/30 rounded-3xl overflow-hidden hover:shadow-[0_40px_70px_rgba(0,102,107,0.12)] transition-all duration-500 reveal">
+<div class="h-56 overflow-hidden relative bg-surface-container">
+<div class="absolute inset-0 flex items-center justify-center opacity-20"><span class="material-symbols-outlined text-8xl">architecture</span></div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg text-primary shadow-lg">
+<span class="material-symbols-outlined text-2xl">architecture</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-xl text-on-surface mb-3">Complex Spine Reconstruction</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Advanced correction of spinal deformities and revisions.</p>
+<button class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+</div></section>
+<!-- EXPERIENCE TIMELINE & CERTIFICATIONS -->
+<section class="py-32 bg-surface-container-low overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="flex flex-col lg:flex-row gap-24">
+<div class="lg:w-2/5 reveal">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Professional History</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-8 leading-tight">A Journey of Expert Achievement</h2>
+<p class="text-on-surface-variant mb-12 text-lg">A legacy of education, training, and professional milestones built upon the highest global medical standards and a relentless pursuit of excellence.</p>
+<div class="flex flex-wrap gap-4">
+<div class="px-6 py-3 rounded-full border-2 border-primary text-primary text-xs font-bold uppercase tracking-widest shadow-sm">Board Certified</div>
+<div class="px-6 py-3 rounded-full border-2 border-primary text-primary text-xs font-bold uppercase tracking-widest shadow-sm">Ph.D Surgery</div>
+<div class="px-6 py-3 rounded-full border-2 border-primary text-primary text-xs font-bold uppercase tracking-widest shadow-sm">Fellowship Trained</div>
+</div>
+</div>
+<!-- Vertical Timeline -->
+<div class="lg:w-3/5 space-y-16 relative reveal">
+<!-- Timeline Line -->
+<div class="absolute left-[7px] top-4 bottom-4 w-1 bg-gradient-to-b from-primary via-primary/40 to-primary/10 rounded-full"></div>
+<div class="relative pl-12 group">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-primary ring-8 ring-primary/20 group-hover:scale-125 transition-transform"></div>
+<span class="text-primary font-black mb-2 block tracking-widest text-sm">2018 - PRESENT</span>
+<h4 class="text-2xl font-bold mb-4 text-on-surface">Chief of Neurosurgery | NeuroPrecision Elite</h4>
+<p class="text-on-surface-variant leading-relaxed">Leading a multidisciplinary team focused on elite patient care and high-precision neurosurgical innovation at the region's premier specialty clinic.</p>
+</div>
+<div class="relative pl-12 group">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-outline ring-8 ring-surface-variant group-hover:bg-primary/50 transition-colors"></div>
+<span class="text-on-surface-variant/70 font-black mb-2 block tracking-widest text-sm">2012 - 2018</span>
+<h4 class="text-2xl font-bold mb-4 text-on-surface">Senior Surgeon | Global Medical Center</h4>
+<p class="text-on-surface-variant leading-relaxed">Specialized in complex spinal reconstructive surgeries and established the award-winning Minimally Invasive Surgery Unit.</p>
+</div>
+<div class="relative pl-12 group">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-outline ring-8 ring-surface-variant group-hover:bg-primary/50 transition-colors"></div>
+<span class="text-on-surface-variant/70 font-black mb-2 block tracking-widest text-sm">2008 - 2012</span>
+<h4 class="text-2xl font-bold mb-4 text-on-surface">Advanced Neuro-Oncology Fellowship</h4>
+<p class="text-on-surface-variant leading-relaxed">Intensive training at internationally recognized institutes focusing on intracranial tumors and skull base surgery techniques.</p>
+</div>
+</div>
+</div>
+<!-- Award Wall / Certificate Gallery -->
+<div class="mt-40 reveal">
+<div class="text-center mb-16">
+<h3 class="text-label-md uppercase tracking-[0.4em] text-secondary mb-4">Accreditations &amp; Certificates</h3>
+<div class="h-px w-20 bg-secondary/30 mx-auto"></div>
+</div>
+<div class="flex flex-nowrap overflow-x-auto py-12 gap-10 no-scrollbar snap-x px-4">
+<!-- Certificate 1 -->
+<div class="flex-none w-80 h-56 bg-white border border-outline-variant/30 rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all cursor-zoom-in group snap-center">
+<div class="relative w-full h-full">
+<img alt="Medical Board Certification" class="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU6w1Li-k-kaPTrdl6h5wiqmq4-BtVzRbILAlFL_WWwg-gGGkurL-Lm5Ya9VSRx23ZlNgPhqeJxQp7rDw37R2WJg6mZA5bxn8mgjURFoPmmHJky4N7RkCqDdSkx7gL-ycdSph6RDZ1pTfwkdGiv3X4hE9sCmmytzflscYO4rbHHGCzM8GSeiCFuMXXEln8eYtYSIB9FeT7Y-zCTHBFI4E52lbWgChPKn1ReGmNjEh5VhWm4JhHl3u9_hCxSyFBYRg1rr7-NbaSvQE"/>
+</div>
+<p class="mt-4 text-[10px] font-bold text-on-surface-variant/40 tracking-[0.2em] uppercase">Board Certification</p>
+</div>
+<!-- Certificate 2 -->
+<div class="flex-none w-80 h-56 bg-white border border-outline-variant/30 rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all cursor-zoom-in group snap-center">
+<div class="relative w-full h-full">
+<img alt="Fellowship Award" class="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8NOAjf0CmSvxULrp93WU5NMWuSb3r6mKSRYoaztiKSkUi28nEbLqA9zwwzIrFkUV6E27-KNIfEKsTmkx5nDdLANKdtn7IlKR-STTddQ0TrC3y0AkvYlDnXPjtHjLnyf_RjrAX1zXC4JPA1W2_pkYufTJYjOs7ZsLRLtkwJFtpcza9GrjxbkLd4Nd5oEejqK09BSbynodjp_beQtw-EBeVXhemB1J6FdouAwYbfLjjxbNeuz816fWQdHd816Wu1DV08W5qJa1tR5g"/>
+</div>
+<p class="mt-4 text-[10px] font-bold text-on-surface-variant/40 tracking-[0.2em] uppercase">Fellowship Award</p>
+</div>
+<!-- Certificate 3 -->
+<div class="flex-none w-80 h-56 bg-white border border-outline-variant/30 rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all cursor-zoom-in group snap-center">
+<div class="relative w-full h-full">
+<img alt="Medical License" class="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3TbhVXM1udLI1j0d3_lfEalAG6F-OtBi-PCpMwG65blMJg9rE3zkeiV3C88TK_MgK5sly40y5VQV3GjHxG0Lb28R-mYKVnJcvSPwkEIHZmm78_p9f9B62ETTK8IwGXiF74rZHLAH1eNdCp8RG0CnojE1LkfEBRMQFUb06y_bK45wAvY4xes1-vFGWR1eoXaDWv4u63NoAFmUlU0GZwnhPn-gznrhRhB01Syg7tQBiSN_EXlvwoY9PcANH0VWMQL-1JVyS_xBu-dk"/>
+</div>
+<p class="mt-4 text-[10px] font-bold text-on-surface-variant/40 tracking-[0.2em] uppercase">Surgical License</p>
+</div>
+<!-- Certificate 4 -->
+<div class="flex-none w-80 h-56 bg-white border border-outline-variant/30 rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all cursor-zoom-in group snap-center">
+<div class="relative w-full h-full">
+<img alt="Surgical Training Certificate" class="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyv0P7Uolndk3BRJRgLE0AdHsY1zY5v7M9TMGFRhuqvhfXMCFkCwoOZx7EDm3IcOPMzms7QrbO34V_mnz9V6DpRxnBwh3GknXsZqUxuzTTZdjZF-toacteXXhw9nYA1zPaJy7Ck4ANOkt1LVIza5C69MrP4Q8FZ9toJHj--bbpwKy8TrE46w1DtRs4Z9tedE0T31IsZE-NgfNLB3W_qK7tq51B8oD2bxLl6GnsxOU6e4C7t9E102ySmun0fbOh-FWaBQPmISO_YtQ"/>
+</div>
+<p class="mt-4 text-[10px] font-bold text-on-surface-variant/40 tracking-[0.2em] uppercase">Advanced Training</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="py-32 max-w-[1440px] mx-auto px-margin-desktop"><div class="text-center mb-20 reveal">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Patient Experiences</h2>
+<div class="flex justify-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 reveal">
+<!-- Review 1 -->
+<div class="glass-card p-8 rounded-2xl border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">JD</div>
+<div>
+<p class="font-bold text-sm">Jonathan Davis</p>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic text-sm leading-relaxed">"After years of chronic back pain, Dr. Mowafy's minimally invasive approach changed my life. Precision is unmatched."</p>
+</div>
+<!-- Review 2 -->
+<div class="glass-card p-8 rounded-2xl border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">SH</div>
+<div>
+<p class="font-bold text-sm">Sarah Henderson</p>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic text-sm leading-relaxed">"The level of care and technological precision at NeuroPrecision is world-class. Every detail was explained."</p>
+</div>
+<!-- Review 3 -->
+<div class="glass-card p-8 rounded-2xl border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">MK</div>
+<div>
+<p class="font-bold text-sm">Michael Knight</p>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic text-sm leading-relaxed">"A true pioneer. The recovery from my spinal fusion was much faster than I ever anticipated. Highly recommend."</p>
+</div>
+<!-- Review 4 -->
+<div class="glass-card p-8 rounded-2xl border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">EL</div>
+<div>
+<p class="font-bold text-sm">Elena Lopez</p>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic text-sm leading-relaxed">"Dr. Mowafy's expertise in neuro-oncology saved my life. The surgical team was professional and compassionate."</p>
+</div>
+<!-- Review 5 -->
+<div class="glass-card p-8 rounded-2xl border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">RB</div>
+<div>
+<p class="font-bold text-sm">Robert Brown</p>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic text-sm leading-relaxed">"The facility is top-notch. You can tell they use the latest technology for every single procedure."</p>
+</div>
+<!-- Review 6 -->
+<div class="glass-card p-8 rounded-2xl border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">AW</div>
+<div>
+<p class="font-bold text-sm">Alice Wong</p>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic text-sm leading-relaxed">"Exceptional care from start to finish. Dr. Mowafy is truly a master of his craft in functional neurosurgery."</p>
+</div>
+</div></section>
+<!-- CTA BAR -->
+<section class="w-full py-28 bg-gradient-to-br from-primary via-primary-container/80 to-primary text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-96 h-96 bg-white blur-[100px] rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-black blur-[150px] rounded-full"></div>
+</div>
+<div class="max-w-[1440px] mx-auto px-margin-desktop flex flex-col lg:flex-row items-center justify-between gap-16 text-center lg:text-left relative z-10 reveal">
+<div class="max-w-2xl">
+<h2 class="font-headline-md text-headline-md md:text-5xl mb-6 leading-tight">Your Health Deserves Expert Precision</h2>
+<p class="text-white/80 text-xl font-medium leading-relaxed">Start your journey to recovery with a consultant who prioritizes industrial-grade precision and elite patient outcomes.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 w-full lg:w-auto">
+<button class="bg-white text-primary px-12 py-5 rounded-lg font-bold text-xl hover:bg-surface-container-lowest transition-all shadow-2xl transform hover:-translate-y-1">Book Appointment</button>
+<button class="bg-transparent border-2 border-white/40 backdrop-blur-md text-white px-12 py-5 rounded-lg font-bold text-xl hover:bg-white/10 transition-all transform hover:-translate-y-1">Contact Clinic</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant/30">
+<div class="max-w-[1440px] mx-auto px-margin-desktop py-24 flex flex-col gap-16">
+<div class="flex flex-col md:flex-row justify-between gap-16">
+<div class="max-w-md">
+<div class="text-headline-md font-headline-md text-primary dark:text-primary-fixed mb-8">NEUROPRECISION</div>
+<p class="text-on-surface-variant/80 mb-10 text-lg leading-relaxed">Redefining neurosurgical standards through modern industrial precision and elite medical expertise. Your recovery, precisely planned.</p>
+<div class="flex gap-6">
+<a class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary hover:scale-110 hover:bg-primary hover:text-white transition-all shadow-sm" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary hover:scale-110 hover:bg-primary hover:text-white transition-all shadow-sm" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary hover:scale-110 hover:bg-primary hover:text-white transition-all shadow-sm" href="#"><span class="material-symbols-outlined">phone</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-16">
+<div>
+<h4 class="font-bold mb-8 uppercase text-xs tracking-[0.3em] text-on-surface-variant">Navigation</h4>
+<ul class="space-y-5 text-md font-medium">
+<li><a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all inline-block" href="#">Home</a></li>
+<li><a class="text-primary font-bold hover:translate-x-2 transition-all inline-block" href="#">About Dr. Mowafy</a></li>
+<li><a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all inline-block" href="#">Services</a></li>
+<li><a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all inline-block" href="#">Articles</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-8 uppercase text-xs tracking-[0.3em] text-on-surface-variant">Legal</h4>
+<ul class="space-y-5 text-md font-medium">
+<li><a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all inline-block" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all inline-block" href="#">Surgical Integrity</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center gap-8">
+<p class="text-label-sm font-label-sm text-on-surface-variant/60">©️ 2024 NeuroPrecision Elite. All rights reserved.</p>
+<div class="flex gap-8">
+<span class="text-label-sm font-label-sm text-on-surface-variant/60 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Clinic Location: 12 Medical Hub Dr, Precision City
+                </span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Functional Modal Placeholder -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6" id="specialty-modal">
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal()"></div>
+<div class="relative bg-white dark:bg-inverse-surface rounded-3xl max-w-2xl w-full p-10 shadow-2xl transform transition-all overflow-y-auto max-h-[90vh]">
+<button class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors" onclick="toggleModal()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<div id="modal-content">
+<!-- Dynamically populated -->
+</div>
+</div>
+</div>
+<script>
+    // Premium Scroll Reveal
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+
+    // Concierge Interaction
+    const conciergeBtn = document.querySelector('.fixed.right-6');
+    if (conciergeBtn) {
+        conciergeBtn.addEventListener('mouseenter', () => {
+            conciergeBtn.style.transform = 'translateY(-50%) scale(1.05)';
+        });
+        conciergeBtn.addEventListener('mouseleave', () => {
+            conciergeBtn.style.transform = 'translateY(-50%) scale(1)';
+        });
+    }
+
+    // Specialty Modal Logic
+    function toggleModal(type) {
+        const modal = document.getElementById('specialty-modal');
+        const content = document.getElementById('modal-content');
+        
+        if (type) {
+            let html = '';
+            if (type === 'spinal-modal') {
+                html = `
+                    <h2 class="font-headline-md text-3xl text-primary mb-6">Minimally Invasive Spine Surgery</h2>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKxiTRhdLd4pHA051P_WmZ9EfMCGfNiFVuHReoXYp5rDos1bXY74KET7ZoqZVt_d9uLBERjwRuevV1cLjIIRDR50QDd2JAzkwIH1YC5NHcpNxrZYZ18GtKPWl6Wby5kXoc8f_TMcY98yGEU5zh1kXHrVHny0NfMZxgJGtCkK7ZwAO5QAZmEx06xVKfWL-3YdrykWpIwKBDBaRaqBpx-54N_JIroTHOhAQBMBxf8_dZuEyDB3AFnKpfigWU_jxM1HxtLuHYz6OntTw" class="w-full h-64 object-cover rounded-2xl mb-8">
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Our minimally invasive techniques focus on reducing muscle disruption, leading to faster recovery times and less post-operative pain. We specialize in:</p>
+                    <ul class="space-y-3 mb-10">
+                        <li class="flex items-center gap-3 text-on-surface font-medium"><span class="w-2 h-2 rounded-full bg-primary"></span> Microdiscectomy</li>
+                        <li class="flex items-center gap-3 text-on-surface font-medium"><span class="w-2 h-2 rounded-full bg-primary"></span> Minimally Invasive Lumbar Fusion</li>
+                        <li class="flex items-center gap-3 text-on-surface font-medium"><span class="w-2 h-2 rounded-full bg-primary"></span> Endoscopic Spinal Procedures</li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-container transition-all">Schedule Consultation</button>
+                `;
+            } else if (type === 'oncology-modal') {
+                 html = `
+                    <h2 class="font-headline-md text-3xl text-primary mb-6">Neuro-Oncology & Brain Tumors</h2>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnScqc9llGcul4h5uocWK6LcXs5N1OsEpHvbFG-yN_OG5X-DIt1P92ZkFK32HxuI0Oxt_Fs0wgQ_Ad2LLIhKc6CaKVMugUaiP7J0I3ZrnOSEHyEJ2FGbTLpaSia-4h3tLcjcul9HrmonvgGJ5hN3hOtGpphN7goyldi_CpB4RezeDERYoXE3lbzcpK_FCWNiRBhB6lzTIejlbcGMbvX1Qe-OsB2rGwxU86nNgB0vSnvQFU8opPtoT7FlVy36RPZXPw2VcqcUP1oGI" class="w-full h-64 object-cover rounded-2xl mb-8">
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Utilizing state-of-the-art neuronavigation and intraoperative imaging to maximize tumor resection while preserving vital brain function.</p>
+                    <button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-container transition-all">Request Specialist Review</button>
+                `;
+            } else if (type === 'functional-modal') {
+                 html = `
+                    <h2 class="font-headline-md text-3xl text-primary mb-6">Functional Neurosurgery</h2>
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsGuzITZ7FY94JOrLpAxxTZM1FV63VLZIXkt5Opgea_zQvVXgcL1hTDiZOkY7Rgr4n_y5xLZHyPQIWyFiabiA1BCHtChEuB4z3f4JMUr0euhkYAb7e74xQp6gkNgDzup2OqCdqrOg4RkQpp9A06FOY-XUfS_6wHWqMtV3HQGaK1minQ1G9Fy5Ie0-9Q712BQ_s4Pb0R6DBsUHSo1a-PGi8__c3eBVXdws5CQMTByzYMqbmbim1wrEi3D3H4380tnOMJxAu6TwzDxE" class="w-full h-64 object-cover rounded-2xl mb-8">
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Advanced neuromodulation and deep brain stimulation therapies for movement disorders, chronic pain, and epilepsy.</p>
+                    <button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-container transition-all">Learn About Treatments</button>
+                `;
+            }
+            content.innerHTML = html;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        } else {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    }
+</script>
+</body></html>

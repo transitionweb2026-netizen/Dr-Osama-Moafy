@@ -1,0 +1,349 @@
+<!DOCTYPE html><html lang="en" class="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#002021",
+                        "primary-fixed": "#9ff0f5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-dim": "#d8dae3",
+                        "surface-variant": "#e0e2ec",
+                        "secondary": "#436372",
+                        "inverse-primary": "#83d4d9",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9ff",
+                        "primary": "#00666b",
+                        "background": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f3fd",
+                        "on-secondary-fixed": "#001f2a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#5a5c5c",
+                        "primary-fixed-dim": "#83d4d9",
+                        "on-surface": "#181c22",
+                        "secondary-fixed-dim": "#aacbdd",
+                        "tertiary-container": "#737575",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e0e2ec",
+                        "on-surface-variant": "#414753",
+                        "on-primary-container": "#f4ffff",
+                        "secondary-container": "#c6e8fa",
+                        "surface-container": "#ecedf7",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed-variant": "#004f53",
+                        "surface-tint": "#00696e",
+                        "on-background": "#181c22",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c6d5",
+                        "on-tertiary-container": "#fcfcfc",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "primary-container": "#288085",
+                        "inverse-surface": "#2d3038",
+                        "surface": "#f9f9ff",
+                        "surface-container-high": "#e6e8f1",
+                        "secondary-fixed": "#c6e8fa",
+                        "outline": "#717785",
+                        "on-secondary-fixed-variant": "#2b4b59",
+                        "on-secondary-container": "#496978"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "margin-desktop": "32px",
+                        "sm": "8px",
+                        "xl": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Anton"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Anton"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    }catch(_e){}</script><meta charset="utf-8"></head><body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 w-full z-50 border-b border-secondary/10 bg-surface/95 backdrop-blur-md">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-7xl mx-auto h-20">
+<a href="#" class="font-headline-md text-headline-md text-primary uppercase tracking-tight">Dr. Osama Mowafy</a>
+<div class="hidden md:flex items-center space-x-lg">
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Home</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">About</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Specialties</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Patient Care</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Resources</a>
+<a href="#" class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">Book Appointment</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-[70vh] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[30%] contrast-[1.1]" data-alt="A cinematic, wide-angle interior of a cutting-edge neurosurgery operating room. The space is filled with high-tech medical equipment and large glowing screens displaying brain scans in shades of teal and cool blue. Minimalist architecture with glass partitions and soft, dramatic lighting creates an authoritative and stable atmosphere in a marine professional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV2yn7sxrAdKd8CFnCwXf5svrb0CMI2Qpfmiotg9bl-q2-15VWc-CuSHTpwNJdcqm_rWOB2g0SVHZTRefYR6DaiosPa3gyl2MNVaf0wcmPhksU9cTmfwYS2-kEnLwO4IhVVzkxCMfWSN2FBJ1dmC6Zj5CzOZYDD6Wn0PdVKJGFgV1MklyoIt9_TfFF18z-zpIkrvLS0_Z5JWKFqFQxNZf1AIir6bjBjbSRF_Rtpuy0gbf6xN5YtB7AcH0EvOSINUITTqit0hj2vE8">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile max-w-3xl">
+<span class="font-label-md text-label-md text-primary-fixed tracking-[0.2em] uppercase block mb-sm drop-shadow-md">CONTACT US</span>
+<h1 class="font-headline-lg text-headline-lg text-white mb-md drop-shadow-lg uppercase">We Are Here to Help You</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-xl drop-shadow-md">Share your concern with us and take the first step toward professional medical guidance with Dr. Osama Mowafy.</p>
+<div class="flex flex-col sm:flex-row gap-md justify-center">
+<a class="flex items-center justify-center gap-xs bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-all shadow-xl" href="https://wa.me/1234567890">
+<span class="material-symbols-outlined">chat</span>
+                    Send on WhatsApp
+                </a>
+<a class="flex items-center justify-center gap-xs bg-white text-on-primary-fixed px-xl py-md rounded-lg font-label-md text-label-md hover:bg-surface-container-highest transition-all shadow-xl" href="tel:+1234567890">
+<span class="material-symbols-outlined">call</span>
+                    Call Now
+                </a>
+</div>
+</div>
+</header>
+<!-- Quick Contact Strip -->
+<div class="bg-primary-container py-md">
+<div class="max-w-7xl mx-auto px-margin-desktop flex flex-wrap justify-around gap-lg text-on-primary-container">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-fixed">chat</span>
+<span class="font-label-md text-label-md">+20 123 456 789</span>
+</div>
+<div class="flex items-center gap-sm border-x border-on-primary-container/20 px-xl">
+<span class="material-symbols-outlined text-primary-fixed">call</span>
+<span class="font-label-md text-label-md">+20 987 654 321</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-fixed">location_on</span>
+<span class="font-label-md text-label-md">Technical Health Plaza, Level 4</span>
+</div>
+</div>
+</div>
+<!-- Contact & Info Suite -->
+<main class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- WhatsApp Form -->
+<section class="lg:col-span-7 glass-card p-xl rounded-xl shadow-sm border-secondary/10">
+<h2 class="font-headline-md text-headline-md text-primary mb-lg">Direct Consultation Form</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-lg" id="waForm">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container border-outline-variant rounded-lg p-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="name" placeholder="John Doe" required="" type="text">
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Phone Number</label>
+<input class="w-full bg-surface-container border-outline-variant rounded-lg p-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="phone" placeholder="+20 ..." required="" type="tel">
+</div>
+<div class="md:col-span-2 space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Suffering from?</label>
+<select class="w-full bg-surface-container border-outline-variant rounded-lg p-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="condition">
+<option>Brain Tumor</option>
+<option>Spine Surgery</option>
+<option>Nerve Compression</option>
+<option>General Consultation</option>
+<option>Other</option>
+</select>
+</div>
+<div class="md:col-span-2 space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Message / Notes</label>
+<textarea class="w-full bg-surface-container border-outline-variant rounded-lg p-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="message" placeholder="Briefly describe your case..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-lg flex items-center justify-center gap-sm hover:brightness-110 active:scale-95 transition-all" onclick="sendWhatsApp()" type="button">
+<span class="material-symbols-outlined">send</span>
+                            Send via WhatsApp
+                        </button>
+</div>
+</form>
+</section>
+<!-- Info Panel -->
+<aside class="lg:col-span-5 space-y-lg">
+<div class="rounded-xl overflow-hidden shadow-sm h-64 relative group">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-contrast, professional architectural photograph of a modern medical clinic's facade at twilight. Large windows reveal a clean, teal-lit interior with sterile white surfaces. The building reflects a corporate, industrial reliability with sharp lines and high-quality materials. The overall mood is professional and welcoming." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQbDrQxQt1cdrbsyGXatDPtpTwYTjAa1aGiDlB2O0uN-EaQ8bOOmQJV-sPrp0-YTYTGf9bjPWQMcpOR0fP_Plxc4PjOb8nw14gqtEVLPPeuSvjiUvBJV_o2oyC5Ja6Jga17pmIaRLsQC9YuZ_lHfMNt4c1FeFExlGI8vWH8t_EaJLTzQ-cqhrxQbGXnGzJAP5d25Mk2smG7Z8J7QCqYHH5tBkbAjTAI1a2d2DaQYxdY0bsxtVgKXmQlM10gqKfbTBDWo3GQ1DB8e0')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-lg">
+<button class="bg-white text-primary px-lg py-sm rounded-full font-label-md text-label-md flex items-center gap-xs shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">map</span>
+                            Open in Google Maps
+                        </button>
+</div>
+</div>
+<div class="glass-card p-xl rounded-xl border-secondary/10 space-y-lg">
+<div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-xs">Clinic Headquarters</h3>
+<p class="font-body-md text-on-surface-variant">Medical District East, Tower B, 4th Floor, Suite 402. New Cairo, Egypt.</p>
+</div>
+<div class="space-y-md">
+<div class="flex items-start gap-md group">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">phone_in_talk</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant">Telephone</span>
+<span class="font-body-md font-bold">+20 2 1234 5678</span>
+</div>
+</div>
+<div class="flex items-start gap-md group">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant">Official WhatsApp</span>
+<span class="font-body-md font-bold">+20 100 234 5678</span>
+</div>
+</div>
+<div class="flex items-start gap-md group">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant">Clinical Email</span>
+<span class="font-body-md font-bold">care@osamamowafy.com</span>
+</div>
+</div>
+<div class="flex items-start gap-md group">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant">Clinic Hours</span>
+<span class="font-body-md font-bold">Sat - Wed: 10:00 AM - 08:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Doctor Message Bar -->
+<section class="mt-xl relative">
+<div class="bg-primary h-48 md:h-64 neural-pattern relative flex items-center">
+<div class="max-w-7xl mx-auto w-full px-margin-desktop grid grid-cols-1 md:grid-cols-2">
+<div class="text-white hidden md:block">
+<h4 class="font-headline-md text-[28px] mb-xs uppercase">Expert Medical Guidance</h4>
+<ul class="space-y-xs opacity-90">
+<li class="flex items-center gap-xs font-label-md text-label-md"><span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">check_circle</span> Precision Microsurgery</li>
+<li class="flex items-center gap-xs font-label-md text-label-md"><span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">check_circle</span> Advanced Neural Diagnostics</li>
+<li class="flex items-center gap-xs font-label-md text-label-md"><span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">check_circle</span> Minimal Invasive Techniques</li>
+</ul>
+</div>
+<div class="text-white text-right hidden md:block">
+<h4 class="font-headline-md text-[28px] mb-xs uppercase">Direct Communication</h4>
+<ul class="space-y-xs opacity-90">
+<li class="flex items-center justify-end gap-xs font-label-md text-label-md">24/7 Emergency Support <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">bolt</span></li>
+<li class="flex items-center justify-end gap-xs font-label-md text-label-md">Global Referral Network <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">public</span></li>
+<li class="flex items-center justify-end gap-xs font-label-md text-label-md">Personalized Recovery Plans <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">favorite</span></li>
+</ul>
+</div>
+</div>
+<!-- Portrait Overlap -->
+<div class="absolute left-1/2 -translate-x-1/2 inset-y-0 flex items-center justify-center w-64 md:w-80 lg:w-96 z-10">
+<img alt="Dr. Osama Mowafy" class="h-full w-auto object-contain py-md drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] mx-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdiML8vLoGqCjRhB8eoYNQmm3s6O18hBWCRsuNLFavkiLmlL15OZvXhIA0awcdlfX9hLvbFVLBe5IRvXvapu0atigd7XFPm4Ung7PVzpRdJrDUCN3cU3AzGDdGmQfeva0LuVaEMNSqVi4slMXS04wptT2t8fURtifQeoomCYyQb9fzpoSA0dfOdsNoXWs96QoDBwvGFyBA4MGXfuBq-fDNVa9EZjV2VQC-5jpn0t75Kg7CloVUlEIo5wPxl-2zQRCZxIzPTRzwKH4">
+</div>
+</div>
+<!-- Mobile portrait spacing -->
+<div class="h-40 md:hidden"></div>
+</section>
+<!-- Footer -->
+<footer class="bg-on-primary-fixed text-primary-fixed w-full pt-xl pb-md mt-xl border-t border-secondary">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-desktop max-w-7xl mx-auto">
+<div class="md:col-span-2">
+<span class="font-headline-lg text-headline-lg text-primary-fixed block mb-md">DR. OSAMA MOWAFY</span>
+<p class="font-body-md text-tertiary-fixed-dim max-w-sm mb-lg">Dedicated to advancing the field of neurosurgery with technical precision and industrial-grade reliability. Your health is our surgical priority.</p>
+<div class="flex gap-md">
+<a class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center hover:bg-primary transition-all" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center hover:bg-primary transition-all" href="#"><span class="material-symbols-outlined text-[20px]">group</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-headline-md text-[18px] text-primary-fixed mb-md uppercase">Resources</h5>
+<ul class="space-y-sm">
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Neurosurgery Guide</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Patient Portal</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Emergency Protocol</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Clinical Research</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline-md text-[18px] text-primary-fixed mb-md uppercase">Support</h5>
+<ul class="space-y-sm">
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Contact Support</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Location Map</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline-md text-[18px] text-primary-fixed mb-md uppercase">Direct</h5>
+<ul class="space-y-sm">
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Schedule</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">WhatsApp</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Facebook</a></li>
+<li class=""><a class="font-label-md text-label-md text-tertiary-fixed-dim hover:text-primary-fixed transition-colors" href="#">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop mt-xl pt-lg border-t border-secondary/30">
+<p class="font-label-md text-label-md text-tertiary-fixed-dim text-center opacity-60">©️ 2024 Dr. Osama Mowafy. All rights reserved. Medical Precision &amp; Industrial Reliability.</p>
+</div>
+</footer>
+<script>
+        function sendWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const condition = document.getElementById('condition').value;
+            const message = document.getElementById('message').value;
+            
+            if(!name || !phone) {
+                alert('Please fill in your name and phone number.');
+                return;
+            }
+
+            const formattedMessage = `Hello Dr. Osama Mowafy Clinic,%0A%0AI would like to inquire about a consultation.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Condition:* ${condition}%0A*Message:* ${message}`;
+            const waUrl = `https://wa.me/201002345678?text=${formattedMessage}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // Simple intersection observer for reveal effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, aside').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+
+</body></html>

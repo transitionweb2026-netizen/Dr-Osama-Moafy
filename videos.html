@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Videos &amp; Articles | NEUROPRECISION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-fixed": "#131b2e",
+                "on-tertiary-fixed": "#121e1c",
+                "on-secondary-container": "#5c647a",
+                "primary": "#006a62",
+                "inverse-on-surface": "#eaf1ff",
+                "on-primary-container": "#006058",
+                "on-tertiary-fixed-variant": "#3d4947",
+                "primary-fixed-dim": "#3adccc",
+                "surface-variant": "#d3e4fe",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed": "#d8e5e2",
+                "surface-container": "#e5eeff",
+                "surface-bright": "#f8f9ff",
+                "background": "#f8f9ff",
+                "on-secondary-fixed-variant": "#3f465c",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#00201d",
+                "on-error-container": "#93000a",
+                "on-surface": "#0b1c30",
+                "surface": "#f8f9ff",
+                "outline-variant": "#bacac6",
+                "secondary-container": "#dae2fd",
+                "surface-tint": "#006a62",
+                "on-surface-variant": "#3c4a47",
+                "surface-container-highest": "#d3e4fe",
+                "primary-fixed": "#61f9e9",
+                "on-tertiary-container": "#4b5755",
+                "error": "#ba1a1a",
+                "surface-dim": "#cbdbf5",
+                "tertiary-container": "#c0cdca",
+                "on-error": "#ffffff",
+                "secondary-fixed-dim": "#bec6e0",
+                "tertiary-fixed-dim": "#bcc9c6",
+                "on-background": "#0b1c30",
+                "primary-container": "#40e0d0",
+                "inverse-surface": "#213145",
+                "tertiary": "#55615f",
+                "secondary-fixed": "#dae2fd",
+                "on-primary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "secondary": "#565e74",
+                "on-primary-fixed-variant": "#005049",
+                "surface-container-high": "#dce9ff",
+                "surface-container-low": "#eff4ff",
+                "outline": "#6b7a77",
+                "inverse-primary": "#3adccc",
+                "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-md": "16px",
+                "stack-sm": "8px",
+                "container-max": "1440px",
+                "unit": "4px",
+                "stack-lg": "32px",
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                "headline-xl": ["Manrope"],
+                "mono-data": ["Geist"],
+                "label-caps": ["Geist"],
+                "headline-lg": ["Manrope"],
+                "body-sm": ["Hanken Grotesk"],
+                "headline-lg-mobile": ["Manrope"],
+                "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "mono-data": ["13px", {"lineHeight": "1", "fontWeight": "500"}],
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 106, 98, 0.05);
+        }
+        .neural-bg {
+            background-color: #f8f9ff;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(64, 224, 208, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 106, 98, 0.05) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm76-26c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM4.2 47.4c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%2340e0d0' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f8f9ff;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #40e0d0;
+            border-radius: 10px;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.3);
+        }
+    </style>
+</head>
+<body class="neural-bg text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container custom-scrollbar"><!-- Video Modal -->
+<div class="fixed inset-0 z-[100] hidden" id="video-modal">
+<div class="absolute inset-0 bg-black/90 backdrop-blur-xl" onclick="document.getElementById('video-modal').classList.add('hidden')"></div>
+<div class="relative h-full flex items-center justify-center p-4">
+<button class="absolute top-8 right-8 text-white hover:text-primary transition-colors z-10" onclick="document.getElementById('video-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<div class="relative aspect-[9/16] h-[85vh] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+<div class="w-full h-full flex items-center justify-center text-white/20">
+<span class="material-symbols-outlined text-8xl">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-primary/10 transition-all duration-300">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<a class="text-headline-lg font-headline-xl font-bold tracking-tight text-primary" href="#">NEUROPRECISION</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">Services</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-caps font-label-caps" href="#">Videos</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">Articles</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container shadow-xl shadow-primary/10 transition-all duration-300 active:scale-95">
+            Book Appointment
+        </button>
+</div>
+</nav>
+<!-- SideNavBar (Concierge) -->
+<aside class="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-40 items-center bg-white/40 backdrop-blur-xl rounded-full py-6 border border-white/60 shadow-2xl">
+<div class="flex flex-col items-center gap-1 mb-2 px-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary shadow-lg shadow-primary/20">
+<img alt="Concierge" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFxF2CHS8FhrHh79fOno2EIvKE9tVndopRHnnKUUK-ZVCZcgTeYR5n6BWfrYLyPRC6Q_dhqZHDA7bGyZRjbGmJohcCdcxULnXCajPHdhKUj-iJrXHmipUBMg2OdABeI5O0Lke2K7-1yAi81cZ30BZ4p-ZqK7rC-SakJbpzvPLRFjr8bEBv6Bl8AGU2OxZz-6n7QKV_-gMGW7hIviH6dEy3J2K6ASNcD8EVousfVTb3f5HJFMyeGFWrcnpXmQ020hii-0YwkBwqGTM"/>
+</div>
+</div>
+<button class="text-on-surface-variant p-3 hover:bg-primary-container hover:text-on-primary-container transition-all rounded-full group relative">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="absolute right-full mr-4 bg-primary text-on-primary text-[10px] px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">WhatsApp</span>
+</button>
+<button class="bg-primary text-on-primary rounded-full p-4 hover:shadow-2xl hover:shadow-primary/30 transition-all scale-110 duration-300 ease-out group relative">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="absolute right-full mr-4 bg-primary text-on-primary text-[10px] px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">Schedule</span>
+</button>
+</aside>
+<main class="pt-32 pb-20 relative z-10">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-24 text-center">
+<span class="text-primary font-label-caps text-label-caps tracking-[0.2em] uppercase mb-6 block">Knowledge Hub</span>
+<h1 class="text-headline-xl font-headline-xl text-on-background mb-8 text-glow">Neuro-Insights &amp; Innovation</h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed">Explore the frontier of neurological excellence through high-definition surgical captures and expert perspectives.</p>
+</section>
+<!-- Surgical Insights (Video Gallery - Redesigned) -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="flex justify-between items-end mb-12">
+<div class="max-w-xl">
+<h2 class="text-headline-lg font-headline-lg text-on-background mb-4">Surgical Insights</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Immersive 3D neuro-animations and educational lectures detailing precise surgical methodologies.</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-label-caps text-label-caps group hover:bg-primary/5 px-4 py-2 rounded-lg transition-all">
+                VIEW ALL VIDEOS <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Video Card 1 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10" style="background: rgba(255, 255, 255, 0.4);">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Deep Brain Stimulation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7K2hF-pqet8mjf8e4ddiVGs4GpNLZ7f7wY8DtV8cmYfWY6HIY8G_tgv9ulES-20h_kD6vKUNgdEe4caT1YZybbTqbVhtt682ibWO-2OTVe8kfgP-OKXkx0cdMYSzMVl9-eDFc3IJQumafNFkGpQe-QpWfKP30d1Na-DNIo48Mg8Ckh19MuomXA5us2MaszwgBtkmssqdCOYpel1uYgw3bqCoqLFbBXcX-JoF-HPkESXy-jUya2d7rh-uZpxJuYP_L-fqRMepfoY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] font-mono-data px-2.5 py-1 rounded-full border border-white/20">01:45</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">DBS Protocols</h3>
+<p class="text-white/80 text-body-sm font-body-sm line-clamp-1 mb-4">Precision electrode mapping for movement disorders.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Video</button>
+</div>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10" style="background: rgba(255, 255, 255, 0.4);">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Robotic Spine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5lnlxzQN4XrmIuub8QkDub_SvRUPbl5X6hn4QBxQD4RUjnM2zjDAjvuBPzviWiaMPgGh1kZLIag-VVG9VnxC7yZDHKqLhr5L6OLmIZMPffmbveMs5OxKc97gRO-5vtGOdjpZq5am-czNkiLV4orEF95D-EUINBzAyU-pqTHepXg_LcnDsjybzx8b1ubKdsqCnvZkrnH90kXIG-viu4qhtRUcFJj4SgaAWfa8uEy8dui86E5Hccns537Ja0FBPP1WbPOYpOggOD14"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] font-mono-data px-2.5 py-1 rounded-full border border-white/20">00:58</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">Spine Robotics</h3>
+<p class="text-white/80 text-body-sm font-body-sm line-clamp-1 mb-4">Navigating complex spinal reconstructions.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Video</button>
+</div>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Micro Surgery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXFSt7RmCsR999YMYLpdD7AzTmwYtmtStcE0rnJNvtfCanSAMCxoeDjY97YrTxz79-P2Pi_yfTCQ0t_hiWJfFT20GhljALl2sO-JYiUhPy7d5K6YBAt75wBNl9240goNwKovPsvKoBebKCED1mWrnwBJXYikxj4nlph13DZ_1nzpsuKarJU7c6WxUjR0es3WxENqjT0CbekNV9ojzxLTcsECXx3JRn7oVB7FFe9-um3mCaPSldmvmJkIbQKu0f6HaWsZ4nAxzDJ4c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] font-mono-data px-2.5 py-1 rounded-full border border-white/20">02:15</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">Micro-Techniques</h3>
+<p class="text-white/80 text-body-sm font-body-sm line-clamp-1 mb-4">Mastering the art of neural micro-suturing.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Video</button>
+</div>
+</div>
+</div>
+<!-- Video Card 4 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Brain Mapping" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKqd4NIKQOj8Jq7ibf_4Mpes6Vx213TWayCFWKB1J8AudMVRv-88L1Y6MqDXvZuE4glxXa2WZHYVa3L6ZWkCzJZbbYcre2mBtEsUJqLuQZHd9Ip0wDfyaW1mfxp1BjyYVvrduzwJ4dany5YQj6u80U47eu3N2K8gYSN4IFXNhIt3209N6WpptDOVW8CvAJLIsQnHjcqKthVwhblDsMfSOl6Aqd5k_IHUwsnXHb4KbkoKv1GaOu-HsOxXxq8ZIw_rmCKrqPMgbwMv8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] font-mono-data px-2.5 py-1 rounded-full border border-white/20">01:20</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">AI Diagnostics</h3>
+<p class="text-white/80 text-body-sm font-body-sm line-clamp-1 mb-4">Using ML for real-time surgical guidance.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Video</button>
+</div>
+</div>
+</div>
+<!-- Video Card 5 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10" style="background: rgba(255, 255, 255, 0.4);">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Neural pathways" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFezrOh8GYA7LrcW_Pc6ZYr6K0ktQChjuXZhIk-dMmyUZ3fhLMVZ78lWF4L1DgjxtbWbAukk1eVRE-SZP7-38u9cXSUxkbyFeautO2kGwqK2SrQaSxHLHdrO8lxF_sE9Nj7XF41QBQ15dPvIpyoXvNAbUR5ZT9UdRKPoibjMO3pPJztjcN9ze6EqpI0ktKJok0dEkYXkwUPgM2hiv2UZXXiEGY3SyzAePZHs6GotQCAV73vCs506RnMCt3IISFXaXQJ96UZJtDBms"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] font-mono-data px-2.5 py-1 rounded-full border border-white/20">03:10</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">Neural Restoration</h3>
+<p class="text-white/80 text-body-sm font-body-sm line-clamp-1 mb-4">Future of limbic system navigation.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Video</button>
+</div>
+</div>
+</div>
+<!-- Video Card 6 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Surgical Office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD79SfcDbiFQ_o0AiqL94lMRzL1qgXWEVVNiJg0Bz1sHgOUHNVC0F8LBs_gwwAKItgIFXwPq6P_huXgl6sI_OUgCsb5COpAVQ2P_cQdF30HtiksI480GOBda342-3WmKGYrWBdXHBejyoINpLsJuHhNplxqJfbYO9bc_WmIMSG-sovZexlpj_VWo8fnlFh2yWHsyGEvgpSIaq_zXaLI_SpFTQDZKJKFzv3fxNDgfVDoBw1Xv0lKxGGYcCmupNmi11BFB7kk3OStJd8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] font-mono-data px-2.5 py-1 rounded-full border border-white/20">02:40</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">Ethics of Tech</h3>
+<p class="text-white/80 text-body-sm font-body-sm line-clamp-1 mb-4">Navigating human augmentation choices.</p>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Video</button>
+</div>
+</div>
+</div>
+</div>
+</section><section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="glass-card rounded-[2rem] overflow-hidden flex flex-col md:flex-row items-center gap-12 p-12 relative">
+<div class="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 100 Q 250 50 500 100 T 1000 100" fill="none" stroke="#006a62" stroke-width="2"></path>
+</svg>
+</div>
+<div class="w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+<img alt="Dr. Osama Mowafy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvtQlaEk2kSzu4Ce4wA5LG0NSDLaF4AuAVpinI1DMRXGxIeN2zQiZMXwZ1JAM9My5Qlu6oUzvzCuPLO3hXofJp16WrcJpINlI7OVGJLPK9Y8vlpzwiZ3oLQr9bI3bFP3HGc60VP55HTddeLlfoUvPHpmF1FMMXY_FvNGmpP4z078AW_OG5ku9ZugBAH52p2KXO1nVTkCllrnSG9_y2qTj_23nGPhzHJbdGDICWM88aREua2JBz8jauTpg"/>
+</div>
+<div class="flex-grow relative">
+<span class="material-symbols-outlined text-primary/20 text-8xl absolute -top-10 -left-8 select-none">format_quote</span>
+<blockquote class="relative z-10">
+<p class="text-headline-lg font-headline-lg text-on-background mb-6 italic leading-tight">"Patient education is the first step toward successful treatment."</p>
+<cite class="not-italic">
+<span class="block text-primary font-bold text-lg">Dr. Osama Mowafy</span>
+<span class="text-on-surface-variant text-label-caps uppercase tracking-widest">Lead Neurosurgeon</span>
+</cite>
+</blockquote>
+</div>
+</div>
+</section><section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-primary font-label-caps text-label-caps tracking-[0.2em] uppercase mb-4 block">PATIENT EXPERIENCES</span>
+<h2 class="text-headline-lg font-headline-lg text-on-background mb-6">What Our Patients Say</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed">Watch real patients share their experiences with Dr. Osama Mowafy and describe their treatment journey.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Patient Review 1 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10" onclick="document.getElementById('video-modal').classList.remove('hidden')">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img alt="Patient Review 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD79SfcDbiFQ_o0AiqL94lMRzL1qgXWEVVNiJg0Bz1sHgOUHNVC0F8LBs_gwwAKItgIFXwPq6P_huXgl6sI_OUgCsb5COpAVQ2P_cQdF30HtiksI480GOBda342-3WmKGYrWBdXHBejyoINpLsJuHhNplxqJfbYO9bc_WmIMSG-sovZexlpj_VWo8fnlFh2yWHsyGEvgpSIaq_zXaLI_SpFTQDZKJKFzv3fxNDgfVDoBw1Xv0lKxGGYcCmupNmi11BFB7kk3OStJd8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-label-caps px-2.5 py-1 rounded-full shadow-lg">Patient Story</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">My Experience After Treatment</h3>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Story</button>
+</div>
+</div>
+</div>
+<!-- Patient Review 2 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10" onclick="document.getElementById('video-modal').classList.remove('hidden')">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img alt="Patient Review 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFezrOh8GYA7LrcW_Pc6ZYr6K0ktQChjuXZhIk-dMmyUZ3fhLMVZ78lWF4L1DgjxtbWbAukk1eVRE-SZP7-38u9cXSUxkbyFeautO2kGwqK2SrQaSxHLHdrO8lxF_sE9Nj7XF41QBQ15dPvIpyoXvNAbUR5ZT9UdRKPoibjMO3pPJztjcN9ze6EqpI0ktKJok0dEkYXkwUPgM2hiv2UZXXiEGY3SyzAePZHs6GotQCAV73vCs506RnMCt3IISFXaXQJ96UZJtDBms"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-label-caps px-2.5 py-1 rounded-full shadow-lg">Patient Story</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">A Reassuring Journey from the First Consultation</h3>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Story</button>
+</div>
+</div>
+</div>
+<!-- Patient Review 3 -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10" onclick="document.getElementById('video-modal').classList.remove('hidden')">
+<div class="relative aspect-[9/16] overflow-hidden">
+<img alt="Patient Review 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKqd4NIKQOj8Jq7ibf_4Mpes6Vx213TWayCFWKB1J8AudMVRv-88L1Y6MqDXvZuE4glxXa2WZHYVa3L6ZWkCzJZbbYcre2mBtEsUJqLuQZHd9Ip0wDfyaW1mfxp1BjyYVvrduzwJ4dany5YQj6u80U47eu3N2K8gYSN4IFXNhIt3209N6WpptDOVW8CvAJLIsQnHjcqKthVwhblDsMfSOl6Aqd5k_IHUwsnXHb4KbkoKv1GaOu-HsOxXxq8ZIw_rmCKrqPMgbwMv8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/40 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-2xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-label-caps px-2.5 py-1 rounded-full shadow-lg">Patient Story</span>
+<div class="absolute bottom-0 left-0 w-full p-6 text-center">
+<h3 class="text-white text-headline-lg-mobile font-headline-lg-mobile mb-2 group-hover:text-primary-fixed transition-colors">Returning to My Daily Life with Confidence</h3>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-label-caps font-label-caps px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">Watch Story</button>
+</div>
+</div>
+</div>
+</div>
+</section><section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-headline-lg font-headline-lg text-on-background mb-6">Why Watch Our Videos?</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed">Our educational videos provide clear, reliable, and expert-reviewed medical information to help you understand complex neurological conditions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h4 class="font-bold text-on-background mb-3">Trusted Medical Information</h4>
+<p class="text-body-sm text-on-surface-variant">Content created and reviewed by a specialized neurosurgeon.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h4 class="font-bold text-on-background mb-3">Easy to Understand</h4>
+<p class="text-body-sm text-on-surface-variant">Complex medical topics explained using clear and simple language.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<h4 class="font-bold text-on-background mb-3">Evidence-Based Content</h4>
+<p class="text-body-sm text-on-surface-variant">Information based on modern medical knowledge and established clinical guidelines.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">stethoscope</span>
+</div>
+<h4 class="font-bold text-on-background mb-3">Expert Advice</h4>
+<p class="text-body-sm text-on-surface-variant">Practical medical guidance from an experienced neurosurgeon.</p>
+</div>
+</div>
+</section><section class="max-w-container-max mx-auto px-margin-desktop mb-24">
+<div class="bg-primary rounded-[2rem] p-12 relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10%" cy="20%" fill="white" r="100"></circle>
+<circle cx="90%" cy="80%" fill="white" r="150"></circle>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+<div class="max-w-2xl text-center lg:text-left">
+<h2 class="text-headline-lg font-headline-lg text-white mb-4">Ready to Take the Next Step?</h2>
+<p class="text-white/80 text-body-md">Book your appointment with Dr. Osama Mowafy and receive expert guidance for your condition.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary-container hover:text-on-primary-container transition-all shadow-xl active:scale-95">Book Appointment</button>
+<button class="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all active:scale-95">Contact Us</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Neuro-Perspectives (Blog Section) -->
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-primary/10 py-24 relative overflow-hidden">
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="footer-pattern" patternunits="userSpaceOnUse" width="40">
+<circle cx="2" cy="2" fill="#40e0d0" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#footer-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col gap-16 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-md">
+<h2 class="text-headline-lg font-headline-xl text-primary mb-8 tracking-tight">NEUROPRECISION</h2>
+<p class="text-on-surface-variant/80 text-body-md font-body-md leading-relaxed">Excellence in neurosurgical precision and medical innovation. Providing elite care through the world's most advanced technological frameworks.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 gap-24">
+<div class="flex flex-col gap-6">
+<h4 class="text-label-caps font-label-caps text-primary uppercase tracking-widest border-b border-primary/20 pb-2">Resources</h4>
+<a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all duration-300 text-body-sm font-body-sm" href="#">Videos &amp; Lectures</a>
+<a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all duration-300 text-body-sm font-body-sm" href="#">Research Articles</a>
+<a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all duration-300 text-body-sm font-body-sm" href="#">Case Studies</a>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-label-caps font-label-caps text-primary uppercase tracking-widest border-b border-primary/20 pb-2">Support</h4>
+<a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all duration-300 text-body-sm font-body-sm" href="#">Patient Portal</a>
+<a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all duration-300 text-body-sm font-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-primary hover:translate-x-2 transition-all duration-300 text-body-sm font-body-sm" href="#">Surgical Integrity</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-primary/10 gap-8">
+<p class="text-label-caps font-mono-data text-on-surface-variant/50">©️ 2024 NEUROPRECISION ELITE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="text-on-surface-variant/40 hover:text-primary transition-all duration-300 scale-110" href="#">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="text-on-surface-variant/40 hover:text-primary transition-all duration-300 scale-110" href="#">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Micro-interactions and glass effect mouse tracking
+    document.querySelectorAll('.glass-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(64, 224, 208, 0.08) 0%, rgba(255, 255, 255, 0.4) 50%)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.background = `rgba(255, 255, 255, 0.4)`;
+        });
+    });
+
+    // Parallax hero effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('h1');
+        if(hero) {
+            hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+            hero.style.opacity = 1 - (scrolled / 1000);
+        }
+    });
+
+    // Navbar transparency shift
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('bg-white/90', 'shadow-2xl', 'shadow-primary/5');
+            nav.classList.remove('bg-white/70');
+        } else {
+            nav.classList.remove('bg-white/90', 'shadow-2xl', 'shadow-primary/5');
+            nav.classList.add('bg-white/70');
+        }
+    });
+</script>
+</body></html>

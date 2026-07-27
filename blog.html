@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#c6e8fa",
+                        "on-primary-fixed-variant": "#004f53",
+                        "surface-bright": "#f9f9ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#2b4b59",
+                        "primary-container": "#288085",
+                        "primary-fixed": "#9ff0f5",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#f4ffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#414753",
+                        "on-primary-fixed": "#002021",
+                        "inverse-surface": "#2d3038",
+                        "inverse-primary": "#83d4d9",
+                        "on-surface": "#181c22",
+                        "on-secondary-fixed": "#001f2a",
+                        "primary-fixed-dim": "#83d4d9",
+                        "on-background": "#181c22",
+                        "tertiary": "#5a5c5c",
+                        "primary": "#00666b",
+                        "surface-container": "#ecedf7",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#496978",
+                        "surface-container-highest": "#e0e2ec",
+                        "background": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#c6e8fa",
+                        "outline-variant": "#c1c6d5",
+                        "surface-container-high": "#e6e8f1",
+                        "secondary": "#436372",
+                        "surface-tint": "#00696e",
+                        "secondary-fixed-dim": "#aacbdd",
+                        "outline": "#717785",
+                        "on-tertiary-container": "#fcfcfc",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dae3",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e0e2ec",
+                        "surface-container-low": "#f2f3fd",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "tertiary-container": "#737575",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "xl": "48px",
+                        "sm": "8px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Anton"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Anton"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    }catch(_e){}</script><meta charset="utf-8"></head><body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
+<!-- Shared Component: TopNavBar -->
+<header class="w-full top-0 sticky bg-background dark:bg-surface-container-lowest border-b border-outline-variant/30 z-50">
+<nav class="flex justify-between items-center px-margin-desktop h-20 max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter">NeuroPrecision</div>
+<div class="hidden md:flex gap-lg items-center">
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Home</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Doctor</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Specialties</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Services</a>
+<a href="#" class="font-label-md text-label-md text-primary border-b-2 border-primary font-bold pb-1">Media</a>
+<a href="#" class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+</div>
+<div class="flex items-center gap-base">
+<button class="bg-primary text-on-primary px-lg py-sm rounded transition-transform scale-95 active:scale-90 font-label-md">Patient Portal</button>
+</div>
+</nav>
+</header>
+<!-- SideNavBar (Quick Actions) -->
+<div class="fixed right-0 top-1/2 -translate-y-1/2 rounded-l-xl w-16 hover:w-48 transition-all duration-300 overflow-hidden flex flex-col gap-base py-lg items-center z-40 bg-secondary dark:bg-secondary-container shadow-md group">
+<div class="flex flex-col items-center gap-gutter w-full">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-secondary" data-icon="calendar_month">calendar_month</span>
+<span class="text-[10px] uppercase font-bold text-on-secondary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Book Appointment</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-secondary" data-icon="chat">chat</span>
+<span class="text-[10px] uppercase font-bold text-on-secondary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">WhatsApp</span>
+</div>
+</div>
+<div class="mt-auto border-t border-white/10 pt-base w-full text-center">
+<span class="material-symbols-outlined text-on-secondary animate-pulse" data-icon="call">call</span>
+</div>
+</div>
+<main>
+<!-- HERO SECTION -->
+<section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-neutral-900">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/60 z-10"></div>
+<div class="w-full h-full object-cover" data-alt="A cinematic, high-resolution scientific visualization of a human neural network glowing in deep turquoise and teal against a dark background. The lighting is dramatic and precise, highlighting individual synapses with a sharp medical focus. The mood is professional, authoritative, and advanced, reflecting a modern neurosurgical clinic's high-tech environment." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBIB5cojwGc7AhfnAQkw_Ke18trK1l6Te7zMSIMq1HevSY-yHar3QNNwnjwT4pHTnO8swwW0ZNbHAvmafd69RaeqLHTtg18ZDpFmzjDI20y6HELY9laeVXtugBqksdb9-jfaRKi8Gu1emQUoyE9EsvgW7de0Md93Jz_hlT-V7qMimdMoedaJg__IgKQr3esE3MjGdNZf_u7S6cnsk7zqVHJPEyjnU06WluAAZCYKGeKth98QkfyXcggiGufRaIN7eIt23Bjwh2Erww&quot;); background-size: cover; background-position: center center;"></div>
+</div>
+<div class="relative z-20 text-center px-margin-mobile max-w-4xl animate-in fade-in slide-in-from-bottom-10 duration-1000">
+<span class="font-label-md text-label-md text-primary-fixed tracking-[0.2em] uppercase mb-gutter block text-shadow-premium">Medical Knowledge</span>
+<h1 class="font-headline-lg text-headline-lg text-on-primary text-shadow-premium mb-lg">Medical Articles &amp; Expert Insights</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 text-shadow-premium mb-xl max-w-2xl mx-auto">Explore trusted medical articles, practical health guidance, and expert surgical insights curated by Dr. Osama Mowafy for your neurological well-being.</p>
+<div class="flex flex-col sm:flex-row gap-gutter justify-center">
+<button class="bg-primary text-on-primary px-xl py-lg rounded-lg font-label-md hover:brightness-110 transition-slow shadow-lg shadow-primary/20">Explore Articles</button>
+<button class="bg-transparent border-2 border-on-primary text-on-primary px-xl py-lg rounded-lg font-label-md hover:bg-white/10 transition-slow backdrop-blur-sm">Book Appointment</button>
+</div>
+</div>
+</section>
+<!-- FEATURED ARTICLE -->
+<section class="px-margin-desktop py-xl -mt-24 relative z-30 max-w-screen-2xl mx-auto">
+<div class="glass-card rounded-xl overflow-hidden shadow-xl flex flex-col lg:flex-row min-h-[400px]">
+<div class="lg:w-1/2 relative min-h-[300px]">
+<img class="w-full h-full object-cover" data-alt="A professional medical photograph of a neurosurgical consultation. A surgeon is pointing at a detailed 3D brain scan on a large, high-resolution monitor. The room is a modern clinic with cool turquoise accents and clean industrial surfaces. Soft natural lighting creates a calm and reliable atmosphere for patient education." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnYldOIHenJ1pmL62671pb3aoNJMC3YDt1hyg7ytaiEar8nvNYschZ0VMs8LKpaNn111Wl_qSBAwT-015rdBG5Bieipe93uIzeAVYY5afj7pqO3XGA03_X88p4ujrWubyHqLzHM47XdS_lg4R-N-OeIxg2eGGGMSBN3g08eVXy_6ewY1ogbDhsfJYj8CuaZwksK85XKRKZa84rKKLYAdX9Ld7epv_bksTPmFQp3jJaq9jh3OyEL1uHqoDol7KH02nPF41i8m81IdE">
+<div class="absolute top-gutter left-gutter bg-primary text-on-primary px-md py-xs rounded-full font-label-md text-[12px] uppercase">Featured Article</div>
+</div>
+<div class="lg:w-1/2 p-xl flex flex-col justify-center">
+<span class="text-primary font-bold font-label-md mb-base">Neurosurgery Foundations</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Understanding Minimally Invasive Spine Surgery</h2>
+<p class="text-on-surface-variant font-body-md mb-lg leading-relaxed">Modern neurosurgery has evolved to prioritize patient recovery through precision techniques. Learn how minimally invasive procedures are redefining outcomes in spine health and what patients should expect during the journey.</p>
+<div class="flex items-center gap-md text-on-surface-variant/70 font-label-md mb-xl">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span> 8 min read</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span> Oct 24, 2024</span>
+</div>
+<button class="w-fit border-2 border-primary text-primary px-xl py-md rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-slow" onclick="openArticle('featured')">Read Full Article</button>
+</div>
+</div>
+</section>
+<!-- ARTICLE GRID -->
+<section class="px-margin-desktop py-xl max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-2xl transition-slow cursor-pointer" onclick="openArticle(1)">
+<div class="relative overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-slow duration-700" data-alt="A macro shot of a complex surgical instrument held by a gloved hand under cool operating room lights. The teal and chrome aesthetic highlights precision and technical excellence. The background is softly blurred medical equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwTCa9rqstbXL_5WuuAne-P4SCAA03X1rCE2lGOrg0xkYuGLtucWNTtJGnoIi9d5RLAugHMY0okZH3HiD5IAx4PBfb1mNoiSm69hcVGoY76W-plZTnkrQLXpZAhJw8gaWkEfgWrqZYWVeio4MLxTYLW3_qdx96_dewUfQkBAki-qV7G_8IdbIHInmL7s1wMWFVWyNNOYmEulXIUcFSx3HnhxBbpcAORsRKSg-f3vK1Vd15axKJg284oqwVGu7XnOyDgbpMgfw8keQ">
+<div class="absolute bottom-base right-base bg-white/90 backdrop-blur px-md py-xs rounded text-[12px] font-bold text-primary">RECOVERY</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-base text-on-surface-variant/60 font-label-md text-[12px]">
+<span class="">Oct 15, 2024</span>
+<span class="">5 min read</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-base group-hover:text-primary transition-colors">Post-Operative Care Essentials</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3 mb-lg">Recovery from neurosurgery requires a dedicated approach to physical therapy and lifestyle adjustments...</p>
+<span class="text-primary font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read Article <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span></span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-2xl transition-slow cursor-pointer" onclick="openArticle(2)">
+<div class="relative overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-slow duration-700" data-alt="A detailed anatomical illustration of the human brain with specific regions highlighted in glowing turquoise light. The style is clean, clinical, and high-contrast, designed for a modern medical education platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFQNoi6PwfvFJpwArNpkjzQz0sEW-k5ULqIw5MHUe4MnLC1iIAVyYv2Qqwf_ZTSDeENVyaiDF5OQrctA_TRIuSPEr12wxvBgkgalLNfi_1xsXLrhsTXByNpChnsqtVzFMLHZkugvU3e-UPOaVS3Bq4Ybp3absyaNrLQVwIoEl50RzOm-5p1SR8bZc2KRtEl6JWRGZJ60HQbXB1rUmWw-_sJ3z68jHAZLX527Ers7TVCRizwblJvxKFRBcwVeshkoIfa-3XDobjFCw">
+<div class="absolute bottom-base right-base bg-white/90 backdrop-blur px-md py-xs rounded text-[12px] font-bold text-primary">BRAIN HEALTH</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-base text-on-surface-variant/60 font-label-md text-[12px]">
+<span class="">Oct 12, 2024</span>
+<span class="">12 min read</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-base group-hover:text-primary transition-colors">Innovations in Glioma Treatment</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3 mb-lg">New surgical techniques and robotic assistance are providing better outcomes for patients with complex brain tumors...</p>
+<span class="text-primary font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read Article <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span></span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-2xl transition-slow cursor-pointer" onclick="openArticle(3)">
+<div class="relative overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-slow duration-700" data-alt="A close-up of a high-resolution MRI scan showing the spinal column with artificial neural overlay effects. The color palette consists of deep blues, teals, and clinical whites. The mood is one of scientific discovery and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtSScgX0HzDw6MqpRLGZuKeW1MQcpNjot4PC2Bk1uZWtYLmlCnHC4yg01WE1dZgNDA3QxwSRnI3iNh8QQH9H43a8PXR0smuhUvsJHQyQTmAR_85aJvgHr2jW4oOf7sapvuUG4rdEwpskaZqwd40uI17crNbex902KrcRyf1iYze1fHoxmRXmQbsNtjHnezoGpA95BHkjgDYjp1IOAKWLqb5JC9b_OZJRmbQOhCiZOn77324knyvD7JDB4E04Cd_Kzk0SdM57VInQ4">
+<div class="absolute bottom-base right-base bg-white/90 backdrop-blur px-md py-xs rounded text-[12px] font-bold text-primary">SPINE TECH</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-base text-on-surface-variant/60 font-label-md text-[12px]">
+<span class="">Oct 08, 2024</span>
+<span class="">6 min read</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-base group-hover:text-primary transition-colors">The Future of Spinal Implants</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3 mb-lg">Biocompatible materials and 3D printing are revolutionizing how we stabilize the spine during complex fusion surgeries...</p>
+<span class="text-primary font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read Article <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span></span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-2xl transition-slow cursor-pointer" onclick="openArticle(4)">
+<div class="relative overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-slow duration-700" data-alt="A modern medical research laboratory with clean white benches and turquoise lighting accents. Researchers in white coats are working with high-tech microscopes. The environment looks sterile, professional, and advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9bysndl35oyb8ozlqC7L6vU2xBGJJ4lSfKWub1aENM_h2CCcdkRJw2e8iLjp9ebJGb1ncI4pXYUhMecRQ0QZ2HrhOUmXYBsk0npgU1fiWJabwS8wUd_q8NoHojfdl7Ciy6ovJHe0Cv6VDmtr7xrPW4As_gao7yFNEK8wxBvYphSzlyXUv6by4rrkeVUO9C9lwSY3sFpE3UJPKRKMoQLRHIWoZHVttdgblpXMPJIe9QpIP2VdIABSH8iyA7do-Yz-RS930IOSCSs">
+<div class="absolute bottom-base right-base bg-white/90 backdrop-blur px-md py-xs rounded text-[12px] font-bold text-primary">RESEARCH</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-base text-on-surface-variant/60 font-label-md text-[12px]">
+<span class="">Sep 28, 2024</span>
+<span class="">10 min read</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-base group-hover:text-primary transition-colors">Neuro-Regenerative Therapies</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3 mb-lg">Exploring the clinical potential of stem cell research in repairing nerve damage and spinal cord injuries...</p>
+<span class="text-primary font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read Article <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span></span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-2xl transition-slow cursor-pointer" onclick="openArticle(5)">
+<div class="relative overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-slow duration-700" data-alt="A high-tech digital tablet showing a patient's medical history and brain scans. The tablet is being held by a doctor in a clinic setting. The lighting is bright and modern, emphasizing digital health transformation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDANChy92QKQwdD_6zw4CXCUiPmQJJt2fvlREh9N1UcXf1E_6YOiL75OHrpWCwBtCTElaU1LRDELHJKycMwqwLtRpOxcLgd8Zz_OIcVeo8tt8AeXKy7TQ_5NtQP8h1HtESEfwMpF6GpUlN0auRL36k0K7KbUE3hPFOeC68rLzI_l0PG0DgTD6Z1IqkM2xM6XjVCurnFXiXZSShZXoZxrXhFTv0fEoVOk3geBxZE2OLYlQxuzDcMrvZ81w9eM-LrvsZ_i5OWFHjSKcM">
+<div class="absolute bottom-base right-base bg-white/90 backdrop-blur px-md py-xs rounded text-[12px] font-bold text-primary">PATIENT CARE</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-base text-on-surface-variant/60 font-label-md text-[12px]">
+<span class="">Sep 20, 2024</span>
+<span class="">4 min read</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-base group-hover:text-primary transition-colors">Preparing for Your First Consultation</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3 mb-lg">What documents to bring, questions to ask, and what to expect during your initial neurological assessment...</p>
+<span class="text-primary font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read Article <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span></span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-2xl transition-slow cursor-pointer" onclick="openArticle(6)">
+<div class="relative overflow-hidden h-64">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-slow duration-700" data-alt="An abstract medical visualization of neural pathways connecting throughout the body. The design uses vibrant turquoise and deep navy tones, with a network-like structure that feels technical and industrial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlTsQV4zWqMGMPSD57DilcrWgou1ohhSCClXpkc7gsEBqX7EnWT-saQ0NAjuA8SXHjeyRltQ_Cr1FGYspyxYKbpn6qXHtIk1C3DL-de6IsVLfU3zirZpNL3eG9FG4jr6TDeLnU0uurfr60qITTxRH-qfHSsZxkV-Rj-mUMZK2Y7PtkstrsRliU6gF0BAVF2ZFD7M_zgk6qC1Zbmra0MdPELogQBV1MYfH85tfRR6GSj2JWIY9vK0lj86NzI8VzGuyxfm-kCuj_y0I">
+<div class="absolute bottom-base right-base bg-white/90 backdrop-blur px-md py-xs rounded text-[12px] font-bold text-primary">WELLNESS</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-base text-on-surface-variant/60 font-label-md text-[12px]">
+<span class="">Sep 15, 2024</span>
+<span class="">7 min read</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-base group-hover:text-primary transition-colors">Lifestyle Habits for Nerve Health</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-3 mb-lg">The impact of diet, hydration, and targeted exercises on peripheral nerve maintenance and pain prevention...</p>
+<span class="text-primary font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read Article <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- KNOWLEDGE BAR -->
+<section class="py-xl relative">
+<div class="neurological-pattern absolute inset-0 z-0"></div>
+<div class="max-w-screen-2xl mx-auto px-margin-desktop relative z-10">
+<div class="bg-surface-container-low border border-outline-variant/20 rounded-2xl p-xl md:flex items-center justify-between">
+<div class="w-full text-center">
+<h2 class="font-headline-md text-headline-md text-primary mb-base">Knowledge Is the First Step Toward Better Health</h2>
+<p class="text-on-surface-variant font-body-lg max-w-xl mx-auto">Explore our full library of trusted medical information and expert opinions to empower your health decisions.</p>
+</div>
+
+</div>
+</div>
+</section>
+<!-- CONTACT CTA -->
+<section class="bg-primary py-xl">
+<div class="max-w-screen-2xl mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-md text-headline-md text-on-primary mb-md">Need Expert Medical Guidance?</h2>
+<p class="font-body-lg text-on-primary/80 mb-xl max-w-2xl mx-auto">Book your specialized consultation with Dr. Osama Mowafy for a personalized evaluation and surgical excellence.</p>
+<div class="flex flex-col sm:flex-row gap-gutter justify-center">
+<button class="bg-on-primary text-primary px-xl py-lg rounded-lg font-label-md hover:bg-secondary-fixed transition-slow">Book Appointment</button>
+<button class="bg-transparent border-2 border-on-primary text-on-primary px-xl py-lg rounded-lg font-label-md hover:bg-on-primary/10 transition-slow">Contact Us</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xl bg-surface-container-highest dark:bg-inverse-surface border-t border-outline">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-xl px-margin-desktop py-xl max-w-screen-2xl mx-auto">
+<div class="md:col-span-2">
+<div class="font-headline-lg text-headline-lg text-secondary mb-md">NeuroPrecision</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-lg">Providing world-class neurosurgical care with industrial precision and maritime reliability.</p>
+<p class="text-on-surface-variant text-[12px]">©️ 2024 NeuroPrecision Surgical Group. Professional Excellence in Neurosurgery.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-md uppercase text-[12px] tracking-widest">Medical</h4>
+<ul class="space-y-base">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-primary" href="#">Surgical Outcomes</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-primary" href="#">Patient Resources</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-primary" href="#">Global Referrals</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-md uppercase text-[12px] tracking-widest">About</h4>
+<ul class="space-y-base">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-primary" href="#">Medical Ethics</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-primary" href="#">Research Publications</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-primary" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-md uppercase text-[12px] tracking-widest">Connect</h4>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="mail">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- POPUP ARTICLE READER -->
+<div class="fixed inset-0 z-[100] hidden" id="articlePopup">
+<div class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm" onclick="closeArticle()"></div>
+<div class="absolute inset-x-0 bottom-0 top-10 md:inset-lg bg-surface-container-lowest rounded-t-2xl md:rounded-2xl shadow-2xl overflow-y-auto animate-in slide-in-from-bottom-20 duration-500">
+<button class="sticky top-gutter left-full -ml-16 bg-surface-container hover:bg-outline-variant p-base rounded-full z-10 transition-colors" onclick="closeArticle()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="max-w-4xl mx-auto px-margin-desktop py-xl">
+<div class="mb-xl">
+<img class="w-full h-[400px] object-cover rounded-xl shadow-lg mb-xl" data-alt="A detailed wide shot of a medical article cover image featuring advanced surgical technology or brain scans. The lighting is clinical and high-end, fitting a prestigious medical journal style." id="popupImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlf422kGd-QKlXZSoTEFNUt96-VveAM0Ymjca_imxhbYlnRd7XRa3a3rNbfKAm7P4nKWi5_JXN-arp8w5Un9zNWUoWLbJMJglQz9yXt0sGmPYWRF6cvWPQehTFn7j0Sy-q4FdTIEQXZvCzgwq0VVmq-EmcJGbMf5R-UnzyxmcNmQTZm1ufc_m8hmUuQNt-5g5AV8gKbQyQ78vhreF4cMnv9XuXfMjEZKZlmsxLJ9VMiokQvCXhbg1-G677mYFh8KtBn-xwUGo7S2c">
+<div class="flex items-center gap-base mb-base">
+<span class="bg-primary/10 text-primary px-md py-xs rounded-full font-bold text-[12px] uppercase" id="popupCategory">Category</span>
+<span class="text-on-surface-variant/60 text-[14px]" id="popupDate">Date</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-lg" id="popupTitle">Article Title</h1>
+</div>
+<div class="prose prose-lg max-w-none text-on-surface-variant font-body-lg leading-relaxed space-y-lg">
+<h2 class="text-primary font-headline-md text-[28px]">Clinical Overview</h2>
+<p class="">Modern neurosurgical approaches are increasingly focused on reducing patient morbidity while maximizing therapeutic precision. Through the integration of advanced imaging modalities and robot-assisted navigation, surgeons can now access deep-seated lesions with sub-millimeter accuracy. This section explores the fundamental shifts in clinical practice over the last decade.</p>
+<ul class="list-disc pl-lg space-y-md">
+<li class="">Enhanced visualization via high-definition microscopy and intraoperative MRI.</li>
+<li class="">Reduced incision sizes leading to decreased hospital stays and faster return to daily activities.</li>
+<li class="">Advanced biocompatible materials used in spinal stabilization and cranial reconstruction.</li>
+<li class="">Personalized recovery protocols tailored to individual neural plasticity.</li>
+</ul>
+<div class="bg-surface-container-low border-l-4 border-primary p-xl my-xl rounded-r-lg italic">
+                        "Precision in neurosurgery is not merely about the tools we use, but the deep understanding of the patient's unique neural architecture. Every procedure is a blend of high-end engineering and human compassion."
+                        <span class="block mt-md font-bold not-italic text-on-surface">— Dr. Osama Mowafy, Consultant Neurosurgeon</span>
+</div>
+<h2 class="text-primary font-headline-md text-[28px]">Patient Outcomes and Research</h2>
+<p class="">Clinical data consistently shows that patients undergoing minimally invasive procedures experience up to 40% reduction in post-operative pain and significantly lower infection rates. Current research at NeuroPrecision continues to push the boundaries of what is possible in neuro-regeneration, exploring pharmacological and mechanical stimuli to enhance nerve repair.</p>
+<p class="">For more detailed information regarding specific surgical techniques or to schedule an evaluation, please contact our medical team directly.</p>
+</div>
+<div class="mt-xl pt-xl border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-md text-[20px]">OM</div>
+<div>
+<p class="font-bold text-on-surface">Verified by Dr. Osama Mowafy</p>
+<p class="text-[12px] text-on-surface-variant">Chief Surgeon, NeuroPrecision Group</p>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md">Share Article</button>
+<button class="border border-outline text-on-surface px-lg py-sm rounded-lg font-label-md">Download PDF</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        function openArticle(id) {
+            const popup = document.getElementById('articlePopup');
+            const title = document.getElementById('popupTitle');
+            const category = document.getElementById('popupCategory');
+            const date = document.getElementById('popupDate');
+            
+            // In a real app, these would fetch from a data object
+            if (id === 'featured') {
+                title.innerText = "Understanding Minimally Invasive Spine Surgery";
+                category.innerText = "Neurosurgery Foundations";
+                date.innerText = "Oct 24, 2024";
+            } else {
+                const titles = [
+                    "",
+                    "Post-Operative Care Essentials",
+                    "Innovations in Glioma Treatment",
+                    "The Future of Spinal Implants",
+                    "Neuro-Regenerative Therapies",
+                    "Preparing for Your First Consultation",
+                    "Lifestyle Habits for Nerve Health"
+                ];
+                const categories = ["", "RECOVERY", "BRAIN HEALTH", "SPINE TECH", "RESEARCH", "PATIENT CARE", "WELLNESS"];
+                title.innerText = titles[id];
+                category.innerText = categories[id];
+                date.innerText = "October 2024";
+            }
+
+            popup.classList.remove('hidden');
+            document.body.classList.add('article-popup-active');
+        }
+
+        function closeArticle() {
+            const popup = document.getElementById('articlePopup');
+            popup.classList.add('hidden');
+            document.body.classList.remove('article-popup-active');
+        }
+
+        // Add scroll fade in effect for elements
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group, .glass-card').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+
+</body></html>
