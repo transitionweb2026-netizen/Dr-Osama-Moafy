@@ -1,0 +1,26 @@
+{
+  "Meta": {
+    "defaultTitle": "NeuroPrecision | Dr. Osama Mowafy, Consultant Neurosurgeon",
+    "defaultDescription": "Dr. Osama Mowafy is a world-renowned neurosurgeon in Cairo, Egypt, specializing in minimally invasive spinal and cranial procedures, neuro-oncology, and functional neurosurgery."
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About the Doctor",
+    "services": "Services",
+    "videos": "Videos",
+    "blog": "Articles",
+    "contact": "Contact Us",
+    "bookAppointment": "Book Appointment",
+    "whatsapp": "WhatsApp",
+    "call": "Call"
+  },
+  "Footer": {
+    "blurb": "Dr. Osama Mowafy is dedicated to advancing the field of neurosurgery with technical precision and compassionate, patient-centered care.",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contact": "Contact",
+    "copyright": "©️ {year} NeuroPrecision. All rights reserved."
+  }
+}
