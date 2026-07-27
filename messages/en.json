@@ -22,5 +22,128 @@
     "termsOfService": "Terms of Service",
     "contact": "Contact",
     "copyright": "©️ {year} NeuroPrecision. All rights reserved."
+  },
+  "Home": {
+    "hero": {
+      "imageAlt": "Neurosurgeon reviewing brain scans in a modern operating theatre",
+      "eyebrow": "Pioneering Neurological Future",
+      "titleLine1": "Precision",
+      "titleLine2": "Beyond",
+      "titleLine3": "Perception.",
+      "description": "Redefining neurosurgery through microscopic precision and cinematic surgical navigation technology.",
+      "bookAppointment": "Book Appointment",
+      "contactUs": "Contact Us"
+    },
+    "videoIntro": {
+      "eyebrow": "The Visionary",
+      "title": "Dr. Osama Mowafy, Chief of Surgery",
+      "quote": "\"Surgery is not just a procedure; it is a meticulous symphony of technology and human empathy. At NeuroPrecision, we don't just treat conditions — we restore life's narrative through the most advanced neural maps ever created.\"",
+      "credentials": "Founder of the Neural Topology Institute and pioneer in minimally invasive robotic spinal fusion.",
+      "learnMore": "Learn More"
+    },
+    "specialties": {
+      "eyebrow": "Clinical Domains",
+      "title": "Focused Specialties",
+      "viewAll": "View All Specialties",
+      "learnMore": "Learn More",
+      "items": [
+        {
+          "title": "Oncology Neurosurgery",
+          "description": "Advanced resection of complex tumors using real-time fluorescent molecular imaging markers."
+        },
+        {
+          "title": "Complex Spine",
+          "description": "Minimally invasive spinal reconstruction utilizing robotic-assisted navigation and personalized implants."
+        },
+        {
+          "title": "Functional Restoration",
+          "description": "Treating movement disorders through targeted deep brain stimulation and neural modulation therapy."
+        }
+      ]
+    },
+    "servicesGrid": {
+      "eyebrow": "Precision Services",
+      "title": "Comprehensive Neural Care",
+      "items": [
+        { "title": "Brain Tumor Treatment", "description": "Expert neuro-oncology & precision resection." },
+        { "title": "Spine Surgery", "description": "Complex reconstruction and alignment." },
+        { "title": "Herniated Disc", "description": "Minimally invasive disc decompression." },
+        { "title": "Endoscopic Surgery", "description": "Advanced keyhole surgical techniques." },
+        { "title": "Peripheral Nerve Surgery", "description": "Restoring nerve function and mobility." },
+        { "title": "Pediatric Neurosurgery", "description": "Specialized neural care for infants and children." },
+        { "title": "Skull Base Surgery", "description": "Complex multidisciplinary access surgery." },
+        { "title": "Hydrocephalus", "description": "Shunt technology and ETV procedures." },
+        { "title": "Brain Hemorrhage", "description": "Emergency vascular intervention care." },
+        { "title": "Spinal Tumor", "description": "Precision removal of intradural masses." }
+      ]
+    },
+    "whyTrust": {
+      "imageAlt": "Advanced surgical robotic arm in use during a procedure",
+      "badgeYears": "20+",
+      "badgeLabel": "Years of Excellence",
+      "eyebrow": "Patient Assurance",
+      "title": "Why Trust Our Practice",
+      "points": [
+        { "title": "Extensive Experience", "description": "Thousands of successful procedures." },
+        { "title": "Accurate Diagnosis", "description": "Advanced neural mapping precision." },
+        { "title": "State-of-the-art Equipment", "description": "The latest in robotic navigation." },
+        { "title": "Minimally Invasive", "description": "Modern techniques for faster recovery." },
+        { "title": "Personalized Treatment", "description": "Care plans tailored to your unique anatomy." },
+        { "title": "Safety Standards", "description": "Rigorous clinical safety protocols." }
+      ]
+    },
+    "certificates": {
+      "eyebrow": "Accreditations",
+      "title": "World-Class Recognition",
+      "previous": "Previous certificate",
+      "next": "Next certificate",
+      "items": [
+        { "title": "Board of Neurological Surgery", "subtitle": "Certified Specialist", "meta": "Active Diplomatic Status — Issued 2018" },
+        { "title": "Robotic Surgery Institute", "subtitle": "Master Operator Certification", "meta": "Innovation Excellence — Issued 2021" },
+        { "title": "National Cancer Center", "subtitle": "Oncology Leadership Award", "meta": "Clinical Distinction — Issued 2022" }
+      ]
+    },
+    "faq": {
+      "title": "Common Inquiries",
+      "items": [
+        {
+          "question": "What technologies are used in your surgical navigation?",
+          "answer": "We utilize the Precision-7 AI system, which combines real-time intraoperative MRI data with holographic augmented reality overlays for 0.1mm surgical guidance. This ensures the highest level of anatomical safety."
+        },
+        {
+          "question": "How do I schedule a specialized consultation?",
+          "answer": "You can use our integrated Patient Portal for direct scheduling. For urgent evaluations, please call our emergency concierge line to receive a priority assessment within 24 hours."
+        },
+        {
+          "question": "Do you offer second opinions on existing scans?",
+          "answer": "Yes, our dedicated Scan Viewer portal allows you to securely upload DICOM files for a comprehensive remote review. Following upload, Dr. Mowafy will provide a detailed report."
+        }
+      ]
+    },
+    "educationalShorts": {
+      "eyebrow": "Educational Shorts",
+      "title": "Clinical Insights",
+      "viewAll": "View All Videos",
+      "items": [
+        { "title": "Neural Mapping Tech", "duration": "02:45", "category": "Surgical Navigation" },
+        { "title": "Robotic Precision", "duration": "03:12", "category": "Minimally Invasive" },
+        { "title": "Patient Recovery", "duration": "01:58", "category": "Post-Op Care" }
+      ]
+    },
+    "contactCta": {
+      "titleLine1": "Elevate",
+      "titleLine2": "Your Care",
+      "description": "Experience world-class neurosurgical consultation powered by precision technology and compassionate expertise. Your journey to recovery starts with a single conversation.",
+      "bookAppointment": "Book Appointment",
+      "whatsapp": "WhatsApp",
+      "fastResponse": "Fast Response",
+      "expertConsultation": "Expert Consultation",
+      "clinicDetails": "Clinic Details",
+      "phoneLabel": "Phone Number",
+      "whatsappLabel": "WhatsApp",
+      "emailLabel": "Email Address",
+      "addressLabel": "Clinic Address",
+      "bookNow": "Book Appointment Now"
+    }
   }
 }
