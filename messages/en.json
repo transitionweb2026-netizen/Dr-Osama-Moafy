@@ -228,5 +228,125 @@
       "bookAppointment": "Book Appointment",
       "contactClinic": "Contact Clinic"
     }
+  },
+  "Services": {
+    "meta": {
+      "title": "Medical Services & Specialties",
+      "description": "Comprehensive neurosurgical services from Dr. Osama Mowafy: minimally invasive spine surgery, neuro-oncology, functional neurosurgery, and more in Cairo, Egypt."
+    },
+    "hero": {
+      "imageAlt": "A high-tech cinematic surgical operating theater",
+      "badge": "Medical Services",
+      "titleLine1": "Precision Care for",
+      "titleLine2": "Neurological Excellence",
+      "description": "Dr. Osama Mowafy combines decades of surgical mastery with the latest technological advancements to deliver life-changing neurosurgical outcomes.",
+      "bookAppointment": "Book Appointment",
+      "contactUs": "Contact Us"
+    },
+    "specialtiesGrid": {
+      "title": "Specialized Expertise",
+      "description": "Comprehensive neurosurgical solutions focusing on complex pathologies and delicate interventions.",
+      "items": [
+        { "title": "Oncology Neurosurgery", "description": "Advanced resection techniques for primary and metastatic brain and spinal cord tumors." },
+        { "title": "Complex Spine", "description": "Surgical correction of degenerative spine disease, deformities, and traumatic injuries." },
+        { "title": "Functional Restoration", "description": "Treating movement disorders and chronic pain through neuro-modulation and ablation." },
+        { "title": "Pediatric Neurosurgery", "description": "Compassionate surgical care for congenital and acquired conditions in children." },
+        { "title": "Skull Base Surgery", "description": "Minimally invasive and open procedures for deep-seated cranial base pathologies." },
+        { "title": "Hydrocephalus", "description": "Modern shunting and endoscopic third ventriculostomy (ETV) for CSF management." }
+      ]
+    },
+    "treatments": {
+      "title": "Comprehensive Treatments",
+      "previous": "Previous treatment",
+      "next": "Next treatment",
+      "learnMore": "Learn More",
+      "close": "Close",
+      "overview": "Overview",
+      "symptoms": "Symptoms",
+      "diagnosisAndTreatment": "Diagnosis & Treatment",
+      "recovery": "Recovery",
+      "patientFaqs": "Patient FAQs",
+      "scheduleConsultation": "Schedule Consultation for this Treatment",
+      "items": [
+        { "title": "Minimally Invasive Spine Surgery", "description": "Utilizing microscopic techniques to treat spinal herniation with minimal recovery time." },
+        { "title": "Brain Tumor Resection", "description": "State-of-the-art microsurgical removal of intracranial tumors with intraoperative monitoring." },
+        { "title": "Neuro-Oncology", "description": "Specialized surgical management of complex brain and spinal cord tumors." },
+        { "title": "Functional Neurosurgery", "description": "Advanced treatment for movement disorders and chronic pain using deep brain stimulation." },
+        { "title": "Pediatric Neurosurgery", "description": "Compassionate surgical care for congenital and acquired conditions in children." },
+        { "title": "Skull Base Surgery", "description": "Minimally invasive and open procedures for deep-seated cranial base pathologies." },
+        { "title": "Cerebrovascular Surgery", "description": "Expert management of aneurysms, AVMs, and carotid artery disease." },
+        { "title": "Hydrocephalus Treatment", "description": "Modern shunting and endoscopic third ventriculostomy (ETV) for CSF management." },
+        { "title": "Peripheral Nerve Surgery", "description": "Restoring function and mobility through precise nerve repair and decompression." }
+      ],
+      "details": {
+        "0": {
+          "overview": "Minimally invasive spine surgery (MISS) uses specialized instruments and imaging to treat spinal conditions with smaller incisions, less muscle damage, and faster recovery.",
+          "symptoms": ["Radiating leg pain", "Chronic back discomfort", "Numbness in extremities"],
+          "diagnosis": "Diagnosis typically involves MRI, CT scans, and physical neurological assessment.",
+          "treatment": "Using tubular retractors and endoscopic cameras, the surgeon corrects herniated discs or stenosis.",
+          "recovery": "Most patients return home within 24 hours. Full activity returning in 4-6 weeks.",
+          "faq": "Is it safer than open surgery? Yes, generally lower risk of infection."
+        },
+        "1": {
+          "overview": "The surgical removal of abnormal growths within the skull, utilizing advanced neuro-navigation and microscopic tools to maximize resection.",
+          "symptoms": ["Persistent headaches", "Seizures", "Cognitive changes", "Visual impairment"],
+          "diagnosis": "High-resolution MRI with contrast and functional imaging (fMRI) are used.",
+          "treatment": "Microsurgical techniques combined with intraoperative monitoring ensure the highest safety.",
+          "recovery": "Hospital stay ranges from 3-7 days. Rehabilitation may follow.",
+          "faq": "Will I be awake? Only for Awake Craniotomy in critical areas."
+        }
+      }
+    },
+    "journey": {
+      "title": "Patient Care Journey",
+      "steps": [
+        { "title": "01. Book", "description": "Online or phone scheduling" },
+        { "title": "02. Consult", "description": "Personalized evaluation" },
+        { "title": "03. Exam", "description": "Physical examination" },
+        { "title": "04. Diagnosis", "description": "Imaging & analysis" },
+        { "title": "05. Plan", "description": "Tailored treatment path" },
+        { "title": "06. Procedure", "description": "Surgical intervention" },
+        { "title": "07. Follow-up", "description": "Post-op recovery care" }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose NeuroPrecision?",
+      "items": [
+        { "title": "20+ Years Experience", "description": "Proven surgical expertise" },
+        { "title": "Advanced Robotics", "description": "Unmatched precision" },
+        { "title": "Personalized Care", "description": "Patient-centered approach" },
+        { "title": "Modern Equipment", "description": "Cutting-edge technology" },
+        { "title": "High Success Rates", "description": "Excellent clinical outcomes" },
+        { "title": "Continuous Support", "description": "24/7 post-op assistance" }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        { "question": "What is the recovery time for spine surgery?", "answer": "Recovery varies by procedure. Minimally invasive surgeries often allow patients to return home the same day, while complex cases may require 2-4 days of hospitalization. Full recovery typically takes 4-12 weeks." },
+        { "question": "Do you offer second opinions?", "answer": "Yes, Dr. Osama Mowafy provides comprehensive second-opinion consultations for complex neurological diagnoses to ensure patients have full confidence in their treatment path." },
+        { "question": "Is neurosurgery always the first option?", "answer": "No. Our philosophy is to explore conservative, non-surgical treatments first whenever possible. Surgery is recommended only when it is the most effective path." },
+        { "question": "What insurances do you accept?", "answer": "We accept a wide range of international and local medical insurance providers. Please contact our front desk for a specific list." },
+        { "question": "How can I prepare for my first visit?", "answer": "Please bring all recent MRI/CT scans (on CD if possible), a list of current medications, and any prior surgical reports related to your condition." },
+        { "question": "Are minimally invasive procedures safer?", "answer": "MISS generally carries lower risks of infection and blood loss, and results in less post-operative pain compared to traditional open surgery." },
+        { "question": "What is the success rate for tumor removals?", "answer": "Success rates vary by tumor type and location. Dr. Mowafy uses intraoperative navigation to maximize safety and efficacy for every case." },
+        { "question": "Can I travel after neurosurgery?", "answer": "Most patients are advised to wait 2-6 weeks before flying, depending on the specific procedure performed and their individual recovery progress." },
+        { "question": "How do I manage pain after surgery?", "answer": "A personalized pain management plan, including medication and physical therapy, is provided to every patient before they are discharged." },
+        { "question": "Do you perform surgeries on international patients?", "answer": "Yes, we regularly host patients from across the globe and can assist with medical visa documentation and local accommodation coordination." }
+      ]
+    },
+    "bookCta": {
+      "badge": "Expert Consultation",
+      "titleLine1": "Your Path to Recovery Starts",
+      "titleLine2": "with",
+      "titleHighlight": "Expert Precision",
+      "description": "Consult with Cairo's leading neurosurgeon today and take the first step towards a better quality of life. We provide comprehensive evaluations for all complex neurological conditions.",
+      "features": ["Quick Response", "Easy Booking"],
+      "bookAppointment": "Book Appointment",
+      "whatsapp": "WhatsApp",
+      "imageAlt": "Dr. Osama Mowafy - Leading Neurosurgeon",
+      "experienceLabel": "Experience",
+      "experienceValue": "20+ Years"
+    }
   }
 }
