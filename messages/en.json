@@ -145,5 +145,88 @@
       "addressLabel": "Clinic Address",
       "bookNow": "Book Appointment Now"
     }
+  },
+  "About": {
+    "meta": {
+      "title": "About Dr. Osama Mowafy",
+      "description": "Learn about Dr. Osama Mowafy's 20+ years of experience in neuro-oncology, minimally invasive spine surgery, and functional neurosurgery in Cairo, Egypt."
+    },
+    "hero": {
+      "imageAlt": "Cinematic neurosurgery background",
+      "eyebrow": "About the Doctor",
+      "title": "DR. OSAMA MOWAFY",
+      "description": "World-renowned neurosurgeon dedicated to advancing the field of minimally invasive spinal and cranial procedures.",
+      "bookAppointment": "Book Your Appointment",
+      "contactUs": "Contact Us"
+    },
+    "introduction": {
+      "imageAlt": "Dr. Osama Mowafy portrait",
+      "badgeYears": "20+ Years",
+      "badgeLabel": "Surgical Excellence",
+      "title": "Pioneering Precision in Modern Neurosurgery",
+      "paragraph1": "Dr. Osama Mowafy is a world-renowned neurosurgeon dedicated to advancing the field of minimally invasive spinal and cranial procedures. With a career spanning over two decades, his medical philosophy centers on the marriage of industrial-grade technical precision and compassionate, patient-first care.",
+      "paragraph2": "Specializing in neuro-oncology and restorative spinal surgery, Dr. Mowafy leverages cutting-edge diagnostic technology to ensure every intervention is as accurate and minimally disruptive as possible.",
+      "quote": "\"My goal is not just to treat a condition, but to restore a life. Precision is the tool; the patient's well-being is the purpose.\"",
+      "signatureName": "Osama Mowafy",
+      "credentials": "O. MOWAFY, MD, PHD"
+    },
+    "videoShowcase": {
+      "title": "A Glimpse into Elite Care",
+      "imageAlt": "State of the art robotic surgery suite",
+      "badge": "Introductory Video"
+    },
+    "specialties": {
+      "title": "Medical Specialties",
+      "description": "Advanced surgical solutions tailored to complex neurological and spinal health requirements.",
+      "previous": "Previous specialty",
+      "next": "Next specialty",
+      "learnMore": "Learn More",
+      "items": [
+        { "title": "Minimally Invasive Spine", "description": "Microscopic precision and smaller incisions for disc replacements." },
+        { "title": "Neuro-Oncology", "description": "Surgical resection of complex brain tumors using navigation." },
+        { "title": "Functional Neurosurgery", "description": "Restoring movement through deep brain stimulation." },
+        { "title": "Pediatric Neurosurgery", "description": "Specialized care for congenital and acquired conditions in children." },
+        { "title": "Skull Base Surgery", "description": "Complex procedures for tumors at the base of the cranium." },
+        { "title": "Vascular Neurosurgery", "description": "Treatment of aneurysms and vascular malformations." },
+        { "title": "Neuro-Trauma", "description": "Critical care for traumatic brain and spinal cord injuries." },
+        { "title": "Peripheral Nerve Surgery", "description": "Repair and reconstruction of damaged peripheral nerves." },
+        { "title": "Complex Spine Reconstruction", "description": "Advanced correction of spinal deformities and revisions." }
+      ]
+    },
+    "experience": {
+      "eyebrow": "Professional History",
+      "title": "A Journey of Expert Achievement",
+      "description": "A legacy of education, training, and professional milestones built upon the highest global medical standards and a relentless pursuit of excellence.",
+      "badges": ["Board Certified", "Ph.D Surgery", "Fellowship Trained"],
+      "timeline": [
+        { "period": "2018 - PRESENT", "title": "Chief of Neurosurgery | NeuroPrecision Elite", "description": "Leading a multidisciplinary team focused on elite patient care and high-precision neurosurgical innovation at the region's premier specialty clinic." },
+        { "period": "2012 - 2018", "title": "Senior Surgeon | Global Medical Center", "description": "Specialized in complex spinal reconstructive surgeries and established the award-winning Minimally Invasive Surgery Unit." },
+        { "period": "2008 - 2012", "title": "Advanced Neuro-Oncology Fellowship", "description": "Intensive training at internationally recognized institutes focusing on intracranial tumors and skull base surgery techniques." }
+      ],
+      "certificatesTitle": "Accreditations & Certificates",
+      "certificates": [
+        { "title": "Board Certification", "alt": "Medical Board Certification" },
+        { "title": "Fellowship Award", "alt": "Fellowship Award" },
+        { "title": "Surgical License", "alt": "Medical License" },
+        { "title": "Advanced Training", "alt": "Surgical Training Certificate" }
+      ]
+    },
+    "testimonials": {
+      "title": "Patient Experiences",
+      "items": [
+        { "initials": "JD", "name": "Jonathan Davis", "quote": "After years of chronic back pain, Dr. Mowafy's minimally invasive approach changed my life. Precision is unmatched." },
+        { "initials": "SH", "name": "Sarah Henderson", "quote": "The level of care and technological precision at NeuroPrecision is world-class. Every detail was explained." },
+        { "initials": "MK", "name": "Michael Knight", "quote": "A true pioneer. The recovery from my spinal fusion was much faster than I ever anticipated. Highly recommend." },
+        { "initials": "EL", "name": "Elena Lopez", "quote": "Dr. Mowafy's expertise in neuro-oncology saved my life. The surgical team was professional and compassionate." },
+        { "initials": "RB", "name": "Robert Brown", "quote": "The facility is top-notch. You can tell they use the latest technology for every single procedure." },
+        { "initials": "AW", "name": "Alice Wong", "quote": "Exceptional care from start to finish. Dr. Mowafy is truly a master of his craft in functional neurosurgery." }
+      ]
+    },
+    "ctaBand": {
+      "title": "Your Health Deserves Expert Precision",
+      "description": "Start your journey to recovery with a consultant who prioritizes industrial-grade precision and elite patient outcomes.",
+      "bookAppointment": "Book Appointment",
+      "contactClinic": "Contact Clinic"
+    }
   }
 }
