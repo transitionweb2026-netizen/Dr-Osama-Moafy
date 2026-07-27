@@ -348,5 +348,66 @@
       "experienceLabel": "Experience",
       "experienceValue": "20+ Years"
     }
+  },
+  "Blog": {
+    "meta": {
+      "title": "Medical Articles & Expert Insights",
+      "description": "Explore trusted medical articles, practical health guidance, and expert surgical insights curated by Dr. Osama Mowafy for your neurological well-being."
+    },
+    "hero": {
+      "imageAlt": "Cinematic visualization of a human neural network",
+      "eyebrow": "Medical Knowledge",
+      "title": "Medical Articles & Expert Insights",
+      "description": "Explore trusted medical articles, practical health guidance, and expert surgical insights curated by Dr. Osama Mowafy for your neurological well-being.",
+      "exploreArticles": "Explore Articles",
+      "bookAppointment": "Book Appointment"
+    },
+    "featuredBadge": "Featured Article",
+    "readFullArticle": "Read Full Article",
+    "readArticle": "Read Article",
+    "close": "Close",
+    "featured": {
+      "title": "Understanding Minimally Invasive Spine Surgery",
+      "category": "Neurosurgery Foundations",
+      "excerpt": "Modern neurosurgery has evolved to prioritize patient recovery through precision techniques. Learn how minimally invasive procedures are redefining outcomes in spine health and what patients should expect during the journey.",
+      "date": "Oct 24, 2024",
+      "readTime": "8 min read"
+    },
+    "articles": [
+      { "title": "Post-Operative Care Essentials", "category": "RECOVERY", "excerpt": "Recovery from neurosurgery requires a dedicated approach to physical therapy and lifestyle adjustments.", "date": "Oct 15, 2024", "readTime": "5 min read" },
+      { "title": "Innovations in Glioma Treatment", "category": "BRAIN HEALTH", "excerpt": "New surgical techniques and robotic assistance are providing better outcomes for patients with complex brain tumors.", "date": "Oct 12, 2024", "readTime": "12 min read" },
+      { "title": "The Future of Spinal Implants", "category": "SPINE TECH", "excerpt": "Biocompatible materials and 3D printing are revolutionizing how we stabilize the spine during complex fusion surgeries.", "date": "Oct 08, 2024", "readTime": "6 min read" },
+      { "title": "Neuro-Regenerative Therapies", "category": "RESEARCH", "excerpt": "Exploring the clinical potential of stem cell research in repairing nerve damage and spinal cord injuries.", "date": "Sep 28, 2024", "readTime": "10 min read" },
+      { "title": "Preparing for Your First Consultation", "category": "PATIENT CARE", "excerpt": "What documents to bring, questions to ask, and what to expect during your initial neurological assessment.", "date": "Sep 20, 2024", "readTime": "4 min read" },
+      { "title": "Lifestyle Habits for Nerve Health", "category": "WELLNESS", "excerpt": "The impact of diet, hydration, and targeted exercises on peripheral nerve maintenance and pain prevention.", "date": "Sep 15, 2024", "readTime": "7 min read" }
+    ],
+    "popup": {
+      "clinicalOverviewTitle": "Clinical Overview",
+      "clinicalOverviewBody": "Modern neurosurgical approaches are increasingly focused on reducing patient morbidity while maximizing therapeutic precision. Through the integration of advanced imaging modalities and robot-assisted navigation, surgeons can now access deep-seated lesions with sub-millimeter accuracy. This section explores the fundamental shifts in clinical practice over the last decade.",
+      "point1": "Enhanced visualization via high-definition microscopy and intraoperative MRI.",
+      "point2": "Reduced incision sizes leading to decreased hospital stays and faster return to daily activities.",
+      "point3": "Advanced biocompatible materials used in spinal stabilization and cranial reconstruction.",
+      "point4": "Personalized recovery protocols tailored to individual neural plasticity.",
+      "pullQuote": "\"Precision in neurosurgery is not merely about the tools we use, but the deep understanding of the patient's unique neural architecture. Every procedure is a blend of high-end engineering and human compassion.\"",
+      "pullQuoteAttribution": "— Dr. Osama Mowafy, Consultant Neurosurgeon",
+      "outcomesTitle": "Patient Outcomes and Research",
+      "outcomesBody": "Clinical data consistently shows that patients undergoing minimally invasive procedures experience up to 40% reduction in post-operative pain and significantly lower infection rates. Current research at NeuroPrecision continues to push the boundaries of what is possible in neuro-regeneration, exploring pharmacological and mechanical stimuli to enhance nerve repair.",
+      "contactPrompt": "For more detailed information regarding specific surgical techniques or to schedule an evaluation, please contact our medical team directly.",
+      "doctorInitials": "OM",
+      "verifiedBy": "Verified by Dr. Osama Mowafy",
+      "doctorRole": "Chief Surgeon, NeuroPrecision Group",
+      "shareArticle": "Share Article",
+      "downloadPdf": "Download PDF"
+    },
+    "knowledgeBar": {
+      "title": "Knowledge Is the First Step Toward Better Health",
+      "description": "Explore our full library of trusted medical information and expert opinions to empower your health decisions."
+    },
+    "contactCta": {
+      "title": "Need Expert Medical Guidance?",
+      "description": "Book your specialized consultation with Dr. Osama Mowafy for a personalized evaluation and surgical excellence.",
+      "bookAppointment": "Book Appointment",
+      "contactUs": "Contact Us"
+    }
   }
 }

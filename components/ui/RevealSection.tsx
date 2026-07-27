@@ -10,6 +10,7 @@ interface RevealSectionProps {
   as?: ElementType;
   variant?: Variant;
   className?: string;
+  id?: string;
 }
 
 export function RevealSection({
@@ -17,6 +18,7 @@ export function RevealSection({
   as: Tag = "div",
   variant = "reveal",
   className = "",
+  id,
 }: RevealSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
@@ -44,6 +46,7 @@ export function RevealSection({
   return (
     <Tag
       ref={ref}
+      id={id}
       className={`${variant} ${active ? "reveal-active" : ""} ${className}`}
     >
       {children}
