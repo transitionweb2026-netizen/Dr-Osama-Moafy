@@ -10,11 +10,11 @@ export function DoctorQuote() {
       <div className="glass-card flex flex-col items-center gap-12 overflow-hidden rounded-[2rem] p-12 md:flex-row">
         <div className="h-48 w-48 shrink-0 overflow-hidden rounded-2xl border-4 border-white shadow-2xl md:h-64 md:w-64">
           <Image
-            src="https://lh3.googleusercontent.com/aida/AP1WRLvtQlaEk2kSzu4Ce4wA5LG0NSDLaF4AuAVpinI1DMRXGxIeN2zQiZMXwZ1JAM9My5Qlu6oUzvzCuPLO3hXofJp16WrcJpINlI7OVGJLPK9Y8vlpzwiZ3oLQr9bI3bFP3HGc60VP55HTddeLlfoUvPHpmF1FMMXY_FvNGmpP4z078AW_OG5ku9ZugBAH52p2KXO1nVTkCllrnSG9_y2qTj_23nGPhzHJbdGDICWM88aREua2JBz8jauTpg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdiML8vLoGqCjRhB8eoYNQmm3s6O18hBWCRsuNLFavkiLmlL15OZvXhIA0awcdlfX9hLvbFVLBe5IRvXvapu0atigd7XFPm4Ung7PVzpRdJrDUCN3cU3AzGDdGmQfeva0LuVaEMNSqVi4slMXS04wptT2t8fURtifQeoomCYyQb9fzpoSA0dfOdsNoXWs96QoDBwvGFyBA4MGXfuBq-fDNVa9EZjV2VQC-5jpn0t75Kg7CloVUlEIo5wPxl-2zQRCZxIzPTRzwKH4"
             alt={t("imageAlt")}
             width={256}
             height={256}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-top"
           />
         </div>
         <div className="relative flex-grow">

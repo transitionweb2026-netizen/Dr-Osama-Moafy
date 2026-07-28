@@ -21,7 +21,7 @@ export function SpecialtiesGrid() {
     >
       <div className="stagger-item mb-xl text-center">
         <h2 className="mb-md font-headline-md text-headline-md">{t("title")}</h2>
-        <p className="mx-auto max-w-xl text-on-surface-variant">
+        <p className="mx-auto max-w-[36rem] text-on-surface-variant">
           {t("description")}
         </p>
       </div>

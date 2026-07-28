@@ -27,7 +27,7 @@ export function SurgicalInsights() {
   return (
     <RevealSection as="section" className="mx-auto mb-32 max-w-screen-2xl px-margin-mobile md:px-margin-desktop">
       <div className="stagger-item mb-12 flex items-end justify-between">
-        <div className="max-w-xl">
+        <div className="max-w-[36rem]">
           <h2 className="mb-4 font-headline-md text-headline-md text-on-background">
             {t("title")}
           </h2>

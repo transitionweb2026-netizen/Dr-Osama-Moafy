@@ -22,7 +22,7 @@ export function Introduction() {
               className="aspect-[4/5] h-auto w-full object-cover"
             />
           </div>
-          <div className="glass-card absolute -bottom-8 -end-8 max-w-xs transform rounded-2xl border-s-8 border-primary p-8 shadow-2xl transition-transform hover:scale-105">
+          <div className="glass-card absolute -bottom-8 -end-8 max-w-[20rem] transform rounded-2xl border-s-8 border-primary p-8 shadow-2xl transition-transform hover:scale-105">
             <p className="font-headline-md text-3xl leading-tight text-primary">
               {t("badgeYears")}
               <br />

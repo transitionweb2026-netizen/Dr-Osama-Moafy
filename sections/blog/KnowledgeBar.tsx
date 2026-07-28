@@ -12,7 +12,7 @@ export function KnowledgeBar() {
             <h2 className="mb-base font-headline-md text-headline-md text-primary">
               {t("title")}
             </h2>
-            <p className="mx-auto max-w-xl font-body-lg text-on-surface-variant">
+            <p className="mx-auto max-w-[36rem] text-body-lg text-on-surface-variant">
               {t("description")}
             </p>
           </div>

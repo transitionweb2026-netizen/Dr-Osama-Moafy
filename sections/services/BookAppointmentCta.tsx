@@ -24,7 +24,7 @@ export function BookAppointmentCta() {
               <br />
               {t("titleLine2")} <span className="text-primary-fixed">{t("titleHighlight")}</span>
             </h2>
-            <p className="mb-10 max-w-xl text-lg opacity-90">
+            <p className="mb-10 max-w-[36rem] text-lg opacity-90">
               {t("description")}
             </p>
             <div className="mb-12 grid grid-cols-2 gap-6">
@@ -65,11 +65,11 @@ export function BookAppointmentCta() {
           <div className="relative lg:w-1/2">
             <div className="glass-card relative overflow-hidden rounded-3xl border border-white/20 p-4">
               <Image
-                src="https://lh3.googleusercontent.com/aida/AP1WRLvtQlaEk2kSzu4Ce4wA5LG0NSDLaF4AuAVpinI1DMRXGxIeN2zQiZMXwZ1JAM9My5Qlu6oUzvzCuPLO3hXofJp16WrcJpINlI7OVGJLPK9Y8vlpzwiZ3oLQr9bI3bFP3HGc60VP55HTddeLlfoUvPHpmF1FMMXY_FvNGmpP4z078AW_OG5ku9ZugBAH52p2KXO1nVTkCllrnSG9_y2qTj_23nGPhzHJbdGDICWM88aREua2JBz8jauTpg"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdiML8vLoGqCjRhB8eoYNQmm3s6O18hBWCRsuNLFavkiLmlL15OZvXhIA0awcdlfX9hLvbFVLBe5IRvXvapu0atigd7XFPm4Ung7PVzpRdJrDUCN3cU3AzGDdGmQfeva0LuVaEMNSqVi4slMXS04wptT2t8fURtifQeoomCYyQb9fzpoSA0dfOdsNoXWs96QoDBwvGFyBA4MGXfuBq-fDNVa9EZjV2VQC-5jpn0t75Kg7CloVUlEIo5wPxl-2zQRCZxIzPTRzwKH4"
                 alt={t("imageAlt")}
                 width={640}
                 height={500}
-                className="h-[500px] w-full rounded-2xl object-cover shadow-[0_0_50px_rgba(25,120,229,0.2)]"
+                className="h-[500px] w-full rounded-2xl object-cover object-top shadow-[0_0_50px_rgba(25,120,229,0.2)]"
               />
               <div className="glass-card absolute bottom-10 end-10 rounded-2xl border border-white/40 p-6">
                 <div className="flex items-center gap-4">
