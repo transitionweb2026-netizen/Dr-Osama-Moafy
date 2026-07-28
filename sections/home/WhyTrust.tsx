@@ -12,10 +12,13 @@ export function WhyTrust() {
       className="bg-surface-container-low px-margin-mobile py-xl md:px-xl"
     >
       <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-        <div className="reveal-left relative rounded-[32px] border border-outline-variant bg-surface-container-lowest p-4 shadow-lg">
+        <RevealSection
+          variant="reveal-left"
+          className="relative rounded-[32px] border border-outline-variant bg-surface-container-lowest p-4 shadow-lg"
+        >
           <div className="aspect-video overflow-hidden rounded-2xl border border-outline-variant/30">
             <Image
-              src="https://lh3.googleusercontent.com/aida/AP1WRLturdUla9HJwCEBRHW3DNYeWkZXiF3yq8RuhLNcy-AIAAV5t2Bdmpkbugsmjc6O5IY61m1X0lMrLPKvQDmbxZppJtuB30oVI0PhEk_9VvCkB3xM-z4Nutb75jC4wVat4q1S8vy6qfE3Zg9_EiSX4sgwmbycSfJxKWAxT27ON6ixPNW2nNwXPeVJwxc2yIwWT5Vr77YmDGqIYPr3In-DLvBiCyhOuq-oPGKdzZlb9HCZGzS0_6McwF0wORw"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7K2hF-pqet8mjf8e4ddiVGs4GpNLZ7f7wY8DtV8cmYfWY6HIY8G_tgv9ulES-20h_kD6vKUNgdEe4caT1YZybbTqbVhtt682ibWO-2OTVe8kfgP-OKXkx0cdMYSzMVl9-eDFc3IJQumafNFkGpQe-QpWfKP30d1Na-DNIo48Mg8Ckh19MuomXA5us2MaszwgBtkmssqdCOYpel1uYgw3bqCoqLFbBXcX-JoF-HPkESXy-jUya2d7rh-uZpxJuYP_L-fqRMepfoY"
               alt={t("imageAlt")}
               width={640}
               height={360}
@@ -30,8 +33,8 @@ export function WhyTrust() {
               {t("badgeLabel")}
             </p>
           </div>
-        </div>
-        <div className="reveal-right flex flex-col gap-8">
+        </RevealSection>
+        <RevealSection variant="reveal-right" className="flex flex-col gap-8">
           <div>
             <h3 className="mb-2 font-label-md text-secondary uppercase tracking-[0.2em]">
               {t("eyebrow")}
@@ -62,7 +65,7 @@ export function WhyTrust() {
               </div>
             ))}
           </div>
-        </div>
+        </RevealSection>
       </div>
     </RevealSection>
   );

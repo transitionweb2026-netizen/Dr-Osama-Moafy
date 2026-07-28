@@ -23,7 +23,7 @@ export function ContactCta() {
               {t("titleLine1")} <br />
               <span className="text-primary">{t("titleLine2")}</span>
             </h2>
-            <p className="stagger-item delay-100 max-w-lg font-body-lg font-medium leading-relaxed text-on-surface-variant/80">
+            <p className="stagger-item delay-100 max-w-[32rem] text-body-lg font-medium leading-relaxed text-on-surface-variant/80">
               {t("description")}
             </p>
           </div>
@@ -66,7 +66,7 @@ export function ContactCta() {
           </div>
         </div>
 
-        <div className="reveal-right relative">
+        <RevealSection variant="reveal-right" className="relative">
           <div className="relative z-10 rounded-[40px] border border-outline-variant bg-white p-10 shadow-2xl">
             <h3 className="mb-8 font-headline-md text-2xl text-on-surface">
               {t("clinicDetails")}
@@ -141,7 +141,7 @@ export function ContactCta() {
             </Link>
           </div>
           <div className="absolute -inset-4 -z-10 rounded-[48px] bg-primary/5 blur-3xl" />
-        </div>
+        </RevealSection>
       </div>
     </RevealSection>
   );
