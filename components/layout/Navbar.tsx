@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { navItems, siteConfig } from "@/constants/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Navbar() {
   const t = useTranslations("Nav");
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -35,15 +36,29 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-lg xl:flex" aria-label="Primary">
-          {navItems.map((item) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              className="font-label-md text-label-md text-on-surface-variant transition-colors hover:text-primary"
-            >
-              {t(item.key)}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.key}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`group relative py-1 font-label-md text-label-md transition-colors ${
+                  isActive
+                    ? "font-bold text-primary"
+                    : "text-on-surface-variant hover:text-primary"
+                }`}
+              >
+                {t(item.key)}
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 -bottom-0.5 h-[2px] origin-center rounded-full bg-primary transition-transform duration-300 ease-out ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-4 xl:flex">
@@ -78,17 +93,31 @@ export function Navbar() {
           aria-label="Mobile"
         >
           <ul className="flex flex-col gap-4">
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block font-label-md text-label-md text-on-surface-variant transition-colors hover:text-primary"
-                >
-                  {t(item.key)}
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <li key={item.key}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`group relative inline-block py-1 font-label-md text-label-md transition-colors ${
+                      isActive
+                        ? "font-bold text-primary"
+                        : "text-on-surface-variant hover:text-primary"
+                    }`}
+                  >
+                    {t(item.key)}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-0 -bottom-0.5 h-[2px] origin-center rounded-full bg-primary transition-transform duration-300 ease-out ${
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <Link
             href="/contact"
