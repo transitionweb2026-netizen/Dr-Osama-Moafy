@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { navItems, siteConfig, socialLinks } from "@/constants/site";
+import { RevealSection } from "@/components/ui/RevealSection";
 
 const socialIcons: Record<string, string> = {
   facebook: "public",
@@ -14,7 +15,10 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="reveal w-full border-t border-outline-variant bg-surface-container-highest px-margin-mobile pb-12 pt-24 md:px-margin-desktop">
+    <RevealSection
+      as="footer"
+      className="w-full border-t border-outline-variant bg-surface-container-highest px-margin-mobile pb-12 pt-24 md:px-margin-desktop"
+    >
       <div className="mx-auto mb-20 grid max-w-screen-2xl grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div className="stagger-item flex flex-col gap-6">
           <div className="font-headline-lg text-2xl uppercase tracking-tighter text-primary">
@@ -106,6 +110,6 @@ export function Footer() {
           {t("copyright", { year })}
         </p>
       </div>
-    </footer>
+    </RevealSection>
   );
 }

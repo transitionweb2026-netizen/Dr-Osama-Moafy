@@ -468,5 +468,52 @@
       "bookAppointment": "Book Appointment",
       "contactUs": "Contact Us"
     }
+  },
+  "Contact": {
+    "meta": {
+      "title": "Contact Us",
+      "description": "Get in touch with Dr. Osama Mowafy's clinic. Send a WhatsApp message, call, or visit us to schedule your neurosurgery consultation."
+    },
+    "hero": {
+      "imageAlt": "A cinematic, wide-angle interior of a cutting-edge neurosurgery operating room with glowing screens displaying brain scans in teal and cool blue tones.",
+      "eyebrow": "Contact Us",
+      "title": "We Are Here to Help You",
+      "description": "Share your concern with us and take the first step toward professional medical guidance with Dr. Osama Mowafy.",
+      "sendWhatsapp": "Send on WhatsApp",
+      "callNow": "Call Now"
+    },
+    "quickStrip": {
+      "addressShort": "Technical Health Plaza, Level 4"
+    },
+    "form": {
+      "title": "Direct Consultation Form",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "John Doe",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "+20 ...",
+      "conditionLabel": "Suffering from?",
+      "conditionOptions": ["Brain Tumor", "Spine Surgery", "Nerve Compression", "General Consultation", "Other"],
+      "messageLabel": "Message / Notes",
+      "messagePlaceholder": "Briefly describe your case...",
+      "submit": "Send via WhatsApp",
+      "validationAlert": "Please fill in your name and phone number."
+    },
+    "infoPanel": {
+      "mapImageAlt": "A high-contrast, professional architectural photograph of a modern medical clinic's facade at twilight with a clean, teal-lit interior.",
+      "openInMaps": "Open in Google Maps",
+      "headquartersTitle": "Clinic Headquarters",
+      "headquartersAddress": "Medical District East, Tower B, 4th Floor, Suite 402. New Cairo, Egypt.",
+      "telephoneLabel": "Telephone",
+      "whatsappLabel": "Official WhatsApp",
+      "emailLabel": "Clinical Email",
+      "hoursLabel": "Clinic Hours"
+    },
+    "messageBar": {
+      "guidanceTitle": "Expert Medical Guidance",
+      "guidanceItems": ["Precision Microsurgery", "Advanced Neural Diagnostics", "Minimal Invasive Techniques"],
+      "communicationTitle": "Direct Communication",
+      "communicationItems": ["24/7 Emergency Support", "Global Referral Network", "Personalized Recovery Plans"],
+      "portraitAlt": "Dr. Osama Mowafy"
+    }
   }
 }
