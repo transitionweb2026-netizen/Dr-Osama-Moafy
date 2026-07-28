@@ -25,14 +25,20 @@
   },
   "Home": {
     "hero": {
-      "imageAlt": "Neurosurgeon reviewing brain scans in a modern operating theatre",
-      "eyebrow": "Pioneering Neurological Future",
-      "titleLine1": "Precision",
-      "titleLine2": "Beyond",
-      "titleLine3": "Perception.",
+      "imageAlt": "Dr. Osama Mowafy, board-certified neurosurgeon, in clinical attire",
+      "badge": "Leading Neurosurgical Care",
+      "titleLine1": "Precision Beyond",
+      "titleLine2": "Perception.",
       "description": "Redefining neurosurgery through microscopic precision and cinematic surgical navigation technology.",
       "bookAppointment": "Book Appointment",
-      "contactUs": "Contact Us"
+      "learnMore": "Learn More",
+      "experienceBadgeValue": "20+",
+      "experienceBadgeLabel": "Years of Excellence",
+      "certifiedBadgeLabel": "Certified Specialist",
+      "widget": {
+        "followUs": "Follow Us",
+        "callUs": "Call Us"
+      }
     },
     "videoIntro": {
       "eyebrow": "The Visionary",

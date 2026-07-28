@@ -25,14 +25,20 @@
   },
   "Home": {
     "hero": {
-      "imageAlt": "جرّاح أعصاب يراجع صور الأشعة الدماغية في غرفة عمليات حديثة",
-      "eyebrow": "نحو مستقبل جديد لجراحة الأعصاب",
-      "titleLine1": "دقة",
-      "titleLine2": "تتجاوز",
-      "titleLine3": "الإدراك.",
+      "imageAlt": "الدكتور أسامة موافي، استشاري جراحة المخ والأعصاب، بالزي الطبي",
+      "badge": "الريادة في جراحة الأعصاب",
+      "titleLine1": "دقة تتجاوز",
+      "titleLine2": "الإدراك.",
       "description": "نعيد تعريف جراحة الأعصاب من خلال الدقة المجهرية وتقنيات الملاحة الجراحية المتطورة.",
       "bookAppointment": "احجز موعدًا",
-      "contactUs": "تواصل معنا"
+      "learnMore": "اعرف المزيد",
+      "experienceBadgeValue": "+20",
+      "experienceBadgeLabel": "عامًا من التميز",
+      "certifiedBadgeLabel": "استشاري معتمد",
+      "widget": {
+        "followUs": "تابعنا",
+        "callUs": "اتصل بنا"
+      }
     },
     "videoIntro": {
       "eyebrow": "صاحب الرؤية",
