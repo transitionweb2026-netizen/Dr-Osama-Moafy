@@ -60,41 +60,6 @@ export function Hero() {
             </Link>
           </div>
         </div>
-
-        <div
-          className="floating-icon glass-card absolute end-margin-mobile top-28 hidden items-center gap-3 rounded-2xl border border-white/20 p-4 shadow-xl sm:flex md:end-margin-desktop md:top-32"
-          style={{ animationDelay: "0.4s" }}
-        >
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <span className="material-symbols-outlined" aria-hidden="true">
-              workspace_premium
-            </span>
-          </div>
-          <div>
-            <p className="font-headline-md text-xl leading-none text-primary">
-              {t("experienceBadgeValue")}
-            </p>
-            <p className="font-label-md text-[10px] uppercase tracking-widest text-on-surface-variant">
-              {t("experienceBadgeLabel")}
-            </p>
-          </div>
-        </div>
-
-        <div
-          className="floating-icon glass-card absolute end-margin-mobile top-[13rem] hidden items-center gap-2 rounded-2xl border border-white/20 px-4 py-3 shadow-xl sm:flex md:end-margin-desktop md:top-[15rem]"
-          style={{ animationDelay: "1.4s" }}
-        >
-          <span
-            className="material-symbols-outlined text-primary"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-            aria-hidden="true"
-          >
-            verified
-          </span>
-          <span className="font-label-md text-xs font-bold uppercase tracking-wide text-on-surface">
-            {t("certifiedBadgeLabel")}
-          </span>
-        </div>
       </div>
 
       <HeroContactWidget />
