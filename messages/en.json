@@ -67,6 +67,10 @@
     "servicesGrid": {
       "eyebrow": "Precision Services",
       "title": "Comprehensive Neural Care",
+      "learnMore": "Learn More",
+      "close": "Close",
+      "keyAspects": "Key Aspects",
+      "bookAppointment": "Book Appointment",
       "items": [
         { "title": "Brain Tumor Treatment", "description": "Expert neuro-oncology & precision resection." },
         { "title": "Spine Surgery", "description": "Complex reconstruction and alignment." },
@@ -78,7 +82,49 @@
         { "title": "Hydrocephalus", "description": "Shunt technology and ETV procedures." },
         { "title": "Brain Hemorrhage", "description": "Emergency vascular intervention care." },
         { "title": "Spinal Tumor", "description": "Precision removal of intradural masses." }
-      ]
+      ],
+      "details": {
+        "0": {
+          "overview": "Our neuro-oncology team specializes in the precise resection of both benign and malignant brain tumors, combining advanced imaging with microsurgical technique to maximize tumor removal while protecting healthy neural tissue.",
+          "points": ["Intraoperative MRI and neuro-navigation for real-time precision", "Awake craniotomy available for tumors near critical brain regions", "Multidisciplinary tumor board for personalized treatment planning"]
+        },
+        "1": {
+          "overview": "We perform complex spinal reconstruction and alignment procedures to correct deformities, stabilize fractures, and relieve nerve compression, using modern instrumentation designed for durability and faster recovery.",
+          "points": ["Computer-assisted screw placement for enhanced accuracy", "Minimally invasive approaches to reduce blood loss", "Custom rehabilitation plans for every patient"]
+        },
+        "2": {
+          "overview": "Herniated discs are treated with minimally invasive decompression techniques that relieve pressure on spinal nerves, easing pain and restoring mobility with significantly shorter recovery than traditional open surgery.",
+          "points": ["Microdiscectomy through a small incision", "Preserves surrounding muscle and ligament structures", "Most patients resume light activity within days"]
+        },
+        "3": {
+          "overview": "Using high-definition endoscopic cameras and specialized keyhole instruments, we access deep neurological structures through incisions as small as a few millimeters, minimizing trauma and scarring.",
+          "points": ["High-definition visualization of the surgical field", "Reduced hospital stay compared to open procedures", "Suitable for select brain and spinal conditions"]
+        },
+        "4": {
+          "overview": "Our peripheral nerve program restores function and sensation through microsurgical nerve repair, decompression, and reconstruction, helping patients recover mobility after injury or chronic compression.",
+          "points": ["Microsurgical nerve grafting and repair", "Nerve conduction studies guide precise diagnosis", "Focused physical therapy supports full recovery"]
+        },
+        "5": {
+          "overview": "We provide specialized, compassionate neurosurgical care for infants and children, addressing congenital conditions and acquired injuries with techniques adapted to a growing nervous system.",
+          "points": ["Child-specific surgical planning and anesthesia protocols", "Family-centered care throughout treatment", "Long-term developmental follow-up"]
+        },
+        "6": {
+          "overview": "Skull base tumors and lesions require a multidisciplinary approach; our team combines neurosurgery, ENT, and advanced imaging to safely access this complex anatomical region with minimal disruption.",
+          "points": ["Joint neurosurgery and ENT surgical teams", "Endoscopic endonasal approaches when appropriate", "Comprehensive pre- and post-operative imaging"]
+        },
+        "7": {
+          "overview": "We manage cerebrospinal fluid disorders through shunt placement and endoscopic third ventriculostomy (ETV), restoring normal fluid balance and relieving pressure on the brain.",
+          "points": ["Programmable shunt systems for precise fluid control", "ETV as a shunt-free alternative when suitable", "Ongoing monitoring to detect complications early"]
+        },
+        "8": {
+          "overview": "Brain hemorrhage is a medical emergency; our team provides rapid vascular intervention and surgical evacuation to control bleeding and reduce pressure on brain tissue, prioritizing speed and precision.",
+          "points": ["24/7 emergency neurosurgical response", "Minimally invasive clot evacuation techniques", "Coordinated critical care and rehabilitation"]
+        },
+        "9": {
+          "overview": "We perform precise removal of intradural and extradural spinal tumors, using intraoperative neuromonitoring to protect spinal cord function throughout the procedure.",
+          "points": ["Intraoperative neuromonitoring for spinal cord safety", "Tumor resection with spinal stability preservation", "Coordinated oncology follow-up when needed"]
+        }
+      }
     },
     "whyTrust": {
       "imageAlt": "Advanced surgical robotic arm in use during a procedure",

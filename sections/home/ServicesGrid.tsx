@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { Link } from "@/i18n/navigation";
 
 const images = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDnWR1PX9gX7mg2G3iANlG9YLY-lfUDJKuqsunIlVf6grE98SJQrj9l5HmR0Fz58sdIIWufD6-Z0BVJbour98yifYPccyMDeZnw-pDHFoIagpKOwxBHPHDMIlkYLLQNReUgjYZVdABlfffA3iNj0Shx2VnTEXOJfrhcUgqmCSQwY2I5yaq2T35i4JDQ7WTP0UhWMGsOW0ptmEM3D5c4Oz5lM9fm7SULb9WAclcKjadyxFm-HnijqnX4MFgHXHJ6kaMfoA8okffGZC4",
@@ -15,9 +19,19 @@ const images = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBKxiTRhdLd4pHA051P_WmZ9EfMCGfNiFVuHReoXYp5rDos1bXY74KET7ZoqZVt_d9uLBERjwRuevV1cLjIIRDR50QDd2JAzkwIH1YC5NHcpNxrZYZ18GtKPWl6Wby5kXoc8f_TMcY98yGEU5zh1kXHrVHny0NfMZxgJGtCkK7ZwAO5QAZmEx06xVKfWL-3YdrykWpIwKBDBaRaqBpx-54N_JIroTHOhAQBMBxf8_dZuEyDB3AFnKpfigWU_jxM1HxtLuHYz6OntTw",
 ];
 
+interface ServiceDetail {
+  overview: string;
+  points: string[];
+}
+
 export function ServicesGrid() {
   const t = useTranslations("Home.servicesGrid");
   const items = t.raw("items") as { title: string; description: string }[];
+  const details = t.raw("details") as Record<string, ServiceDetail>;
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const openItem = openIndex !== null ? items[openIndex] : null;
+  const openDetail = openIndex !== null ? details[String(openIndex)] : null;
 
   return (
     <RevealSection
@@ -34,9 +48,11 @@ export function ServicesGrid() {
       </div>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
         {items.map((item, index) => (
-          <div
+          <button
             key={item.title}
-            className={`stagger-item delay-${((index % 5) + 1) * 100} group cursor-pointer rounded-2xl border border-outline-variant bg-surface-container-lowest p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-primary hover:shadow-xl`}
+            type="button"
+            onClick={() => setOpenIndex(index)}
+            className={`stagger-item delay-${((index % 5) + 1) * 100} group cursor-pointer rounded-2xl border border-outline-variant bg-surface-container-lowest p-8 text-start shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-primary hover:shadow-xl`}
           >
             <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_0_18px_rgba(94,224,255,0.35),0_4px_20px_rgba(59,130,246,0.15)] ring-1 ring-cyan-200/30 transition-shadow duration-300 ease-out group-hover:shadow-[0_0_28px_rgba(94,224,255,0.55),0_6px_28px_rgba(59,130,246,0.3)]">
               <Image
@@ -51,12 +67,86 @@ export function ServicesGrid() {
             <h4 className="mb-3 font-headline-md text-xl text-on-surface">
               {item.title}
             </h4>
-            <p className="font-body-md text-sm leading-relaxed text-on-surface-variant">
+            <p className="mb-4 font-body-md text-sm leading-relaxed text-on-surface-variant">
               {item.description}
             </p>
-          </div>
+            <span className="flex items-center gap-1 font-label-md text-xs font-bold uppercase tracking-widest text-primary transition-all duration-300 group-hover:gap-2">
+              {t("learnMore")}
+              <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                arrow_forward
+              </span>
+            </span>
+          </button>
         ))}
       </div>
+
+      {openItem && openDetail && (
+        <div
+          className="fixed inset-0 z-[120] flex items-center justify-center p-margin-mobile"
+          role="dialog"
+          aria-modal="true"
+          aria-label={openItem.title}
+        >
+          <div
+            className="modal-fade-in absolute inset-0 bg-secondary/60 backdrop-blur-md"
+            onClick={() => setOpenIndex(null)}
+          />
+          <div className="modal-pop-in glass-card relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-xl shadow-2xl">
+            <button
+              type="button"
+              onClick={() => setOpenIndex(null)}
+              aria-label={t("close")}
+              className="absolute top-md end-md z-10 rounded-full bg-surface-container p-sm text-secondary transition-all duration-300 hover:rotate-90 hover:text-primary"
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                close
+              </span>
+            </button>
+
+            <div className="relative mb-lg aspect-video overflow-hidden rounded-xl shadow-[0_0_18px_rgba(94,224,255,0.35),0_4px_20px_rgba(59,130,246,0.15)] ring-1 ring-cyan-200/30">
+              <Image
+                src={images[openIndex as number]}
+                alt={openItem.title}
+                fill
+                sizes="(max-width: 768px) 90vw, 640px"
+                className="object-cover brightness-105"
+              />
+            </div>
+
+            <h2 className="mb-md font-headline-md text-headline-md text-primary">
+              {openItem.title}
+            </h2>
+            <p className="mb-lg leading-relaxed text-on-surface-variant">
+              {openDetail.overview}
+            </p>
+
+            <h3 className="mb-sm font-label-md text-xs font-bold uppercase tracking-widest text-secondary">
+              {t("keyAspects")}
+            </h3>
+            <ul className="mb-xl space-y-3">
+              {openDetail.points.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span
+                    className="material-symbols-outlined mt-0.5 shrink-0 text-lg text-primary"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                    aria-hidden="true"
+                  >
+                    check_circle
+                  </span>
+                  <span className="text-sm text-on-surface-variant">{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/contact"
+              className="flex w-full items-center justify-center rounded-lg bg-primary py-md font-headline-md text-on-primary shadow-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container active:scale-[0.98]"
+            >
+              {t("bookAppointment")}
+            </Link>
+          </div>
+        </div>
+      )}
     </RevealSection>
   );
 }
