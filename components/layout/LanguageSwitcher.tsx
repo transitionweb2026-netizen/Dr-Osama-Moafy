@@ -34,10 +34,10 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
               { locale: cur },
             )
           }
-          className={`rounded-full px-3 py-1 transition-colors ${
+          className={`rounded-full px-3 py-1 transition-all duration-[250ms] ${
             cur === locale
               ? "bg-primary text-on-primary"
-              : "text-on-surface-variant hover:text-primary"
+              : "text-on-surface-variant hover:scale-105 hover:text-primary"
           }`}
         >
           {labels[cur] ?? cur.toUpperCase()}

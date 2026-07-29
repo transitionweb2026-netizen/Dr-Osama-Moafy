@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export function WhyTrust() {
   const t = useTranslations("Home.whyTrust");
@@ -27,7 +28,7 @@ export function WhyTrust() {
           </div>
           <div className="reveal-scale-0 delay-500 absolute -bottom-6 -end-6 hidden rounded-2xl border-e-4 border-on-primary/20 bg-primary p-6 text-on-primary shadow-xl md:block">
             <p className="font-headline-lg text-4xl leading-none">
-              {t("badgeYears")}
+              <AnimatedCounter value={t("badgeYears")} />
             </p>
             <p className="mt-1 font-label-md text-[10px] uppercase tracking-widest">
               {t("badgeLabel")}

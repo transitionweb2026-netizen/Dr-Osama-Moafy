@@ -34,16 +34,16 @@ export function EducationalShorts() {
         {items.map((item, index) => (
           <div
             key={item.title}
-            className={`stagger-item delay-${(index + 1) * 100} group relative aspect-[9/16] cursor-pointer overflow-hidden rounded-3xl border border-outline-variant bg-surface-dim shadow-md`}
+            className={`stagger-item delay-${(index + 1) * 100} group relative aspect-[9/16] cursor-pointer overflow-hidden rounded-3xl border border-outline-variant bg-surface-dim shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl`}
           >
             <Image
               src={images[index]}
               alt={item.title}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.08]"
             />
             <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-8">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary shadow-lg">
+              <div className="play-pulse mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary shadow-lg transition-transform duration-300 group-hover:scale-110">
                 <span className="material-symbols-outlined icon-filled text-2xl" aria-hidden="true">
                   play_arrow
                 </span>
@@ -61,7 +61,7 @@ export function EducationalShorts() {
       <div className="stagger-item mt-16 flex justify-center">
         <Link
           href="/videos"
-          className="rounded-xl border border-outline px-10 py-4 font-headline-md text-xl uppercase tracking-widest text-primary transition-all hover:bg-primary/5"
+          className="rounded-xl border border-outline px-10 py-4 font-headline-md text-xl uppercase tracking-widest text-primary transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/5 active:scale-[0.98]"
         >
           {t("viewAll")}
         </Link>

@@ -56,7 +56,7 @@ export function TreatmentsCarousel() {
               type="button"
               aria-label={t("previous")}
               onClick={() => carouselRef.current?.scrollPrev()}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 text-primary transition-all duration-300 hover:bg-primary hover:text-white"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 text-primary transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
             >
               <span className="material-symbols-outlined" aria-hidden="true">
                 arrow_back
@@ -66,7 +66,7 @@ export function TreatmentsCarousel() {
               type="button"
               aria-label={t("next")}
               onClick={() => carouselRef.current?.scrollNext()}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 text-primary transition-all duration-300 hover:bg-primary hover:text-white"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 text-primary transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
             >
               <span className="material-symbols-outlined" aria-hidden="true">
                 arrow_forward
@@ -79,7 +79,7 @@ export function TreatmentsCarousel() {
           {items.map((item, index) => (
             <div
               key={item.title}
-              className="group flex min-w-full flex-none flex-col overflow-hidden rounded-xl border border-outline-variant/30 bg-surface transition-all hover:shadow-xl md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)]"
+              className="group flex min-w-full flex-none flex-col overflow-hidden rounded-xl border border-outline-variant/30 bg-surface transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)]"
             >
               <div className="h-56 overflow-hidden">
                 <Image
@@ -87,7 +87,7 @@ export function TreatmentsCarousel() {
                   alt={item.title}
                   width={480}
                   height={224}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.08]"
                 />
               </div>
               <div className="flex flex-grow flex-col justify-between p-lg">
@@ -101,7 +101,7 @@ export function TreatmentsCarousel() {
                   <button
                     type="button"
                     onClick={() => setOpenIndex(index)}
-                    className="flex items-center gap-xs text-sm font-bold text-primary transition-all hover:gap-md"
+                    className="flex items-center gap-xs text-sm font-bold text-primary transition-all duration-300 hover:gap-md"
                   >
                     {t("learnMore")}
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">
@@ -111,7 +111,7 @@ export function TreatmentsCarousel() {
                 ) : (
                   <Link
                     href="/contact"
-                    className="flex items-center gap-xs text-sm font-bold text-primary transition-all hover:gap-md"
+                    className="flex items-center gap-xs text-sm font-bold text-primary transition-all duration-300 hover:gap-md"
                   >
                     {t("learnMore")}
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">
@@ -133,15 +133,15 @@ export function TreatmentsCarousel() {
           aria-label={openItem.title}
         >
           <div
-            className="absolute inset-0 bg-secondary/60 backdrop-blur-md"
+            className="modal-fade-in absolute inset-0 bg-secondary/60 backdrop-blur-md"
             onClick={() => setOpenIndex(null)}
           />
-          <div className="glass-card relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white p-xl shadow-2xl">
+          <div className="modal-pop-in glass-card relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white p-xl shadow-2xl">
             <button
               type="button"
               onClick={() => setOpenIndex(null)}
               aria-label={t("close")}
-              className="absolute top-md end-md p-sm text-secondary"
+              className="absolute top-md end-md p-sm text-secondary transition-transform duration-300 hover:rotate-90 hover:text-primary"
             >
               <span className="material-symbols-outlined" aria-hidden="true">
                 close
@@ -194,7 +194,7 @@ export function TreatmentsCarousel() {
             <div className="mt-xl flex justify-center">
               <Link
                 href="/contact"
-                className="rounded-lg bg-primary px-xl py-md font-bold text-on-primary"
+                className="rounded-lg bg-primary px-xl py-md font-bold text-on-primary transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container active:scale-[0.98]"
               >
                 {t("scheduleConsultation")}
               </Link>

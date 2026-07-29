@@ -113,6 +113,12 @@ body {
   color: var(--color-on-surface);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Arabic typography: Anton/Inter have no Arabic glyphs, so Modern Standard
    Arabic pages use Cairo across headline/body/label roles instead. Because
    Tailwind v4 theme tokens are plain CSS variables, overriding them here
@@ -194,10 +200,10 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
     transition:
-      opacity 800ms cubic-bezier(0.33, 1, 0.68, 1),
-      transform 800ms cubic-bezier(0.33, 1, 0.68, 1);
+      opacity 700ms ease-out,
+      transform 700ms ease-out;
     will-change: transform, opacity;
   }
   .reveal-active {
@@ -207,15 +213,29 @@ body {
 
   .stagger-item {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
     transition:
-      opacity 800ms cubic-bezier(0.33, 1, 0.68, 1),
-      transform 800ms cubic-bezier(0.33, 1, 0.68, 1);
+      opacity 700ms ease-out,
+      transform 700ms ease-out;
     will-change: transform, opacity;
   }
   .reveal-active .stagger-item {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Fade + scale entrance variant, e.g. for hero CTA rows */
+  .stagger-item-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+      opacity 700ms ease-out,
+      transform 700ms ease-out;
+    will-change: transform, opacity;
+  }
+  .reveal-active .stagger-item-scale {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .reveal-left {
@@ -277,26 +297,166 @@ body {
     }
   }
   .floating-icon {
-    animation: float 3s ease-in-out infinite alternate;
+    animation: float 6s ease-in-out infinite alternate;
+  }
+  .floating-icon-slow {
+    animation: float 8s ease-in-out infinite alternate;
+  }
+  .floating-icon-fast {
+    animation: float 5s ease-in-out infinite alternate;
   }
 
   .delay-100 {
     transition-delay: 100ms;
+    animation-delay: 100ms;
+  }
+  .delay-150 {
+    transition-delay: 150ms;
+    animation-delay: 150ms;
   }
   .delay-200 {
     transition-delay: 200ms;
+    animation-delay: 200ms;
+  }
+  .delay-250 {
+    transition-delay: 250ms;
+    animation-delay: 250ms;
   }
   .delay-300 {
     transition-delay: 300ms;
+    animation-delay: 300ms;
   }
   .delay-400 {
     transition-delay: 400ms;
+    animation-delay: 400ms;
+  }
+  .delay-450 {
+    transition-delay: 450ms;
+    animation-delay: 450ms;
   }
   .delay-500 {
     transition-delay: 500ms;
+    animation-delay: 500ms;
   }
   .delay-600 {
     transition-delay: 600ms;
+    animation-delay: 600ms;
+  }
+
+  /* Whole-page entrance, replayed on every client-side navigation via PageTransition */
+  @keyframes page-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .page-fade-in {
+    animation: page-fade-in 700ms ease-out both;
+  }
+
+  /* Navbar entrance on first load */
+  @keyframes navbar-slide-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .navbar-slide-in {
+    animation: navbar-slide-in 600ms ease-out both;
+  }
+
+  /* Modal / dialog entrance */
+  @keyframes modal-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .modal-fade-in {
+    animation: modal-fade-in 250ms ease-out both;
+  }
+  @keyframes modal-pop-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  .modal-pop-in {
+    animation: modal-pop-in 300ms ease-out both;
+  }
+
+  /* Mobile nav panel drop-in */
+  @keyframes menu-drop-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .menu-drop-in {
+    animation: menu-drop-in 250ms ease-out both;
+  }
+
+  /* Extremely subtle infinite "breathing" pulse for background glow blobs */
+  @keyframes glow-breathe {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.06);
+    }
+  }
+  .glow-breathe {
+    animation: glow-breathe 8s ease-in-out infinite;
+  }
+
+  /* Doctor / hero portrait entrance: fade + slight zoom-out to 1 */
+  @keyframes hero-image-in {
+    0% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .hero-image-in {
+    animation: hero-image-in 900ms ease-out both;
+  }
+
+  /* Play-button pulse for video thumbnails */
+  @keyframes play-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 102, 107, 0.35);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(0, 102, 107, 0);
+    }
+  }
+  .play-pulse {
+    animation: play-pulse 2.4s ease-in-out infinite;
   }
 
   .hero-line {

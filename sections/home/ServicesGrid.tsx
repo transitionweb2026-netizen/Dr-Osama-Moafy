@@ -35,7 +35,7 @@ export function ServicesGrid() {
         {items.map((item, index) => (
           <div
             key={item.title}
-            className={`stagger-item delay-${((index % 5) + 1) * 100} group cursor-pointer rounded-2xl border border-outline-variant bg-surface-container-lowest p-8 shadow-sm transition-all hover:border-primary hover:shadow-md`}
+            className={`stagger-item delay-${((index % 5) + 1) * 100} group cursor-pointer rounded-2xl border border-outline-variant bg-surface-container-lowest p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-primary hover:shadow-xl`}
           >
             <div
               className="floating-icon mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-fixed text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary"

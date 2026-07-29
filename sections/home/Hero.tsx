@@ -17,7 +17,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_12%]"
+          className="hero-image-in delay-250 object-cover object-[center_12%]"
         />
         <div
           className={`absolute inset-0 from-black/85 via-black/55 to-black/20 ${isRtl ? "bg-gradient-to-l" : "bg-gradient-to-r"}`}
@@ -32,7 +32,7 @@ export function Hero() {
             {t("badge")}
           </span>
 
-          <h1 className="stagger-item delay-100 text-shadow-elite font-headline-lg text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="stagger-item delay-150 text-shadow-elite font-headline-lg text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
             <span className="hero-line">
               <span>{t("titleLine1")}</span>
             </span>
@@ -41,20 +41,20 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="stagger-item delay-200 text-shadow-elite max-w-[28rem] text-body-lg leading-relaxed tracking-normal text-white/85">
+          <p className="stagger-item delay-300 text-shadow-elite max-w-[28rem] text-body-lg leading-relaxed tracking-normal text-white/85">
             {t("description")}
           </p>
 
-          <div className="stagger-item delay-300 mt-4 flex flex-wrap items-center gap-4">
+          <div className="stagger-item-scale delay-450 mt-4 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="flex h-14 items-center justify-center rounded-xl bg-primary px-8 font-headline-md text-lg text-on-primary shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 hover:bg-primary-container"
+              className="flex h-14 items-center justify-center rounded-xl bg-primary px-8 font-headline-md text-lg text-on-primary shadow-lg shadow-primary/30 transition-all duration-[250ms] hover:-translate-y-1 hover:scale-[1.03] hover:bg-primary-container hover:shadow-[0_0_28px_rgba(0,102,107,0.45)] active:scale-[0.98]"
             >
               {t("bookAppointment")}
             </Link>
             <Link
               href="/about"
-              className="flex h-14 items-center justify-center rounded-xl border border-white/40 bg-white/10 px-8 font-headline-md text-lg text-white backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/20"
+              className="flex h-14 items-center justify-center rounded-xl border border-white/40 bg-white/10 px-8 font-headline-md text-lg text-white backdrop-blur-md transition-all duration-[250ms] hover:-translate-y-1 hover:scale-[1.03] hover:bg-white/20 hover:shadow-[0_0_28px_rgba(255,255,255,0.3)] active:scale-[0.98]"
             >
               {t("learnMore")}
             </Link>

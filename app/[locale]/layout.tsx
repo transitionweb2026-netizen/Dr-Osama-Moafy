@@ -8,6 +8,7 @@ import { siteConfig } from "@/constants/site";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SideConcierge } from "@/components/layout/SideConcierge";
+import { PageTransition } from "@/components/ui/PageTransition";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -79,7 +80,9 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <SideConcierge />
-          <main className="flex-1 pt-20">{children}</main>
+          <main className="flex-1 pt-20">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>

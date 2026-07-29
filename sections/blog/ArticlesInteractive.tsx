@@ -93,7 +93,7 @@ export function ArticlesInteractive() {
                   image: featuredImage,
                 })
               }
-              className="w-fit rounded-lg border-2 border-primary px-xl py-md font-label-md text-primary transition-all hover:bg-primary hover:text-on-primary"
+              className="w-fit rounded-lg border-2 border-primary px-xl py-md font-label-md text-primary transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary hover:text-on-primary active:scale-[0.98]"
             >
               {t("readFullArticle")}
             </button>
@@ -110,7 +110,7 @@ export function ArticlesInteractive() {
           {articles.map((article, index) => (
             <div
               key={article.title}
-              className="stagger-item group cursor-pointer overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest transition-all hover:shadow-2xl"
+              className="stagger-item group cursor-pointer overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-2xl"
               onClick={() =>
                 setOpen({
                   title: article.title,
@@ -125,7 +125,7 @@ export function ArticlesInteractive() {
                   src={articleImages[index]}
                   alt={article.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.08]"
                 />
                 <div className="absolute bottom-base end-base rounded bg-white/90 px-md py-xs text-[12px] font-bold text-primary backdrop-blur">
                   {article.category}
@@ -136,13 +136,13 @@ export function ArticlesInteractive() {
                   <span>{article.date}</span>
                   <span>{article.readTime}</span>
                 </div>
-                <h3 className="mb-base font-headline-md text-[24px] text-on-surface transition-colors group-hover:text-primary">
+                <h3 className="mb-base font-headline-md text-[24px] text-on-surface transition-colors duration-300 group-hover:text-primary">
                   {article.title}
                 </h3>
                 <p className="mb-lg line-clamp-3 text-on-surface-variant">
                   {article.excerpt}
                 </p>
-                <span className="flex items-center gap-1 font-bold text-primary transition-transform group-hover:translate-x-2">
+                <span className="flex items-center gap-1 font-bold text-primary transition-transform duration-300 group-hover:translate-x-2">
                   {t("readArticle")}
                   <span className="material-symbols-outlined" aria-hidden="true">
                     arrow_right_alt
@@ -157,15 +157,15 @@ export function ArticlesInteractive() {
       {open && (
         <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label={open.title}>
           <div
-            className="absolute inset-0 bg-on-surface/60 backdrop-blur-sm"
+            className="modal-fade-in absolute inset-0 bg-on-surface/60 backdrop-blur-sm"
             onClick={() => setOpen(null)}
           />
-          <div className="absolute inset-x-0 bottom-0 top-10 overflow-y-auto rounded-t-2xl bg-surface-container-lowest shadow-2xl md:inset-lg md:rounded-2xl">
+          <div className="modal-pop-in absolute inset-x-0 bottom-0 top-10 overflow-y-auto rounded-t-2xl bg-surface-container-lowest shadow-2xl md:inset-lg md:rounded-2xl">
             <button
               type="button"
               onClick={() => setOpen(null)}
               aria-label={t("close")}
-              className="sticky top-gutter start-full -ms-16 z-10 rounded-full bg-surface-container p-base transition-colors hover:bg-outline-variant"
+              className="sticky top-gutter start-full -ms-16 z-10 rounded-full bg-surface-container p-base transition-all duration-300 hover:rotate-90 hover:bg-outline-variant"
             >
               <span className="material-symbols-outlined" aria-hidden="true">
                 close
@@ -220,10 +220,10 @@ export function ArticlesInteractive() {
                   </div>
                 </div>
                 <div className="flex gap-md">
-                  <button className="rounded-lg bg-primary px-lg py-sm font-label-md text-on-primary">
+                  <button className="rounded-lg bg-primary px-lg py-sm font-label-md text-on-primary transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container active:scale-[0.98]">
                     {t("popup.shareArticle")}
                   </button>
-                  <button className="rounded-lg border border-outline px-lg py-sm font-label-md text-on-surface">
+                  <button className="rounded-lg border border-outline px-lg py-sm font-label-md text-on-surface transition-all duration-[250ms] hover:scale-[1.03] hover:bg-surface-container active:scale-[0.98]">
                     {t("popup.downloadPdf")}
                   </button>
                 </div>

@@ -13,7 +13,7 @@ export function ContactHero() {
           alt={t("imageAlt")}
           fill
           priority
-          className="object-cover contrast-[1.1] grayscale-[30%]"
+          className="hero-image-in delay-250 object-cover contrast-[1.1] grayscale-[30%]"
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -32,7 +32,7 @@ export function ContactHero() {
             href={`https://wa.me/${siteConfig.whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-xs rounded-lg bg-primary px-xl py-md font-label-md text-on-primary shadow-xl transition-all hover:bg-primary/90"
+            className="flex items-center justify-center gap-xs rounded-lg bg-primary px-xl py-md font-label-md text-on-primary shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
               chat
@@ -41,7 +41,7 @@ export function ContactHero() {
           </a>
           <a
             href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
-            className="flex items-center justify-center gap-xs rounded-lg bg-white px-xl py-md font-label-md text-on-primary-fixed shadow-xl transition-all hover:bg-surface-container-highest"
+            className="flex items-center justify-center gap-xs rounded-lg bg-white px-xl py-md font-label-md text-on-primary-fixed shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-surface-container-highest active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
               call

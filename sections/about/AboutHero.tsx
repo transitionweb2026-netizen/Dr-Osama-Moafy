@@ -13,7 +13,7 @@ export function AboutHero() {
           alt={t("imageAlt")}
           fill
           priority
-          className="object-cover"
+          className="hero-image-in delay-250 object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -30,13 +30,13 @@ export function AboutHero() {
         <div className="stagger-item delay-300 flex flex-col gap-6 sm:flex-row">
           <Link
             href="/contact"
-            className="transform rounded-lg bg-primary px-10 py-5 font-bold text-lg text-white shadow-xl transition-all hover:-translate-y-1 hover:bg-primary-container hover:shadow-primary/40"
+            className="transform rounded-lg bg-primary px-10 py-5 font-bold text-lg text-white shadow-xl transition-all duration-[250ms] hover:-translate-y-1 hover:scale-[1.03] hover:bg-primary-container hover:shadow-primary/40 active:scale-[0.98]"
           >
             {t("bookAppointment")}
           </Link>
           <Link
             href="/contact"
-            className="transform rounded-lg border border-white/40 bg-white/10 px-10 py-5 font-bold text-lg text-white backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/20"
+            className="transform rounded-lg border border-white/40 bg-white/10 px-10 py-5 font-bold text-lg text-white backdrop-blur-md transition-all duration-[250ms] hover:-translate-y-1 hover:scale-[1.03] hover:bg-white/20 active:scale-[0.98]"
           >
             {t("contactUs")}
           </Link>

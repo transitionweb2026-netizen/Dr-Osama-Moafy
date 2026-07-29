@@ -45,7 +45,7 @@ export function ContactForm() {
             onChange={(e) => setName(e.target.value)}
             placeholder={t("namePlaceholder")}
             required
-            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="space-y-xs">
@@ -59,7 +59,7 @@ export function ContactForm() {
             onChange={(e) => setPhone(e.target.value)}
             placeholder={t("phonePlaceholder")}
             required
-            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="space-y-xs md:col-span-2">
@@ -70,7 +70,7 @@ export function ContactForm() {
             id={conditionId}
             value={condition}
             onChange={(e) => setCondition(e.target.value)}
-            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           >
             {conditionOptions.map((option) => (
               <option key={option} value={option}>
@@ -89,14 +89,14 @@ export function ContactForm() {
             onChange={(e) => setMessage(e.target.value)}
             placeholder={t("messagePlaceholder")}
             rows={4}
-            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="md:col-span-2">
           <button
             type="button"
             onClick={sendWhatsApp}
-            className="flex w-full items-center justify-center gap-sm rounded-lg bg-primary py-md font-label-md text-on-primary transition-all hover:brightness-110 active:scale-95"
+            className="flex w-full items-center justify-center gap-sm rounded-lg bg-primary py-md font-label-md text-on-primary transition-all duration-[250ms] hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
               send

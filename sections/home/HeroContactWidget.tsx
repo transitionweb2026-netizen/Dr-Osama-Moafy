@@ -80,7 +80,7 @@ export function HeroContactWidget() {
 
   return (
     <div className="widget-spring-in absolute inset-x-0 bottom-6 z-20 mx-auto flex w-fit flex-col items-center gap-3 px-4 sm:bottom-8 md:inset-x-auto md:end-6 md:mx-0 md:items-stretch lg:end-8 xl:end-10">
-      <div className="glass-card w-60 rounded-2xl border border-primary/10 p-3.5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_8px_40px_rgba(0,102,107,0.25)] lg:w-64 lg:p-4">
+      <div className="glass-card w-60 rounded-2xl border border-primary/10 p-3.5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.05] hover:shadow-[0_8px_44px_rgba(0,102,107,0.35)] lg:w-64 lg:p-4">
         <p className="mb-3 font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">
           {t("followUs")}
         </p>
@@ -102,7 +102,7 @@ export function HeroContactWidget() {
 
       <a
         href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
-        className="glass-card group flex w-60 cursor-pointer items-center gap-4 rounded-2xl border border-primary/10 p-3.5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_8px_40px_rgba(0,102,107,0.25)] lg:w-64 lg:p-4"
+        className="glass-card group flex w-60 cursor-pointer items-center gap-4 rounded-2xl border border-primary/10 p-3.5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.05] hover:shadow-[0_8px_44px_rgba(0,102,107,0.35)] lg:w-64 lg:p-4"
       >
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-on-primary transition-transform duration-300 group-hover:scale-110 lg:h-11 lg:w-11">
           <span className="material-symbols-outlined" aria-hidden="true">

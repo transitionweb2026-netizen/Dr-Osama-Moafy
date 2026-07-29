@@ -14,7 +14,7 @@ export function BlogHero() {
           alt={t("imageAlt")}
           fill
           priority
-          className="object-cover"
+          className="hero-image-in delay-250 object-cover"
         />
       </div>
       <div className="reveal reveal-active relative z-20 mx-auto max-w-4xl px-margin-mobile text-center">
@@ -30,13 +30,13 @@ export function BlogHero() {
         <div className="stagger-item delay-300 flex flex-col justify-center gap-gutter sm:flex-row">
           <a
             href="#articles"
-            className="rounded-lg bg-primary px-xl py-lg font-label-md text-on-primary shadow-lg shadow-primary/20 transition-all hover:brightness-110"
+            className="rounded-lg bg-primary px-xl py-lg font-label-md text-on-primary shadow-lg shadow-primary/20 transition-all duration-[250ms] hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             {t("exploreArticles")}
           </a>
           <Link
             href="/contact"
-            className="rounded-lg border-2 border-on-primary bg-transparent px-xl py-lg font-label-md text-on-primary backdrop-blur-sm transition-all hover:bg-white/10"
+            className="rounded-lg border-2 border-on-primary bg-transparent px-xl py-lg font-label-md text-on-primary backdrop-blur-sm transition-all duration-[250ms] hover:scale-[1.03] hover:bg-white/10 active:scale-[0.98]"
           >
             {t("bookAppointment")}
           </Link>

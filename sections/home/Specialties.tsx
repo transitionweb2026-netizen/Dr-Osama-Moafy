@@ -29,7 +29,7 @@ export function Specialties() {
         </div>
         <Link
           href="/services"
-          className="font-label-md uppercase tracking-widest text-primary hover:underline"
+          className="font-label-md uppercase tracking-widest text-primary transition-colors duration-[250ms] hover:underline"
         >
           {t("viewAll")}
         </Link>
@@ -38,7 +38,7 @@ export function Specialties() {
         {items.map((item, index) => (
           <div
             key={item.title}
-            className={`stagger-item delay-${(index + 1) * 100} group rounded-3xl border border-outline-variant bg-surface-container-lowest p-3 shadow-sm transition-shadow hover:shadow-md`}
+            className={`stagger-item delay-${(index + 1) * 100} group rounded-3xl border border-outline-variant bg-surface-container-lowest p-3 shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl`}
           >
             <div className="mb-6 h-64 overflow-hidden rounded-2xl">
               <Image
@@ -46,7 +46,7 @@ export function Specialties() {
                 alt={item.title}
                 width={480}
                 height={320}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.08]"
               />
             </div>
             <div className="px-6 pb-8">
@@ -58,10 +58,13 @@ export function Specialties() {
               </p>
               <Link
                 href="/services"
-                className="flex items-center gap-2 font-label-md text-secondary transition-all group-hover:text-primary"
+                className="flex items-center gap-2 font-label-md text-secondary transition-all duration-300 group-hover:text-primary"
               >
                 {t("learnMore")}
-                <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                <span
+                  className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
                   arrow_forward
                 </span>
               </Link>

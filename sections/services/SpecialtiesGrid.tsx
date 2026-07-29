@@ -29,9 +29,9 @@ export function SpecialtiesGrid() {
         {items.map((item, index) => (
           <div
             key={item.title}
-            className={`stagger-item delay-${(index + 1) * 100} rounded-xl border border-outline-variant/30 bg-surface-container-low p-lg transition-all hover:border-primary/50`}
+            className={`stagger-item delay-${(index + 1) * 100} group rounded-xl border border-outline-variant/30 bg-surface-container-low p-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-primary/50 hover:shadow-xl`}
           >
-            <div className="mb-md flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+            <div className="mb-md flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-transform duration-300 group-hover:rotate-[5deg] group-hover:scale-110">
               <span className="material-symbols-outlined text-primary" aria-hidden="true">
                 {icons[index]}
               </span>

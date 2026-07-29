@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export function Introduction() {
   const t = useTranslations("About.introduction");
@@ -12,7 +13,7 @@ export function Introduction() {
     >
       <div className="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
         <div className="group relative">
-          <div className="absolute -inset-10 rounded-full bg-primary/10 opacity-50 blur-[100px]" />
+          <div className="glow-breathe absolute -inset-10 rounded-full bg-primary/10 opacity-50 blur-[100px]" />
           <div className="image-glow relative transform overflow-hidden rounded-3xl shadow-[0_30px_60px_rgba(0,102,107,0.15)] transition-all duration-700 hover:-rotate-1 hover:scale-[1.02]">
             <Image
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgVzrHycj5IxWWM3X6Dj9c0aN0EB1rdFn3VXlsEtdXSeIJzOVevG5Eo59fS00mh4cT1Wq2gvD88sSroSyp8jZOs-AgS5hRkejv52h_uXnVxeB3BpnOxA8bzXOfc4-8xlWt96mWrrvTYqC1tk6mAfKJaC8baf8EyKpFmayfKVYyBa1MJg0mCNsXkqaoHZkL0eqJug6Why6eWOH3YR8LaC1Tjmbe9O2vj26TVRcvAFx2wspZXBiLyPXqrLtWnydULDtA6EK21FF_klQ"
@@ -24,7 +25,7 @@ export function Introduction() {
           </div>
           <div className="glass-card absolute -bottom-8 -end-8 max-w-[20rem] transform rounded-2xl border-s-8 border-primary p-8 shadow-2xl transition-transform hover:scale-105">
             <p className="font-headline-md text-3xl leading-tight text-primary">
-              {t("badgeYears")}
+              <AnimatedCounter value={t("badgeYears")} />
               <br />
               <span className="font-body-md text-xl font-semibold text-on-surface">
                 {t("badgeLabel")}

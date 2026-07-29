@@ -88,7 +88,7 @@ export function ExperienceTimeline() {
             {certificates.map((cert, index) => (
               <div
                 key={cert.title}
-                className="group flex h-56 w-80 flex-none snap-center flex-col items-center justify-center rounded-2xl border border-outline-variant/30 bg-white p-6 transition-all hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+                className="group flex h-56 w-80 flex-none snap-center flex-col items-center justify-center rounded-2xl border border-outline-variant/30 bg-white p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
               >
                 <div className="relative h-full w-full">
                   <Image

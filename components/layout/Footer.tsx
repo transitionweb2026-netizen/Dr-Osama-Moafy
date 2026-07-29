@@ -33,7 +33,7 @@ export function Footer() {
                 key={social.key}
                 href={social.href}
                 aria-label={social.key}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant bg-surface-container-low text-primary transition-all hover:bg-primary hover:text-on-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant bg-surface-container-low text-primary transition-all duration-300 ease-out hover:rotate-[5deg] hover:scale-110 hover:bg-primary hover:text-on-primary hover:shadow-[0_0_20px_rgba(0,102,107,0.5)]"
               >
                 <span className="material-symbols-outlined text-xl" aria-hidden="true">
                   {socialIcons[social.key] ?? "public"}
@@ -52,7 +52,7 @@ export function Footer() {
               <Link
                 key={item.key}
                 href={item.href}
-                className="font-body-md text-sm text-on-surface-variant transition-colors hover:text-primary"
+                className="font-body-md text-sm text-on-surface-variant transition-colors duration-[250ms] hover:text-primary"
               >
                 {tNav(item.key)}
               </Link>
@@ -83,7 +83,7 @@ export function Footer() {
               <span className="material-symbols-outlined text-xl text-primary" aria-hidden="true">
                 phone
               </span>
-              <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="text-sm hover:text-primary">
+              <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="text-sm transition-colors duration-[250ms] hover:text-primary">
                 {siteConfig.phone}
               </a>
             </div>
@@ -91,7 +91,7 @@ export function Footer() {
               <span className="material-symbols-outlined text-xl text-primary" aria-hidden="true">
                 mail
               </span>
-              <a href={`mailto:${siteConfig.email}`} className="text-sm hover:text-primary">
+              <a href={`mailto:${siteConfig.email}`} className="text-sm transition-colors duration-[250ms] hover:text-primary">
                 {siteConfig.email}
               </a>
             </div>

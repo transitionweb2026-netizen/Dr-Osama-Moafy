@@ -37,7 +37,7 @@ export function Certificates() {
             type="button"
             aria-label={t("previous")}
             onClick={() => carouselRef.current?.scrollPrev()}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all hover:bg-primary/5"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all duration-[250ms] hover:scale-110 hover:bg-primary/5 active:scale-95"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
               chevron_left
@@ -47,7 +47,7 @@ export function Certificates() {
             type="button"
             aria-label={t("next")}
             onClick={() => carouselRef.current?.scrollNext()}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all hover:bg-primary/5"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all duration-[250ms] hover:scale-110 hover:bg-primary/5 active:scale-95"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
               chevron_right
@@ -62,7 +62,7 @@ export function Certificates() {
         {items.map((item, index) => (
           <div
             key={item.title}
-            className={`stagger-item delay-${(index + 1) * 100} group min-w-[380px] snap-center rounded-[40px] border border-outline-variant bg-surface-container-low p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:bg-surface-container-lowest hover:shadow-xl`}
+            className={`stagger-item delay-${(index + 1) * 100} group min-w-[380px] snap-center rounded-[40px] border border-outline-variant bg-surface-container-low p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:bg-surface-container-lowest hover:shadow-xl`}
           >
             <div className="relative mb-8 h-64 overflow-hidden rounded-3xl border border-outline-variant/30 bg-surface-dim shadow-inner">
               <Image
@@ -70,7 +70,7 @@ export function Certificates() {
                 alt={item.title}
                 width={380}
                 height={256}
-                className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.05] group-hover:grayscale-0"
               />
             </div>
             <h4 className="mb-2 font-headline-md text-2xl text-on-surface">

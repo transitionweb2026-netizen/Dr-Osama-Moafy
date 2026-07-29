@@ -8,7 +8,7 @@ export function ServicesHero() {
     <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0 bg-neutral-900">
         <div
-          className="h-full w-full bg-cover bg-center"
+          className="hero-image-in delay-250 h-full w-full bg-cover bg-center"
           role="img"
           aria-label={t("imageAlt")}
           style={{
@@ -33,13 +33,13 @@ export function ServicesHero() {
         <div className="stagger-item delay-300 flex flex-col justify-center gap-md sm:flex-row">
           <Link
             href="/contact"
-            className="rounded-lg bg-primary px-xl py-md font-label-md text-label-md text-on-primary shadow-lg transition-all hover:bg-primary/90"
+            className="rounded-lg bg-primary px-xl py-md font-label-md text-label-md text-on-primary shadow-lg transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             {t("bookAppointment")}
           </Link>
           <Link
             href="/contact"
-            className="rounded-lg border border-white/30 bg-white/10 px-xl py-md font-label-md text-label-md text-white backdrop-blur-md transition-all hover:bg-white/20"
+            className="rounded-lg border border-white/30 bg-white/10 px-xl py-md font-label-md text-label-md text-white backdrop-blur-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-white/20 active:scale-[0.98]"
           >
             {t("contactUs")}
           </Link>

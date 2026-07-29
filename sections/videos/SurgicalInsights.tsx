@@ -35,7 +35,7 @@ export function SurgicalInsights() {
         </div>
         <button
           type="button"
-          className="hidden items-center gap-2 rounded-lg px-4 py-2 font-label-md text-xs uppercase text-primary transition-all hover:bg-primary/5 sm:flex"
+          className="hidden items-center gap-2 rounded-lg px-4 py-2 font-label-md text-xs uppercase text-primary transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/5 active:scale-[0.98] sm:flex"
         >
           {t("viewAll")}
           <span className="material-symbols-outlined" aria-hidden="true">
@@ -49,18 +49,18 @@ export function SurgicalInsights() {
             key={item.title}
             type="button"
             onClick={() => setOpen(true)}
-            className="stagger-item group cursor-pointer overflow-hidden rounded-2xl text-start shadow-md transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+            className="stagger-item group cursor-pointer overflow-hidden rounded-2xl text-start shadow-md transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-2xl"
           >
             <div className="relative aspect-[9/16] overflow-hidden">
               <Image
                 src={images[index]}
                 alt={item.title}
                 fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover transition-transform duration-1000 group-hover:scale-[1.08]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-80" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex h-16 w-16 scale-90 items-center justify-center rounded-full border border-white/40 bg-white/20 shadow-2xl backdrop-blur-xl transition-transform duration-500 group-hover:scale-100">
+                <div className="play-pulse flex h-16 w-16 scale-90 items-center justify-center rounded-full border border-white/40 bg-white/20 shadow-2xl backdrop-blur-xl transition-transform duration-500 group-hover:scale-100">
                   <span
                     className="material-symbols-outlined icon-filled text-3xl text-white"
                     aria-hidden="true"

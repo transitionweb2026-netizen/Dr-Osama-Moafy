@@ -13,7 +13,7 @@ export function SideConcierge() {
         href={`https://wa.me/${siteConfig.whatsappNumber}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="floating-icon group relative p-2 text-primary transition-colors hover:text-primary-container"
+        className="floating-icon group relative p-2 text-primary transition-all duration-300 hover:scale-125 hover:text-primary-container"
       >
         <span className="material-symbols-outlined text-2xl" aria-hidden="true">
           chat
@@ -25,7 +25,7 @@ export function SideConcierge() {
       <a
         href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
         style={{ animationDelay: "-1.5s" }}
-        className="floating-icon group relative p-2 text-primary transition-colors hover:text-primary-container"
+        className="floating-icon group relative p-2 text-primary transition-all duration-300 hover:scale-125 hover:text-primary-container"
       >
         <span className="material-symbols-outlined text-2xl" aria-hidden="true">
           call

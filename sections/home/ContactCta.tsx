@@ -13,8 +13,11 @@ export function ContactCta() {
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-surface-container-high via-surface-container-lowest to-surface-container-high" />
-        <div className="absolute -start-20 top-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute -end-20 bottom-1/4 h-96 w-96 rounded-full bg-secondary/5 blur-[120px]" />
+        <div className="glow-breathe absolute -start-20 top-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
+        <div
+          className="glow-breathe absolute -end-20 bottom-1/4 h-96 w-96 rounded-full bg-secondary/5 blur-[120px]"
+          style={{ animationDelay: "2s" }}
+        />
       </div>
       <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-[1.5fr_1fr]">
         <div className="flex flex-col gap-8">
@@ -30,7 +33,7 @@ export function ContactCta() {
           <div className="stagger-item delay-200 flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="rounded-2xl bg-primary px-8 py-4 font-headline-md text-xl text-on-primary shadow-lg transition-all hover:bg-primary-container"
+              className="rounded-2xl bg-primary px-8 py-4 font-headline-md text-xl text-on-primary shadow-lg transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
             >
               {t("bookAppointment")}
             </Link>
@@ -38,7 +41,7 @@ export function ContactCta() {
               href={`https://wa.me/${siteConfig.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-2xl border border-outline-variant bg-white px-8 py-4 font-headline-md text-xl text-primary shadow-sm transition-all hover:bg-primary/5"
+              className="flex items-center gap-2 rounded-2xl border border-outline-variant bg-white px-8 py-4 font-headline-md text-xl text-primary shadow-sm transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/5 hover:shadow-md active:scale-[0.98]"
             >
               <span className="material-symbols-outlined" aria-hidden="true">
                 chat
@@ -73,7 +76,7 @@ export function ContactCta() {
             </h3>
             <div className="space-y-6">
               <div className="stagger-item delay-100 group flex items-center gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all group-hover:bg-primary group-hover:text-on-primary">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary">
                   <span className="material-symbols-outlined" aria-hidden="true">
                     call
                   </span>
@@ -88,7 +91,7 @@ export function ContactCta() {
                 </div>
               </div>
               <div className="stagger-item delay-200 group flex items-center gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all group-hover:bg-primary group-hover:text-on-primary">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary">
                   <span className="material-symbols-outlined" aria-hidden="true">
                     chat
                   </span>
@@ -103,7 +106,7 @@ export function ContactCta() {
                 </div>
               </div>
               <div className="stagger-item delay-300 group flex items-center gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all group-hover:bg-primary group-hover:text-on-primary">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary">
                   <span className="material-symbols-outlined" aria-hidden="true">
                     mail
                   </span>
@@ -118,7 +121,7 @@ export function ContactCta() {
                 </div>
               </div>
               <div className="stagger-item delay-400 group flex items-center gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all group-hover:bg-primary group-hover:text-on-primary">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary">
                   <span className="material-symbols-outlined" aria-hidden="true">
                     location_on
                   </span>
@@ -135,7 +138,7 @@ export function ContactCta() {
             </div>
             <Link
               href="/contact"
-              className="mt-10 block w-full rounded-2xl bg-primary py-4 text-center font-headline-md text-lg text-on-primary shadow-md transition-all hover:bg-primary-container"
+              className="mt-10 block w-full rounded-2xl bg-primary py-4 text-center font-headline-md text-lg text-on-primary shadow-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
             >
               {t("bookNow")}
             </Link>
