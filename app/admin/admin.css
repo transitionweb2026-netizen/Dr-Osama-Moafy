@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* Lets `dark:` respond to a `.dark` class on <html> (toggled by the admin
+   theme switcher) instead of only `prefers-color-scheme`. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --admin-bg: #f5f6fa;
+  --admin-surface: #ffffff;
+  --admin-surface-alt: #eef0f6;
+  --admin-border: #e1e3ec;
+  --admin-text: #14161c;
+  --admin-muted: #6b7280;
+  --admin-accent: #00666b;
+  --admin-accent-contrast: #ffffff;
+  --admin-danger: #ba1a1a;
+  --admin-danger-container: #ffdad6;
+  --admin-success: #1e7d3c;
+  --admin-warning: #a15c00;
+}
+
+.dark {
+  --admin-bg: #0e1013;
+  --admin-surface: #16191f;
+  --admin-surface-alt: #1c2028;
+  --admin-border: #2a2f3a;
+  --admin-text: #e7e9ee;
+  --admin-muted: #9aa1b1;
+  --admin-accent: #4dd8de;
+  --admin-accent-contrast: #042223;
+  --admin-danger: #ff8a80;
+  --admin-danger-container: #4c1512;
+  --admin-success: #6fd695;
+  --admin-warning: #f2b043;
+}
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+
+  --color-admin-bg: var(--admin-bg);
+  --color-admin-surface: var(--admin-surface);
+  --color-admin-surface-alt: var(--admin-surface-alt);
+  --color-admin-border: var(--admin-border);
+  --color-admin-text: var(--admin-text);
+  --color-admin-muted: var(--admin-muted);
+  --color-admin-accent: var(--admin-accent);
+  --color-admin-accent-contrast: var(--admin-accent-contrast);
+  --color-admin-danger: var(--admin-danger);
+  --color-admin-danger-container: var(--admin-danger-container);
+  --color-admin-success: var(--admin-success);
+  --color-admin-warning: var(--admin-warning);
+}
+
+body.admin-root {
+  background: var(--admin-bg);
+  color: var(--admin-text);
+}
