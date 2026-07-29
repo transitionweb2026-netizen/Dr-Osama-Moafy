@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
@@ -33,7 +34,20 @@ export function ServicesGrid() {
   const openItem = openIndex !== null ? items[openIndex] : null;
   const openDetail = openIndex !== null ? details[String(openIndex)] : null;
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [openIndex]);
+
   return (
+    <>
     <RevealSection
       as="section"
       className="bg-surface-bright px-margin-mobile py-xl md:px-xl"
@@ -79,8 +93,9 @@ export function ServicesGrid() {
           </button>
         ))}
       </div>
+    </RevealSection>
 
-      {openItem && openDetail && (
+    {mounted && openItem && openDetail && createPortal(
         <div
           className="fixed inset-0 z-[120] flex items-center justify-center p-margin-mobile"
           role="dialog"
@@ -91,62 +106,67 @@ export function ServicesGrid() {
             className="modal-fade-in absolute inset-0 bg-secondary/60 backdrop-blur-md"
             onClick={() => setOpenIndex(null)}
           />
-          <div className="modal-pop-in glass-card relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-xl shadow-2xl">
-            <button
-              type="button"
-              onClick={() => setOpenIndex(null)}
-              aria-label={t("close")}
-              className="absolute top-md end-md z-10 rounded-full bg-surface-container p-sm text-secondary transition-all duration-300 hover:rotate-90 hover:text-primary"
-            >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                close
-              </span>
-            </button>
-
-            <div className="relative mb-lg aspect-video overflow-hidden rounded-xl shadow-[0_0_18px_rgba(94,224,255,0.35),0_4px_20px_rgba(59,130,246,0.15)] ring-1 ring-cyan-200/30">
-              <Image
-                src={images[openIndex as number]}
-                alt={openItem.title}
-                fill
-                sizes="(max-width: 768px) 90vw, 640px"
-                className="object-cover brightness-105"
-              />
+          <div className="modal-pop-in glass-card relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-outline-variant/20 bg-white px-xl py-md">
+              <h2 className="font-headline-md text-headline-md text-primary">
+                {openItem.title}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setOpenIndex(null)}
+                aria-label={t("close")}
+                className="flex shrink-0 items-center justify-center rounded-full bg-surface-container p-sm text-secondary transition-all duration-300 hover:rotate-90 hover:text-primary"
+              >
+                <span className="material-symbols-outlined" aria-hidden="true">
+                  close
+                </span>
+              </button>
             </div>
 
-            <h2 className="mb-md font-headline-md text-headline-md text-primary">
-              {openItem.title}
-            </h2>
-            <p className="mb-lg leading-relaxed text-on-surface-variant">
-              {openDetail.overview}
-            </p>
+            <div className="overflow-y-auto p-xl">
+              <div className="relative mb-lg aspect-video overflow-hidden rounded-xl shadow-[0_0_18px_rgba(94,224,255,0.35),0_4px_20px_rgba(59,130,246,0.15)] ring-1 ring-cyan-200/30">
+                <Image
+                  src={images[openIndex as number]}
+                  alt={openItem.title}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 640px"
+                  className="object-cover brightness-105"
+                />
+              </div>
 
-            <h3 className="mb-sm font-label-md text-xs font-bold uppercase tracking-widest text-secondary">
-              {t("keyAspects")}
-            </h3>
-            <ul className="mb-xl space-y-3">
-              {openDetail.points.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <span
-                    className="material-symbols-outlined mt-0.5 shrink-0 text-lg text-primary"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                    aria-hidden="true"
-                  >
-                    check_circle
-                  </span>
-                  <span className="text-sm text-on-surface-variant">{point}</span>
-                </li>
-              ))}
-            </ul>
+              <p className="mb-lg leading-relaxed text-on-surface-variant">
+                {openDetail.overview}
+              </p>
 
-            <Link
-              href="/contact"
-              className="flex w-full items-center justify-center rounded-lg bg-primary py-md font-headline-md text-on-primary shadow-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container active:scale-[0.98]"
-            >
-              {t("bookAppointment")}
-            </Link>
+              <h3 className="mb-sm font-label-md text-xs font-bold uppercase tracking-widest text-secondary">
+                {t("keyAspects")}
+              </h3>
+              <ul className="mb-xl space-y-3">
+                {openDetail.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <span
+                      className="material-symbols-outlined mt-0.5 shrink-0 text-lg text-primary"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                      aria-hidden="true"
+                    >
+                      check_circle
+                    </span>
+                    <span className="text-sm text-on-surface-variant">{point}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href="/contact"
+                className="flex w-full items-center justify-center rounded-lg bg-primary py-md font-headline-md text-on-primary shadow-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container active:scale-[0.98]"
+              >
+                {t("bookAppointment")}
+              </Link>
+            </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
-    </RevealSection>
+    </>
   );
 }
