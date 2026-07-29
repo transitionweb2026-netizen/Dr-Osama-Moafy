@@ -1,12 +1,20 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { siteConfig } from "@/constants/site";
 
 export function SideConcierge() {
   const t = useTranslations("Nav");
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return null;
+  }
 
   return (
     <aside
-      className="fixed start-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-6 rounded-full border border-outline-variant/50 bg-surface-container-high/90 py-6 shadow-xl backdrop-blur-md lg:flex"
+      className="fixed bottom-6 end-6 z-40 hidden flex-col items-center gap-4 rounded-full border border-outline-variant/50 bg-surface-container-high/90 py-6 shadow-xl backdrop-blur-md lg:flex"
       aria-label="Quick contact"
     >
       <a
@@ -18,7 +26,7 @@ export function SideConcierge() {
         <span className="material-symbols-outlined text-2xl" aria-hidden="true">
           chat
         </span>
-        <span className="pointer-events-none absolute start-full ms-4 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 text-[10px] text-on-primary opacity-0 transition-opacity group-hover:opacity-100">
+        <span className="pointer-events-none absolute end-full top-1/2 me-4 -translate-y-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 text-[10px] text-on-primary opacity-0 transition-opacity group-hover:opacity-100">
           {t("whatsapp")}
         </span>
       </a>
@@ -30,7 +38,7 @@ export function SideConcierge() {
         <span className="material-symbols-outlined text-2xl" aria-hidden="true">
           call
         </span>
-        <span className="pointer-events-none absolute start-full ms-4 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 text-[10px] text-on-primary opacity-0 transition-opacity group-hover:opacity-100">
+        <span className="pointer-events-none absolute end-full top-1/2 me-4 -translate-y-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 text-[10px] text-on-primary opacity-0 transition-opacity group-hover:opacity-100">
           {t("call")}
         </span>
       </a>

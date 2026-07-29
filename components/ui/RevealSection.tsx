@@ -36,7 +36,12 @@ export function RevealSection({
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
+      // threshold is a ratio of the *target's own* area, so it never
+      // reaches 0.2 for sections taller than ~5x the viewport (e.g. a
+      // single-column card grid on mobile) — use rootMargin against the
+      // viewport instead so the trigger point stays viewport-relative
+      // and independent of how tall any given section is.
+      { threshold: 0, rootMargin: "0px 0px -20% 0px" },
     );
 
     observer.observe(el);
