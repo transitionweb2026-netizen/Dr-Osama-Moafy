@@ -1,11 +1,37 @@
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/constants/site";
 
-export function ContactCta() {
-  const t = useTranslations("Home.contactCta");
+export interface HomeContactCtaContent {
+  titleLine1: string;
+  titleLine2: string;
+  description: string;
+  bookAppointment: string;
+  whatsapp: string;
+  fastResponse: string;
+  expertConsultation: string;
+  clinicDetails: string;
+  phoneLabel: string;
+  whatsappLabel: string;
+  emailLabel: string;
+  addressLabel: string;
+  bookNow: string;
+}
 
+export function ContactCta({
+  content,
+  phone,
+  whatsapp,
+  whatsappNumber,
+  email,
+  addressLine,
+}: {
+  content: HomeContactCtaContent;
+  phone: string;
+  whatsapp: string;
+  whatsappNumber: string;
+  email: string;
+  addressLine: string;
+}) {
   return (
     <RevealSection
       as="section"
@@ -23,11 +49,11 @@ export function ContactCta() {
         <div className="flex flex-col gap-8">
           <div className="space-y-4">
             <h2 className="stagger-item font-headline-lg text-5xl uppercase leading-tight tracking-tighter text-on-surface md:text-7xl">
-              {t("titleLine1")} <br />
-              <span className="text-primary">{t("titleLine2")}</span>
+              {content.titleLine1} <br />
+              <span className="text-primary">{content.titleLine2}</span>
             </h2>
             <p className="stagger-item delay-100 max-w-[32rem] text-body-lg font-medium leading-relaxed text-on-surface-variant/80">
-              {t("description")}
+              {content.description}
             </p>
           </div>
           <div className="stagger-item delay-200 flex flex-wrap gap-4">
@@ -35,10 +61,10 @@ export function ContactCta() {
               href="/contact"
               className="rounded-2xl bg-primary px-8 py-4 font-headline-md text-xl text-on-primary shadow-lg transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
             >
-              {t("bookAppointment")}
+              {content.bookAppointment}
             </Link>
             <a
-              href={`https://wa.me/${siteConfig.whatsappNumber}`}
+              href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-2xl border border-outline-variant bg-white px-8 py-4 font-headline-md text-xl text-primary shadow-sm transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/5 hover:shadow-md active:scale-[0.98]"
@@ -46,7 +72,7 @@ export function ContactCta() {
               <span className="material-symbols-outlined" aria-hidden="true">
                 chat
               </span>
-              {t("whatsapp")}
+              {content.whatsapp}
             </a>
           </div>
           <div className="stagger-item delay-300 flex flex-wrap gap-8 border-t border-outline-variant pt-8">
@@ -55,7 +81,7 @@ export function ContactCta() {
                 bolt
               </span>
               <span className="font-label-md text-xs uppercase tracking-widest text-on-surface-variant">
-                {t("fastResponse")}
+                {content.fastResponse}
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -63,7 +89,7 @@ export function ContactCta() {
                 verified_user
               </span>
               <span className="font-label-md text-xs uppercase tracking-widest text-on-surface-variant">
-                {t("expertConsultation")}
+                {content.expertConsultation}
               </span>
             </div>
           </div>
@@ -72,7 +98,7 @@ export function ContactCta() {
         <RevealSection variant="reveal-right" className="relative">
           <div className="relative z-10 rounded-[40px] border border-outline-variant bg-white p-10 shadow-2xl">
             <h3 className="mb-8 font-headline-md text-2xl text-on-surface">
-              {t("clinicDetails")}
+              {content.clinicDetails}
             </h3>
             <div className="space-y-6">
               <div className="stagger-item delay-100 group flex items-center gap-5">
@@ -83,11 +109,9 @@ export function ContactCta() {
                 </div>
                 <div>
                   <p className="font-label-md text-[10px] uppercase tracking-widest text-secondary">
-                    {t("phoneLabel")}
+                    {content.phoneLabel}
                   </p>
-                  <p className="font-headline-md text-lg text-on-surface">
-                    {siteConfig.phone}
-                  </p>
+                  <p className="font-headline-md text-lg text-on-surface">{phone}</p>
                 </div>
               </div>
               <div className="stagger-item delay-200 group flex items-center gap-5">
@@ -98,11 +122,9 @@ export function ContactCta() {
                 </div>
                 <div>
                   <p className="font-label-md text-[10px] uppercase tracking-widest text-secondary">
-                    {t("whatsappLabel")}
+                    {content.whatsappLabel}
                   </p>
-                  <p className="font-headline-md text-lg text-on-surface">
-                    {siteConfig.whatsapp}
-                  </p>
+                  <p className="font-headline-md text-lg text-on-surface">{whatsapp}</p>
                 </div>
               </div>
               <div className="stagger-item delay-300 group flex items-center gap-5">
@@ -113,11 +135,9 @@ export function ContactCta() {
                 </div>
                 <div>
                   <p className="font-label-md text-[10px] uppercase tracking-widest text-secondary">
-                    {t("emailLabel")}
+                    {content.emailLabel}
                   </p>
-                  <p className="font-headline-md text-lg text-on-surface">
-                    {siteConfig.email}
-                  </p>
+                  <p className="font-headline-md text-lg text-on-surface">{email}</p>
                 </div>
               </div>
               <div className="stagger-item delay-400 group flex items-center gap-5">
@@ -128,11 +148,9 @@ export function ContactCta() {
                 </div>
                 <div>
                   <p className="font-label-md text-[10px] uppercase tracking-widest text-secondary">
-                    {t("addressLabel")}
+                    {content.addressLabel}
                   </p>
-                  <p className="font-headline-md text-lg text-on-surface">
-                    {siteConfig.addressLine}
-                  </p>
+                  <p className="font-headline-md text-lg text-on-surface">{addressLine}</p>
                 </div>
               </div>
             </div>
@@ -140,7 +158,7 @@ export function ContactCta() {
               href="/contact"
               className="mt-10 block w-full rounded-2xl bg-primary py-4 text-center font-headline-md text-lg text-on-primary shadow-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary-container hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
             >
-              {t("bookNow")}
+              {content.bookNow}
             </Link>
           </div>
           <div className="absolute -inset-4 -z-10 rounded-[48px] bg-primary/5 blur-3xl" />

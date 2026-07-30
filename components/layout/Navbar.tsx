@@ -3,10 +3,14 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { navItems, siteConfig } from "@/constants/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Navbar() {
+export interface NavbarItem {
+  href: string;
+  label: string;
+}
+
+export function Navbar({ items, siteName }: { items: NavbarItem[]; siteName: string }) {
   const t = useTranslations("Nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -32,15 +36,15 @@ export function Navbar() {
           href="/"
           className="shrink-0 font-headline-md text-headline-md text-primary tracking-tighter uppercase"
         >
-          {siteConfig.name}
+          {siteName}
         </Link>
 
         <nav className="hidden items-center gap-lg xl:flex" aria-label="Primary">
-          {navItems.map((item) => {
+          {items.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
-                key={item.key}
+                key={item.href}
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 className={`group relative py-1 font-label-md text-label-md transition-colors duration-[250ms] ${
@@ -49,7 +53,7 @@ export function Navbar() {
                     : "text-on-surface-variant hover:text-primary"
                 }`}
               >
-                {t(item.key)}
+                {item.label}
                 <span
                   aria-hidden="true"
                   className={`absolute inset-x-0 -bottom-0.5 h-[2px] origin-center rounded-full bg-primary transition-transform duration-[250ms] ease-out ${
@@ -93,10 +97,10 @@ export function Navbar() {
           aria-label="Mobile"
         >
           <ul className="flex flex-col gap-4">
-            {navItems.map((item) => {
+            {items.map((item) => {
               const isActive = pathname === item.href;
               return (
-                <li key={item.key}>
+                <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
@@ -107,7 +111,7 @@ export function Navbar() {
                         : "text-on-surface-variant hover:text-primary"
                     }`}
                   >
-                    {t(item.key)}
+                    {item.label}
                     <span
                       aria-hidden="true"
                       className={`absolute inset-x-0 -bottom-0.5 h-[2px] origin-center rounded-full bg-primary transition-transform duration-[250ms] ease-out ${

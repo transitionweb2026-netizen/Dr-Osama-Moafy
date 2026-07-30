@@ -1,7 +1,13 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+
+function revalidatePublicAbout(tag: "testimonials" | "timeline_events") {
+  revalidateTag(tag, "max");
+  revalidatePath("/en/about");
+  revalidatePath("/ar/about");
+}
 
 // ---------------------------------------------------------------------------
 // Testimonials
@@ -28,6 +34,7 @@ export async function createTestimonial(payload: TestimonialPayload) {
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("testimonials");
   return data;
 }
 
@@ -41,6 +48,7 @@ export async function updateTestimonial(id: string, payload: TestimonialPayload)
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("testimonials");
   return data;
 }
 
@@ -49,6 +57,7 @@ export async function deleteTestimonial(id: string) {
   const { error } = await supabase.from("testimonials").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("testimonials");
 }
 
 export async function reorderTestimonials(orderedIds: string[]) {
@@ -59,6 +68,7 @@ export async function reorderTestimonials(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("testimonials");
 }
 
 // ---------------------------------------------------------------------------
@@ -85,6 +95,7 @@ export async function createTimelineEvent(payload: TimelineEventPayload) {
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("timeline_events");
   return data;
 }
 
@@ -98,6 +109,7 @@ export async function updateTimelineEvent(id: string, payload: TimelineEventPayl
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("timeline_events");
   return data;
 }
 
@@ -106,6 +118,7 @@ export async function deleteTimelineEvent(id: string) {
   const { error } = await supabase.from("timeline_events").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("timeline_events");
 }
 
 export async function reorderTimelineEvents(orderedIds: string[]) {
@@ -116,4 +129,5 @@ export async function reorderTimelineEvents(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/doctor");
+  revalidatePublicAbout("timeline_events");
 }

@@ -1,9 +1,19 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { ContentStatus } from "@/types/database";
+
+function revalidatePublicVideos() {
+  revalidateTag("videos", "max");
+  revalidatePath("/en/videos");
+  revalidatePath("/ar/videos");
+  revalidatePath("/en/videos/[slug]", "page");
+  revalidatePath("/ar/videos/[slug]", "page");
+  revalidatePath("/en");
+  revalidatePath("/ar");
+}
 
 export interface VideoFormState {
   status?: { type: "success" | "error"; text: string };
@@ -16,6 +26,14 @@ function str(formData: FormData, key: string) {
 function strOrNull(formData: FormData, key: string) {
   const value = str(formData, key);
   return value ? value : null;
+}
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 }
 
 function buildPayload(formData: FormData) {
@@ -43,15 +61,29 @@ export async function createVideo(
     return { status: { type: "error", text: "Title is required in both languages." } };
   }
 
+  const slugInput = str(formData, "slug");
+  const slug = slugify(slugInput || payload.title_en);
+  if (!slug) {
+    return { status: { type: "error", text: "Couldn't derive a URL slug from the title." } };
+  }
+
   const supabase = await createClient();
   const { count } = await supabase.from("videos").select("id", { count: "exact", head: true });
-  const { error } = await supabase.from("videos").insert({ ...payload, sort_order: count ?? 0 });
+  const { error } = await supabase
+    .from("videos")
+    .insert({ ...payload, slug, sort_order: count ?? 0 });
 
   if (error) {
-    return { status: { type: "error", text: error.message } };
+    return {
+      status: {
+        type: "error",
+        text: error.code === "23505" ? "That URL slug is already in use." : error.message,
+      },
+    };
   }
 
   revalidatePath("/admin/videos");
+  revalidatePublicVideos();
   redirect("/admin/videos");
 }
 
@@ -65,17 +97,29 @@ export async function updateVideo(
     return { status: { type: "error", text: "Title is required in both languages." } };
   }
 
+  const slugInput = str(formData, "slug");
+  const slug = slugify(slugInput || payload.title_en);
+  if (!slug) {
+    return { status: { type: "error", text: "Couldn't derive a URL slug from the title." } };
+  }
+
   const supabase = await createClient();
   const { error } = await supabase
     .from("videos")
-    .update({ ...payload, updated_at: new Date().toISOString() })
+    .update({ ...payload, slug, updated_at: new Date().toISOString() })
     .eq("id", id);
 
   if (error) {
-    return { status: { type: "error", text: error.message } };
+    return {
+      status: {
+        type: "error",
+        text: error.code === "23505" ? "That URL slug is already in use." : error.message,
+      },
+    };
   }
 
   revalidatePath("/admin/videos");
+  revalidatePublicVideos();
   return { status: { type: "success", text: "Saved." } };
 }
 
@@ -83,6 +127,7 @@ export async function deleteVideo(id: string) {
   const supabase = await createClient();
   await supabase.from("videos").delete().eq("id", id);
   revalidatePath("/admin/videos");
+  revalidatePublicVideos();
 }
 
 export async function reorderVideos(orderedIds: string[]) {
@@ -93,4 +138,5 @@ export async function reorderVideos(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/videos");
+  revalidatePublicVideos();
 }

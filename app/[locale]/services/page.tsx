@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { getServicesPageContent } from "@/lib/content/services";
+import { getSiteSettings } from "@/lib/content/settings";
+import { getSeoMeta } from "@/lib/content/seo";
+import type { Locale } from "@/lib/content/shared";
 import { ServicesHero } from "@/sections/services/ServicesHero";
 import { SpecialtiesGrid } from "@/sections/services/SpecialtiesGrid";
 import { TreatmentsCarousel } from "@/sections/services/TreatmentsCarousel";
@@ -14,12 +18,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Services.meta" });
+  const seo = await getSeoMeta("services", locale as Locale);
 
   return {
-    title: t("title"),
-    description: t("description"),
-    alternates: { canonical: "/services" },
+    title: seo?.title,
+    description: seo?.description ?? undefined,
+    alternates: { canonical: seo?.canonicalPath ?? "/services" },
   };
 }
 
@@ -30,16 +34,20 @@ export default async function ServicesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const [content, site] = await Promise.all([
+    getServicesPageContent(locale as Locale),
+    getSiteSettings(),
+  ]);
 
   return (
     <>
-      <ServicesHero />
-      <SpecialtiesGrid />
-      <TreatmentsCarousel />
-      <PatientJourney />
-      <WhyChooseUs />
-      <FaqTwoColumn />
-      <BookAppointmentCta />
+      <ServicesHero content={content.hero} />
+      <SpecialtiesGrid content={content.specialtiesGrid} />
+      <TreatmentsCarousel content={content.treatments} />
+      <PatientJourney content={content.journey} />
+      <WhyChooseUs content={content.whyChooseUs} />
+      <FaqTwoColumn content={content.faq} />
+      <BookAppointmentCta content={content.bookCta} whatsappNumber={site.whatsappNumber} />
     </>
   );
 }

@@ -93,6 +93,7 @@ export interface SocialLinkRow {
 
 export interface ServiceRow {
   id: string;
+  slug: string;
   placement: string;
   title_en: string;
   title_ar: string;
@@ -111,6 +112,7 @@ export interface ServiceRow {
 
 export interface TreatmentRow {
   id: string;
+  slug: string;
   title_en: string;
   title_ar: string;
   description_en: string | null;
@@ -157,6 +159,7 @@ export interface ArticleRow {
 
 export interface VideoRow {
   id: string;
+  slug: string;
   placement: string;
   title_en: string;
   title_ar: string;
@@ -206,6 +209,7 @@ export interface CertificateRow {
   image_id: string | null;
   sort_order: number;
   is_visible: boolean;
+  placement: string;
 }
 
 export interface TimelineEventRow {

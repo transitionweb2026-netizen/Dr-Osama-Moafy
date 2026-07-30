@@ -1,7 +1,31 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+
+function revalidatePublicHome() {
+  revalidateTag("faqs", "max");
+  revalidatePath("/en");
+  revalidatePath("/ar");
+}
+
+function revalidatePublicCertificates() {
+  revalidateTag("certificates", "max");
+  revalidatePath("/en");
+  revalidatePath("/ar");
+  revalidatePath("/en/about");
+  revalidatePath("/ar/about");
+}
+
+function revalidatePublicSpecialties() {
+  revalidateTag("specialties", "max");
+  revalidatePath("/en");
+  revalidatePath("/ar");
+  revalidatePath("/en/about");
+  revalidatePath("/ar/about");
+  revalidatePath("/en/services");
+  revalidatePath("/ar/services");
+}
 
 // ---------------------------------------------------------------------------
 // FAQs (home page)
@@ -27,6 +51,7 @@ export async function createFaq(payload: FaqPayload) {
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicHome();
   return data;
 }
 
@@ -35,6 +60,7 @@ export async function updateFaq(id: string, payload: FaqPayload) {
   const { data, error } = await supabase.from("faqs").update(payload).eq("id", id).select().single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicHome();
   return data;
 }
 
@@ -43,6 +69,7 @@ export async function deleteFaq(id: string) {
   const { error } = await supabase.from("faqs").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicHome();
 }
 
 export async function reorderFaqs(orderedIds: string[]) {
@@ -51,12 +78,14 @@ export async function reorderFaqs(orderedIds: string[]) {
     orderedIds.map((id, index) => supabase.from("faqs").update({ sort_order: index }).eq("id", id))
   );
   revalidatePath("/admin/home");
+  revalidatePublicHome();
 }
 
 // ---------------------------------------------------------------------------
 // Certificates (home page)
 // ---------------------------------------------------------------------------
 export interface CertificatePayload {
+  placement: string;
   title_en: string;
   title_ar: string;
   subtitle_en: string;
@@ -79,6 +108,7 @@ export async function createCertificate(payload: CertificatePayload) {
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicCertificates();
   return data;
 }
 
@@ -92,6 +122,7 @@ export async function updateCertificate(id: string, payload: CertificatePayload)
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicCertificates();
   return data;
 }
 
@@ -100,6 +131,7 @@ export async function deleteCertificate(id: string) {
   const { error } = await supabase.from("certificates").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicCertificates();
 }
 
 export async function reorderCertificates(orderedIds: string[]) {
@@ -110,6 +142,7 @@ export async function reorderCertificates(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/home");
+  revalidatePublicCertificates();
 }
 
 // ---------------------------------------------------------------------------
@@ -136,6 +169,7 @@ export async function createSpecialty(payload: SpecialtyPayload) {
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicSpecialties();
   return data;
 }
 
@@ -149,6 +183,7 @@ export async function updateSpecialty(id: string, payload: SpecialtyPayload) {
     .single();
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicSpecialties();
   return data;
 }
 
@@ -157,6 +192,7 @@ export async function deleteSpecialty(id: string) {
   const { error } = await supabase.from("specialties").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/home");
+  revalidatePublicSpecialties();
 }
 
 export async function reorderSpecialties(orderedIds: string[]) {
@@ -167,4 +203,5 @@ export async function reorderSpecialties(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/home");
+  revalidatePublicSpecialties();
 }

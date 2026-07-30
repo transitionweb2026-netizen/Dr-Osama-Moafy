@@ -1,12 +1,22 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
-export function WhyTrust() {
-  const t = useTranslations("Home.whyTrust");
-  const points = t.raw("points") as { title: string; description: string }[];
+export interface WhyTrustPoint {
+  title: string;
+  description: string;
+}
 
+export interface WhyTrustContent {
+  eyebrow: string;
+  title: string;
+  badgeYears: string;
+  badgeLabel: string;
+  image: { url: string; alt: string };
+  points: WhyTrustPoint[];
+}
+
+export function WhyTrust({ content }: { content: WhyTrustContent }) {
   return (
     <RevealSection
       as="section"
@@ -19,8 +29,8 @@ export function WhyTrust() {
         >
           <div className="aspect-video overflow-hidden rounded-2xl border border-outline-variant/30">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7K2hF-pqet8mjf8e4ddiVGs4GpNLZ7f7wY8DtV8cmYfWY6HIY8G_tgv9ulES-20h_kD6vKUNgdEe4caT1YZybbTqbVhtt682ibWO-2OTVe8kfgP-OKXkx0cdMYSzMVl9-eDFc3IJQumafNFkGpQe-QpWfKP30d1Na-DNIo48Mg8Ckh19MuomXA5us2MaszwgBtkmssqdCOYpel1uYgw3bqCoqLFbBXcX-JoF-HPkESXy-jUya2d7rh-uZpxJuYP_L-fqRMepfoY"
-              alt={t("imageAlt")}
+              src={content.image.url}
+              alt={content.image.alt}
               width={640}
               height={360}
               className="h-full w-full object-cover"
@@ -28,24 +38,24 @@ export function WhyTrust() {
           </div>
           <div className="reveal-scale-0 delay-500 absolute -bottom-6 -end-6 hidden rounded-2xl border-e-4 border-on-primary/20 bg-primary p-6 text-on-primary shadow-xl md:block">
             <p className="font-headline-lg text-4xl leading-none">
-              <AnimatedCounter value={t("badgeYears")} />
+              <AnimatedCounter value={content.badgeYears} />
             </p>
             <p className="mt-1 font-label-md text-[10px] uppercase tracking-widest">
-              {t("badgeLabel")}
+              {content.badgeLabel}
             </p>
           </div>
         </RevealSection>
         <RevealSection variant="reveal-right" className="flex flex-col gap-8">
           <div>
             <h3 className="mb-2 font-label-md text-secondary uppercase tracking-[0.2em]">
-              {t("eyebrow")}
+              {content.eyebrow}
             </h3>
             <h2 className="font-headline-lg text-headline-lg uppercase text-primary">
-              {t("title")}
+              {content.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-            {points.map((point, index) => (
+            {content.points.map((point, index) => (
               <div
                 key={point.title}
                 className={`stagger-item delay-${(index + 1) * 100} flex items-start gap-4`}

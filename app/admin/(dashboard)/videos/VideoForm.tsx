@@ -46,6 +46,13 @@ export function VideoForm({
             defaultValueAr={video?.title_ar}
             required
           />
+          <TextField
+            name="slug"
+            label="URL slug"
+            defaultValue={video?.slug}
+            placeholder="leaving-blank-uses-the-english-title"
+            hint="Used in the video's detail page URL. Leave blank to generate from the English title."
+          />
           <BilingualTextareaField
             baseName="description"
             label="Description"
@@ -89,6 +96,7 @@ export function VideoForm({
                 defaultValue={video?.placement ?? "insights"}
                 options={[
                   { value: "insights", label: "Videos page — Surgical Insights" },
+                  { value: "patient_stories", label: "Videos page — Patient Stories" },
                   { value: "home", label: "Home page — Educational Shorts" },
                 ]}
               />

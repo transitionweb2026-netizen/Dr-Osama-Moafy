@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { getAboutContent } from "@/lib/content/about";
+import { getSeoMeta } from "@/lib/content/seo";
+import type { Locale } from "@/lib/content/shared";
 import { AboutHero } from "@/sections/about/AboutHero";
 import { Introduction } from "@/sections/about/Introduction";
 import { VideoShowcase } from "@/sections/about/VideoShowcase";
@@ -14,12 +17,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "About.meta" });
+  const seo = await getSeoMeta("about", locale as Locale);
 
   return {
-    title: t("title"),
-    description: t("description"),
-    alternates: { canonical: "/about" },
+    title: seo?.title,
+    description: seo?.description ?? undefined,
+    alternates: { canonical: seo?.canonicalPath ?? "/about" },
   };
 }
 
@@ -30,16 +33,17 @@ export default async function AboutPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const content = await getAboutContent(locale as Locale);
 
   return (
     <>
-      <AboutHero />
-      <Introduction />
-      <VideoShowcase />
-      <SpecialtiesCarousel />
-      <ExperienceTimeline />
-      <Testimonials />
-      <CtaBand />
+      <AboutHero content={content.hero} />
+      <Introduction content={content.introduction} />
+      <VideoShowcase content={content.videoShowcase} />
+      <SpecialtiesCarousel content={content.specialties} />
+      <ExperienceTimeline content={content.experience} />
+      <Testimonials content={content.testimonials} />
+      <CtaBand content={content.ctaBand} />
     </>
   );
 }

@@ -22,8 +22,8 @@ export default async function AdminDoctorPage() {
     <div>
       <h1 className="text-2xl font-semibold text-admin-text">Dr. Osama Moafy</h1>
       <p className="mt-1 text-sm text-admin-muted">
-        Bio content, career timeline, and patient testimonials. Specialties shown on this page are
-        managed from the Home page (shared across Home, Services, and here).
+        Bio content, career timeline, and patient testimonials. Specialties and certificates shown
+        on this page are managed from the Home page (shared collections, set placement per item).
       </p>
 
       <div className="mt-6 flex flex-col gap-8">

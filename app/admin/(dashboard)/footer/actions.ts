@@ -1,11 +1,17 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import type { FooterSettings } from "@/types/database";
 
 export interface FooterFormState {
   status?: { type: "success" | "error"; text: string };
+}
+
+function revalidatePublicFooter(tag: "settings" | "social_links") {
+  revalidateTag(tag, "max");
+  revalidatePath("/en", "layout");
+  revalidatePath("/ar", "layout");
 }
 
 function str(formData: FormData, key: string) {
@@ -48,6 +54,7 @@ export async function updateFooterText(
   }
 
   revalidatePath("/admin/footer");
+  revalidatePublicFooter("settings");
   return { status: { type: "success", text: "Saved." } };
 }
 
@@ -72,6 +79,7 @@ export async function createSocialLink(payload: SocialLinkPayload) {
 
   if (error) throw new Error(error.message);
   revalidatePath("/admin/footer");
+  revalidatePublicFooter("social_links");
   return data;
 }
 
@@ -86,6 +94,7 @@ export async function updateSocialLink(id: string, payload: SocialLinkPayload) {
 
   if (error) throw new Error(error.message);
   revalidatePath("/admin/footer");
+  revalidatePublicFooter("social_links");
   return data;
 }
 
@@ -94,6 +103,7 @@ export async function deleteSocialLink(id: string) {
   const { error } = await supabase.from("social_links").delete().eq("id", id);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/footer");
+  revalidatePublicFooter("social_links");
 }
 
 export async function reorderSocialLinks(orderedIds: string[]) {
@@ -104,4 +114,5 @@ export async function reorderSocialLinks(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/footer");
+  revalidatePublicFooter("social_links");
 }

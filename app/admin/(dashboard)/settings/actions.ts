@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import type { SettingsMap } from "@/types/database";
 
@@ -36,6 +36,9 @@ async function saveSettings<K extends keyof SettingsMap>(
   }
 
   revalidatePath("/admin/settings");
+  revalidateTag("settings", "max");
+  revalidatePath("/en", "layout");
+  revalidatePath("/ar", "layout");
   return { status: { type: "success", text: "Saved." } };
 }
 

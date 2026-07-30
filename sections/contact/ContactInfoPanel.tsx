@@ -1,15 +1,33 @@
-import { useTranslations } from "next-intl";
-import { siteConfig } from "@/constants/site";
+export interface ContactInfoPanelContent {
+  headquartersTitle: string;
+  headquartersAddress: string;
+  openInMaps: string;
+  telephoneLabel: string;
+  whatsappLabel: string;
+  emailLabel: string;
+  hoursLabel: string;
+  image: { url: string; alt: string };
+}
 
-const iconRows = [
-  { icon: "phone_in_talk", labelKey: "telephoneLabel", value: siteConfig.phone },
-  { icon: "chat", labelKey: "whatsappLabel", value: siteConfig.whatsapp },
-  { icon: "mail", labelKey: "emailLabel", value: siteConfig.email },
-  { icon: "schedule", labelKey: "hoursLabel", value: siteConfig.hours },
-] as const;
-
-export function ContactInfoPanel() {
-  const t = useTranslations("Contact.infoPanel");
+export function ContactInfoPanel({
+  content,
+  phone,
+  whatsapp,
+  email,
+  hours,
+}: {
+  content: ContactInfoPanelContent;
+  phone: string;
+  whatsapp: string;
+  email: string;
+  hours: string;
+}) {
+  const iconRows = [
+    { icon: "phone_in_talk", label: content.telephoneLabel, value: phone },
+    { icon: "chat", label: content.whatsappLabel, value: whatsapp },
+    { icon: "mail", label: content.emailLabel, value: email },
+    { icon: "schedule", label: content.hoursLabel, value: hours },
+  ];
 
   return (
     <aside className="space-y-lg lg:col-span-5">
@@ -17,11 +35,8 @@ export function ContactInfoPanel() {
         <div
           className="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.08]"
           role="img"
-          aria-label={t("mapImageAlt")}
-          style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQbDrQxQt1cdrbsyGXatDPtpTwYTjAa1aGiDlB2O0uN-EaQ8bOOmQJV-sPrp0-YTYTGf9bjPWQMcpOR0fP_Plxc4PjOb8nw14gqtEVLPPeuSvjiUvBJV_o2oyC5Ja6Jga17pmIaRLsQC9YuZ_lHfMNt4c1FeFExlGI8vWH8t_EaJLTzQ-cqhrxQbGXnGzJAP5d25Mk2smG7Z8J7QCqYHH5tBkbAjTAI1a2d2DaQYxdY0bsxtVgKXmQlM10gqKfbTBDWo3GQ1DB8e0')",
-          }}
+          aria-label={content.image.alt}
+          style={{ backgroundImage: `url('${content.image.url}')` }}
         />
         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-primary/80 to-transparent p-lg">
           <button
@@ -31,7 +46,7 @@ export function ContactInfoPanel() {
             <span className="material-symbols-outlined" aria-hidden="true">
               map
             </span>
-            {t("openInMaps")}
+            {content.openInMaps}
           </button>
         </div>
       </div>
@@ -39,10 +54,10 @@ export function ContactInfoPanel() {
       <div className="glass-card space-y-lg rounded-xl border-secondary/10 p-xl">
         <div>
           <h3 className="mb-xs font-headline-md text-[24px] text-on-surface">
-            {t("headquartersTitle")}
+            {content.headquartersTitle}
           </h3>
           <p className="font-body-md text-on-surface-variant">
-            {t("headquartersAddress")}
+            {content.headquartersAddress}
           </p>
         </div>
         <div className="space-y-md">
@@ -55,7 +70,7 @@ export function ContactInfoPanel() {
               </div>
               <div>
                 <span className="block font-label-md text-label-md text-on-surface-variant">
-                  {t(row.labelKey)}
+                  {row.label}
                 </span>
                 <span className="font-body-md font-bold">{row.value}</span>
               </div>

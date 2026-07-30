@@ -4,7 +4,9 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { anton, inter, dancingScript, cairo } from "@/lib/fonts";
-import { siteConfig } from "@/constants/site";
+import { getNavItems, getSocialLinks } from "@/lib/content/nav";
+import { getSiteSettings, getFooterSettings } from "@/lib/content/settings";
+import type { Locale } from "@/lib/content/shared";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SideConcierge } from "@/components/layout/SideConcierge";
@@ -22,12 +24,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
+  const site = await getSiteSettings();
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(site.url),
     title: {
       default: t("defaultTitle"),
-      template: `%s | ${siteConfig.name}`,
+      template: `%s | ${site.name}`,
     },
     description: t("defaultDescription"),
     alternates: {
@@ -37,7 +40,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      siteName: siteConfig.name,
+      siteName: site.name,
       type: "website",
       locale: locale === "ar" ? "ar_EG" : "en_US",
     },
@@ -63,6 +66,14 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const localeTyped = locale as Locale;
+
+  const [navItems, socialLinks, siteSettings, footerSettings] = await Promise.all([
+    getNavItems(localeTyped),
+    getSocialLinks(),
+    getSiteSettings(),
+    getFooterSettings(localeTyped),
+  ]);
 
   return (
     <html
@@ -78,12 +89,20 @@ export default async function LocaleLayout({
       </head>
       <body className="flex min-h-screen flex-col overflow-x-hidden bg-background font-body-md text-on-surface antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar />
-          <SideConcierge />
+          <Navbar items={navItems} siteName={siteSettings.name} />
+          <SideConcierge whatsappNumber={siteSettings.whatsappNumber} phone={siteSettings.phone} />
           <main className="flex-1 pt-20">
             <PageTransition>{children}</PageTransition>
           </main>
-          <Footer />
+          <Footer
+            items={navItems}
+            siteName={siteSettings.name}
+            socialLinks={socialLinks}
+            phone={siteSettings.phone}
+            email={siteSettings.email}
+            addressLine={siteSettings.addressLine}
+            footer={footerSettings}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

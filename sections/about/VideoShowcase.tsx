@@ -1,16 +1,19 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
 
-export function VideoShowcase() {
-  const t = useTranslations("About.videoShowcase");
+export interface VideoShowcaseContent {
+  title: string;
+  badge: string;
+  image: { url: string; alt: string };
+}
 
+export function VideoShowcase({ content }: { content: VideoShowcaseContent }) {
   return (
     <RevealSection as="section" className="relative bg-surface-container py-24">
       <div className="mx-auto max-w-5xl px-margin-mobile text-center">
         <div className="stagger-item mb-16">
           <h2 className="mb-4 font-headline-md text-headline-md text-on-surface">
-            {t("title")}
+            {content.title}
           </h2>
           <div className="mx-auto h-1.5 w-32 rounded-full bg-primary" />
         </div>
@@ -23,15 +26,15 @@ export function VideoShowcase() {
             </div>
           </div>
           <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsYX4y4tE_tHOKywLKzSGTiYj4hKtPn3dgW9tcI1IIX5JMKlXUel2qIsHgjPsEyZtIu2MreREYcoxBiSf27Eb0njn_23BUzf0TGnC2kBS9o6qJrBcLt_z71ivTNjkI9LcSFtFgpRXoEySFzNhxqzqrCnS6XIIRhXc50QlAS0ehpgNerp9ZgB2Gc36pVAekTmo0CtW4hDJnNCtpaV9GpsMVU_QwJPnrMJr2lHAs3eiVs5uC4qSQmhs4XxGx9KJkZLkIz9k604gWFso"
-            alt={t("imageAlt")}
+            src={content.image.url}
+            alt={content.image.alt}
             fill
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
           />
           <div className="glass-card absolute bottom-8 start-8 z-20 rounded-full border border-white/40 px-6 py-3">
             <p className="flex items-center gap-3 text-sm font-bold text-primary">
               <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-primary" />
-              {t("badge")}
+              {content.badge}
             </p>
           </div>
         </div>

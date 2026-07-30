@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { getVideosPageContent } from "@/lib/content/videos";
+import { getSeoMeta } from "@/lib/content/seo";
+import type { Locale } from "@/lib/content/shared";
 import { VideosHero } from "@/sections/videos/VideosHero";
 import { SurgicalInsights } from "@/sections/videos/SurgicalInsights";
 import { DoctorQuote } from "@/sections/videos/DoctorQuote";
@@ -13,12 +16,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Videos.meta" });
+  const seo = await getSeoMeta("videos", locale as Locale);
 
   return {
-    title: t("title"),
-    description: t("description"),
-    alternates: { canonical: "/videos" },
+    title: seo?.title,
+    description: seo?.description ?? undefined,
+    alternates: { canonical: seo?.canonicalPath ?? "/videos" },
   };
 }
 
@@ -29,15 +32,16 @@ export default async function VideosPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const content = await getVideosPageContent(locale as Locale);
 
   return (
     <>
-      <VideosHero />
-      <SurgicalInsights />
-      <DoctorQuote />
-      <PatientStories />
-      <WhyWatch />
-      <CtaBand />
+      <VideosHero content={content.hero} />
+      <SurgicalInsights content={content.insights} />
+      <DoctorQuote content={content.quote} />
+      <PatientStories content={content.patientStories} />
+      <WhyWatch content={content.whyWatch} />
+      <CtaBand content={content.ctaBand} />
     </>
   );
 }

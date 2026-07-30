@@ -1,10 +1,14 @@
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Link } from "@/i18n/navigation";
 
-export function CtaBand() {
-  const t = useTranslations("About.ctaBand");
+export interface AboutCtaBandContent {
+  title: string;
+  description: string;
+  bookAppointment: string;
+  contactClinic: string;
+}
 
+export function CtaBand({ content }: { content: AboutCtaBandContent }) {
   return (
     <RevealSection
       as="section"
@@ -20,10 +24,10 @@ export function CtaBand() {
       <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-16 px-margin-mobile text-center md:px-margin-desktop lg:flex-row lg:text-start">
         <div className="max-w-2xl">
           <h2 className="mb-6 font-headline-md text-headline-md leading-tight md:text-5xl">
-            {t("title")}
+            {content.title}
           </h2>
           <p className="text-xl font-medium leading-relaxed text-white/80">
-            {t("description")}
+            {content.description}
           </p>
         </div>
         <div className="flex w-full flex-col gap-6 sm:flex-row lg:w-auto">
@@ -31,13 +35,13 @@ export function CtaBand() {
             href="/contact"
             className="transform rounded-lg bg-white px-12 py-5 text-center text-xl font-bold text-primary shadow-2xl transition-all duration-[250ms] hover:-translate-y-1 hover:scale-[1.03] hover:bg-surface-container-lowest active:scale-[0.98]"
           >
-            {t("bookAppointment")}
+            {content.bookAppointment}
           </Link>
           <Link
             href="/contact"
             className="transform rounded-lg border-2 border-white/40 bg-transparent px-12 py-5 text-center text-xl font-bold text-white backdrop-blur-md transition-all duration-[250ms] hover:-translate-y-1 hover:scale-[1.03] hover:bg-white/10 active:scale-[0.98]"
           >
-            {t("contactClinic")}
+            {content.contactClinic}
           </Link>
         </div>
       </div>

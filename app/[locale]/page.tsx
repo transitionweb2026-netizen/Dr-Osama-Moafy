@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { siteConfig } from "@/constants/site";
+import { setRequestLocale } from "next-intl/server";
+import { getHomeContent } from "@/lib/content/home";
+import { getSiteSettings } from "@/lib/content/settings";
+import { getSocialLinks } from "@/lib/content/nav";
+import { getSeoMeta } from "@/lib/content/seo";
+import type { Locale } from "@/lib/content/shared";
 import { Hero } from "@/sections/home/Hero";
 import { VideoIntro } from "@/sections/home/VideoIntro";
 import { Specialties } from "@/sections/home/Specialties";
@@ -17,14 +21,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Meta" });
+  const seo = await getSeoMeta("home", locale as Locale);
 
   return {
-    title: t("defaultTitle"),
-    description: t("defaultDescription"),
-    alternates: {
-      canonical: "/",
-    },
+    title: seo?.title,
+    description: seo?.description ?? undefined,
+    alternates: { canonical: seo?.canonicalPath ?? "/" },
   };
 }
 
@@ -35,19 +37,26 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const localeTyped = locale as Locale;
+
+  const [content, site, socialLinks] = await Promise.all([
+    getHomeContent(localeTyped),
+    getSiteSettings(),
+    getSocialLinks(),
+  ]);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Physician",
-    name: siteConfig.doctorName,
+    name: site.doctorName,
     medicalSpecialty: "Neurosurgery",
-    telephone: siteConfig.phone,
-    email: siteConfig.email,
+    telephone: site.phone,
+    email: site.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteConfig.addressLine,
+      streetAddress: site.addressLine,
     },
-    url: siteConfig.url,
+    url: site.url,
   };
 
   return (
@@ -57,15 +66,22 @@ export default async function HomePage({
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Hero />
-      <VideoIntro />
-      <Specialties />
-      <ServicesGrid />
-      <WhyTrust />
-      <Certificates />
-      <Faq />
-      <EducationalShorts />
-      <ContactCta />
+      <Hero content={content.hero} socialLinks={socialLinks} phone={site.phone} />
+      <VideoIntro content={content.videoIntro} />
+      <Specialties content={content.specialties} />
+      <ServicesGrid content={content.servicesGrid} />
+      <WhyTrust content={content.whyTrust} />
+      <Certificates content={content.certificates} />
+      <Faq content={content.faq} />
+      <EducationalShorts content={content.educationalShorts} />
+      <ContactCta
+        content={content.contactCta}
+        phone={site.phone}
+        whatsapp={site.whatsapp}
+        whatsappNumber={site.whatsappNumber}
+        email={site.email}
+        addressLine={site.addressLine}
+      />
     </>
   );
 }

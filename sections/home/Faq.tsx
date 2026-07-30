@@ -1,11 +1,12 @@
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
-import { FaqAccordion } from "@/components/ui/FaqAccordion";
+import { FaqAccordion, type FaqEntry } from "@/components/ui/FaqAccordion";
 
-export function Faq() {
-  const t = useTranslations("Home.faq");
-  const items = t.raw("items") as { question: string; answer: string }[];
+export interface HomeFaqContent {
+  title: string;
+  items: FaqEntry[];
+}
 
+export function Faq({ content }: { content: HomeFaqContent }) {
   return (
     <RevealSection
       as="section"
@@ -13,9 +14,9 @@ export function Faq() {
     >
       <div className="mx-auto max-w-4xl">
         <h2 className="stagger-item mb-20 text-center font-headline-lg text-headline-lg uppercase tracking-[0.1em] text-primary">
-          {t("title")}
+          {content.title}
         </h2>
-        <FaqAccordion items={items} />
+        <FaqAccordion items={content.items} />
       </div>
     </RevealSection>
   );

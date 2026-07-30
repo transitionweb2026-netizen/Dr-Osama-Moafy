@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { getBlogPageContent } from "@/lib/content/blog";
+import { getSeoMeta } from "@/lib/content/seo";
+import type { Locale } from "@/lib/content/shared";
 import { BlogHero } from "@/sections/blog/BlogHero";
 import { ArticlesInteractive } from "@/sections/blog/ArticlesInteractive";
 import { KnowledgeBar } from "@/sections/blog/KnowledgeBar";
@@ -11,12 +14,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Blog.meta" });
+  const seo = await getSeoMeta("blog", locale as Locale);
 
   return {
-    title: t("title"),
-    description: t("description"),
-    alternates: { canonical: "/blog" },
+    title: seo?.title,
+    description: seo?.description ?? undefined,
+    alternates: { canonical: seo?.canonicalPath ?? "/blog" },
   };
 }
 
@@ -27,13 +30,14 @@ export default async function BlogPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const content = await getBlogPageContent(locale as Locale);
 
   return (
     <>
-      <BlogHero />
-      <ArticlesInteractive />
-      <KnowledgeBar />
-      <ContactCta />
+      <BlogHero content={content.hero} />
+      <ArticlesInteractive content={content.articlesGrid} />
+      <KnowledgeBar content={content.knowledgeBar} />
+      <ContactCta content={content.contactCta} />
     </>
   );
 }

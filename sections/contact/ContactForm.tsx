@@ -2,20 +2,38 @@
 
 import { useId, useState } from "react";
 import { useTranslations } from "next-intl";
-import { siteConfig } from "@/constants/site";
 
-export function ContactForm() {
+export interface ContactFormContent {
+  title: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
+  conditionLabel: string;
+  conditionOptions: string[];
+  messageLabel: string;
+  messagePlaceholder: string;
+  submit: string;
+}
+
+export function ContactForm({
+  content,
+  doctorName,
+  whatsappNumber,
+}: {
+  content: ContactFormContent;
+  doctorName: string;
+  whatsappNumber: string;
+}) {
   const t = useTranslations("Contact.form");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [condition, setCondition] = useState(t("conditionOptions.0"));
+  const [condition, setCondition] = useState(content.conditionOptions[0]);
   const [message, setMessage] = useState("");
   const nameId = useId();
   const phoneId = useId();
   const conditionId = useId();
   const messageId = useId();
-
-  const conditionOptions = t.raw("conditionOptions") as string[];
 
   function sendWhatsApp() {
     if (!name || !phone) {
@@ -23,48 +41,48 @@ export function ContactForm() {
       return;
     }
 
-    const formattedMessage = `Hello ${siteConfig.doctorName} Clinic,%0A%0AI would like to inquire about a consultation.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Condition:* ${condition}%0A*Message:* ${message}`;
-    const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${formattedMessage}`;
+    const formattedMessage = `Hello ${doctorName} Clinic,%0A%0AI would like to inquire about a consultation.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Condition:* ${condition}%0A*Message:* ${message}`;
+    const waUrl = `https://wa.me/${whatsappNumber}?text=${formattedMessage}`;
     window.open(waUrl, "_blank");
   }
 
   return (
     <section className="glass-card rounded-xl border-secondary/10 p-xl shadow-sm lg:col-span-7">
       <h2 className="mb-lg font-headline-md text-headline-md text-primary">
-        {t("title")}
+        {content.title}
       </h2>
       <div className="grid grid-cols-1 gap-lg md:grid-cols-2">
         <div className="space-y-xs">
           <label htmlFor={nameId} className="font-label-md text-label-md text-on-surface-variant">
-            {t("nameLabel")}
+            {content.nameLabel}
           </label>
           <input
             id={nameId}
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder={t("namePlaceholder")}
+            placeholder={content.namePlaceholder}
             required
             className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="space-y-xs">
           <label htmlFor={phoneId} className="font-label-md text-label-md text-on-surface-variant">
-            {t("phoneLabel")}
+            {content.phoneLabel}
           </label>
           <input
             id={phoneId}
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder={t("phonePlaceholder")}
+            placeholder={content.phonePlaceholder}
             required
             className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="space-y-xs md:col-span-2">
           <label htmlFor={conditionId} className="font-label-md text-label-md text-on-surface-variant">
-            {t("conditionLabel")}
+            {content.conditionLabel}
           </label>
           <select
             id={conditionId}
@@ -72,7 +90,7 @@ export function ContactForm() {
             onChange={(e) => setCondition(e.target.value)}
             className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           >
-            {conditionOptions.map((option) => (
+            {content.conditionOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -81,13 +99,13 @@ export function ContactForm() {
         </div>
         <div className="space-y-xs md:col-span-2">
           <label htmlFor={messageId} className="font-label-md text-label-md text-on-surface-variant">
-            {t("messageLabel")}
+            {content.messageLabel}
           </label>
           <textarea
             id={messageId}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder={t("messagePlaceholder")}
+            placeholder={content.messagePlaceholder}
             rows={4}
             className="w-full rounded-lg border-outline-variant bg-surface-container p-md outline-none transition-all duration-300 ease-out focus:border-transparent focus:ring-2 focus:ring-primary"
           />
@@ -101,7 +119,7 @@ export function ContactForm() {
             <span className="material-symbols-outlined" aria-hidden="true">
               send
             </span>
-            {t("submit")}
+            {content.submit}
           </button>
         </div>
       </div>

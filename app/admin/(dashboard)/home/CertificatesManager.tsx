@@ -14,6 +14,7 @@ import type { Media } from "@/types/database";
 
 export interface CertificateWithImage {
   id: string;
+  placement: string;
   title_en: string;
   title_ar: string;
   subtitle_en: string | null;
@@ -25,7 +26,13 @@ export interface CertificateWithImage {
   is_visible: boolean;
 }
 
+const PLACEMENTS = [
+  { value: "home", label: "Home" },
+  { value: "about", label: "Dr. Osama Moafy" },
+];
+
 const EMPTY_DRAFT: CertificatePayload = {
+  placement: "home",
   title_en: "",
   title_ar: "",
   subtitle_en: "",
@@ -50,6 +57,7 @@ export function CertificatesManager({ items: initialItems }: { items: Certificat
   function startEdit(item: CertificateWithImage) {
     setEditingId(item.id);
     setDraft({
+      placement: item.placement,
       title_en: item.title_en,
       title_ar: item.title_ar,
       subtitle_en: item.subtitle_en ?? "",
@@ -112,7 +120,9 @@ export function CertificatesManager({ items: initialItems }: { items: Certificat
       <div className="flex items-center justify-between border-b border-admin-border px-5 py-4">
         <div>
           <h2 className="text-base font-semibold text-admin-text">Certificates</h2>
-          <p className="mt-0.5 text-sm text-admin-muted">Credentials shown on the home page.</p>
+          <p className="mt-0.5 text-sm text-admin-muted">
+            Shared across Home and Dr. Osama Moafy — set placement per item.
+          </p>
         </div>
         <button
           type="button"
@@ -163,6 +173,9 @@ export function CertificatesManager({ items: initialItems }: { items: Certificat
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-admin-text">
                       {item.title_en}
+                    </p>
+                    <p className="text-xs text-admin-muted">
+                      {PLACEMENTS.find((p) => p.value === item.placement)?.label}
                     </p>
                   </div>
                   {!item.is_visible && (
@@ -232,7 +245,23 @@ function CertificateEditor({
 
   return (
     <div className="rounded-xl border border-admin-accent bg-admin-surface-alt p-4">
-      <ImagePickerInline label="Image" value={imageMedia} onChange={setImageMedia} />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
+        <ImagePickerInline label="Image" value={imageMedia} onChange={setImageMedia} />
+        <div>
+          <label className="mb-1 block text-xs font-medium text-admin-text">Placement</label>
+          <select
+            value={draft.placement}
+            onChange={(e) => setDraft({ ...draft, placement: e.target.value })}
+            className={fieldClass}
+          >
+            {PLACEMENTS.map((p) => (
+              <option key={p.value} value={p.value}>
+                {p.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
 
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>

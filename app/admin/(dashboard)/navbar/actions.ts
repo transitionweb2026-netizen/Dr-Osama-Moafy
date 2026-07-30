@@ -1,11 +1,17 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 export interface NavItemFormState {
   status?: { type: "success" | "error"; text: string };
+}
+
+function revalidatePublicNav() {
+  revalidateTag("nav_items", "max");
+  revalidatePath("/en", "layout");
+  revalidatePath("/ar", "layout");
 }
 
 function str(formData: FormData, key: string) {
@@ -39,6 +45,7 @@ export async function createNavItem(
   }
 
   revalidatePath("/admin/navbar");
+  revalidatePublicNav();
   redirect("/admin/navbar");
 }
 
@@ -60,6 +67,7 @@ export async function updateNavItem(
   }
 
   revalidatePath("/admin/navbar");
+  revalidatePublicNav();
   return { status: { type: "success", text: "Saved." } };
 }
 
@@ -67,6 +75,7 @@ export async function deleteNavItem(id: string) {
   const supabase = await createClient();
   await supabase.from("nav_items").delete().eq("id", id);
   revalidatePath("/admin/navbar");
+  revalidatePublicNav();
 }
 
 export async function reorderNavItems(orderedIds: string[]) {
@@ -77,4 +86,5 @@ export async function reorderNavItems(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/navbar");
+  revalidatePublicNav();
 }

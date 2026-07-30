@@ -1,9 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { siteConfig } from "@/constants/site";
 
-export function SideConcierge() {
+export function SideConcierge({ whatsappNumber, phone }: { whatsappNumber: string; phone: string }) {
   const t = useTranslations("Nav");
 
   return (
@@ -12,7 +11,7 @@ export function SideConcierge() {
       aria-label="Quick contact"
     >
       <a
-        href={`https://wa.me/${siteConfig.whatsappNumber}`}
+        href={`https://wa.me/${whatsappNumber}`}
         target="_blank"
         rel="noopener noreferrer"
         className="floating-icon group relative p-2 text-primary transition-all duration-300 hover:scale-125 hover:text-primary-container"
@@ -25,7 +24,7 @@ export function SideConcierge() {
         </span>
       </a>
       <a
-        href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
+        href={`tel:${phone.replace(/\s+/g, "")}`}
         style={{ animationDelay: "-1.5s" }}
         className="floating-icon group relative p-2 text-primary transition-all duration-300 hover:scale-125 hover:text-primary-container"
       >

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { getContactPageContent } from "@/lib/content/contact";
+import { getSiteSettings } from "@/lib/content/settings";
+import { getSeoMeta } from "@/lib/content/seo";
+import type { Locale } from "@/lib/content/shared";
 import { ContactHero } from "@/sections/contact/ContactHero";
 import { QuickContactStrip } from "@/sections/contact/QuickContactStrip";
 import { ContactForm } from "@/sections/contact/ContactForm";
@@ -12,12 +16,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Contact.meta" });
+  const seo = await getSeoMeta("contact", locale as Locale);
 
   return {
-    title: t("title"),
-    description: t("description"),
-    alternates: { canonical: "/contact" },
+    title: seo?.title,
+    description: seo?.description ?? undefined,
+    alternates: { canonical: seo?.canonicalPath ?? "/contact" },
   };
 }
 
@@ -28,18 +32,27 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const localeTyped = locale as Locale;
+
+  const [content, site] = await Promise.all([getContactPageContent(localeTyped), getSiteSettings()]);
 
   return (
     <>
-      <ContactHero />
-      <QuickContactStrip />
+      <ContactHero content={content.hero} whatsappNumber={site.whatsappNumber} phone={site.phone} />
+      <QuickContactStrip content={content.quickStrip} whatsapp={site.whatsapp} phone={site.phone} />
       <main className="mx-auto max-w-7xl px-margin-mobile py-xl md:px-margin-desktop">
         <div className="grid grid-cols-1 gap-xl lg:grid-cols-12">
-          <ContactForm />
-          <ContactInfoPanel />
+          <ContactForm content={content.form} doctorName={site.doctorName} whatsappNumber={site.whatsappNumber} />
+          <ContactInfoPanel
+            content={content.infoPanel}
+            phone={site.phone}
+            whatsapp={site.whatsapp}
+            email={site.email}
+            hours={site.hours}
+          />
         </div>
       </main>
-      <DoctorMessageBar />
+      <DoctorMessageBar content={content.messageBar} />
     </>
   );
 }

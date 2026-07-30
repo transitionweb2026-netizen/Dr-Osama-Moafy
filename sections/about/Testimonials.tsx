@@ -1,5 +1,15 @@
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
+
+export interface TestimonialItem {
+  initials: string;
+  name: string;
+  quote: string;
+}
+
+export interface TestimonialsContent {
+  title: string;
+  items: TestimonialItem[];
+}
 
 function Stars({ size = "text-3xl" }: { size?: string }) {
   return (
@@ -13,10 +23,7 @@ function Stars({ size = "text-3xl" }: { size?: string }) {
   );
 }
 
-export function Testimonials() {
-  const t = useTranslations("About.testimonials");
-  const items = t.raw("items") as { initials: string; name: string; quote: string }[];
-
+export function Testimonials({ content }: { content: TestimonialsContent }) {
   return (
     <RevealSection
       as="section"
@@ -24,14 +31,14 @@ export function Testimonials() {
     >
       <div className="stagger-item mb-20 text-center">
         <h2 className="mb-6 font-headline-md text-headline-md text-on-surface">
-          {t("title")}
+          {content.title}
         </h2>
         <div className="flex justify-center">
           <Stars />
         </div>
       </div>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        {items.map((item) => (
+        {content.items.map((item) => (
           <div
             key={item.name}
             className="stagger-item glass-card rounded-2xl border-t-4 border-t-primary p-8 shadow-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl"

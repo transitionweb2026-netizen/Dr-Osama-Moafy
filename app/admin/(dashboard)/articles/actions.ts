@@ -1,9 +1,17 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { ContentStatus } from "@/types/database";
+
+function revalidatePublicArticles() {
+  revalidateTag("articles", "max");
+  revalidatePath("/en/blog");
+  revalidatePath("/ar/blog");
+  revalidatePath("/en/blog/[slug]", "page");
+  revalidatePath("/ar/blog/[slug]", "page");
+}
 
 export interface ArticleFormState {
   status?: { type: "success" | "error"; text: string };
@@ -79,6 +87,7 @@ export async function createArticle(
   }
 
   revalidatePath("/admin/articles");
+  revalidatePublicArticles();
   redirect("/admin/articles");
 }
 
@@ -128,6 +137,7 @@ export async function updateArticle(
   }
 
   revalidatePath("/admin/articles");
+  revalidatePublicArticles();
   return { status: { type: "success", text: "Saved." } };
 }
 
@@ -135,6 +145,7 @@ export async function deleteArticle(id: string) {
   const supabase = await createClient();
   await supabase.from("articles").delete().eq("id", id);
   revalidatePath("/admin/articles");
+  revalidatePublicArticles();
 }
 
 export async function reorderArticles(orderedIds: string[]) {
@@ -145,4 +156,5 @@ export async function reorderArticles(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/articles");
+  revalidatePublicArticles();
 }

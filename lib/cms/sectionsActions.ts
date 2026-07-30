@@ -1,8 +1,25 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import type { ContentStatus } from "@/types/database";
+
+const PUBLIC_PATH: Record<string, string> = {
+  home: "",
+  about: "/about",
+  services: "/services",
+  videos: "/videos",
+  blog: "/blog",
+  contact: "/contact",
+};
+
+function revalidatePublicPage(pageSlug: string) {
+  revalidateTag("sections", "max");
+  const path = PUBLIC_PATH[pageSlug];
+  if (path === undefined) return;
+  revalidatePath(`/en${path}`);
+  revalidatePath(`/ar${path}`);
+}
 
 export type SectionFieldType = "string" | "array" | "json";
 
@@ -82,6 +99,7 @@ export async function saveSection(input: SaveSectionInput): Promise<SaveSectionR
 
     if (error) return { success: false, error: error.message };
     revalidatePath(`/admin/${input.pageSlug}`);
+    revalidatePublicPage(input.pageSlug);
     return { success: true, id: input.id };
   }
 
@@ -113,6 +131,7 @@ export async function saveSection(input: SaveSectionInput): Promise<SaveSectionR
   }
 
   revalidatePath(`/admin/${input.pageSlug}`);
+  revalidatePublicPage(input.pageSlug);
   return { success: true, id: data.id as string };
 }
 
@@ -120,6 +139,7 @@ export async function deleteSection(id: string, pageSlug: string) {
   const supabase = await createClient();
   await supabase.from("sections").delete().eq("id", id);
   revalidatePath(`/admin/${pageSlug}`);
+  revalidatePublicPage(pageSlug);
 }
 
 export async function reorderSections(pageSlug: string, orderedIds: string[]) {
@@ -130,4 +150,5 @@ export async function reorderSections(pageSlug: string, orderedIds: string[]) {
     )
   );
   revalidatePath(`/admin/${pageSlug}`);
+  revalidatePublicPage(pageSlug);
 }

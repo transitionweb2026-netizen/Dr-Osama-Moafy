@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { LocaleTabsProvider } from "@/components/admin/form/LocaleTabsContext";
 import { LocaleTabs } from "@/components/admin/form/LocaleTabs";
 import { BilingualTextField, BilingualTextareaField } from "@/components/admin/form/BilingualField";
-import { SelectField, SwitchField } from "@/components/admin/form/Field";
+import { TextField, SelectField, SwitchField } from "@/components/admin/form/Field";
 import { ImagePicker } from "@/components/admin/form/ImagePicker";
 import { SubmitButton } from "@/components/admin/form/SubmitButton";
 import { FormCard } from "@/components/admin/form/FormCard";
@@ -46,6 +46,13 @@ export function TreatmentForm({
             defaultValueEn={treatment?.title_en}
             defaultValueAr={treatment?.title_ar}
             required
+          />
+          <TextField
+            name="slug"
+            label="URL slug"
+            defaultValue={treatment?.slug}
+            placeholder="leaving-blank-uses-the-english-title"
+            hint="Used in the treatment's detail page URL. Leave blank to generate from the English title."
           />
           <BilingualTextareaField
             baseName="description"

@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { ContentStatus } from "@/types/database";
@@ -23,6 +23,24 @@ function lines(formData: FormData, key: string): string[] {
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean);
+}
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+// The `services` table (Home.servicesGrid data) renders on the Home page,
+// not /services — its detail pages live at /services/[slug].
+function revalidatePublicServices() {
+  revalidateTag("services", "max");
+  revalidatePath("/en");
+  revalidatePath("/ar");
+  revalidatePath("/en/services/[slug]", "page");
+  revalidatePath("/ar/services/[slug]", "page");
 }
 
 function buildServicePayload(formData: FormData) {
@@ -50,17 +68,29 @@ export async function createService(
     return { status: { type: "error", text: "Title is required in both languages." } };
   }
 
+  const slugInput = str(formData, "slug");
+  const slug = slugify(slugInput || payload.title_en);
+  if (!slug) {
+    return { status: { type: "error", text: "Couldn't derive a URL slug from the title." } };
+  }
+
   const supabase = await createClient();
   const { count } = await supabase.from("services").select("id", { count: "exact", head: true });
   const { error } = await supabase
     .from("services")
-    .insert({ ...payload, sort_order: count ?? 0 });
+    .insert({ ...payload, slug, sort_order: count ?? 0 });
 
   if (error) {
-    return { status: { type: "error", text: error.message } };
+    return {
+      status: {
+        type: "error",
+        text: error.code === "23505" ? "That URL slug is already in use." : error.message,
+      },
+    };
   }
 
   revalidatePath("/admin/services");
+  revalidatePublicServices();
   redirect("/admin/services");
 }
 
@@ -74,17 +104,29 @@ export async function updateService(
     return { status: { type: "error", text: "Title is required in both languages." } };
   }
 
+  const slugInput = str(formData, "slug");
+  const slug = slugify(slugInput || payload.title_en);
+  if (!slug) {
+    return { status: { type: "error", text: "Couldn't derive a URL slug from the title." } };
+  }
+
   const supabase = await createClient();
   const { error } = await supabase
     .from("services")
-    .update({ ...payload, updated_at: new Date().toISOString() })
+    .update({ ...payload, slug, updated_at: new Date().toISOString() })
     .eq("id", id);
 
   if (error) {
-    return { status: { type: "error", text: error.message } };
+    return {
+      status: {
+        type: "error",
+        text: error.code === "23505" ? "That URL slug is already in use." : error.message,
+      },
+    };
   }
 
   revalidatePath("/admin/services");
+  revalidatePublicServices();
   return { status: { type: "success", text: "Saved." } };
 }
 
@@ -92,6 +134,7 @@ export async function deleteService(id: string) {
   const supabase = await createClient();
   await supabase.from("services").delete().eq("id", id);
   revalidatePath("/admin/services");
+  revalidatePublicServices();
 }
 
 export async function reorderServices(orderedIds: string[]) {
@@ -102,4 +145,5 @@ export async function reorderServices(orderedIds: string[]) {
     )
   );
   revalidatePath("/admin/services");
+  revalidatePublicServices();
 }
