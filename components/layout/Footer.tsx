@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
 import type { NavbarItem } from "./Navbar";
@@ -138,25 +137,13 @@ export function Footer({
           {footer.copyright}
         </p>
         <a
-          href="#"
+          href="https://transitioneg.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-md bg-[#081619] px-3 py-1.5 transition-transform duration-300 ease-out hover:scale-105"
         >
           <span className="font-body-md text-xs font-bold tracking-wide text-white">
             Transition
-          </span>
-          <Image
-            src="/brand/transition-mark.png"
-            alt=""
-            width={339}
-            height={200}
-            aria-hidden="true"
-            className="h-[26px] w-auto shrink-0"
-          />
-          <span
-            dir="rtl"
-            className="font-[family-name:var(--font-cairo)] text-xs text-white/70"
-          >
-            تصميم وتطوير
           </span>
         </a>
       </div>
