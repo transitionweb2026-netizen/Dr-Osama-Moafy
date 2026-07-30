@@ -138,28 +138,25 @@ export function Footer({
         </p>
         <a
           href="#"
-          className="inline-flex items-center gap-2 rounded-full bg-[#0b1f22] px-4 py-2 transition-transform duration-300 ease-out hover:scale-105"
+          className="inline-flex items-center gap-2 rounded-md bg-[#081619] px-3 py-1.5 transition-transform duration-300 ease-out hover:scale-105"
         >
+          <span className="font-body-md text-xs font-bold tracking-wide text-white">
+            Transition
+          </span>
           <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
+            width="18"
+            height="14"
+            viewBox="0 0 28 20"
             fill="none"
             aria-hidden="true"
             className="shrink-0"
           >
-            <path d="M4 3v18" stroke="#83D4D9" strokeWidth="2" strokeLinecap="round" />
-            <path
-              d="M4 4h13.5c2.2 0 2.2 1.6.9 2.6l-3.1 2.4c-.6.5-.6 1.2 0 1.7l3.1 2.4c1.3 1 1.3 2.6-.9 2.6H4"
-              fill="#83D4D9"
-            />
+            <path d="M0 2h14l6 8-6 8H0l6-8-6-8z" fill="#4DD8DE" opacity="0.55" />
+            <path d="M8 2h14l6 8-6 8H8l6-8-6-8z" fill="#4DD8DE" />
           </svg>
-          <span className="font-body-md text-xs font-bold tracking-wide text-white">
-            Transition
-          </span>
           <span
             dir="rtl"
-            className="font-[family-name:var(--font-cairo)] text-xs text-white/80"
+            className="font-[family-name:var(--font-cairo)] text-xs text-white/70"
           >
             تصميم وتطوير
           </span>
