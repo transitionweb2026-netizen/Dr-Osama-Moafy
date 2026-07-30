@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
 import type { NavbarItem } from "./Navbar";
@@ -143,17 +144,14 @@ export function Footer({
           <span className="font-body-md text-xs font-bold tracking-wide text-white">
             Transition
           </span>
-          <svg
-            width="18"
-            height="14"
-            viewBox="0 0 28 20"
-            fill="none"
+          <Image
+            src="/brand/transition-mark.png"
+            alt=""
+            width={339}
+            height={200}
             aria-hidden="true"
-            className="shrink-0"
-          >
-            <path d="M0 2h14l6 8-6 8H0l6-8-6-8z" fill="#4DD8DE" opacity="0.55" />
-            <path d="M8 2h14l6 8-6 8H8l6-8-6-8z" fill="#4DD8DE" />
-          </svg>
+            className="h-[26px] w-auto shrink-0"
+          />
           <span
             dir="rtl"
             className="font-[family-name:var(--font-cairo)] text-xs text-white/70"
