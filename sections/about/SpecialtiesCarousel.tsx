@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
@@ -23,6 +23,8 @@ export interface AboutSpecialtiesContent {
 export function SpecialtiesCarousel({ content }: { content: AboutSpecialtiesContent }) {
   const t = useTranslations("About.specialties");
   const carouselRef = useRef<CarouselHandle>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
 
   return (
     <RevealSection
@@ -61,7 +63,14 @@ export function SpecialtiesCarousel({ content }: { content: AboutSpecialtiesCont
           </button>
         </div>
       </div>
-      <Carousel ref={carouselRef} className="snap-mandatory gap-8 pb-8">
+      <Carousel
+        ref={carouselRef}
+        className="snap-mandatory gap-8 pb-8"
+        onPageChange={(index, count) => {
+          setActiveIndex(index);
+          setPageCount(count);
+        }}
+      >
         {content.items.map((card) => (
           <div
             key={card.title}
@@ -108,6 +117,29 @@ export function SpecialtiesCarousel({ content }: { content: AboutSpecialtiesCont
           </div>
         ))}
       </Carousel>
+      {pageCount > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-3" role="tablist" aria-label={t("title")}>
+          {Array.from({ length: pageCount }).map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              role="tab"
+              aria-selected={activeIndex === index}
+              aria-label={`${t("title")} ${index + 1}`}
+              onClick={() => carouselRef.current?.scrollToIndex(index)}
+              className="flex h-4 w-4 items-center justify-center"
+            >
+              <span
+                className={`block h-3 w-3 rounded-full transition-all duration-300 ease-out ${
+                  activeIndex === index
+                    ? "scale-100 bg-primary"
+                    : "scale-[0.667] bg-outline-variant opacity-50"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </RevealSection>
   );
 }
