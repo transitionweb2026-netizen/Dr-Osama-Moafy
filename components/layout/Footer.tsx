@@ -136,6 +136,34 @@ export function Footer({
         <p className="font-label-md text-[10px] uppercase tracking-widest text-on-surface-variant/60">
           {footer.copyright}
         </p>
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 rounded-full bg-[#0b1f22] px-4 py-2 transition-transform duration-300 ease-out hover:scale-105"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            className="shrink-0"
+          >
+            <path d="M4 3v18" stroke="#83D4D9" strokeWidth="2" strokeLinecap="round" />
+            <path
+              d="M4 4h13.5c2.2 0 2.2 1.6.9 2.6l-3.1 2.4c-.6.5-.6 1.2 0 1.7l3.1 2.4c1.3 1 1.3 2.6-.9 2.6H4"
+              fill="#83D4D9"
+            />
+          </svg>
+          <span className="font-body-md text-xs font-bold tracking-wide text-white">
+            Transition
+          </span>
+          <span
+            dir="rtl"
+            className="font-[family-name:var(--font-cairo)] text-xs text-white/80"
+          >
+            تصميم وتطوير
+          </span>
+        </a>
       </div>
     </RevealSection>
   );
