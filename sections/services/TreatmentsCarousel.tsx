@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
@@ -23,6 +23,8 @@ export interface TreatmentsContent {
 export function TreatmentsCarousel({ content }: { content: TreatmentsContent }) {
   const t = useTranslations("Services.treatments");
   const carouselRef = useRef<CarouselHandle>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
 
   return (
     <RevealSection as="section" className="bg-surface-container-low py-xl">
@@ -32,7 +34,7 @@ export function TreatmentsCarousel({ content }: { content: TreatmentsContent }) 
             <h2 className="font-headline-md text-headline-md">{content.title}</h2>
             <div className="mt-sm h-1 w-20 bg-primary" />
           </div>
-          <div className="hidden gap-4 md:flex">
+          <div className="mb-[7px] hidden gap-4 md:flex">
             <button
               type="button"
               aria-label={t("previous")}
@@ -56,7 +58,14 @@ export function TreatmentsCarousel({ content }: { content: TreatmentsContent }) 
           </div>
         </div>
 
-        <Carousel ref={carouselRef} className="-mx-4 gap-lg px-4 pb-8">
+        <Carousel
+          ref={carouselRef}
+          className="-mx-4 gap-lg px-4 pb-8"
+          onPageChange={(index, count) => {
+            setActiveIndex(index);
+            setPageCount(count);
+          }}
+        >
           {content.items.map((item) => (
             <div
               key={item.slug}
@@ -105,6 +114,29 @@ export function TreatmentsCarousel({ content }: { content: TreatmentsContent }) 
             </div>
           ))}
         </Carousel>
+        {pageCount > 1 && (
+          <div className="mt-4 flex items-center justify-center gap-3" role="tablist" aria-label={content.title}>
+            {Array.from({ length: pageCount }).map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                aria-selected={activeIndex === index}
+                aria-label={`${content.title} ${index + 1}`}
+                onClick={() => carouselRef.current?.scrollToIndex(index)}
+                className="flex h-4 w-4 items-center justify-center"
+              >
+                <span
+                  className={`block h-3 w-3 rounded-full transition-all duration-300 ease-out ${
+                    activeIndex === index
+                      ? "scale-100 bg-primary"
+                      : "scale-[0.667] bg-outline-variant opacity-50"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </RevealSection>
   );
