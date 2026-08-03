@@ -11,7 +11,7 @@ export interface HeroContent {
   bookAppointment: string;
   learnMore: string;
   followUs: string;
-  callUs: string;
+  callUsLabel: string;
   image: { url: string; alt: string };
 }
 
@@ -81,7 +81,7 @@ export function Hero({
       </div>
 
       <HeroContactWidget
-        content={{ followUs: content.followUs, callUs: content.callUs }}
+        content={{ followUs: content.followUs, callUsLabel: content.callUsLabel }}
         socialLinks={socialLinks}
         phone={phone}
       />

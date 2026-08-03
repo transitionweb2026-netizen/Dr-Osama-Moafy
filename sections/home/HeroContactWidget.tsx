@@ -81,7 +81,7 @@ export interface WidgetSocialLink {
 
 export interface HeroContactWidgetContent {
   followUs: string;
-  callUs: string;
+  callUsLabel: string;
 }
 
 export function HeroContactWidget({
@@ -137,7 +137,7 @@ const visible: WidgetIconEntry[] = WIDGET_PLATFORMS.map((platform) => {
         </div>
         <div className="min-w-0">
           <p className="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">
-            {content.callUs}
+            {content.callUsLabel}
           </p>
           <p className="truncate font-headline-md text-lg text-on-surface" dir="ltr">
             {phone}
