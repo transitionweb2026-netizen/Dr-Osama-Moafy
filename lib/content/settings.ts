@@ -74,6 +74,7 @@ export async function getSiteSettings() {
     email: contact.email,
     addressLine: contact.addressLine,
     hours: contact.hours,
+    mapsEmbedUrl: contact.mapsEmbedUrl,
   };
 }
 

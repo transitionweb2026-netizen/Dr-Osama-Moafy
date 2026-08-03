@@ -39,7 +39,7 @@ export default async function ContactPage({
   return (
     <>
       <ContactHero content={content.hero} whatsappNumber={site.whatsappNumber} phone={site.phone} />
-      <QuickContactStrip content={content.quickStrip} whatsapp={site.whatsapp} phone={site.phone} />
+      <QuickContactStrip content={content.quickStrip} whatsapp={site.whatsapp} />
       <main className="mx-auto max-w-7xl px-margin-mobile py-xl md:px-margin-desktop">
         <div className="grid grid-cols-1 gap-xl lg:grid-cols-12">
           <ContactForm content={content.form} doctorName={site.doctorName} whatsappNumber={site.whatsappNumber} />
@@ -49,6 +49,7 @@ export default async function ContactPage({
             whatsapp={site.whatsapp}
             email={site.email}
             hours={site.hours}
+            mapsUrl={site.mapsEmbedUrl}
           />
         </div>
       </main>

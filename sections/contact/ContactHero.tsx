@@ -7,6 +7,8 @@ export interface ContactHeroContent {
   sendWhatsapp: string;
   callNow: string;
   image: { url: string; alt: string };
+  sendWhatsappIcon?: string;
+  callNowIcon?: string;
 }
 
 export function ContactHero({
@@ -48,7 +50,7 @@ export function ContactHero({
             className="flex items-center justify-center gap-xs rounded-lg bg-primary px-xl py-md font-label-md text-on-primary shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
-              chat
+              {content.sendWhatsappIcon || "chat"}
             </span>
             {content.sendWhatsapp}
           </a>
@@ -57,7 +59,7 @@ export function ContactHero({
             className="flex items-center justify-center gap-xs rounded-lg bg-white px-xl py-md font-label-md text-on-primary-fixed shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-surface-container-highest active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
-              call
+              {content.callNowIcon || "call"}
             </span>
             {content.callNow}
           </a>

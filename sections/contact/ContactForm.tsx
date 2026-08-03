@@ -1,7 +1,6 @@
 "use client";
 
 import { useId, useState } from "react";
-import { useTranslations } from "next-intl";
 
 export interface ContactFormContent {
   title: string;
@@ -14,6 +13,8 @@ export interface ContactFormContent {
   messageLabel: string;
   messagePlaceholder: string;
   submit: string;
+  validationAlert: string;
+  submitIcon?: string;
 }
 
 export function ContactForm({
@@ -25,7 +26,6 @@ export function ContactForm({
   doctorName: string;
   whatsappNumber: string;
 }) {
-  const t = useTranslations("Contact.form");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [condition, setCondition] = useState(content.conditionOptions[0]);
@@ -37,7 +37,7 @@ export function ContactForm({
 
   function sendWhatsApp() {
     if (!name || !phone) {
-      alert(t("validationAlert"));
+      alert(content.validationAlert);
       return;
     }
 
@@ -117,7 +117,7 @@ export function ContactForm({
             className="flex w-full items-center justify-center gap-sm rounded-lg bg-primary py-md font-label-md text-on-primary transition-all duration-[250ms] hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
-              send
+              {content.submitIcon || "send"}
             </span>
             {content.submit}
           </button>

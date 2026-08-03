@@ -7,6 +7,10 @@ export interface ContactInfoPanelContent {
   emailLabel: string;
   hoursLabel: string;
   image: { url: string; alt: string };
+  telephoneIcon?: string;
+  whatsappIcon?: string;
+  emailIcon?: string;
+  hoursIcon?: string;
 }
 
 export function ContactInfoPanel({
@@ -15,19 +19,23 @@ export function ContactInfoPanel({
   whatsapp,
   email,
   hours,
+  mapsUrl,
 }: {
   content: ContactInfoPanelContent;
   phone: string;
   whatsapp: string;
   email: string;
   hours: string;
+  mapsUrl: string | null;
 }) {
   const iconRows = [
-    { icon: "phone_in_talk", label: content.telephoneLabel, value: phone },
-    { icon: "chat", label: content.whatsappLabel, value: whatsapp },
-    { icon: "mail", label: content.emailLabel, value: email },
-    { icon: "schedule", label: content.hoursLabel, value: hours },
+    { icon: content.telephoneIcon || "phone_in_talk", label: content.telephoneLabel, value: phone },
+    { icon: content.whatsappIcon || "chat", label: content.whatsappLabel, value: whatsapp },
+    { icon: content.emailIcon || "mail", label: content.emailLabel, value: email },
+    { icon: content.hoursIcon || "schedule", label: content.hoursLabel, value: hours },
   ];
+  const resolvedMapsUrl =
+    mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content.headquartersAddress)}`;
 
   return (
     <aside className="space-y-lg lg:col-span-5">
@@ -39,15 +47,17 @@ export function ContactInfoPanel({
           style={{ backgroundImage: `url('${content.image.url}')` }}
         />
         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-primary/80 to-transparent p-lg">
-          <button
-            type="button"
+          <a
+            href={resolvedMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-xs rounded-full bg-white px-lg py-sm font-label-md text-label-md text-primary shadow-lg transition-all duration-[250ms] hover:scale-[1.03] hover:shadow-xl active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
               map
             </span>
             {content.openInMaps}
-          </button>
+          </a>
         </div>
       </div>
 
