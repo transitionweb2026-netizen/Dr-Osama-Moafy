@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
 import type { NavbarItem } from "./Navbar";
 
-const FOOTER_PLATFORMS = ["facebook", "linkedin", "youtube"] as const;
+const FOOTER_PLATFORMS = ["instagram", "facebook", "tiktok", "whatsapp"] as const;
 
 export interface FooterSocialLink {
   platform: string;
