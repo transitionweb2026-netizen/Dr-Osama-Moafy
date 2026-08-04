@@ -67,8 +67,6 @@ export function BookAppointmentCta({
               </Link>
               <a
                 href={`https://wa.me/${whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-lg border border-white/30 bg-primary-container/40 px-xl py-md font-bold text-white backdrop-blur-md transition-all duration-[250ms] hover:scale-[1.03] hover:bg-white/10 hover:shadow-[0_0_24px_rgba(255,255,255,0.25)] active:scale-[0.98]"
               >
                 <span className="material-symbols-outlined" aria-hidden="true">

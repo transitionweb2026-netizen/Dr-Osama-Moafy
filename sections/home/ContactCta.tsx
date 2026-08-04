@@ -65,8 +65,6 @@ export function ContactCta({
             </Link>
             <a
               href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-2xl border border-outline-variant bg-white px-8 py-4 font-headline-md text-xl text-primary shadow-sm transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/5 hover:shadow-md active:scale-[0.98]"
             >
               <span className="material-symbols-outlined" aria-hidden="true">

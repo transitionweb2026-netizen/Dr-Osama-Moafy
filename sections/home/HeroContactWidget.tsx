@@ -115,8 +115,6 @@ const visible: WidgetIconEntry[] = WIDGET_PLATFORMS.map((platform) => {
             <a
               key={platform}
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label={platform}
               className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-primary transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-on-primary hover:shadow-[0_0_16px_rgba(0,102,107,0.5)] lg:h-11 lg:w-11"
             >

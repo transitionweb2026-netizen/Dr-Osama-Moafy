@@ -49,8 +49,6 @@ export function ContactInfoPanel({
         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-primary/80 to-transparent p-lg">
           <a
             href={resolvedMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="flex items-center gap-xs rounded-full bg-white px-lg py-sm font-label-md text-label-md text-primary shadow-lg transition-all duration-[250ms] hover:scale-[1.03] hover:shadow-xl active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">

@@ -45,8 +45,6 @@ export function ContactHero({
         <div className="stagger-item delay-300 flex flex-col justify-center gap-md sm:flex-row">
           <a
             href={`https://wa.me/${whatsappNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
             className="flex items-center justify-center gap-xs rounded-lg bg-primary px-xl py-md font-label-md text-on-primary shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
             <span className="material-symbols-outlined" aria-hidden="true">
