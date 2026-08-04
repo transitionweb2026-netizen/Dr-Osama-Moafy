@@ -81,50 +81,6 @@ export async function getServicesPageContent(locale: Locale) {
 }
 
 // ---------------------------------------------------------------------------
-// services table — used by /services/[slug]
-// ---------------------------------------------------------------------------
-async function fetchAllServices() {
-  const supabase = createAnonClient();
-  const { data, error } = await supabase
-    .from("services")
-    .select("*, image:media(id, url, alt_text_en, alt_text_ar)")
-    .eq("status", "published")
-    .order("sort_order", { ascending: true });
-  if (error) throw new Error(`Failed to load services: ${error.message}`);
-  return data ?? [];
-}
-
-export const getAllServices = unstable_cache(fetchAllServices, ["all-services"], {
-  tags: ["services"],
-  revalidate: false,
-});
-
-interface PickedService {
-  slug: string;
-  title: string;
-  description: string | null;
-  overview: string | null;
-  keyPoints: string[];
-  image: { url: string; alt: string } | null;
-}
-
-export async function getServiceBySlug(slug: string, locale: Locale): Promise<PickedService | null> {
-  const rows = await getAllServices();
-  const row = rows.find((r) => r.slug === slug);
-  if (!row) return null;
-  return {
-    slug: row.slug,
-    ...(pickBilingual(row, locale, ["title", "description", "overview"]) as {
-      title: string;
-      description: string | null;
-      overview: string | null;
-    }),
-    keyPoints: locale === "en" ? row.key_points_en : row.key_points_ar,
-    image: pickImage(row.image, locale),
-  };
-}
-
-// ---------------------------------------------------------------------------
 // treatments table — used by /services/treatments/[slug]
 // ---------------------------------------------------------------------------
 async function fetchAllTreatments() {

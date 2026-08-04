@@ -74,8 +74,14 @@ export async function getHomeContent(locale: Locale) {
 
   const serviceItems: HomeServiceCard[] = services.map((row) => ({
     slug: row.slug,
+    icon: row.icon,
     image: pickImage(row.image, locale),
-    ...(pickBilingual(row, locale, ["title", "description"]) as { title: string; description: string }),
+    keyPoints: locale === "en" ? row.key_points_en : row.key_points_ar,
+    ...(pickBilingual(row, locale, ["title", "description", "overview"]) as {
+      title: string;
+      description: string;
+      overview: string | null;
+    }),
   }));
 
   const faqItems = faqs.map(

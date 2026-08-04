@@ -33,14 +33,12 @@ function slugify(value: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-// The `services` table (Home.servicesGrid data) renders on the Home page,
-// not /services — its detail pages live at /services/[slug].
+// The `services` table (Home.servicesGrid data) renders on the Home page
+// as cards that open a detail modal — there's no separate detail route.
 function revalidatePublicServices() {
   revalidateTag("services", "max");
   revalidatePath("/en");
   revalidatePath("/ar");
-  revalidatePath("/en/services/[slug]", "page");
-  revalidatePath("/ar/services/[slug]", "page");
 }
 
 function buildServicePayload(formData: FormData) {
@@ -68,10 +66,9 @@ export async function createService(
     return { status: { type: "error", text: "Title is required in both languages." } };
   }
 
-  const slugInput = str(formData, "slug");
-  const slug = slugify(slugInput || payload.title_en);
+  const slug = slugify(payload.title_en);
   if (!slug) {
-    return { status: { type: "error", text: "Couldn't derive a URL slug from the title." } };
+    return { status: { type: "error", text: "Couldn't derive a slug from the title." } };
   }
 
   const supabase = await createClient();
@@ -84,7 +81,7 @@ export async function createService(
     return {
       status: {
         type: "error",
-        text: error.code === "23505" ? "That URL slug is already in use." : error.message,
+        text: error.code === "23505" ? "A service with that title already exists." : error.message,
       },
     };
   }
@@ -104,10 +101,9 @@ export async function updateService(
     return { status: { type: "error", text: "Title is required in both languages." } };
   }
 
-  const slugInput = str(formData, "slug");
-  const slug = slugify(slugInput || payload.title_en);
+  const slug = slugify(payload.title_en);
   if (!slug) {
-    return { status: { type: "error", text: "Couldn't derive a URL slug from the title." } };
+    return { status: { type: "error", text: "Couldn't derive a slug from the title." } };
   }
 
   const supabase = await createClient();
@@ -120,7 +116,7 @@ export async function updateService(
     return {
       status: {
         type: "error",
-        text: error.code === "23505" ? "That URL slug is already in use." : error.message,
+        text: error.code === "23505" ? "A service with that title already exists." : error.message,
       },
     };
   }

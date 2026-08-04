@@ -46,13 +46,6 @@ export function ServiceForm({
             defaultValueAr={service?.title_ar}
             required
           />
-          <TextField
-            name="slug"
-            label="URL slug"
-            defaultValue={service?.slug}
-            placeholder="leaving-blank-uses-the-english-title"
-            hint="Used in the service's detail page URL. Leave blank to generate from the English title."
-          />
           <BilingualTextareaField
             baseName="description"
             label="Short description (shown on the grid card)"
