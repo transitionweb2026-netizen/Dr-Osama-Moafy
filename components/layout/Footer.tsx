@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { SOCIAL_ICON_MAP } from "@/components/icons/SocialIcons";
 import type { NavbarItem } from "./Navbar";
 
 const FOOTER_PLATFORMS = ["instagram", "facebook", "tiktok", "whatsapp"] as const;
@@ -38,9 +39,10 @@ export function Footer({
   addressLine: string;
   footer: FooterCopy;
 }) {
-  const visibleSocialLinks = FOOTER_PLATFORMS.map((platform) =>
-    socialLinks.find((s) => s.platform === platform)
-  ).filter((s): s is FooterSocialLink => Boolean(s));
+  const visibleSocialLinks = FOOTER_PLATFORMS.flatMap((platform) => {
+    const link = socialLinks.find((s) => s.platform === platform);
+    return link ? [{ ...link, Icon: SOCIAL_ICON_MAP[platform] }] : [];
+  });
 
   return (
     <RevealSection
@@ -63,9 +65,7 @@ export function Footer({
                 aria-label={social.platform}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant bg-surface-container-low text-primary transition-all duration-300 ease-out hover:rotate-[5deg] hover:scale-110 hover:bg-primary hover:text-on-primary hover:shadow-[0_0_20px_rgba(0,102,107,0.5)]"
               >
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                  {social.icon ?? "public"}
-                </span>
+                <social.Icon className="h-5 w-5" />
               </a>
             ))}
           </div>
