@@ -34,12 +34,12 @@ export function Navbar({ items, siteName }: { items: NavbarItem[]; siteName: str
       <div className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-margin-mobile md:px-margin-desktop">
         <Link
           href="/"
-          className="shrink-0 font-headline-md text-headline-md text-primary tracking-tighter uppercase"
+          className="min-w-0 truncate font-headline-md text-lg uppercase text-primary sm:text-xl md:text-2xl"
         >
           {siteName}
         </Link>
 
-        <nav className="hidden items-center gap-lg xl:flex" aria-label="Primary">
+        <nav className="hidden shrink-0 items-center gap-lg xl:flex" aria-label="Primary">
           {items.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -65,7 +65,7 @@ export function Navbar({ items, siteName }: { items: NavbarItem[]; siteName: str
           })}
         </nav>
 
-        <div className="hidden items-center gap-4 xl:flex">
+        <div className="hidden shrink-0 items-center gap-4 xl:flex">
           <LanguageSwitcher />
           <Link
             href="/contact"
@@ -75,7 +75,7 @@ export function Navbar({ items, siteName }: { items: NavbarItem[]; siteName: str
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 xl:hidden">
+        <div className="flex shrink-0 items-center gap-3 xl:hidden">
           <LanguageSwitcher />
           <button
             type="button"
