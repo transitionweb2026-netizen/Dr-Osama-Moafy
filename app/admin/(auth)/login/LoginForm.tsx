@@ -21,7 +21,7 @@ export function LoginForm() {
           shield_person
         </span>
         <div>
-          <h1 className="text-lg font-semibold text-admin-text">NeuroPrecision Admin</h1>
+          <h1 className="text-lg font-semibold text-admin-text">Osama Mowafy Neurosurgery Admin</h1>
           <p className="text-sm text-admin-muted">Sign in to manage site content</p>
         </div>
       </div>

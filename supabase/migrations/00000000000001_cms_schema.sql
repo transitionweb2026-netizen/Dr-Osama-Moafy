@@ -1,5 +1,5 @@
 -- ============================================================================
--- NeuroPrecision CMS — Phase 1 schema
+-- Osama Mowafy Neurosurgery CMS — Phase 1 schema
 -- Content, media, SEO, settings, collections, auth roles, revisions, audit log.
 -- ============================================================================
 
@@ -318,11 +318,11 @@ create table settings (
 );
 
 insert into settings (key, value) values
-  ('branding', '{"siteName":"NeuroPrecision","doctorName":"Dr. Osama Mowafy","tagline":"Precision Beyond Perception","logoUrl":null,"faviconUrl":null,"ogImageUrl":null}'),
+  ('branding', '{"siteNameEn":"Osama Mowafy Neurosurgery","siteNameAr":"د. أسامة موافي لجراحات المخ والأعصاب","doctorName":"Dr. Osama Mowafy","tagline":"Precision Beyond Perception","logoUrl":null,"faviconUrl":null,"ogImageUrl":null}'),
   ('contact', '{"phone":"+20 2 1234 5678","whatsapp":"+20 100 234 5678","whatsappNumber":"201002345678","email":"care@osamamowafy.com","addressLine":"Medical District East, Tower B, 4th Floor, Suite 402, New Cairo, Egypt","hours":"Sat - Wed: 10:00 AM - 08:00 PM","mapsEmbedUrl":null}'),
   ('integrations', '{"gaId":null,"gtmId":null,"metaPixelId":null}'),
   ('cookieBanner', '{"enabled":false,"textEn":"","textAr":""}'),
-  ('footer', '{"blurbEn":"Dr. Osama Mowafy is dedicated to advancing the field of neurosurgery with technical precision and compassionate, patient-centered care.","blurbAr":"يكرّس الدكتور أسامة موافي خبرته لتطوير جراحة المخ والأعصاب من خلال الدقة التقنية العالية والرعاية الإنسانية التي تضع المريض في المقام الأول.","quickLinksLabelEn":"Quick Links","quickLinksLabelAr":"روابط سريعة","legalLabelEn":"Legal","legalLabelAr":"الشؤون القانونية","contactLabelEn":"Contact","contactLabelAr":"التواصل","privacyPolicyEn":"Privacy Policy","privacyPolicyAr":"سياسة الخصوصية","termsOfServiceEn":"Terms of Service","termsOfServiceAr":"الشروط والأحكام","copyrightEn":"©️ {year} NeuroPrecision. All rights reserved.","copyrightAr":"©️ {year} نيوروبريجن. جميع الحقوق محفوظة."}')
+  ('footer', '{"blurbEn":"Dr. Osama Mowafy is dedicated to advancing the field of neurosurgery with technical precision and compassionate, patient-centered care.","blurbAr":"يكرّس الدكتور أسامة موافي خبرته لتطوير جراحة المخ والأعصاب من خلال الدقة التقنية العالية والرعاية الإنسانية التي تضع المريض في المقام الأول.","quickLinksLabelEn":"Quick Links","quickLinksLabelAr":"روابط سريعة","legalLabelEn":"Legal","legalLabelAr":"الشؤون القانونية","contactLabelEn":"Contact","contactLabelAr":"التواصل","privacyPolicyEn":"Privacy Policy","privacyPolicyAr":"سياسة الخصوصية","termsOfServiceEn":"Terms of Service","termsOfServiceAr":"الشروط والأحكام","copyrightEn":"©️ {year} Osama Mowafy Neurosurgery. All rights reserved.","copyrightAr":"©️ {year} أسامة موافي لجراحات المخ والأعصاب. جميع الحقوق محفوظة."}')
 on conflict (key) do nothing;
 
 -- ============================================================================

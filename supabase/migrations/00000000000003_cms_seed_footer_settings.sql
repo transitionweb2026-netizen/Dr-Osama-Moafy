@@ -17,7 +17,7 @@ insert into settings (key, value) values
     "privacyPolicyAr": "سياسة الخصوصية",
     "termsOfServiceEn": "Terms of Service",
     "termsOfServiceAr": "الشروط والأحكام",
-    "copyrightEn": "©️ {year} NeuroPrecision. All rights reserved.",
-    "copyrightAr": "©️ {year} نيوروبريجن. جميع الحقوق محفوظة."
+    "copyrightEn": "©️ {year} Osama Mowafy Neurosurgery. All rights reserved.",
+    "copyrightAr": "©️ {year} أسامة موافي لجراحات المخ والأعصاب. جميع الحقوق محفوظة."
   }')
 on conflict (key) do nothing;

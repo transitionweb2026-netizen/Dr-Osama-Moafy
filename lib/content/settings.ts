@@ -3,7 +3,8 @@ import { createAnonClient } from "@/lib/supabase/anon";
 import type { Locale } from "./shared";
 
 interface BrandingSettings {
-  siteName: string;
+  siteNameEn: string;
+  siteNameAr: string;
   doctorName: string;
   tagline: string;
   logoUrl: string | null;
@@ -61,10 +62,10 @@ const SITE_URL = "https://www.neuroprecision.example";
 
 // Drop-in replacement for the old constants/site.ts `siteConfig` shape, so
 // every call site only needs an import swap.
-export async function getSiteSettings() {
+export async function getSiteSettings(locale: Locale = "en") {
   const { branding, contact } = await getSettingsRaw();
   return {
-    name: branding.siteName,
+    name: locale === "ar" ? branding.siteNameAr : branding.siteNameEn,
     doctorName: branding.doctorName,
     tagline: branding.tagline,
     url: SITE_URL,

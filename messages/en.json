@@ -1,6 +1,6 @@
 {
   "Meta": {
-    "defaultTitle": "NeuroPrecision | Dr. Osama Mowafy, Consultant Neurosurgeon",
+    "defaultTitle": "Osama Mowafy Neurosurgery | Dr. Osama Mowafy, Consultant Neurosurgeon",
     "defaultDescription": "Dr. Osama Mowafy is a world-renowned neurosurgeon in Cairo, Egypt, specializing in minimally invasive spinal and cranial procedures, neuro-oncology, and functional neurosurgery."
   },
   "Nav": {
@@ -21,7 +21,7 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "contact": "Contact",
-    "copyright": "©️ {year} NeuroPrecision. All rights reserved."
+    "copyright": "©️ {year} Osama Mowafy Neurosurgery. All rights reserved."
   },
   "Home": {
     "hero": {
@@ -40,7 +40,7 @@
     "videoIntro": {
       "eyebrow": "The Visionary",
       "title": "Dr. Osama Mowafy, Chief of Surgery",
-      "quote": "\"Surgery is not just a procedure; it is a meticulous symphony of technology and human empathy. At NeuroPrecision, we don't just treat conditions — we restore life's narrative through the most advanced neural maps ever created.\"",
+      "quote": "\"Surgery is not just a procedure; it is a meticulous symphony of technology and human empathy. At Osama Mowafy Neurosurgery, we don't just treat conditions — we restore life's narrative through the most advanced neural maps ever created.\"",
       "credentials": "Founder of the Neural Topology Institute and pioneer in minimally invasive robotic spinal fusion.",
       "learnMore": "Learn More"
     },
@@ -248,7 +248,7 @@
       "description": "A legacy of education, training, and professional milestones built upon the highest global medical standards and a relentless pursuit of excellence.",
       "badges": ["Board Certified", "Ph.D Surgery", "Fellowship Trained"],
       "timeline": [
-        { "period": "2018 - PRESENT", "title": "Chief of Neurosurgery | NeuroPrecision Elite", "description": "Leading a multidisciplinary team focused on elite patient care and high-precision neurosurgical innovation at the region's premier specialty clinic." },
+        { "period": "2018 - PRESENT", "title": "Chief of Neurosurgery | Osama Mowafy Neurosurgery Elite", "description": "Leading a multidisciplinary team focused on elite patient care and high-precision neurosurgical innovation at the region's premier specialty clinic." },
         { "period": "2012 - 2018", "title": "Senior Surgeon | Global Medical Center", "description": "Specialized in complex spinal reconstructive surgeries and established the award-winning Minimally Invasive Surgery Unit." },
         { "period": "2008 - 2012", "title": "Advanced Neuro-Oncology Fellowship", "description": "Intensive training at internationally recognized institutes focusing on intracranial tumors and skull base surgery techniques." }
       ],
@@ -264,7 +264,7 @@
       "title": "Patient Experiences",
       "items": [
         { "initials": "JD", "name": "Jonathan Davis", "quote": "After years of chronic back pain, Dr. Mowafy's minimally invasive approach changed my life. Precision is unmatched." },
-        { "initials": "SH", "name": "Sarah Henderson", "quote": "The level of care and technological precision at NeuroPrecision is world-class. Every detail was explained." },
+        { "initials": "SH", "name": "Sarah Henderson", "quote": "The level of care and technological precision at Osama Mowafy Neurosurgery is world-class. Every detail was explained." },
         { "initials": "MK", "name": "Michael Knight", "quote": "A true pioneer. The recovery from my spinal fusion was much faster than I ever anticipated. Highly recommend." },
         { "initials": "EL", "name": "Elena Lopez", "quote": "Dr. Mowafy's expertise in neuro-oncology saved my life. The surgical team was professional and compassionate." },
         { "initials": "RB", "name": "Robert Brown", "quote": "The facility is top-notch. You can tell they use the latest technology for every single procedure." },
@@ -359,7 +359,7 @@
       ]
     },
     "whyChooseUs": {
-      "title": "Why Choose NeuroPrecision?",
+      "title": "Why Choose Osama Mowafy Neurosurgery?",
       "items": [
         { "title": "20+ Years Experience", "description": "Proven surgical expertise" },
         { "title": "Advanced Robotics", "description": "Unmatched precision" },
@@ -440,11 +440,11 @@
       "pullQuote": "\"Precision in neurosurgery is not merely about the tools we use, but the deep understanding of the patient's unique neural architecture. Every procedure is a blend of high-end engineering and human compassion.\"",
       "pullQuoteAttribution": "— Dr. Osama Mowafy, Consultant Neurosurgeon",
       "outcomesTitle": "Patient Outcomes and Research",
-      "outcomesBody": "Clinical data consistently shows that patients undergoing minimally invasive procedures experience up to 40% reduction in post-operative pain and significantly lower infection rates. Current research at NeuroPrecision continues to push the boundaries of what is possible in neuro-regeneration, exploring pharmacological and mechanical stimuli to enhance nerve repair.",
+      "outcomesBody": "Clinical data consistently shows that patients undergoing minimally invasive procedures experience up to 40% reduction in post-operative pain and significantly lower infection rates. Current research at Osama Mowafy Neurosurgery continues to push the boundaries of what is possible in neuro-regeneration, exploring pharmacological and mechanical stimuli to enhance nerve repair.",
       "contactPrompt": "For more detailed information regarding specific surgical techniques or to schedule an evaluation, please contact our medical team directly.",
       "doctorInitials": "OM",
       "verifiedBy": "Verified by Dr. Osama Mowafy",
-      "doctorRole": "Chief Surgeon, NeuroPrecision Group",
+      "doctorRole": "Chief Surgeon, Osama Mowafy Neurosurgery Group",
       "shareArticle": "Share Article",
       "downloadPdf": "Download PDF"
     },
@@ -462,7 +462,7 @@
   "Videos": {
     "meta": {
       "title": "Videos & Articles",
-      "description": "Explore surgical insight videos, patient testimonials, and educational content from Dr. Osama Mowafy at NeuroPrecision."
+      "description": "Explore surgical insight videos, patient testimonials, and educational content from Dr. Osama Mowafy at Osama Mowafy Neurosurgery."
     },
     "videoPlayerLabel": "Video player",
     "close": "Close",

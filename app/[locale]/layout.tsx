@@ -24,7 +24,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
-  const site = await getSiteSettings();
+  const site = await getSiteSettings(locale as Locale);
 
   return {
     metadataBase: new URL(site.url),
@@ -71,7 +71,7 @@ export default async function LocaleLayout({
   const [navItems, socialLinks, siteSettings, footerSettings] = await Promise.all([
     getNavItems(localeTyped),
     getSocialLinks(),
-    getSiteSettings(),
+    getSiteSettings(localeTyped),
     getFooterSettings(localeTyped),
   ]);
 

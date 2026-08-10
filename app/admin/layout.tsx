@@ -3,7 +3,7 @@ import { inter } from "@/lib/fonts";
 import "./admin.css";
 
 export const metadata: Metadata = {
-  title: { default: "Admin", template: "%s | NeuroPrecision Admin" },
+  title: { default: "Admin", template: "%s | Osama Mowafy Neurosurgery Admin" },
   robots: { index: false, follow: false },
 };
 

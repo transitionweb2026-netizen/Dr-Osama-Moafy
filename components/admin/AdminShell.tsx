@@ -90,9 +90,9 @@ function SidebarBrand() {
         shield_person
       </span>
       <span className="text-sm font-semibold leading-tight text-admin-text">
-        NeuroPrecision
+        Osama Mowafy
         <br />
-        <span className="font-normal text-admin-muted">Admin</span>
+        <span className="font-normal text-admin-muted">Neurosurgery Admin</span>
       </span>
     </Link>
   );

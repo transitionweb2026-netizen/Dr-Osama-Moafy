@@ -13,7 +13,8 @@ import { CookieBannerForm } from "./CookieBannerForm";
 export const metadata = { title: "Global Settings" };
 
 const DEFAULT_BRANDING: BrandingSettings = {
-  siteName: "",
+  siteNameEn: "",
+  siteNameAr: "",
   doctorName: "",
   tagline: "",
   logoUrl: null,

@@ -237,7 +237,8 @@ export interface SpecialtyRow {
 }
 
 export interface BrandingSettings {
-  siteName: string;
+  siteNameEn: string;
+  siteNameAr: string;
   doctorName: string;
   tagline: string;
   logoUrl: string | null;

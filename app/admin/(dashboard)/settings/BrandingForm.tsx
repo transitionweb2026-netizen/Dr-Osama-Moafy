@@ -27,10 +27,21 @@ export function BrandingForm({ value }: { value: BrandingSettings }) {
         }
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <TextField name="siteName" label="Site name" defaultValue={value.siteName} />
-          <TextField name="doctorName" label="Doctor name" defaultValue={value.doctorName} />
+          <TextField
+            name="siteName_en"
+            label="Site name (English)"
+            defaultValue={value.siteNameEn}
+          />
+          <TextField
+            name="siteName_ar"
+            label="Site name (Arabic)"
+            defaultValue={value.siteNameAr}
+          />
         </div>
-        <TextField name="tagline" label="Tagline" defaultValue={value.tagline} />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <TextField name="doctorName" label="Doctor name" defaultValue={value.doctorName} />
+          <TextField name="tagline" label="Tagline" defaultValue={value.tagline} />
+        </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <ImagePicker
             name="logoUrl"

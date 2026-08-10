@@ -47,7 +47,8 @@ export async function updateBranding(
   formData: FormData
 ): Promise<SettingsFormState> {
   return saveSettings("branding", {
-    siteName: str(formData, "siteName"),
+    siteNameEn: str(formData, "siteName_en"),
+    siteNameAr: str(formData, "siteName_ar"),
     doctorName: str(formData, "doctorName"),
     tagline: str(formData, "tagline"),
     logoUrl: strOrNull(formData, "logoUrl"),
