@@ -6,6 +6,7 @@ import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Carousel, type CarouselHandle } from "@/components/ui/Carousel";
 import { Link } from "@/i18n/navigation";
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
 
 export interface SpecialtyCard {
   title: string;
@@ -86,15 +87,21 @@ export function SpecialtiesCarousel({ content }: { content: AboutSpecialtiesCont
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <span className="material-symbols-outlined text-8xl" aria-hidden="true">
-                    {card.icon}
-                  </span>
+                  <DynamicIcon
+                    value={card.icon}
+                    fallback="medical_services"
+                    className="text-8xl"
+                    imgClassName="h-24 w-24 object-contain"
+                  />
                 </div>
               )}
               <div className="absolute end-4 top-4 rounded-lg bg-white/90 p-2 text-primary shadow-lg backdrop-blur">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                  {card.icon}
-                </span>
+                <DynamicIcon
+                  value={card.icon}
+                  fallback="medical_services"
+                  className="text-2xl"
+                  imgClassName="h-6 w-6 object-contain"
+                />
               </div>
             </div>
             <div className="p-8">

@@ -4,8 +4,9 @@ import { useActionState } from "react";
 import { LocaleTabsProvider } from "@/components/admin/form/LocaleTabsContext";
 import { LocaleTabs } from "@/components/admin/form/LocaleTabs";
 import { BilingualTextField, BilingualTextareaField } from "@/components/admin/form/BilingualField";
-import { TextField, SelectField } from "@/components/admin/form/Field";
+import { SelectField } from "@/components/admin/form/Field";
 import { ImagePicker } from "@/components/admin/form/ImagePicker";
+import { IconPicker } from "@/components/admin/form/IconPicker";
 import { SubmitButton } from "@/components/admin/form/SubmitButton";
 import { FormCard } from "@/components/admin/form/FormCard";
 import { FormMessage } from "@/components/admin/form/FormMessage";
@@ -71,9 +72,9 @@ export function ServiceForm({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <ImagePicker name="image_id" label="Card image" defaultMedia={service?.image} />
             <div className="flex flex-col gap-4">
-              <TextField
+              <IconPicker
                 name="icon"
-                label="Material Symbols icon (fallback if no image)"
+                label="Icon (fallback if no image)"
                 defaultValue={service?.icon}
                 placeholder="neurology"
               />

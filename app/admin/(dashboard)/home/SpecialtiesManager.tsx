@@ -3,6 +3,8 @@
 import { useState, useTransition } from "react";
 import { ReorderList, DragHandle } from "@/components/admin/form/ReorderList";
 import { ImagePickerInline } from "@/components/admin/form/ImagePickerInline";
+import { IconPickerInline } from "@/components/admin/form/IconPickerInline";
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
 import {
   createSpecialty,
   deleteSpecialty,
@@ -163,9 +165,12 @@ export function SpecialtiesManager({ items: initialItems }: { items: SpecialtyWi
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={item.image.url} alt="" className="h-full w-full object-cover" />
                     ) : (
-                      <span className="material-symbols-outlined text-admin-muted">
-                        {item.icon || "neurology"}
-                      </span>
+                      <DynamicIcon
+                        value={item.icon}
+                        fallback="neurology"
+                        className="text-admin-muted"
+                        imgClassName="h-full w-full object-contain p-1.5"
+                      />
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
@@ -260,15 +265,14 @@ function SpecialtyEditor({
               </option>
             ))}
           </select>
-          <label className="mb-1 mt-3 block text-xs font-medium text-admin-text">
-            Material Symbols icon (fallback if no image)
-          </label>
-          <input
-            value={draft.icon}
-            onChange={(e) => setDraft({ ...draft, icon: e.target.value })}
-            placeholder="neurology"
-            className={fieldClass}
-          />
+          <div className="mt-3">
+            <IconPickerInline
+              label="Icon (fallback if no image)"
+              value={draft.icon}
+              onChange={(icon) => setDraft({ ...draft, icon })}
+              placeholder="neurology"
+            />
+          </div>
         </div>
       </div>
 

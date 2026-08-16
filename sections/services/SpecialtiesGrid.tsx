@@ -1,4 +1,5 @@
 import { RevealSection } from "@/components/ui/RevealSection";
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
 
 export interface ServicesSpecialtyCard {
   title: string;
@@ -31,9 +32,12 @@ export function SpecialtiesGrid({ content }: { content: ServicesSpecialtiesGridC
             className={`stagger-item delay-${(index + 1) * 100} group rounded-xl border border-outline-variant/30 bg-surface-container-low p-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-primary/50 hover:shadow-xl`}
           >
             <div className="mb-md flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-transform duration-300 group-hover:rotate-[5deg] group-hover:scale-110">
-              <span className="material-symbols-outlined text-primary" aria-hidden="true">
-                {item.icon}
-              </span>
+              <DynamicIcon
+                value={item.icon}
+                fallback="medical_services"
+                className="text-primary"
+                imgClassName="h-7 w-7 object-contain"
+              />
             </div>
             <h3 className="mb-sm font-headline-md text-[24px]">{item.title}</h3>
             <p className="text-sm text-on-surface-variant">{item.description}</p>

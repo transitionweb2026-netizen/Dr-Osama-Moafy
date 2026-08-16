@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Link } from "@/i18n/navigation";
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
 
 export interface HomeServiceCard {
   slug: string;
@@ -98,12 +99,12 @@ export function ServicesGrid({ content }: { content: ServicesGridContent }) {
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-surface-container">
-                    <span
-                      className="material-symbols-outlined text-6xl text-primary/40"
-                      aria-hidden="true"
-                    >
-                      {item.icon || "medical_services"}
-                    </span>
+                    <DynamicIcon
+                      value={item.icon}
+                      fallback="medical_services"
+                      className="text-6xl text-primary/40"
+                      imgClassName="h-16 w-16 object-contain"
+                    />
                   </div>
                 )}
               </div>
@@ -177,12 +178,12 @@ export function ServicesGrid({ content }: { content: ServicesGridContent }) {
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center bg-surface-container">
-                          <span
-                            className="material-symbols-outlined text-8xl text-primary/40"
-                            aria-hidden="true"
-                          >
-                            {openItem.icon || "medical_services"}
-                          </span>
+                          <DynamicIcon
+                            value={openItem.icon}
+                            fallback="medical_services"
+                            className="text-8xl text-primary/40"
+                            imgClassName="h-24 w-24 object-contain"
+                          />
                         </div>
                       )}
                     </div>

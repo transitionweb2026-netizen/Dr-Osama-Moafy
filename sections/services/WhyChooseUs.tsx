@@ -1,4 +1,5 @@
 import { RevealSection } from "@/components/ui/RevealSection";
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
 
 export interface WhyChooseUsItem {
   title: string;
@@ -24,12 +25,11 @@ export function WhyChooseUs({ content }: { content: WhyChooseUsContent }) {
               key={item.title}
               className="stagger-item flex flex-col items-center text-center"
             >
-              <span
-                className="material-symbols-outlined mb-md text-4xl text-primary-fixed"
-                aria-hidden="true"
-              >
-                {item.icon}
-              </span>
+              <DynamicIcon
+                value={item.icon}
+                className="mb-md text-4xl text-primary-fixed"
+                imgClassName="mb-md h-10 w-10 object-contain"
+              />
               <h5 className="text-lg font-bold">{item.title}</h5>
               <p className="text-sm opacity-80">{item.description}</p>
             </div>

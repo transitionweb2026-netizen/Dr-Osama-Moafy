@@ -1,4 +1,5 @@
 import { RevealSection } from "@/components/ui/RevealSection";
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
 
 export interface JourneyStep {
   title: string;
@@ -35,9 +36,7 @@ export function PatientJourney({ content }: { content: PatientJourneyContent }) 
                         : "border border-outline-variant bg-surface-container-highest text-primary"
                   }`}
                 >
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    {step.icon}
-                  </span>
+                  <DynamicIcon value={step.icon} imgClassName="h-8 w-8 object-contain" />
                 </div>
                 <h4
                   className={`mb-xs font-bold ${

@@ -21,7 +21,7 @@ function revalidatePublicPage(pageSlug: string) {
   revalidatePath(`/ar${path}`);
 }
 
-export type SectionFieldType = "string" | "array" | "json" | "image";
+export type SectionFieldType = "string" | "array" | "json" | "image" | "icon";
 
 export interface SectionFieldInput {
   key: string;

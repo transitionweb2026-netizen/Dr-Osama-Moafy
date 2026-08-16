@@ -7,6 +7,12 @@ function inferType(key: string, value: unknown): SectionFieldType {
   if (key === "image" && (value === undefined || typeof value === "string")) {
     return "image";
   }
+  // Matches the `xxxIcon` naming convention used for optional icon
+  // overrides (e.g. sendWhatsappIcon, telephoneIcon) — give it the same
+  // "type a Material Symbol name or upload a custom image" control.
+  if (key.endsWith("Icon") && (value === undefined || typeof value === "string")) {
+    return "icon";
+  }
   if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
     return "array";
   }

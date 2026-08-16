@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { ReorderList, DragHandle, type DragHandleProps } from "@/components/admin/form/ReorderList";
 import { ImagePickerInline } from "@/components/admin/form/ImagePickerInline";
+import { IconPickerInline } from "@/components/admin/form/IconPickerInline";
 import {
   saveSection,
   deleteSection,
@@ -137,6 +138,7 @@ const FIELD_TYPE_OPTIONS: { value: SectionFieldType; label: string }[] = [
   { value: "array", label: "List (one per line)" },
   { value: "json", label: "Structured (JSON)" },
   { value: "image", label: "Image" },
+  { value: "icon", label: "Icon" },
 ];
 
 function SectionCard({
@@ -321,6 +323,12 @@ function SectionCard({
                       const url = media?.url ?? "";
                       updateField(index, { en: url, ar: url });
                     }}
+                  />
+                ) : field.type === "icon" ? (
+                  <IconPickerInline
+                    label=""
+                    value={field.en}
+                    onChange={(value) => updateField(index, { en: value, ar: value })}
                   />
                 ) : (
                   <>

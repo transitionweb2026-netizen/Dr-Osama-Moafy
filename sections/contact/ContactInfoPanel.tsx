@@ -1,3 +1,5 @@
+import { DynamicIcon } from "@/components/icons/DynamicIcon";
+
 export interface ContactInfoPanelContent {
   headquartersTitle: string;
   headquartersAddress: string;
@@ -29,10 +31,10 @@ export function ContactInfoPanel({
   mapsUrl: string | null;
 }) {
   const iconRows = [
-    { icon: content.telephoneIcon || "phone_in_talk", label: content.telephoneLabel, value: phone },
-    { icon: content.whatsappIcon || "chat", label: content.whatsappLabel, value: whatsapp },
-    { icon: content.emailIcon || "mail", label: content.emailLabel, value: email },
-    { icon: content.hoursIcon || "schedule", label: content.hoursLabel, value: hours },
+    { icon: content.telephoneIcon, fallback: "phone_in_talk", label: content.telephoneLabel, value: phone },
+    { icon: content.whatsappIcon, fallback: "chat", label: content.whatsappLabel, value: whatsapp },
+    { icon: content.emailIcon, fallback: "mail", label: content.emailLabel, value: email },
+    { icon: content.hoursIcon, fallback: "schedule", label: content.hoursLabel, value: hours },
   ];
   const resolvedMapsUrl =
     mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content.headquartersAddress)}`;
@@ -70,11 +72,13 @@ export function ContactInfoPanel({
         </div>
         <div className="space-y-md">
           {iconRows.map((row) => (
-            <div key={row.icon} className="group flex items-start gap-md">
+            <div key={row.label} className="group flex items-start gap-md">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-                <span className="material-symbols-outlined" aria-hidden="true">
-                  {row.icon}
-                </span>
+                <DynamicIcon
+                  value={row.icon}
+                  fallback={row.fallback}
+                  imgClassName="h-6 w-6 object-contain"
+                />
               </div>
               <div>
                 <span className="block font-label-md text-label-md text-on-surface-variant">
