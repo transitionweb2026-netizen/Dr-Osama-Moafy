@@ -14,10 +14,13 @@ async function fetchAboutData() {
   const supabase = createAnonClient();
   const [sections, specialties, timeline, testimonials, certificates] = await Promise.all([
     getSections("about"),
+    // Shares the same 3 records as the Home page's specialties section
+    // (placement "home") by design — one CMS-controlled set of cards,
+    // shown in two places, always in sync.
     supabase
       .from("specialties")
       .select("*, image:media(id, url, alt_text_en, alt_text_ar)")
-      .eq("placement", "about")
+      .eq("placement", "home")
       .eq("is_visible", true)
       .order("sort_order", { ascending: true }),
     supabase.from("timeline_events").select("*").eq("is_visible", true).order("sort_order", { ascending: true }),
