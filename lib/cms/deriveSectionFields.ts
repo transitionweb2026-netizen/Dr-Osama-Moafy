@@ -1,6 +1,12 @@
 import type { SectionFieldInput, SectionFieldType } from "./sectionsActions";
 
-function inferType(value: unknown): SectionFieldType {
+function inferType(key: string, value: unknown): SectionFieldType {
+  // Matches the `image`/`imageAlt` convention pickSection() reshapes into
+  // `{ url, alt }` for components — give it an upload control, not a raw
+  // text box for pasting URLs.
+  if (key === "image" && (value === undefined || typeof value === "string")) {
+    return "image";
+  }
   if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
     return "array";
   }
@@ -29,7 +35,7 @@ export function deriveSectionFields(
 
   return keys.map((key) => {
     const sample = contentEn[key] !== undefined ? contentEn[key] : contentAr[key];
-    const type = inferType(sample);
+    const type = inferType(key, sample);
     return {
       key,
       type,

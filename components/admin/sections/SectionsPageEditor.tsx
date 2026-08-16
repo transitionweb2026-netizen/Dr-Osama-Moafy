@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { ReorderList, DragHandle, type DragHandleProps } from "@/components/admin/form/ReorderList";
+import { ImagePickerInline } from "@/components/admin/form/ImagePickerInline";
 import {
   saveSection,
   deleteSection,
@@ -135,6 +136,7 @@ const FIELD_TYPE_OPTIONS: { value: SectionFieldType; label: string }[] = [
   { value: "string", label: "Text" },
   { value: "array", label: "List (one per line)" },
   { value: "json", label: "Structured (JSON)" },
+  { value: "image", label: "Image" },
 ];
 
 function SectionCard({
@@ -311,22 +313,37 @@ function SectionCard({
                     </button>
                   </div>
                 </div>
-                <textarea
-                  dir={locale === "ar" ? "rtl" : "ltr"}
-                  value={locale === "en" ? field.en : field.ar}
-                  onChange={(event) =>
-                    updateField(index, { [locale]: event.target.value } as Partial<SectionFieldInput>)
-                  }
-                  rows={field.type === "json" ? 6 : field.type === "array" ? 4 : 2}
-                  className={`w-full rounded-lg border border-admin-border bg-admin-bg px-3 py-2 text-sm text-admin-text outline-none focus:border-admin-accent ${
-                    field.type === "json" ? "font-mono" : ""
-                  }`}
-                />
-                {field.type === "array" && (
-                  <p className="mt-1 text-xs text-admin-muted">One item per line.</p>
-                )}
-                {field.type === "json" && (
-                  <p className="mt-1 text-xs text-admin-muted">Raw JSON.</p>
+                {field.type === "image" ? (
+                  <ImagePickerInline
+                    label="Current image"
+                    value={field.en ? { id: "", url: field.en, filename: field.key } : null}
+                    onChange={(media) => {
+                      const url = media?.url ?? "";
+                      updateField(index, { en: url, ar: url });
+                    }}
+                  />
+                ) : (
+                  <>
+                    <textarea
+                      dir={locale === "ar" ? "rtl" : "ltr"}
+                      value={locale === "en" ? field.en : field.ar}
+                      onChange={(event) =>
+                        updateField(index, {
+                          [locale]: event.target.value,
+                        } as Partial<SectionFieldInput>)
+                      }
+                      rows={field.type === "json" ? 6 : field.type === "array" ? 4 : 2}
+                      className={`w-full rounded-lg border border-admin-border bg-admin-bg px-3 py-2 text-sm text-admin-text outline-none focus:border-admin-accent ${
+                        field.type === "json" ? "font-mono" : ""
+                      }`}
+                    />
+                    {field.type === "array" && (
+                      <p className="mt-1 text-xs text-admin-muted">One item per line.</p>
+                    )}
+                    {field.type === "json" && (
+                      <p className="mt-1 text-xs text-admin-muted">Raw JSON.</p>
+                    )}
+                  </>
                 )}
               </div>
             ))}
