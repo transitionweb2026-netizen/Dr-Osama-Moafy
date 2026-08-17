@@ -50,6 +50,7 @@ export async function getServicesPageContent(locale: Locale) {
 
   const specialtyItems: ServicesSpecialtyCard[] = specialties.map((row) => ({
     icon: row.icon,
+    image: pickImage(row.image, locale),
     ...(pickBilingual(row, locale, ["title", "description"]) as { title: string; description: string }),
   }));
 

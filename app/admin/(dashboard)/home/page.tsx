@@ -58,7 +58,7 @@ export default async function AdminHomePage() {
           />
         </section>
 
-        <section>
+        <section id="specialties" className="scroll-mt-6">
           <SpecialtiesManager items={(specialties ?? []) as unknown as SpecialtyWithImage[]} />
         </section>
       </div>

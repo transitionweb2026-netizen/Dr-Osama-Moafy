@@ -31,7 +31,15 @@ export default async function AdminServicesPage() {
       <h1 className="text-2xl font-semibold text-admin-text">Services</h1>
       <p className="mt-1 text-sm text-admin-muted">
         Every controller for the Services page: the care grid, the treatments carousel, and
-        free-form section text. Specialties shown here are managed from the Home page.
+        free-form section text.
+      </p>
+      <p className="mt-1 text-sm text-admin-muted">
+        Looking for the &ldquo;Specialized Expertise&rdquo; cards grid (the 9 icon cards)? Those
+        are managed in{" "}
+        <Link href="/admin/home#specialties" className="font-medium text-admin-accent hover:underline">
+          Home &rarr; Specialties
+        </Link>
+        {" "}— set an item&apos;s placement to &ldquo;Services&rdquo; to control whether it shows up here.
       </p>
 
       <div className="mt-6 flex flex-col gap-8">
