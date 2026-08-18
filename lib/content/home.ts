@@ -100,6 +100,7 @@ export async function getHomeContent(locale: Locale) {
   const videoItems: EducationalShortCard[] = videos.map((row) => ({
     slug: row.slug,
     duration: row.duration,
+    videoUrl: row.video_url,
     image: pickImage(row.thumbnail, locale),
     ...(pickBilingual(row, locale, ["title", "category"]) as { title: string; category: string | null }),
   }));

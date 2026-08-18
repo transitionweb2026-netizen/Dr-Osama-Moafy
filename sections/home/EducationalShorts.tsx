@@ -1,12 +1,17 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Link } from "@/i18n/navigation";
+import { VideoPlayerModal, type VideoModalItem } from "@/components/ui/VideoPlayerModal";
 
 export interface EducationalShortCard {
   slug: string;
   title: string;
   duration: string | null;
   category: string | null;
+  videoUrl: string | null;
   image: { url: string; alt: string } | null;
 }
 
@@ -18,6 +23,8 @@ export interface EducationalShortsContent {
 }
 
 export function EducationalShorts({ content }: { content: EducationalShortsContent }) {
+  const [openVideo, setOpenVideo] = useState<VideoModalItem | null>(null);
+
   return (
     <RevealSection
       as="section"
@@ -33,10 +40,13 @@ export function EducationalShorts({ content }: { content: EducationalShortsConte
       </div>
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
         {content.items.map((item, index) => (
-          <Link
+          <button
             key={item.slug}
-            href={`/videos/${item.slug}`}
-            className={`stagger-item delay-${(index + 1) * 100} group relative aspect-[9/16] cursor-pointer overflow-hidden rounded-3xl border border-outline-variant bg-surface-dim shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl`}
+            type="button"
+            onClick={() =>
+              item.videoUrl && setOpenVideo({ title: item.title, videoUrl: item.videoUrl })
+            }
+            className={`stagger-item delay-${(index + 1) * 100} group relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-3xl border border-outline-variant bg-surface-dim text-start shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl`}
           >
             {item.image && (
               <Image
@@ -59,7 +69,7 @@ export function EducationalShorts({ content }: { content: EducationalShortsConte
                 {item.duration} • {item.category}
               </p>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
       <div className="stagger-item mt-16 flex justify-center">
@@ -70,6 +80,7 @@ export function EducationalShorts({ content }: { content: EducationalShortsConte
           {content.viewAll}
         </Link>
       </div>
+      <VideoPlayerModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </RevealSection>
   );
 }

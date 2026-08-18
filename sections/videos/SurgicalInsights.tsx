@@ -1,12 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
-import { Link } from "@/i18n/navigation";
+import { VideoPlayerModal, type VideoModalItem } from "@/components/ui/VideoPlayerModal";
 
 export interface VideoCard {
   slug: string;
   title: string;
   description: string;
   duration: string | null;
+  videoUrl: string | null;
   image: { url: string; alt: string } | null;
 }
 
@@ -18,6 +22,8 @@ export interface SurgicalInsightsContent {
 }
 
 export function SurgicalInsights({ content }: { content: SurgicalInsightsContent }) {
+  const [openVideo, setOpenVideo] = useState<VideoModalItem | null>(null);
+
   return (
     <RevealSection as="section" className="mx-auto mb-32 max-w-screen-2xl px-margin-mobile md:px-margin-desktop">
       <div className="stagger-item mb-12 flex items-end justify-between">
@@ -39,9 +45,12 @@ export function SurgicalInsights({ content }: { content: SurgicalInsightsContent
       </div>
       <div className="grid grid-cols-1 gap-gutter md:grid-cols-2 lg:grid-cols-3">
         {content.items.map((item) => (
-          <Link
+          <button
             key={item.slug}
-            href={`/videos/${item.slug}`}
+            type="button"
+            onClick={() =>
+              item.videoUrl && setOpenVideo({ title: item.title, videoUrl: item.videoUrl })
+            }
             className="stagger-item group cursor-pointer overflow-hidden rounded-2xl text-start shadow-md transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-2xl"
           >
             <div className="relative aspect-[9/16] overflow-hidden">
@@ -78,9 +87,10 @@ export function SurgicalInsights({ content }: { content: SurgicalInsightsContent
                 </p>
               </div>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
+      <VideoPlayerModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </RevealSection>
   );
 }

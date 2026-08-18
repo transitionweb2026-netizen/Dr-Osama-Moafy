@@ -1,6 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
-import { Link } from "@/i18n/navigation";
+import { VideoPlayerModal, type VideoModalItem } from "@/components/ui/VideoPlayerModal";
 import type { VideoCard } from "./SurgicalInsights";
 
 export interface PatientStoriesContent {
@@ -12,6 +15,8 @@ export interface PatientStoriesContent {
 }
 
 export function PatientStories({ content }: { content: PatientStoriesContent }) {
+  const [openVideo, setOpenVideo] = useState<VideoModalItem | null>(null);
+
   return (
     <RevealSection as="section" className="mx-auto mb-32 max-w-screen-2xl px-margin-mobile md:px-margin-desktop">
       <div className="stagger-item mx-auto mb-16 max-w-3xl text-center">
@@ -27,9 +32,12 @@ export function PatientStories({ content }: { content: PatientStoriesContent }) 
       </div>
       <div className="grid grid-cols-1 gap-gutter md:grid-cols-2 lg:grid-cols-3">
         {content.items.map((item) => (
-          <Link
+          <button
             key={item.slug}
-            href={`/videos/${item.slug}`}
+            type="button"
+            onClick={() =>
+              item.videoUrl && setOpenVideo({ title: item.title, videoUrl: item.videoUrl })
+            }
             className="stagger-item group cursor-pointer overflow-hidden rounded-2xl text-start shadow-md transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-2xl"
           >
             <div className="relative aspect-[9/16] overflow-hidden">
@@ -61,9 +69,10 @@ export function PatientStories({ content }: { content: PatientStoriesContent }) 
                 </h3>
               </div>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
+      <VideoPlayerModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </RevealSection>
   );
 }
