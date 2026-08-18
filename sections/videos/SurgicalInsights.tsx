@@ -25,7 +25,7 @@ export function SurgicalInsights({ content }: { content: SurgicalInsightsContent
   const [openVideo, setOpenVideo] = useState<VideoModalItem | null>(null);
 
   return (
-    <RevealSection as="section" className="mx-auto mb-32 max-w-screen-2xl px-margin-mobile md:px-margin-desktop">
+    <RevealSection as="section" className="mx-auto mb-32 max-w-screen-2xl px-margin-mobile pt-xl md:px-margin-desktop">
       <div className="stagger-item mb-12 flex items-end justify-between">
         <div className="max-w-[36rem]">
           <h2 className="mb-4 font-headline-md text-headline-md text-on-background">
