@@ -2,6 +2,8 @@
 
 import { useState, useTransition } from "react";
 import { ReorderList, DragHandle } from "@/components/admin/form/ReorderList";
+import { AvatarPickerInline } from "@/components/admin/form/AvatarPickerInline";
+import { Avatar } from "@/components/icons/Avatar";
 import {
   createTestimonial,
   deleteTestimonial,
@@ -126,8 +128,12 @@ export function TestimonialsManager({ items: initialItems }: { items: Testimonia
               ) : (
                 <div className="flex items-center gap-3 rounded-xl border border-admin-border bg-admin-surface px-3 py-3">
                   <DragHandle {...dragHandleProps} />
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-admin-surface-alt text-xs font-semibold text-admin-accent">
-                    {item.initials || item.name_en.slice(0, 2).toUpperCase()}
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-admin-surface-alt text-xs font-semibold text-admin-accent">
+                    <Avatar
+                      value={item.initials || item.name_en.slice(0, 2).toUpperCase()}
+                      alt={item.name_en}
+                      className="h-full w-full object-cover"
+                    />
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-admin-text">
@@ -196,7 +202,7 @@ function TestimonialEditor({
 
   return (
     <div className="rounded-xl border border-admin-accent bg-admin-surface-alt p-4">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-[1fr_1fr_auto]">
         <div>
           <label className="mb-1 block text-xs font-medium text-admin-text">Name (English)</label>
           <input
@@ -213,15 +219,12 @@ function TestimonialEditor({
             className={fieldClass}
           />
         </div>
-        <div>
-          <label className="mb-1 block text-xs font-medium text-admin-text">Initials</label>
-          <input
-            value={draft.initials}
-            onChange={(e) => setDraft({ ...draft, initials: e.target.value })}
-            placeholder="JD"
-            className={fieldClass}
-          />
-        </div>
+        <AvatarPickerInline
+          label="Photo (or initials)"
+          value={draft.initials}
+          onChange={(initials) => setDraft({ ...draft, initials })}
+          placeholder="JD"
+        />
       </div>
 
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">

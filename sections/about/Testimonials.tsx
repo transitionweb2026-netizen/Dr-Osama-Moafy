@@ -1,4 +1,5 @@
 import { RevealSection } from "@/components/ui/RevealSection";
+import { Avatar } from "@/components/icons/Avatar";
 
 export interface TestimonialItem {
   initials: string;
@@ -44,8 +45,8 @@ export function Testimonials({ content }: { content: TestimonialsContent }) {
             className="stagger-item glass-card rounded-2xl border-t-4 border-t-primary p-8 shadow-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl"
           >
             <div className="mb-6 flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-container font-bold text-primary">
-                {item.initials}
+              <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-primary-container font-bold text-primary">
+                <Avatar value={item.initials} alt={item.name} className="h-full w-full object-cover" />
               </div>
               <div>
                 <p className="text-sm font-bold">{item.name}</p>
