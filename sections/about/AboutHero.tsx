@@ -19,7 +19,7 @@ export function AboutHero({ content }: { content: AboutHeroContent }) {
           alt={content.image.alt}
           fill
           priority
-          className="hero-image-in delay-250 object-cover"
+          className="hero-image-in delay-250 object-cover opacity-70"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>

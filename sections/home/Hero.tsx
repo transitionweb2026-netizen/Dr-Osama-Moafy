@@ -34,7 +34,7 @@ export function Hero({
           fill
           priority
           sizes="100vw"
-          className="hero-image-in delay-250 object-cover object-[center_12%]"
+          className="hero-image-in delay-250 object-cover object-[center_12%] opacity-70"
         />
         <div
           className={`absolute inset-0 from-black/85 via-black/55 to-black/20 ${isRtl ? "bg-gradient-to-l" : "bg-gradient-to-r"}`}
