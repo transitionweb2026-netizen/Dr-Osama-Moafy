@@ -6,6 +6,7 @@ import { getAllVideos, getVideoBySlug } from "@/lib/content/videos";
 import type { Locale } from "@/lib/content/shared";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { isExternalVideoUrl } from "@/lib/video/isExternalVideoUrl";
 
 export async function generateStaticParams() {
   const videos = await getAllVideos();
@@ -52,19 +53,42 @@ export default async function VideoDetailPage({
       </Link>
 
       <div className="relative mb-10 aspect-video overflow-hidden rounded-3xl border border-outline-variant/30 bg-black shadow-2xl">
-        {video.image && (
-          <Image
-            src={video.image.url}
-            alt={video.image.alt}
-            fill
-            className="object-cover opacity-60"
+        {video.videoUrl && !isExternalVideoUrl(video.videoUrl) ? (
+          // eslint-disable-next-line jsx-a11y/media-has-caption
+          <video
+            controls
+            poster={video.image?.url}
+            className="h-full w-full object-cover"
+            src={video.videoUrl}
           />
+        ) : (
+          <>
+            {video.image && (
+              <Image
+                src={video.image.url}
+                alt={video.image.alt}
+                fill
+                className="object-cover opacity-60"
+              />
+            )}
+            {video.videoUrl ? (
+              <a
+                href={video.videoUrl}
+                className="absolute inset-0 flex items-center justify-center bg-black/40 transition-colors hover:bg-black/50"
+              >
+                <span className="material-symbols-outlined text-8xl text-white/70" aria-hidden="true">
+                  play_circle
+                </span>
+              </a>
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                <span className="material-symbols-outlined text-8xl text-white/30" aria-hidden="true">
+                  play_circle
+                </span>
+              </div>
+            )}
+          </>
         )}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-          <span className="material-symbols-outlined text-8xl text-white/30" aria-hidden="true">
-            play_circle
-          </span>
-        </div>
       </div>
 
       {video.category && (

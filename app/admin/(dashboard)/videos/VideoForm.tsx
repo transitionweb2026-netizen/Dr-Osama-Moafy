@@ -6,6 +6,7 @@ import { LocaleTabs } from "@/components/admin/form/LocaleTabs";
 import { BilingualTextField, BilingualTextareaField } from "@/components/admin/form/BilingualField";
 import { TextField, SelectField } from "@/components/admin/form/Field";
 import { ImagePicker } from "@/components/admin/form/ImagePicker";
+import { VideoFilePicker } from "@/components/admin/form/VideoFilePicker";
 import { SubmitButton } from "@/components/admin/form/SubmitButton";
 import { FormCard } from "@/components/admin/form/FormCard";
 import { FormMessage } from "@/components/admin/form/FormMessage";
@@ -67,21 +68,13 @@ export function VideoForm({
             defaultValueAr={video?.category_ar}
           />
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <TextField
-              name="duration"
-              label="Duration"
-              defaultValue={video?.duration}
-              placeholder="4:32"
-            />
-            <TextField
-              name="video_url"
-              label="Video URL"
-              type="url"
-              defaultValue={video?.video_url}
-              placeholder="https://www.youtube.com/watch?v=…"
-            />
-          </div>
+          <TextField
+            name="duration"
+            label="Duration"
+            defaultValue={video?.duration}
+            placeholder="4:32"
+          />
+          <VideoFilePicker name="video_url" label="Video" defaultValue={video?.video_url} />
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <ImagePicker
