@@ -1,7 +1,6 @@
 import { Link } from "@/i18n/navigation";
 
 export interface ServicesHeroContent {
-  badge: string;
   titleLine1: string;
   titleLine2: string;
   description: string;
@@ -23,10 +22,7 @@ export function ServicesHero({ content }: { content: ServicesHeroContent }) {
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="reveal reveal-active relative z-10 max-w-5xl px-margin-mobile text-center">
-        <span className="stagger-item mb-md inline-block rounded-full border border-primary-fixed/40 bg-primary-fixed/20 px-md py-1 font-label-md text-xs uppercase tracking-widest text-primary-fixed backdrop-blur-sm">
-          {content.badge}
-        </span>
-        <h1 className="stagger-item delay-100 mb-lg font-headline-lg text-headline-lg font-bold leading-tight text-white text-shadow-elite">
+        <h1 className="stagger-item mb-lg font-headline-lg text-headline-lg font-bold leading-tight text-white text-shadow-elite">
           {content.titleLine1}
           <br />
           <span className="text-primary-fixed">{content.titleLine2}</span>

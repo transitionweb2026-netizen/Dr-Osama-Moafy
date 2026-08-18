@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { HeroContactWidget, type WidgetSocialLink } from "./HeroContactWidget";
 
 export interface HeroContent {
-  badge: string;
   titleLine1: string;
   titleLine2: string;
   description: string;
@@ -45,12 +44,7 @@ export function Hero({
 
       <div className="relative z-10 w-full px-margin-mobile md:px-margin-desktop">
         <div className="reveal reveal-active flex max-w-2xl flex-col gap-6">
-          <span className="stagger-item inline-flex w-fit items-center gap-2 rounded-full border border-primary-fixed/40 bg-primary-fixed/20 px-4 py-1.5 font-label-md text-xs uppercase tracking-widest text-primary-fixed backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-fixed" aria-hidden="true" />
-            {content.badge}
-          </span>
-
-          <h1 className="stagger-item delay-150 text-shadow-elite font-headline-lg text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="stagger-item text-shadow-elite font-headline-lg text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
             <span className="hero-line">
               <span>{content.titleLine1}</span>
             </span>
