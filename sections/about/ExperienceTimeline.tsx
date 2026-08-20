@@ -1,5 +1,10 @@
+"use client";
+
+import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { Carousel, type CarouselHandle } from "@/components/ui/Carousel";
 
 export interface TimelineItem {
   period: string;
@@ -26,6 +31,9 @@ export interface ExperienceContent {
 }
 
 export function ExperienceTimeline({ content }: { content: ExperienceContent }) {
+  const t = useTranslations("About.experience");
+  const carouselRef = useRef<CarouselHandle>(null);
+
   return (
     <RevealSection
       as="section"
@@ -85,13 +93,35 @@ export function ExperienceTimeline({ content }: { content: ExperienceContent }) 
         </div>
 
         <div className="mt-40">
-          <div className="mb-16 text-center">
+          <div className="mb-8 text-center">
             <h3 className="mb-4 text-label-md uppercase tracking-[0.4em] text-secondary">
               {content.certificatesTitle}
             </h3>
             <div className="mx-auto h-px w-20 bg-secondary/30" />
           </div>
-          <div className="no-scrollbar flex snap-x flex-nowrap gap-10 overflow-x-auto px-4 py-12">
+          <div className="mb-4 flex justify-center gap-4">
+            <button
+              type="button"
+              aria-label={t("previousCertificate")}
+              onClick={() => carouselRef.current?.scrollPrev()}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all duration-[250ms] hover:scale-110 hover:bg-primary/5 active:scale-95"
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                chevron_left
+              </span>
+            </button>
+            <button
+              type="button"
+              aria-label={t("nextCertificate")}
+              onClick={() => carouselRef.current?.scrollNext()}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all duration-[250ms] hover:scale-110 hover:bg-primary/5 active:scale-95"
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                chevron_right
+              </span>
+            </button>
+          </div>
+          <Carousel ref={carouselRef} className="gap-10 px-4 py-12">
             {content.certificates.map((cert) => (
               <div
                 key={cert.id}
@@ -120,7 +150,7 @@ export function ExperienceTimeline({ content }: { content: ExperienceContent }) 
                 )}
               </div>
             ))}
-          </div>
+          </Carousel>
         </div>
       </div>
     </RevealSection>

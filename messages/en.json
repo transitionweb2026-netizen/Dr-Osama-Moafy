@@ -253,6 +253,8 @@
         { "period": "2008 - 2012", "title": "Advanced Neuro-Oncology Fellowship", "description": "Intensive training at internationally recognized institutes focusing on intracranial tumors and skull base surgery techniques." }
       ],
       "certificatesTitle": "Accreditations & Certificates",
+      "previousCertificate": "Previous certificate",
+      "nextCertificate": "Next certificate",
       "certificates": [
         { "title": "Board Certification", "alt": "Medical Board Certification" },
         { "title": "Fellowship Award", "alt": "Fellowship Award" },
