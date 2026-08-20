@@ -13,6 +13,12 @@ function inferType(key: string, value: unknown): SectionFieldType {
   if (key.endsWith("Icon") && (value === undefined || typeof value === "string")) {
     return "icon";
   }
+  // Matches the `videoUrl` convention used for optional inline video
+  // players (e.g. VideoIntro) — give it an upload control instead of a
+  // raw text box for pasting URLs.
+  if (key === "videoUrl" && (value === undefined || typeof value === "string")) {
+    return "video";
+  }
   if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
     return "array";
   }

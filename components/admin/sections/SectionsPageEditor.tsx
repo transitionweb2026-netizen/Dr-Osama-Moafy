@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { ReorderList, DragHandle, type DragHandleProps } from "@/components/admin/form/ReorderList";
 import { ImagePickerInline } from "@/components/admin/form/ImagePickerInline";
 import { IconPickerInline } from "@/components/admin/form/IconPickerInline";
+import { VideoFilePickerInline } from "@/components/admin/form/VideoFilePickerInline";
 import {
   saveSection,
   deleteSection,
@@ -139,6 +140,7 @@ const FIELD_TYPE_OPTIONS: { value: SectionFieldType; label: string }[] = [
   { value: "json", label: "Structured (JSON)" },
   { value: "image", label: "Image" },
   { value: "icon", label: "Icon" },
+  { value: "video", label: "Video" },
 ];
 
 function SectionCard({
@@ -326,6 +328,12 @@ function SectionCard({
                   />
                 ) : field.type === "icon" ? (
                   <IconPickerInline
+                    label=""
+                    value={field.en}
+                    onChange={(value) => updateField(index, { en: value, ar: value })}
+                  />
+                ) : field.type === "video" ? (
+                  <VideoFilePickerInline
                     label=""
                     value={field.en}
                     onChange={(value) => updateField(index, { en: value, ar: value })}

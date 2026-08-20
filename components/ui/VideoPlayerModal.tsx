@@ -9,9 +9,10 @@ export interface VideoModalItem {
   videoUrl: string;
 }
 
-// Shared fullscreen video popup — any video card grid opens a video here
-// instead of navigating away. Vertical (9:16) source, shown uncropped via
-// object-contain inside a bounding box sized to the viewport height.
+// Shared fullscreen video popup — any video card or player opens a video
+// here instead of navigating away. Sized only by max-height/max-width so
+// the video's own aspect ratio (vertical shorts, landscape interviews,
+// anything) is preserved uncropped, never stretched to a fixed box.
 export function VideoPlayerModal({
   video,
   onClose,
@@ -74,17 +75,15 @@ export function VideoPlayerModal({
                 close
               </span>
             </button>
-            <div className="relative h-[85vh] max-h-[85vh] w-[calc(85vh*9/16)] max-w-[95vw] overflow-hidden rounded-2xl bg-black shadow-[0_0_60px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
-              {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-              <video
-                key={video.videoUrl}
-                src={video.videoUrl}
-                controls
-                autoPlay
-                playsInline
-                className="h-full w-full object-contain"
-              />
-            </div>
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video
+              key={video.videoUrl}
+              src={video.videoUrl}
+              controls
+              autoPlay
+              playsInline
+              className="max-h-[85vh] max-w-[95vw] rounded-2xl bg-black object-contain shadow-[0_0_60px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+            />
           </motion.div>
         </div>
       )}

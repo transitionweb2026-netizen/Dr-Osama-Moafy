@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Link } from "@/i18n/navigation";
+import { VideoPlayerModal, type VideoModalItem } from "@/components/ui/VideoPlayerModal";
 
 export interface VideoIntroContent {
   eyebrow: string;
@@ -7,16 +11,25 @@ export interface VideoIntroContent {
   quote: string;
   credentials: string;
   learnMore: string;
+  videoUrl: string | null;
   image: { url: string; alt: string };
 }
 
 export function VideoIntro({ content }: { content: VideoIntroContent }) {
+  const [openVideo, setOpenVideo] = useState<VideoModalItem | null>(null);
+
   return (
     <RevealSection
       as="section"
       className="grid grid-cols-1 items-center gap-20 bg-surface-container-lowest px-margin-mobile py-xl md:grid-cols-2 md:px-xl"
     >
-      <div className="stagger-item group relative aspect-video cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/30 bg-surface-container-high shadow-xl transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl">
+      <button
+        type="button"
+        onClick={() =>
+          content.videoUrl && setOpenVideo({ title: content.title, videoUrl: content.videoUrl })
+        }
+        className="stagger-item group relative aspect-video cursor-pointer overflow-hidden rounded-3xl border border-outline-variant/30 bg-surface-container-high shadow-xl transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl"
+      >
         <div
           className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.08]"
           style={{ backgroundImage: `url('${content.image.url}')` }}
@@ -33,7 +46,7 @@ export function VideoIntro({ content }: { content: VideoIntroContent }) {
             </span>
           </div>
         </div>
-      </div>
+      </button>
       <div className="flex flex-col gap-6">
         <h3 className="stagger-item font-label-md text-secondary uppercase tracking-[0.2em]">
           {content.eyebrow}
@@ -54,6 +67,7 @@ export function VideoIntro({ content }: { content: VideoIntroContent }) {
           {content.learnMore}
         </Link>
       </div>
+      <VideoPlayerModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </RevealSection>
   );
 }
