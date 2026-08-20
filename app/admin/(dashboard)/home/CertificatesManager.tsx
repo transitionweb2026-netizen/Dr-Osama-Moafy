@@ -31,22 +31,32 @@ const PLACEMENTS = [
   { value: "about", label: "Dr. Osama Moafy" },
 ];
 
-const EMPTY_DRAFT: CertificatePayload = {
-  placement: "home",
-  title_en: "",
-  title_ar: "",
-  subtitle_en: "",
-  subtitle_ar: "",
-  meta_en: "",
-  meta_ar: "",
-  image_id: null,
-  is_visible: true,
-};
+function emptyDraft(placement: string): CertificatePayload {
+  return {
+    placement,
+    title_en: "",
+    title_ar: "",
+    subtitle_en: "",
+    subtitle_ar: "",
+    meta_en: "",
+    meta_ar: "",
+    image_id: null,
+    is_visible: true,
+  };
+}
 
-export function CertificatesManager({ items: initialItems }: { items: CertificateWithImage[] }) {
+export function CertificatesManager({
+  items: initialItems,
+  defaultPlacement = "home",
+  scopeLabel = "Shared across Home and Dr. Osama Moafy — set placement per item.",
+}: {
+  items: CertificateWithImage[];
+  defaultPlacement?: string;
+  scopeLabel?: string;
+}) {
   const [items, setItems] = useState(initialItems);
   const [editingId, setEditingId] = useState<string | "new" | null>(null);
-  const [draft, setDraft] = useState<CertificatePayload>(EMPTY_DRAFT);
+  const [draft, setDraft] = useState<CertificatePayload>(emptyDraft(defaultPlacement));
   const [imageMedia, setImageMedia] = useState<Pick<Media, "id" | "url" | "filename"> | null>(
     null
   );
@@ -73,7 +83,7 @@ export function CertificatesManager({ items: initialItems }: { items: Certificat
 
   function startAdd() {
     setEditingId("new");
-    setDraft(EMPTY_DRAFT);
+    setDraft(emptyDraft(defaultPlacement));
     setImageMedia(null);
     setError(null);
   }
@@ -120,9 +130,7 @@ export function CertificatesManager({ items: initialItems }: { items: Certificat
       <div className="flex items-center justify-between border-b border-admin-border px-5 py-4">
         <div>
           <h2 className="text-base font-semibold text-admin-text">Certificates</h2>
-          <p className="mt-0.5 text-sm text-admin-muted">
-            Shared across Home and Dr. Osama Moafy — set placement per item.
-          </p>
+          <p className="mt-0.5 text-sm text-admin-muted">{scopeLabel}</p>
         </div>
         <button
           type="button"

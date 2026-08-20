@@ -21,9 +21,11 @@ export default async function AdminHomePage() {
         .select("*")
         .eq("page_slug", "home")
         .order("sort_order", { ascending: true }),
-      supabase.from("certificates").select("*, image:media(id, url, filename)").order("sort_order", {
-        ascending: true,
-      }),
+      supabase
+        .from("certificates")
+        .select("*, image:media(id, url, filename)")
+        .eq("placement", "home")
+        .order("sort_order", { ascending: true }),
       supabase
         .from("specialties")
         .select("*, image:media(id, url, filename)")
@@ -55,6 +57,8 @@ export default async function AdminHomePage() {
         <section>
           <CertificatesManager
             items={(certificates ?? []) as unknown as CertificateWithImage[]}
+            defaultPlacement="home"
+            scopeLabel="Shown on the Home page. Certificates for the Dr. Osama Moafy page are managed there."
           />
         </section>
 

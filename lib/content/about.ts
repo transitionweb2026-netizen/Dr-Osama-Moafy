@@ -103,8 +103,12 @@ export async function getAboutContent(locale: Locale) {
       })),
       certificates: certificates.map((row) => ({
         id: row.id,
-        title: (pickBilingual(row, locale, ["title"]) as { title: string }).title,
         image: pickImage(row.image, locale),
+        ...(pickBilingual(row, locale, ["title", "subtitle", "meta"]) as {
+          title: string;
+          subtitle: string | null;
+          meta: string | null;
+        }),
       })),
     } as unknown as ExperienceContent,
     testimonials: {

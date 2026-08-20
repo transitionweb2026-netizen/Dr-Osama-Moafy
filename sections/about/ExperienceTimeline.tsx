@@ -10,6 +10,8 @@ export interface TimelineItem {
 export interface ExperienceCertificate {
   id: string;
   title: string;
+  subtitle: string | null;
+  meta: string | null;
   image: { url: string; alt: string } | null;
 }
 
@@ -93,9 +95,9 @@ export function ExperienceTimeline({ content }: { content: ExperienceContent }) 
             {content.certificates.map((cert) => (
               <div
                 key={cert.id}
-                className="group flex h-56 w-80 flex-none snap-center flex-col items-center justify-center rounded-2xl border border-outline-variant/30 bg-white p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+                className="group flex h-64 w-80 flex-none snap-center flex-col items-center justify-center rounded-2xl border border-outline-variant/30 bg-white p-6 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
               >
-                <div className="relative h-full w-full">
+                <div className="relative h-32 w-full shrink-0">
                   {cert.image && (
                     <Image
                       src={cert.image.url}
@@ -108,6 +110,14 @@ export function ExperienceTimeline({ content }: { content: ExperienceContent }) 
                 <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/40">
                   {cert.title}
                 </p>
+                {cert.subtitle && (
+                  <p className="mt-1 text-xs font-bold uppercase tracking-widest text-primary">
+                    {cert.subtitle}
+                  </p>
+                )}
+                {cert.meta && (
+                  <p className="mt-1 text-xs italic text-on-surface-variant">{cert.meta}</p>
+                )}
               </div>
             ))}
           </div>
