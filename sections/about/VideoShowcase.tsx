@@ -1,13 +1,20 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { VideoPlayerModal, type VideoModalItem } from "@/components/ui/VideoPlayerModal";
 
 export interface VideoShowcaseContent {
   title: string;
   badge: string;
+  videoUrl: string | null;
   image: { url: string; alt: string };
 }
 
 export function VideoShowcase({ content }: { content: VideoShowcaseContent }) {
+  const [openVideo, setOpenVideo] = useState<VideoModalItem | null>(null);
+
   return (
     <RevealSection as="section" className="relative bg-surface-container py-24">
       <div className="mx-auto max-w-5xl px-margin-mobile text-center">
@@ -17,7 +24,13 @@ export function VideoShowcase({ content }: { content: VideoShowcaseContent }) {
           </h2>
           <div className="mx-auto h-1.5 w-32 rounded-full bg-primary" />
         </div>
-        <div className="stagger-item delay-100 group relative aspect-video cursor-pointer overflow-hidden rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:scale-[1.03]">
+        <button
+          type="button"
+          onClick={() =>
+            content.videoUrl && setOpenVideo({ title: content.title, videoUrl: content.videoUrl })
+          }
+          className="stagger-item delay-100 group relative aspect-video w-full cursor-pointer overflow-hidden rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:scale-[1.03]"
+        >
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 transition-all duration-500 group-hover:bg-black/10">
             <div className="play-pulse flex h-24 w-24 items-center justify-center rounded-full bg-primary/90 text-white shadow-[0_0_50px_rgba(0,102,107,0.6)] transition-all duration-300 group-hover:scale-110">
               <span className="material-symbols-outlined text-5xl" aria-hidden="true">
@@ -37,8 +50,9 @@ export function VideoShowcase({ content }: { content: VideoShowcaseContent }) {
               {content.badge}
             </p>
           </div>
-        </div>
+        </button>
       </div>
+      <VideoPlayerModal video={openVideo} onClose={() => setOpenVideo(null)} />
     </RevealSection>
   );
 }
