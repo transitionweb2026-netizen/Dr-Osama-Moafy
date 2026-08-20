@@ -8,6 +8,7 @@ export interface TimelineItem {
 }
 
 export interface ExperienceCertificate {
+  id: string;
   title: string;
   image: { url: string; alt: string } | null;
 }
@@ -91,7 +92,7 @@ export function ExperienceTimeline({ content }: { content: ExperienceContent }) 
           <div className="no-scrollbar flex snap-x flex-nowrap gap-10 overflow-x-auto px-4 py-12">
             {content.certificates.map((cert) => (
               <div
-                key={cert.title}
+                key={cert.id}
                 className="group flex h-56 w-80 flex-none snap-center flex-col items-center justify-center rounded-2xl border border-outline-variant/30 bg-white p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
               >
                 <div className="relative h-full w-full">

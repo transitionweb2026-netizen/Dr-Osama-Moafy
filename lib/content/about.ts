@@ -102,6 +102,7 @@ export async function getAboutContent(locale: Locale) {
         ...(pickBilingual(row, locale, ["title", "description"]) as { title: string; description: string }),
       })),
       certificates: certificates.map((row) => ({
+        id: row.id,
         title: (pickBilingual(row, locale, ["title"]) as { title: string }).title,
         image: pickImage(row.image, locale),
       })),
