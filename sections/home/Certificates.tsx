@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { RevealSection } from "@/components/ui/RevealSection";
 import { Carousel, type CarouselHandle } from "@/components/ui/Carousel";
 
@@ -20,44 +19,19 @@ export interface HomeCertificatesContent {
 }
 
 export function Certificates({ content }: { content: HomeCertificatesContent }) {
-  const t = useTranslations("Home.certificates");
   const carouselRef = useRef<CarouselHandle>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [pageCount, setPageCount] = useState(1);
 
   return (
     <RevealSection as="section" className="overflow-hidden bg-surface-container-lowest py-xl">
-      <div className="stagger-item mb-16 flex flex-col justify-between gap-4 px-margin-mobile md:flex-row md:items-end md:px-xl">
-        <div>
-          <h3 className="mb-2 font-label-md text-secondary uppercase tracking-[0.2em]">
-            {content.eyebrow}
-          </h3>
-          <h2 className="font-headline-lg text-headline-lg uppercase text-primary">
-            {content.title}
-          </h2>
-        </div>
-        <div className="flex gap-4">
-          <button
-            type="button"
-            aria-label={t("previous")}
-            onClick={() => carouselRef.current?.scrollPrev()}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all duration-[250ms] hover:scale-110 hover:bg-primary/5 active:scale-95"
-          >
-            <span className="material-symbols-outlined" aria-hidden="true">
-              chevron_left
-            </span>
-          </button>
-          <button
-            type="button"
-            aria-label={t("next")}
-            onClick={() => carouselRef.current?.scrollNext()}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-outline text-primary transition-all duration-[250ms] hover:scale-110 hover:bg-primary/5 active:scale-95"
-          >
-            <span className="material-symbols-outlined" aria-hidden="true">
-              chevron_right
-            </span>
-          </button>
-        </div>
+      <div className="stagger-item mb-16 px-margin-mobile md:px-xl">
+        <h3 className="mb-2 font-label-md text-secondary uppercase tracking-[0.2em]">
+          {content.eyebrow}
+        </h3>
+        <h2 className="font-headline-lg text-headline-lg uppercase text-primary">
+          {content.title}
+        </h2>
       </div>
       <Carousel
         ref={carouselRef}
