@@ -73,7 +73,7 @@ export function ContactInfoPanel({
         <div className="space-y-md">
           {iconRows.map((row) => (
             <div key={row.label} className="group flex items-start gap-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container transition-all duration-300 ease-out group-hover:rotate-[5deg] group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
                 <DynamicIcon
                   value={row.icon}
                   fallback={row.fallback}

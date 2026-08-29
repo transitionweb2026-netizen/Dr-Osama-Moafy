@@ -29,6 +29,7 @@ export function ContactHero({
           alt={content.image.alt}
           fill
           priority
+          sizes="100vw"
           className="hero-image-in delay-250 object-cover contrast-[1.1] grayscale-[30%]"
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -48,14 +49,14 @@ export function ContactHero({
             href={`https://wa.me/${whatsappNumber}`}
             className="flex items-center justify-center gap-xs rounded-lg bg-primary px-xl py-md font-label-md text-on-primary shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
-            <DynamicIcon value={content.sendWhatsappIcon} fallback="chat" imgClassName="h-6 w-6 object-contain" />
+            <DynamicIcon value={content.sendWhatsappIcon} fallback="chat" imgClassName="h-6 w-6 shrink-0 object-contain" />
             {content.sendWhatsapp}
           </a>
           <a
             href={`tel:${phone.replace(/\s+/g, "")}`}
             className="flex items-center justify-center gap-xs rounded-lg bg-white px-xl py-md font-label-md text-on-primary-fixed shadow-xl transition-all duration-[250ms] hover:scale-[1.03] hover:bg-surface-container-highest active:scale-[0.98]"
           >
-            <DynamicIcon value={content.callNowIcon} fallback="call" imgClassName="h-6 w-6 object-contain" />
+            <DynamicIcon value={content.callNowIcon} fallback="call" imgClassName="h-6 w-6 shrink-0 object-contain" />
             {content.callNow}
           </a>
         </div>

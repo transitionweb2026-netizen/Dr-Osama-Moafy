@@ -20,6 +20,7 @@ export function BlogHero({ content }: { content: BlogHeroContent }) {
           alt={content.image.alt}
           fill
           priority
+          sizes="100vw"
           className="hero-image-in delay-250 object-cover"
         />
       </div>

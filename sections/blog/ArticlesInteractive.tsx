@@ -40,6 +40,7 @@ export function ArticlesInteractive({ content }: { content: ArticlesGridContent 
                   src={content.featured.image.url}
                   alt={content.featured.image.alt}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               )}
@@ -103,6 +104,7 @@ export function ArticlesInteractive({ content }: { content: ArticlesGridContent 
                     src={article.image.url}
                     alt={article.image.alt}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.08]"
                   />
                 )}

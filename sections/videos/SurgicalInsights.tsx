@@ -59,6 +59,7 @@ export function SurgicalInsights({ content }: { content: SurgicalInsightsContent
                   src={item.image.url}
                   alt={item.image.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-[1.08]"
                 />
               )}

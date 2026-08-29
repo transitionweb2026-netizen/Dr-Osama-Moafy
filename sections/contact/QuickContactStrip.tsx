@@ -21,7 +21,7 @@ export function QuickContactStrip({
             value={content.whatsappIcon}
             fallback="chat"
             className="text-primary-fixed"
-            imgClassName="h-6 w-6 object-contain"
+            imgClassName="h-6 w-6 shrink-0 object-contain"
           />
           <span className="font-label-md text-label-md">{whatsapp}</span>
         </div>
@@ -30,7 +30,7 @@ export function QuickContactStrip({
             value={content.addressIcon}
             fallback="location_on"
             className="text-primary-fixed"
-            imgClassName="h-6 w-6 object-contain"
+            imgClassName="h-6 w-6 shrink-0 object-contain"
           />
           <span className="font-label-md text-label-md">{content.addressShort}</span>
         </div>

@@ -42,6 +42,7 @@ export function VideoShowcase({ content }: { content: VideoShowcaseContent }) {
             src={content.image.url}
             alt={content.image.alt}
             fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
           />
           <div className="glass-card absolute bottom-8 start-8 z-20 rounded-full border border-white/40 px-6 py-3">

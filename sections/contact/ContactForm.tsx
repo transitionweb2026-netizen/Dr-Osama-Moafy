@@ -117,7 +117,7 @@ export function ContactForm({
             onClick={sendWhatsApp}
             className="flex w-full items-center justify-center gap-sm rounded-lg bg-primary py-md font-label-md text-on-primary transition-all duration-[250ms] hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_0_24px_rgba(0,102,107,0.4)] active:scale-[0.98]"
           >
-            <DynamicIcon value={content.submitIcon} fallback="send" imgClassName="h-6 w-6 object-contain" />
+            <DynamicIcon value={content.submitIcon} fallback="send" imgClassName="h-6 w-6 shrink-0 object-contain" />
             {content.submit}
           </button>
         </div>

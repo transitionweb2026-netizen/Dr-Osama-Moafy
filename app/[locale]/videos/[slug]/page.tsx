@@ -67,6 +67,7 @@ export default async function VideoDetailPage({
                 src={video.image.url}
                 alt={video.image.alt}
                 fill
+                sizes="(max-width: 896px) 100vw, 896px"
                 className="object-cover opacity-60"
               />
             )}

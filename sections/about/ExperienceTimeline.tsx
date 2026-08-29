@@ -133,6 +133,7 @@ export function ExperienceTimeline({ content }: { content: ExperienceContent }) 
                       src={cert.image.url}
                       alt={cert.image.alt}
                       fill
+                      sizes="320px"
                       className="object-contain opacity-60 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                     />
                   )}
