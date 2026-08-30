@@ -75,12 +75,17 @@ export function VideoPlayerModal({
                 close
               </span>
             </button>
+            {/* Muted is required for autoplay to actually run on most mobile
+                browsers (unmuted autoplay is silently blocked, not an
+                error — the video would just sit paused). Native controls
+                include an unmute button so sound is one tap away. */}
             {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
             <video
               key={video.videoUrl}
               src={video.videoUrl}
               controls
               autoPlay
+              muted
               playsInline
               className="max-h-[85vh] max-w-[95vw] rounded-2xl bg-black object-contain shadow-[0_0_60px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
             />
