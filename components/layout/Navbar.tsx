@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -32,11 +33,17 @@ export function Navbar({ items, siteName }: { items: NavbarItem[]; siteName: str
       } backdrop-blur-xl`}
     >
       <div className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-margin-mobile md:px-margin-desktop">
-        <Link
-          href="/"
-          className="min-w-0 truncate font-headline-md text-lg uppercase text-primary sm:text-xl md:text-2xl"
-        >
-          {siteName}
+        <Link href="/" className="flex min-w-0 shrink items-center gap-2.5">
+          <Image
+            src="/brand/doctor-mark.png"
+            alt=""
+            width={40}
+            height={40}
+            className="h-9 w-9 shrink-0 md:h-10 md:w-10"
+          />
+          <span className="min-w-0 truncate font-headline-md text-lg uppercase text-primary sm:text-xl md:text-2xl">
+            {siteName}
+          </span>
         </Link>
 
         <nav className="hidden shrink-0 items-center gap-lg xl:flex" aria-label="Primary">
