@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getBlogPageContent } from "@/lib/content/blog";
-import { getSeoMeta } from "@/lib/content/seo";
+import { getSeoMeta, buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { BlogHero } from "@/sections/blog/BlogHero";
 import { ArticlesInteractive } from "@/sections/blog/ArticlesInteractive";
@@ -19,7 +19,7 @@ export async function generateMetadata({
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: { canonical: seo?.canonicalPath ?? "/blog" },
+    alternates: buildAlternates(seo?.canonicalPath ?? "/blog", locale as Locale),
   };
 }
 

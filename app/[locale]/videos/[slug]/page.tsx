@@ -3,9 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getAllVideos, getVideoBySlug } from "@/lib/content/videos";
+import { buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export async function generateStaticParams() {
   const videos = await getAllVideos();
@@ -24,7 +26,7 @@ export async function generateMetadata({
   return {
     title: video.title,
     description: video.description ?? undefined,
-    alternates: { canonical: `/videos/${slug}` },
+    alternates: buildAlternates(`/videos/${slug}`, locale as Locale),
   };
 }
 
@@ -39,8 +41,24 @@ export default async function VideoDetailPage({
 
   if (!video) notFound();
 
+  // Only emit VideoObject when the fields Google actually requires for it
+  // are genuinely present — a video missing a description, thumbnail, or
+  // uploaded file doesn't get invalid/incomplete markup.
+  const videoJsonLd =
+    video.description && video.image && video.videoUrl
+      ? {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: video.title,
+          description: video.description,
+          thumbnailUrl: video.image.url,
+          contentUrl: video.videoUrl,
+        }
+      : null;
+
   return (
     <RevealSection as="section" className="mx-auto max-w-4xl px-margin-mobile py-32 md:px-margin-desktop">
+      {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <Link
         href="/videos"
         aria-label="Back"

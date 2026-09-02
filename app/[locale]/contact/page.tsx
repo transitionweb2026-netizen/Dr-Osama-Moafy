@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getContactPageContent } from "@/lib/content/contact";
 import { getSiteSettings } from "@/lib/content/settings";
-import { getSeoMeta } from "@/lib/content/seo";
+import { getSeoMeta, buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { ContactHero } from "@/sections/contact/ContactHero";
 import { QuickContactStrip } from "@/sections/contact/QuickContactStrip";
@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: { canonical: seo?.canonicalPath ?? "/contact" },
+    alternates: buildAlternates(seo?.canonicalPath ?? "/contact", locale as Locale),
   };
 }
 

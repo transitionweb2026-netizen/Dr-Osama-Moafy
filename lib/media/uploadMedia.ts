@@ -15,6 +15,20 @@ import type { Media } from "@/types/database";
 // is capped to a sane resolution before it reaches storage.
 const MAX_DIMENSION = 2200;
 
+// Mirrors the "media" storage bucket's allowed_mime_types (the actual
+// enforcement point — this check just fails fast with a clear message
+// instead of a raw Storage API error after a round-trip). Deliberately
+// excludes SVG (script-injection risk) and any non-media file type.
+const ALLOWED_MIME_TYPES = new Set([
+  "image/png",
+  "image/jpeg",
+  "image/webp",
+  "image/gif",
+  "video/mp4",
+  "video/quicktime",
+  "video/webm",
+]);
+
 function loadImage(file: File): Promise<{ img: HTMLImageElement; url: string }> {
   return new Promise((resolve, reject) => {
     const img = new window.Image();
@@ -94,6 +108,12 @@ function getImageDimensions(file: File): Promise<{ width: number; height: number
 }
 
 export async function uploadMedia(file: File, folderId: string | null = null): Promise<Media> {
+  if (!ALLOWED_MIME_TYPES.has(file.type)) {
+    throw new Error(
+      `"${file.type || "unknown"}" isn't a supported file type. Upload an image (PNG, JPEG, WebP, GIF) or video (MP4, MOV, WebM).`
+    );
+  }
+
   const supabase = createClient();
   const uploadFile = await downscaleIfNeeded(file);
   const ext = uploadFile.name.includes(".") ? uploadFile.name.split(".").pop() : "bin";

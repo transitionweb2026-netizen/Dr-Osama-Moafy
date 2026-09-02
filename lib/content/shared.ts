@@ -22,7 +22,12 @@ export interface PickedImage {
 
 export function pickImage(media: MediaRef | null | undefined, locale: Locale): PickedImage | null {
   if (!media) return null;
-  return { url: media.url, alt: locale === "en" ? media.alt_text_en : media.alt_text_ar };
+  // Fall back to "" (not null/undefined) — React omits the alt attribute
+  // entirely for a null/undefined prop, which produces an <img> with no
+  // alt attribute at all rather than the empty/decorative alt="" that was
+  // presumably intended when the CMS field was left blank.
+  const alt = (locale === "en" ? media.alt_text_en : media.alt_text_ar) ?? "";
+  return { url: media.url, alt };
 }
 
 // sections.content_en/content_ar are arbitrary JSONB — this picks the
@@ -38,7 +43,7 @@ export function pickSection(
   const content = (locale === "en" ? row.content_en : row.content_ar) as Record<string, unknown>;
   const { image, imageAlt, ...rest } = content;
   if (typeof image === "string") {
-    return { ...rest, image: { url: image, alt: imageAlt } };
+    return { ...rest, image: { url: image, alt: imageAlt ?? "" } };
   }
   return content;
 }

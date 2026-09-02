@@ -3,7 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getHomeContent } from "@/lib/content/home";
 import { getSiteSettings } from "@/lib/content/settings";
 import { getSocialLinks } from "@/lib/content/nav";
-import { getSeoMeta } from "@/lib/content/seo";
+import { getSeoMeta, buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { Hero } from "@/sections/home/Hero";
 import { VideoIntro } from "@/sections/home/VideoIntro";
@@ -14,6 +14,7 @@ import { Certificates } from "@/sections/home/Certificates";
 import { Faq } from "@/sections/home/Faq";
 import { EducationalShorts } from "@/sections/home/EducationalShorts";
 import { ContactCta } from "@/sections/home/ContactCta";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -26,7 +27,7 @@ export async function generateMetadata({
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: { canonical: seo?.canonicalPath ?? "/" },
+    alternates: buildAlternates(seo?.canonicalPath ?? "/", locale as Locale),
   };
 }
 
@@ -59,13 +60,25 @@ export default async function HomePage({
     url: site.url,
   };
 
+  // Only emit FAQPage schema when there's real, visible Q&A content to back
+  // it — this exact list is what renders in the accordion below.
+  const faqJsonLd =
+    content.faq.items.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: content.faq.items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }
+      : null;
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
+      {faqJsonLd && <JsonLd data={faqJsonLd} />}
       <Hero content={content.hero} socialLinks={socialLinks} phone={site.phone} />
       <VideoIntro content={content.videoIntro} />
       <Specialties content={content.specialties} />

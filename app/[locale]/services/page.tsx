@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getServicesPageContent } from "@/lib/content/services";
 import { getSiteSettings } from "@/lib/content/settings";
-import { getSeoMeta } from "@/lib/content/seo";
+import { getSeoMeta, buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { ServicesHero } from "@/sections/services/ServicesHero";
 import { SpecialtiesGrid } from "@/sections/services/SpecialtiesGrid";
@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: { canonical: seo?.canonicalPath ?? "/services" },
+    alternates: buildAlternates(seo?.canonicalPath ?? "/services", locale as Locale),
   };
 }
 

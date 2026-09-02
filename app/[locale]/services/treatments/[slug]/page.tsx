@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getAllTreatments, getTreatmentBySlug } from "@/lib/content/services";
+import { buildAlternates } from "@/lib/content/seo";
 import { getSections } from "@/lib/content/sections";
 import { pickSection, type Locale } from "@/lib/content/shared";
 import { Link } from "@/i18n/navigation";
@@ -25,7 +26,7 @@ export async function generateMetadata({
   return {
     title: treatment.title,
     description: treatment.description ?? undefined,
-    alternates: { canonical: `/services/treatments/${slug}` },
+    alternates: buildAlternates(`/services/treatments/${slug}`, locale as Locale),
   };
 }
 

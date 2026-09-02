@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getVideosPageContent } from "@/lib/content/videos";
-import { getSeoMeta } from "@/lib/content/seo";
+import { getSeoMeta, buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { VideosHero } from "@/sections/videos/VideosHero";
 import { SurgicalInsights } from "@/sections/videos/SurgicalInsights";
@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: { canonical: seo?.canonicalPath ?? "/videos" },
+    alternates: buildAlternates(seo?.canonicalPath ?? "/videos", locale as Locale),
   };
 }
 

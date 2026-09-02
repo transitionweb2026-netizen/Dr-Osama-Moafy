@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getAllArticles, getArticleBySlug } from "@/lib/content/blog";
+import { buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
@@ -24,7 +25,7 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.excerpt ?? undefined,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: buildAlternates(`/blog/${slug}`, locale as Locale),
   };
 }
 

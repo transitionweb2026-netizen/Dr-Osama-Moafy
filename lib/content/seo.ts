@@ -28,3 +28,22 @@ export async function getSeoMeta(pageSlug: string, locale: Locale) {
     twitterCard: row.twitter_card,
   };
 }
+
+// `path` is stored/passed locale-agnostic (e.g. "/about", "/" for home,
+// "/blog/my-slug") — the same shape for every locale. This combines it
+// with the actual current locale for a correct, page-specific canonical
+// URL, and builds hreflang alternates pointing each locale at its own
+// version of THIS page (not a static site-wide default). Every
+// generateMetadata() in app/[locale]/** should route its `alternates`
+// through this rather than hand-building canonical/languages itself.
+export function buildAlternates(path: string, locale: Locale) {
+  const cleanPath = path === "/" ? "" : path;
+  return {
+    canonical: `/${locale}${cleanPath}`,
+    languages: {
+      en: `/en${cleanPath}`,
+      ar: `/ar${cleanPath}`,
+      "x-default": `/en${cleanPath}`,
+    },
+  };
+}

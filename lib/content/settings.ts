@@ -55,10 +55,11 @@ async function fetchSettings() {
 
 const getSettingsRaw = unstable_cache(fetchSettings, ["settings"], { tags: ["settings"], revalidate: false });
 
-// Site domain is deployment configuration, not editable content — kept as a
-// constant (matches the value previously hardcoded in constants/site.ts),
-// used only for metadataBase / canonical URL construction.
-const SITE_URL = "https://www.neuroprecision.example";
+// Site domain is deployment configuration, not editable content — sourced
+// from an env var (set in Vercel's project settings, and .env.local for
+// local dev) so a future domain change is a config update, not a code
+// change. Used for metadataBase / canonical / hreflang / sitemap URLs.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dr-osama-moafy.vercel.app";
 
 // Drop-in replacement for the old constants/site.ts `siteConfig` shape, so
 // every call site only needs an import swap.
@@ -76,6 +77,7 @@ export async function getSiteSettings(locale: Locale = "en") {
     addressLine: contact.addressLine,
     hours: contact.hours,
     mapsEmbedUrl: contact.mapsEmbedUrl,
+    ogImageUrl: branding.ogImageUrl,
   };
 }
 

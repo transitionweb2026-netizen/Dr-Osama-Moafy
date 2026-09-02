@@ -11,6 +11,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SideConcierge } from "@/components/layout/SideConcierge";
 import { PageTransition } from "@/components/ui/PageTransition";
+import { JsonLd } from "@/components/seo/JsonLd";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -43,9 +44,11 @@ export async function generateMetadata({
       siteName: site.name,
       type: "website",
       locale: locale === "ar" ? "ar_EG" : "en_US",
+      images: site.ogImageUrl ? [{ url: site.ogImageUrl }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
+      images: site.ogImageUrl ? [site.ogImageUrl] : undefined,
     },
   };
 }
@@ -75,6 +78,29 @@ export default async function LocaleLayout({
     getFooterSettings(localeTyped),
   ]);
 
+  // Sitewide entity + site schema — genuinely describes this business on
+  // every page, complementing the homepage's more detailed Physician
+  // schema rather than duplicating it.
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    name: siteSettings.name,
+    url: siteSettings.url,
+    telephone: siteSettings.phone,
+    email: siteSettings.email,
+    address: siteSettings.addressLine
+      ? { "@type": "PostalAddress", streetAddress: siteSettings.addressLine }
+      : undefined,
+    sameAs: socialLinks.map((s) => s.url),
+  };
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteSettings.name,
+    url: siteSettings.url,
+    inLanguage: locale,
+  };
+
   return (
     <html
       lang={locale}
@@ -86,6 +112,8 @@ export default async function LocaleLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
           rel="stylesheet"
         />
+        <JsonLd data={organizationJsonLd} />
+        <JsonLd data={websiteJsonLd} />
       </head>
       <body className="flex min-h-screen flex-col overflow-x-hidden bg-background font-body-md text-on-surface antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getAboutContent } from "@/lib/content/about";
-import { getSeoMeta } from "@/lib/content/seo";
+import { getSeoMeta, buildAlternates } from "@/lib/content/seo";
 import type { Locale } from "@/lib/content/shared";
 import { AboutHero } from "@/sections/about/AboutHero";
 import { Introduction } from "@/sections/about/Introduction";
@@ -22,7 +22,7 @@ export async function generateMetadata({
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: { canonical: seo?.canonicalPath ?? "/about" },
+    alternates: buildAlternates(seo?.canonicalPath ?? "/about", locale as Locale),
   };
 }
 
