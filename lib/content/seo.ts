@@ -43,7 +43,7 @@ export function buildAlternates(path: string, locale: Locale) {
     languages: {
       en: `/en${cleanPath}`,
       ar: `/ar${cleanPath}`,
-      "x-default": `/en${cleanPath}`,
+      "x-default": `/ar${cleanPath}`,
     },
   };
 }

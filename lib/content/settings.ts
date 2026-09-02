@@ -63,7 +63,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dr-osama-moafy.ver
 
 // Drop-in replacement for the old constants/site.ts `siteConfig` shape, so
 // every call site only needs an import swap.
-export async function getSiteSettings(locale: Locale = "en") {
+export async function getSiteSettings(locale: Locale = "ar") {
   const { branding, contact } = await getSettingsRaw();
   return {
     name: locale === "ar" ? branding.siteNameAr : branding.siteNameEn,
