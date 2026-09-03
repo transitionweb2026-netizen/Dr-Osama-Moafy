@@ -19,6 +19,7 @@ export function ContactInfoPanel({
   content,
   phone,
   whatsapp,
+  whatsappNumber,
   email,
   hours,
   mapsUrl,
@@ -26,15 +27,34 @@ export function ContactInfoPanel({
   content: ContactInfoPanelContent;
   phone: string;
   whatsapp: string;
+  whatsappNumber: string;
   email: string;
   hours: string;
   mapsUrl: string | null;
 }) {
   const iconRows = [
-    { icon: content.telephoneIcon, fallback: "phone_in_talk", label: content.telephoneLabel, value: phone },
-    { icon: content.whatsappIcon, fallback: "chat", label: content.whatsappLabel, value: whatsapp },
-    { icon: content.emailIcon, fallback: "mail", label: content.emailLabel, value: email },
-    { icon: content.hoursIcon, fallback: "schedule", label: content.hoursLabel, value: hours },
+    {
+      icon: content.telephoneIcon,
+      fallback: "phone_in_talk",
+      label: content.telephoneLabel,
+      value: phone,
+      href: `tel:${phone.replace(/\s+/g, "")}`,
+    },
+    {
+      icon: content.whatsappIcon,
+      fallback: "chat",
+      label: content.whatsappLabel,
+      value: whatsapp,
+      href: `https://wa.me/${whatsappNumber}`,
+    },
+    {
+      icon: content.emailIcon,
+      fallback: "mail",
+      label: content.emailLabel,
+      value: email,
+      href: `mailto:${email}`,
+    },
+    { icon: content.hoursIcon, fallback: "schedule", label: content.hoursLabel, value: hours, href: null },
   ];
   const resolvedMapsUrl =
     mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content.headquartersAddress)}`;
@@ -84,7 +104,17 @@ export function ContactInfoPanel({
                 <span className="block font-label-md text-label-md text-on-surface-variant">
                   {row.label}
                 </span>
-                <span className="font-body-md font-bold">{row.value}</span>
+                {row.href ? (
+                  <a
+                    href={row.href}
+                    dir="ltr"
+                    className="font-body-md font-bold transition-colors duration-[250ms] hover:text-primary"
+                  >
+                    {row.value}
+                  </a>
+                ) : (
+                  <span className="font-body-md font-bold">{row.value}</span>
+                )}
               </div>
             </div>
           ))}

@@ -119,7 +119,7 @@ export default async function TreatmentDetailPage({
           {treatment.faq && (
             <div className="flex-1">
               <h4 className="mb-xs font-bold text-secondary">{labels.patientFaqs}</h4>
-              <p className="text-sm italic text-on-surface-variant">{treatment.faq}</p>
+              <p className="whitespace-pre-line text-sm italic text-on-surface-variant">{treatment.faq}</p>
             </div>
           )}
         </div>

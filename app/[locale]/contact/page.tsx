@@ -47,6 +47,7 @@ export default async function ContactPage({
             content={content.infoPanel}
             phone={site.phone}
             whatsapp={site.whatsapp}
+            whatsappNumber={site.whatsappNumber}
             email={site.email}
             hours={site.hours}
             mapsUrl={site.mapsEmbedUrl}

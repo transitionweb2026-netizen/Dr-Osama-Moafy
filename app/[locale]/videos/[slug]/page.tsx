@@ -105,7 +105,7 @@ export default async function VideoDetailPage({
       )}
       <h1 className="mb-lg font-headline-lg text-headline-lg text-on-surface">{video.title}</h1>
       {video.description && (
-        <p className="mb-lg max-w-2xl text-lg leading-relaxed text-on-surface-variant">
+        <p className="mb-lg max-w-2xl whitespace-pre-line text-lg leading-relaxed text-on-surface-variant">
           {video.description}
         </p>
       )}

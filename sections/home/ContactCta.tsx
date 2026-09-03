@@ -109,7 +109,7 @@ export function ContactCta({
                   <p className="font-label-md text-[10px] uppercase tracking-widest text-secondary">
                     {content.phoneLabel}
                   </p>
-                  <p className="font-headline-md text-lg text-on-surface">{phone}</p>
+                  <p className="font-headline-md text-lg text-on-surface" dir="ltr">{phone}</p>
                 </div>
               </div>
               <div className="stagger-item delay-200 group flex items-center gap-5">
@@ -122,7 +122,7 @@ export function ContactCta({
                   <p className="font-label-md text-[10px] uppercase tracking-widest text-secondary">
                     {content.whatsappLabel}
                   </p>
-                  <p className="font-headline-md text-lg text-on-surface">{whatsapp}</p>
+                  <p className="font-headline-md text-lg text-on-surface" dir="ltr">{whatsapp}</p>
                 </div>
               </div>
               <div className="stagger-item delay-300 group flex items-center gap-5">

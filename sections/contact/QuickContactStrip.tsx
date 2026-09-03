@@ -23,7 +23,7 @@ export function QuickContactStrip({
             className="text-primary-fixed"
             imgClassName="h-6 w-6 shrink-0 object-contain"
           />
-          <span className="font-label-md text-label-md">{whatsapp}</span>
+          <span className="font-label-md text-label-md" dir="ltr">{whatsapp}</span>
         </div>
         <div className="flex items-center gap-sm">
           <DynamicIcon

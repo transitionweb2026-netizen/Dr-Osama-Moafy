@@ -128,7 +128,7 @@
     },
     "whyTrust": {
       "imageAlt": "Advanced surgical robotic arm in use during a procedure",
-      "badgeYears": "20+",
+      "badgeYears": "13+",
       "badgeLabel": "Years of Excellence",
       "eyebrow": "Patient Assurance",
       "title": "Why Trust Our Practice",
@@ -198,7 +198,7 @@
   "About": {
     "meta": {
       "title": "About Dr. Osama Mowafy",
-      "description": "Learn about Dr. Osama Mowafy's 20+ years of experience in neuro-oncology, minimally invasive spine surgery, and functional neurosurgery in Cairo, Egypt."
+      "description": "Learn about Dr. Osama Mowafy's 13+ years of experience in neuro-oncology, minimally invasive spine surgery, and functional neurosurgery in Cairo, Egypt."
     },
     "hero": {
       "imageAlt": "Cinematic neurosurgery background",
@@ -210,10 +210,10 @@
     },
     "introduction": {
       "imageAlt": "Dr. Osama Mowafy portrait",
-      "badgeYears": "20+ Years",
+      "badgeYears": "13+ Years",
       "badgeLabel": "Surgical Excellence",
       "title": "Pioneering Precision in Modern Neurosurgery",
-      "paragraph1": "Dr. Osama Mowafy is a world-renowned neurosurgeon dedicated to advancing the field of minimally invasive spinal and cranial procedures. With a career spanning over two decades, his medical philosophy centers on the marriage of industrial-grade technical precision and compassionate, patient-first care.",
+      "paragraph1": "Dr. Osama Mowafy is a world-renowned neurosurgeon dedicated to advancing the field of minimally invasive spinal and cranial procedures. With over 13 years of experience, his medical philosophy centers on the marriage of industrial-grade technical precision and compassionate, patient-first care.",
       "paragraph2": "Specializing in neuro-oncology and restorative spinal surgery, Dr. Mowafy leverages cutting-edge diagnostic technology to ensure every intervention is as accurate and minimally disruptive as possible.",
       "quote": "\"My goal is not just to treat a condition, but to restore a life. Precision is the tool; the patient's well-being is the purpose.\"",
       "signatureName": "Osama Mowafy",
@@ -363,7 +363,7 @@
     "whyChooseUs": {
       "title": "Why Choose Osama Mowafy Neurosurgery?",
       "items": [
-        { "title": "20+ Years Experience", "description": "Proven surgical expertise" },
+        { "title": "13+ Years Experience", "description": "Proven surgical expertise" },
         { "title": "Advanced Robotics", "description": "Unmatched precision" },
         { "title": "Personalized Care", "description": "Patient-centered approach" },
         { "title": "Modern Equipment", "description": "Cutting-edge technology" },
@@ -397,7 +397,7 @@
       "whatsapp": "WhatsApp",
       "imageAlt": "Dr. Osama Mowafy - Leading Neurosurgeon",
       "experienceLabel": "Experience",
-      "experienceValue": "20+ Years"
+      "experienceValue": "13+ Years"
     }
   },
   "Blog": {

@@ -37,6 +37,7 @@ function pickArticle(row: Awaited<ReturnType<typeof fetchAllArticles>>[number], 
     slug: row.slug,
     isFeatured: row.is_featured,
     date: formatDate(row.published_at, locale),
+    publishedAt: row.published_at,
     ...(pickBilingual(row, locale, ["title", "excerpt", "category", "read_time", "body"]) as {
       title: string;
       excerpt: string | null;

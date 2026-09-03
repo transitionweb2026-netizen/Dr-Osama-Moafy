@@ -11,6 +11,8 @@ export interface ArticleCard {
   read_time: string | null;
   body: string | null;
   date: string;
+  /** Raw ISO timestamp (unlike `date`, which is already locale-formatted for display) — for JSON-LD's datePublished. */
+  publishedAt: string | null;
   image: { url: string; alt: string } | null;
 }
 

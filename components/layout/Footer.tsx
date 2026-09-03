@@ -111,7 +111,11 @@ export function Footer({
               <span className="material-symbols-outlined text-xl text-primary" aria-hidden="true">
                 phone
               </span>
-              <a href={`tel:${phone.replace(/\s+/g, "")}`} className="text-sm transition-colors duration-[250ms] hover:text-primary">
+              <a
+                href={`tel:${phone.replace(/\s+/g, "")}`}
+                dir="ltr"
+                className="text-sm transition-colors duration-[250ms] hover:text-primary"
+              >
                 {phone}
               </a>
             </div>

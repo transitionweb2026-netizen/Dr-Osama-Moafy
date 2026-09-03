@@ -38,7 +38,7 @@ export function FaqAccordion({ items }: { items: FaqEntry[] }) {
               </span>
             </button>
             {isOpen && (
-              <div className="menu-drop-in border-t border-outline-variant/30 px-8 pb-8 pt-6 font-body-md text-lg leading-relaxed text-on-surface-variant">
+              <div className="menu-drop-in whitespace-pre-line border-t border-outline-variant/30 px-8 pb-8 pt-6 font-body-md text-lg leading-relaxed text-on-surface-variant">
                 {item.answer}
               </div>
             )}

@@ -14,9 +14,14 @@ function easeOutCubic(t: number) {
 }
 
 export function AnimatedCounter({ value, className = "" }: AnimatedCounterProps) {
-  const match = value.match(/^(\d+)(.*)$/);
-  const target = match ? parseInt(match[1], 10) : null;
-  const suffix = match ? match[2] : "";
+  // Finds the first run of digits wherever it falls, not just at index 0 —
+  // e.g. Arabic's "+13 عامًا" (plus-before is the natural Arabic convention
+  // for "13 and up") needs the same count-up treatment as English's
+  // "13+ Years", not a silent fallback to a static, non-animated string.
+  const match = value.match(/^(\D*?)(\d+)([\s\S]*)$/);
+  const target = match ? parseInt(match[2], 10) : null;
+  const prefix = match ? match[1] : "";
+  const suffix = match ? match[3] : "";
 
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(target === null ? value : "0");
@@ -56,7 +61,7 @@ export function AnimatedCounter({ value, className = "" }: AnimatedCounterProps)
 
   return (
     <span ref={ref} className={className}>
-      {target === null ? value : `${display}${suffix}`}
+      {target === null ? value : `${prefix}${display}${suffix}`}
     </span>
   );
 }

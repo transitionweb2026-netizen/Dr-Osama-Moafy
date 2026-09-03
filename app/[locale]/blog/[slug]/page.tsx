@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getAllArticles, getArticleBySlug } from "@/lib/content/blog";
 import { buildAlternates } from "@/lib/content/seo";
+import { getSiteSettings } from "@/lib/content/settings";
 import type { Locale } from "@/lib/content/shared";
 import { Link } from "@/i18n/navigation";
 import { RevealSection } from "@/components/ui/RevealSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export async function generateStaticParams() {
   const articles = await getAllArticles();
@@ -99,12 +101,33 @@ export default async function ArticleDetailPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const article = await getArticleBySlug(slug, locale as Locale);
+  const localeTyped = locale as Locale;
+  const [article, site] = await Promise.all([
+    getArticleBySlug(slug, localeTyped),
+    getSiteSettings(localeTyped),
+  ]);
 
   if (!article) notFound();
 
+  // Only emit BlogPosting schema when the fields Google actually requires
+  // for it are genuinely present — same policy as the video page's
+  // VideoObject block, rather than padding out incomplete structured data.
+  const articleJsonLd =
+    article.excerpt && article.image && article.publishedAt
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: article.title,
+          description: article.excerpt,
+          image: article.image.url,
+          datePublished: article.publishedAt,
+          author: { "@type": "Person", name: site.doctorName },
+        }
+      : null;
+
   return (
     <RevealSection as="article" className="mx-auto max-w-4xl px-margin-mobile py-32 md:px-margin-desktop">
+      {articleJsonLd && <JsonLd data={articleJsonLd} />}
       <Link
         href="/blog"
         aria-label="Back"
