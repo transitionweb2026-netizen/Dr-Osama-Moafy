@@ -59,7 +59,10 @@ const getSettingsRaw = unstable_cache(fetchSettings, ["settings"], { tags: ["set
 // from an env var (set in Vercel's project settings, and .env.local for
 // local dev) so a future domain change is a config update, not a code
 // change. Used for metadataBase / canonical / hreflang / sitemap URLs.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dr-osama-moafy.vercel.app";
+// Exported so lib/content/seo.ts's buildAlternates() can build absolute
+// canonical/og:url values from the same single source, instead of each
+// re-deriving (or hardcoding) the domain.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dr-osama-moafy.vercel.app";
 
 // Drop-in replacement for the old constants/site.ts `siteConfig` shape, so
 // every call site only needs an import swap.

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -14,19 +14,25 @@ export async function generateStaticParams() {
   return videos.map((v) => ({ slug: v.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ locale: string; slug: string }>;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale, slug } = await params;
   const video = await getVideoBySlug(slug, locale as Locale);
   if (!video) return {};
 
+  const alternates = buildAlternates(`/videos/${slug}`, locale as Locale);
+
   return {
     title: video.title,
     description: video.description ?? undefined,
-    alternates: buildAlternates(`/videos/${slug}`, locale as Locale),
+    alternates,
+    openGraph: { ...(await parent).openGraph, url: alternates.canonical },
   };
 }
 

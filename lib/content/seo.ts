@@ -1,5 +1,6 @@
 import { unstable_cache } from "next/cache";
 import { createAnonClient } from "@/lib/supabase/anon";
+import { SITE_URL } from "./settings";
 import type { Locale } from "./shared";
 
 async function fetchAllSeoMeta() {
@@ -35,15 +36,23 @@ export async function getSeoMeta(pageSlug: string, locale: Locale) {
 // URL, and builds hreflang alternates pointing each locale at its own
 // version of THIS page (not a static site-wide default). Every
 // generateMetadata() in app/[locale]/** should route its `alternates`
-// through this rather than hand-building canonical/languages itself.
+// through this rather than hand-building canonical/languages itself —
+// and reuse `.canonical` for `openGraph.url` (see that field's own note
+// in each page for why it isn't folded in here automatically).
+//
+// Absolute (built from SITE_URL) rather than relative: `alternates.canonical`
+// works equally well either way (Next only resolves it against
+// metadataBase when it's relative), but `openGraph.url` does NOT get that
+// same automatic resolution — it needs an absolute URL to ever render as
+// a real og:url tag.
 export function buildAlternates(path: string, locale: Locale) {
   const cleanPath = path === "/" ? "" : path;
   return {
-    canonical: `/${locale}${cleanPath}`,
+    canonical: `${SITE_URL}/${locale}${cleanPath}`,
     languages: {
-      en: `/en${cleanPath}`,
-      ar: `/ar${cleanPath}`,
-      "x-default": `/ar${cleanPath}`,
+      en: `${SITE_URL}/en${cleanPath}`,
+      ar: `${SITE_URL}/ar${cleanPath}`,
+      "x-default": `${SITE_URL}/ar${cleanPath}`,
     },
   };
 }

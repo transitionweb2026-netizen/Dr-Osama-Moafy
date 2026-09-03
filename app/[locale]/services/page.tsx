@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getServicesPageContent } from "@/lib/content/services";
 import { getSiteSettings } from "@/lib/content/settings";
@@ -12,18 +12,23 @@ import { WhyChooseUs } from "@/sections/services/WhyChooseUs";
 import { FaqTwoColumn } from "@/sections/services/FaqTwoColumn";
 import { BookAppointmentCta } from "@/sections/services/BookAppointmentCta";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ locale: string }>;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale } = await params;
   const seo = await getSeoMeta("services", locale as Locale);
+  const alternates = buildAlternates(seo?.canonicalPath ?? "/services", locale as Locale);
 
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: buildAlternates(seo?.canonicalPath ?? "/services", locale as Locale),
+    alternates,
+    openGraph: { ...(await parent).openGraph, url: alternates.canonical },
   };
 }
 

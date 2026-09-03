@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getContactPageContent } from "@/lib/content/contact";
 import { getSiteSettings } from "@/lib/content/settings";
@@ -10,18 +10,23 @@ import { ContactForm } from "@/sections/contact/ContactForm";
 import { ContactInfoPanel } from "@/sections/contact/ContactInfoPanel";
 import { DoctorMessageBar } from "@/sections/contact/DoctorMessageBar";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ locale: string }>;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale } = await params;
   const seo = await getSeoMeta("contact", locale as Locale);
+  const alternates = buildAlternates(seo?.canonicalPath ?? "/contact", locale as Locale);
 
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: buildAlternates(seo?.canonicalPath ?? "/contact", locale as Locale),
+    alternates,
+    openGraph: { ...(await parent).openGraph, url: alternates.canonical },
   };
 }
 

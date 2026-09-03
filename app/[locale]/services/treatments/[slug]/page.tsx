@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -14,19 +14,25 @@ export async function generateStaticParams() {
   return treatments.filter((t) => t.has_detail).map((t) => ({ slug: t.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ locale: string; slug: string }>;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale, slug } = await params;
   const treatment = await getTreatmentBySlug(slug, locale as Locale);
   if (!treatment || !treatment.hasDetail) return {};
 
+  const alternates = buildAlternates(`/services/treatments/${slug}`, locale as Locale);
+
   return {
     title: treatment.title,
     description: treatment.description ?? undefined,
-    alternates: buildAlternates(`/services/treatments/${slug}`, locale as Locale),
+    alternates,
+    openGraph: { ...(await parent).openGraph, url: alternates.canonical },
   };
 }
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getHomeContent } from "@/lib/content/home";
 import { getSiteSettings } from "@/lib/content/settings";
@@ -16,18 +16,28 @@ import { EducationalShorts } from "@/sections/home/EducationalShorts";
 import { ContactCta } from "@/sections/home/ContactCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ locale: string }>;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale } = await params;
   const seo = await getSeoMeta("home", locale as Locale);
+  const alternates = buildAlternates(seo?.canonicalPath ?? "/", locale as Locale);
 
   return {
     title: seo?.title,
     description: seo?.description ?? undefined,
-    alternates: buildAlternates(seo?.canonicalPath ?? "/", locale as Locale),
+    alternates,
+    // The root layout's generateMetadata sets openGraph.{siteName,type,
+    // locale,images} — a child's `openGraph` here REPLACES rather than
+    // merges with that (Next only shallow-merges other top-level fields,
+    // not nested ones), so every page must read the parent's resolved
+    // openGraph and spread it back in alongside this page's own url.
+    openGraph: { ...(await parent).openGraph, url: alternates.canonical },
   };
 }
 
