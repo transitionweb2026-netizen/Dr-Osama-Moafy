@@ -18,7 +18,7 @@ export function VideosHero({ content }: { content: VideosHeroContent }) {
           priority
           quality={90}
           sizes="100vw"
-          className="hero-image-in delay-250 object-cover"
+          className="hero-image-in delay-250 object-cover object-[center_30%]"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>

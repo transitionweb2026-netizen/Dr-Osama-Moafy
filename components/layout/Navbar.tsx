@@ -41,7 +41,7 @@ export function Navbar({ items, siteName }: { items: NavbarItem[]; siteName: str
             height={40}
             className="h-9 w-9 shrink-0 md:h-10 md:w-10"
           />
-          <span className="min-w-0 truncate font-headline-md text-lg uppercase text-primary sm:text-xl md:text-2xl">
+          <span className="min-w-0 truncate font-headline-md text-lg uppercase text-primary sm:text-xl md:text-2xl xl:text-lg 2xl:text-2xl">
             {siteName}
           </span>
         </Link>
