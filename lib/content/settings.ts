@@ -56,13 +56,17 @@ async function fetchSettings() {
 const getSettingsRaw = unstable_cache(fetchSettings, ["settings"], { tags: ["settings"], revalidate: false });
 
 // Site domain is deployment configuration, not editable content — sourced
-// from an env var (set in Vercel's project settings, and .env.local for
-// local dev) so a future domain change is a config update, not a code
-// change. Used for metadataBase / canonical / hreflang / sitemap URLs.
-// Exported so lib/content/seo.ts's buildAlternates() can build absolute
-// canonical/og:url values from the same single source, instead of each
-// re-deriving (or hardcoding) the domain.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dr-osama-moafy.vercel.app";
+// from an env var (set in each hosting provider's project settings, and
+// .env.local for local dev) so a future domain change is a config update,
+// not a code change. Used for metadataBase / canonical / hreflang /
+// sitemap URLs. Exported so lib/content/seo.ts's buildAlternates() can
+// build absolute canonical/og:url values from the same single source,
+// instead of each re-deriving (or hardcoding) the domain.
+// The fallback is the real production domain — never a specific host's
+// own subdomain (e.g. a *.vercel.app preview URL) — since every
+// deployment serving this site should declare the SAME canonical origin
+// regardless of which host actually answered the request.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dr-osamamowafi.com";
 
 // Drop-in replacement for the old constants/site.ts `siteConfig` shape, so
 // every call site only needs an import swap.
