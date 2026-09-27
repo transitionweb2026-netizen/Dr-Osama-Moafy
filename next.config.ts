@@ -5,7 +5,11 @@ import createNextIntlPlugin from "next-intl/plugin";
 // Every external origin this app actually loads from, in one place — keep
 // this in sync with next.config.ts's images.remotePatterns and any new
 // third-party embed if one is ever added.
-const SUPABASE_ORIGIN = "https://ngypxicxyfhnmfbuykjx.supabase.co";
+// Derived from the env var (not hardcoded to one project's URL) so
+// switching Supabase projects — e.g. a future migration — is purely an
+// env var change, never a code change.
+const SUPABASE_ORIGIN = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const SUPABASE_HOSTNAME = new URL(SUPABASE_ORIGIN).hostname;
 
 const CSP = [
   `default-src 'self'`,
@@ -46,7 +50,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ngypxicxyfhnmfbuykjx.supabase.co",
+        hostname: SUPABASE_HOSTNAME,
         pathname: "/storage/v1/object/public/**",
       },
     ],
