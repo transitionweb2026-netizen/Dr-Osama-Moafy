@@ -18,6 +18,17 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Hostinger's CDN caches full page responses for up to a year (the
+// Cache-Control Next.js assigns to fully static routes) and has no way to
+// learn about revalidateTag/revalidatePath — those only invalidate Next's
+// own server-side cache. Forcing dynamic rendering makes Next.js emit a
+// no-store Cache-Control instead, so the CDN can't serve a stale copy from
+// before the last CMS save. The underlying Supabase reads (nav, footer,
+// sections, services, etc.) are still served from the unstable_cache Data
+// Cache below this, so this only removes the outer HTML edge-cache layer,
+// not the actual database-query caching.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
