@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 
 export interface SeoMetaPayload {
@@ -63,5 +63,8 @@ export async function saveSeoMeta(
   }
 
   revalidatePath("/admin/seo");
+  revalidateTag("seo_meta", "max");
+  revalidatePath("/en", "layout");
+  revalidatePath("/ar", "layout");
   return { success: true };
 }
