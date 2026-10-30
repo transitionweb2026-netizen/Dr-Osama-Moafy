@@ -71,7 +71,7 @@ export function TreatmentsCarousel({ content }: { content: TreatmentsContent }) 
               key={item.slug}
               className="group flex min-w-full flex-none flex-col overflow-hidden rounded-xl border border-outline-variant/30 bg-surface transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)]"
             >
-              <div className="h-56 overflow-hidden">
+              <div className="h-40 overflow-hidden md:h-56">
                 {item.image && (
                   <Image
                     src={item.image.url}
