@@ -43,6 +43,14 @@ const SECURITY_HEADERS = [
 
 const nextConfig: NextConfig = {
   images: {
+    // Next's built-in optimizer (sharp) reliably stalls for 20+ seconds on
+    // this host before Hostinger's own proxy kills the request with a 503
+    // — reproduced on real production images that sharp resizes instantly
+    // on every other machine tested, so it's a platform/CPU issue on this
+    // specific host, not a bad file. Serving images unoptimized (straight
+    // from Supabase/public/) skips that pipeline entirely; the trade-off
+    // is no on-the-fly resizing/format conversion, i.e. larger transfers.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
